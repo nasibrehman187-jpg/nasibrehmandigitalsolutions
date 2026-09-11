@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, MessageSquare } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const NAV = [
@@ -103,6 +103,18 @@ export function Navbar() {
               >
                 Discuss Your Project
               </Link>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/923317962794"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="mt-1 flex items-center justify-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-center text-sm font-semibold text-emerald-400 hover:bg-emerald-500/20 transition"
+              >
+                <MessageSquare className="h-4 w-4" />
+                WhatsApp (+92 331 7962794)
+              </a>
             </li>
           </ul>
         </div>

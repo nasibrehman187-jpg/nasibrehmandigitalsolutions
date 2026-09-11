@@ -574,7 +574,7 @@ export function Pricing() {
                   Discuss Custom Solution <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
-                  href="https://wa.me/923062320099"
+                  href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to discuss a Custom Digital Solution for my business.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium hover:bg-white/10 transition"
@@ -641,7 +641,7 @@ export function Pricing() {
 
           <div className="mt-10 flex flex-wrap justify-center items-center gap-3 text-center">
             <a
-              href="https://wa.me/923062320099"
+              href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to get a custom quote for my project.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition shadow-[0_10px_30px_-10px_rgba(56,189,248,0.5)]"

@@ -74,13 +74,13 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="https://wa.me/923062320099"
+                  href="https://wa.me/923317962794"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <MessageSquare className="h-4 w-4 text-emerald-400 shrink-0" />
-                  WhatsApp
+                  WhatsApp (+92 331 7962794)
                 </a>
               </li>
               <li>

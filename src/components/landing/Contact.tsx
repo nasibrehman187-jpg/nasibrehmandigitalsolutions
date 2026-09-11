@@ -69,7 +69,7 @@ export function Contact() {
       return;
     }
     const text = buildInquiryText();
-    const url = `https://wa.me/923062320099?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/923317962794?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     toast.success("Opening WhatsApp with your project inquiry details!");
   };
@@ -202,10 +202,10 @@ export function Contact() {
                 <InfoRow
                   icon={MessageSquare}
                   label="Chat on WhatsApp"
-                  href="https://wa.me/923062320099"
+                  href="https://wa.me/923317962794"
                   isLink
                 />
-                <InfoRow icon={Phone} label="+92 306 2320099" href="tel:+923062320099" isLink />
+                <InfoRow icon={Phone} label="+92 331 7962794" href="tel:+923317962794" isLink />
                 <InfoRow
                   icon={Mail}
                   label="nasibrehman187@gmail.com"
@@ -218,7 +218,7 @@ export function Contact() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/923062320099"
+              href="https://wa.me/923317962794"
               target="_blank"
               rel="noopener noreferrer"
               className="glass group flex items-center gap-4 rounded-2xl p-6 transition hover:bg-white/5"
@@ -228,7 +228,7 @@ export function Contact() {
               </span>
               <div>
                 <div className="text-sm font-semibold">Chat on WhatsApp</div>
-                <div className="mt-0.5 text-xs text-muted-foreground">+92 306 2320099</div>
+                <div className="mt-0.5 text-xs text-muted-foreground">+92 331 7962794</div>
               </div>
               <Send className="ml-auto h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
             </a>
