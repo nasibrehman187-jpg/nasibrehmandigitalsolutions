@@ -6,19 +6,23 @@ import { SectionHeader } from "./Services";
 const FAQ = [
   {
     q: "How much does a website cost?",
-    a: "Website packages currently start from $150. The final price may vary depending on project scope, features, integrations and custom requirements.",
+    a: "Website packages start from $99 for Starter (3–4 days), $199 for Standard (7–10 days, Most Popular), and $399+ for Premium (12–15 days). Final price depends on project scope, features, and custom requirements.",
+  },
+  {
+    q: "What are your public service starting prices?",
+    a: "Our public service starting prices are: Website Development starting from $99, AI Chatbots starting from $150, AI Automation starting from $200, AI Voice Agents starting from $400, and Custom Digital Solutions starting from $500+. Final pricing depends on project scope and technical complexity.",
   },
   {
     q: "How long does website development take?",
-    a: "Typical delivery times are 3–4 days for Starter, 7–10 days for Standard and 12–15 days for Premium, depending on the approved scope and availability of required content.",
+    a: "Typical delivery times are 3–4 days for Starter, 7–10 days for Standard, and 12–15 days for Premium, depending on the approved scope and timely availability of required content.",
   },
   {
     q: "Are domain and hosting included?",
     a: "Domain, hosting and other third-party paid services are not included unless specifically mentioned in the quotation.",
   },
   {
-    q: "How much does AI automation cost?",
-    a: "AI automation projects are quoted individually because pricing depends on workflow complexity, integrations, API usage and business requirements.",
+    q: "How much does AI automation and chatbot development cost?",
+    a: "AI Chatbots start from $150 (Starter) to $550+ (Advanced). AI Automation starts from $200 (Starter) to $750+ (Advanced). Multi-system business automations are quoted based on connected workflows and integrations.",
   },
   {
     q: "What tools do you use for automation?",
@@ -26,15 +30,15 @@ const FAQ = [
   },
   {
     q: "Can you build a custom solution?",
-    a: "Yes. Websites, automation, chatbots and voice agents can be combined according to your business workflow and requirements.",
+    a: "Yes. Websites, voice agents, automation and chatbots can be combined into a custom digital solution starting from $500+. Final pricing depends on project scope.",
   },
   {
-    q: "Are AI API and calling costs included?",
-    a: "Unless specifically included in the quotation, third-party AI API usage, calling charges and paid software subscriptions are billed separately.",
+    q: "Are AI API and voice calling costs included?",
+    a: "Voice Agent and AI package fees cover development and initial setup. Ongoing third-party usage charges (such as telephony minutes, phone number rental, AI model tokens, and speech-to-text / text-to-speech) are billed separately by their respective providers based on actual usage.",
   },
   {
     q: "Do you work with international clients?",
-    a: "Yes. Projects can be discussed and delivered remotely depending on requirements and service availability.",
+    a: "Yes. Projects are planned and delivered remotely for clients worldwide, with direct communication via WhatsApp and email.",
   },
 ];
 

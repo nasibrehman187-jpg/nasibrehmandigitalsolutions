@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send, MessageSquare } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { SectionHeader } from "./Services";
 
@@ -24,6 +24,24 @@ export function Contact() {
     budget: "",
     message: "",
   });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const s = params.get("service");
+      const p = params.get("plan");
+      if (s || p) {
+        setForm((prev) => ({
+          ...prev,
+          service: s && SERVICE_OPTIONS.includes(s) ? s : prev.service,
+          message: p ? `I am interested in the ${p} package.\n\nProject details: ` : prev.message,
+        }));
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   const update =
     (k: keyof typeof form) =>
