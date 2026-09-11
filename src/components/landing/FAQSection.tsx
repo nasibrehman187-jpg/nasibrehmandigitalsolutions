@@ -1,0 +1,94 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { Plus } from "lucide-react";
+import { SectionHeader } from "./Services";
+
+const FAQ = [
+  {
+    q: "How much does a website cost?",
+    a: "Website packages currently start from $150. The final price may vary depending on project scope, features, integrations and custom requirements.",
+  },
+  {
+    q: "How long does website development take?",
+    a: "Typical delivery times are 3–4 days for Starter, 7–10 days for Standard and 12–15 days for Premium, depending on the approved scope and availability of required content.",
+  },
+  {
+    q: "Are domain and hosting included?",
+    a: "Domain, hosting and other third-party paid services are not included unless specifically mentioned in the quotation.",
+  },
+  {
+    q: "How much does AI automation cost?",
+    a: "AI automation projects are quoted individually because pricing depends on workflow complexity, integrations, API usage and business requirements.",
+  },
+  {
+    q: "What tools do you use for automation?",
+    a: "Depending on the project, solutions may use n8n, APIs, webhooks, Google Sheets, AI models and other compatible business tools.",
+  },
+  {
+    q: "Can you build a custom solution?",
+    a: "Yes. Websites, automation, chatbots and voice agents can be combined according to your business workflow and requirements.",
+  },
+  {
+    q: "Are AI API and calling costs included?",
+    a: "Unless specifically included in the quotation, third-party AI API usage, calling charges and paid software subscriptions are billed separately.",
+  },
+  {
+    q: "Do you work with international clients?",
+    a: "Yes. Projects can be discussed and delivered remotely depending on requirements and service availability.",
+  },
+];
+
+export function FAQSection() {
+  const [open, setOpen] = useState<number | null>(0);
+  return (
+    <section id="faq" className="relative py-32">
+      <div className="mx-auto max-w-3xl px-6">
+        <SectionHeader
+          tag="FAQ"
+          title={
+            <>
+              Common <span className="text-gradient">questions</span>
+            </>
+          }
+        />
+
+        <div className="mt-12 space-y-3">
+          {FAQ.map((f, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={f.q} className="glass rounded-2xl overflow-hidden">
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="flex w-full items-center justify-between gap-4 p-6 text-left"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-display text-base font-medium">{f.q}</span>
+                  <motion.span
+                    animate={{ rotate: isOpen ? 45 : 0 }}
+                    className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/5 border border-white/10"
+                  >
+                    <Plus className="h-4 w-4" />
+                  </motion.span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed">
+                        {f.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
