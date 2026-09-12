@@ -83,7 +83,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     // Resolve absolute site base URL from Vite env (set in .env as VITE_SITE_URL).
     // Falls back to a relative path — social crawlers need an absolute URL, so
     // ensure VITE_SITE_URL is set in your Vercel / Cloudflare environment variables.
-    const siteUrl = (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ?? "";
+    const siteUrl =
+      (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ||
+      "https://nasibrehmandigitalsolutions.vercel.app";
     const ogImage = `${siteUrl}/logo-full.png`;
 
     return {
