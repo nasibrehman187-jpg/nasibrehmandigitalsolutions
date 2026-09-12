@@ -1,4 +1,4 @@
-import { Zap, Mail, MessageSquare, MapPin } from "lucide-react";
+import { Mail, MessageSquare, MapPin } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const SERVICES_LINKS = [
@@ -26,12 +26,23 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2">
-              <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-500 shadow-[0_0_24px_-4px_rgba(99,102,241,0.7)]">
-                <Zap className="h-4 w-4 text-white" />
-              </span>
+            <Link
+              to="/"
+              className="group flex items-center gap-2.5"
+              aria-label="Digital Solution — Home"
+            >
+              <img
+                src="/logo-icon.jpg"
+                alt="Digital Solution logo mark"
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-lg object-cover opacity-90 transition group-hover:opacity-100"
+              />
               <span className="flex flex-col leading-none">
-                <span className="font-display text-base font-semibold">Digital Solution</span>
+                <span className="font-display text-base font-semibold">
+                  <span className="text-foreground">Digital</span>{" "}
+                  <span className="text-[#087E8B]">Solution</span>
+                </span>
                 <span className="text-[10px] text-muted-foreground">by Nasib Rehman</span>
               </span>
             </Link>

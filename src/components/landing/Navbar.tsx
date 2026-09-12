@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Zap, MessageSquare } from "lucide-react";
+import { Menu, X, MessageSquare } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const NAV = [
@@ -34,13 +34,24 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="group flex items-center gap-2">
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-500 shadow-[0_0_24px_-4px_rgba(99,102,241,0.7)]">
-            <Zap className="h-4 w-4 text-white" />
-          </span>
+        <Link
+          to="/"
+          className="group flex items-center gap-2.5"
+          aria-label="Digital Solution — Home"
+        >
+          {/* DS brand mark */}
+          <img
+            src="/logo-icon.jpg"
+            alt="Digital Solution logo mark"
+            width={36}
+            height={36}
+            className="h-9 w-9 rounded-lg object-cover shadow-[0_0_20px_-4px_rgba(8,126,139,0.6)] transition group-hover:shadow-[0_0_28px_-4px_rgba(8,126,139,0.9)]"
+          />
+          {/* Brand name text */}
           <span className="flex flex-col leading-none">
             <span className="font-display text-base font-semibold tracking-tight">
-              Digital Solution
+              <span className="text-foreground">Digital</span>{" "}
+              <span className="text-[#087E8B]">Solution</span>
             </span>
             <span className="text-[10px] text-muted-foreground tracking-wide">by Nasib Rehman</span>
           </span>
