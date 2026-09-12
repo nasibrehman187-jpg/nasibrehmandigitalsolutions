@@ -79,60 +79,62 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents" },
-      {
-        name: "description",
-        content:
-          "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
-      },
-      { name: "author", content: "Nasib Rehman" },
-      {
-        property: "og:title",
-        content: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents",
-      },
-      {
-        property: "og:description",
-        content:
-          "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      {
-        name: "twitter:title",
-        content: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
-      },
-      {
-        property: "og:image",
-        content: "/logo-full.png",
-      },
-      {
-        name: "twitter:image",
-        content: "/logo-full.png",
-      },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon", sizes: "32x32" },
-      { rel: "icon", href: "/logo-icon.svg", type: "image/svg+xml" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.jpg" },
-      { rel: "manifest", href: "/site.webmanifest" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap",
-      },
-    ],
-  }),
+  head: () => {
+    // Resolve absolute site base URL from Vite env (set in .env as VITE_SITE_URL).
+    // Falls back to a relative path — social crawlers need an absolute URL, so
+    // ensure VITE_SITE_URL is set in your Vercel / Cloudflare environment variables.
+    const siteUrl = (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ?? "";
+    const ogImage = `${siteUrl}/logo-full.png`;
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents" },
+        {
+          name: "description",
+          content:
+            "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
+        },
+        { name: "author", content: "Nasib Rehman" },
+        {
+          property: "og:title",
+          content: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents",
+        },
+        {
+          property: "og:description",
+          content:
+            "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
+        },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:title",
+          content: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
+        },
+        { property: "og:image", content: ogImage },
+        { name: "twitter:image", content: ogImage },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", href: "/favicon.ico", type: "image/x-icon", sizes: "32x32" },
+        { rel: "icon", href: "/logo-icon.svg", type: "image/svg+xml" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        { rel: "manifest", href: "/site.webmanifest" },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap",
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
