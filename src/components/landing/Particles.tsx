@@ -13,8 +13,8 @@ export function Particles({ density = 60 }: { density?: number }) {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const resize = () => {
-      w = canvas.clientWidth;
-      h = canvas.clientHeight;
+      w = canvas.clientWidth || window.innerWidth || 1200;
+      h = canvas.clientHeight || window.innerHeight || 800;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -22,8 +22,8 @@ export function Particles({ density = 60 }: { density?: number }) {
     resize();
 
     const parts = Array.from({ length: density }).map(() => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
+      x: Math.random() * Math.max(w - 40, 100) + 20,
+      y: Math.random() * Math.max(h - 40, 100) + 20,
       vx: (Math.random() - 0.5) * 0.25,
       vy: (Math.random() - 0.5) * 0.25,
       r: Math.random() * 1.6 + 0.4,

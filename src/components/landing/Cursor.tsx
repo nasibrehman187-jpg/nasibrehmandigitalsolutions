@@ -2,25 +2,38 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function Cursor() {
-  const [enabled, setEnabled] = useState(false);
-  const x = useMotionValue(-100);
-  const y = useMotionValue(-100);
+  const [active, setActive] = useState(false);
+  const x = useMotionValue(-200);
+  const y = useMotionValue(-200);
   const sx = useSpring(x, { stiffness: 400, damping: 40, mass: 0.3 });
   const sy = useSpring(y, { stiffness: 400, damping: 40, mass: 0.3 });
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) return;
-    setEnabled(true);
+
     const move = (e: MouseEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
+      if (!active) setActive(true);
     };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, [x, y]);
 
-  if (!enabled) return null;
+    const handleMouseLeave = () => setActive(false);
+    const handleMouseEnter = () => setActive(true);
+
+    window.addEventListener("mousemove", move, { passive: true });
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseenter", handleMouseEnter);
+
+    return () => {
+      window.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseenter", handleMouseEnter);
+    };
+  }, [x, y, active]);
+
+  if (!active) return null;
+
   return (
     <motion.div
       ref={ref}

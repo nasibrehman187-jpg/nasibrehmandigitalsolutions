@@ -26,14 +26,14 @@ export function Hero() {
   }, [mx, my]);
 
   return (
-    <section id="home" ref={wrap} className="relative min-h-screen overflow-hidden pt-32">
+    <section id="home" ref={wrap} className="relative overflow-hidden pt-24 lg:pt-28 xl:pt-32">
       <div className="absolute inset-0 grid-bg opacity-60" />
       <div className="absolute inset-0">
         <Particles density={70} />
       </div>
       <div className="absolute inset-0 noise pointer-events-none" />
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 pb-24 lg:grid-cols-2">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-6 pb-12 lg:pb-16 lg:grid-cols-2">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="mt-4 sm:mt-5 font-display text-4xl sm:text-5xl lg:text-[3.6rem] xl:text-[4.2rem] font-semibold leading-[1.08] tracking-tight"
           >
             Smart Digital Solutions{" "}
             <span className="text-gradient animate-gradient">for Growing Businesses</span>
@@ -62,7 +62,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-6 max-w-xl text-lg text-muted-foreground"
+            className="mt-4 sm:mt-5 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed"
           >
             We build professional websites, AI automations, chatbots and AI voice agents that help
             businesses save time, manage leads and improve customer communication.
@@ -72,7 +72,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-8 flex flex-wrap items-center gap-4"
+            className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3.5"
           >
             <Link
               to="/contact"
@@ -95,7 +95,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
+            className="mt-7 sm:mt-8 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
           >
             {[
               { icon: Globe, label: "Website Development" },
@@ -118,7 +118,7 @@ export function Hero() {
         {/* Right visual */}
         <motion.div
           style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
-          className="relative h-[520px] w-full lg:h-[620px]"
+          className="relative h-[420px] w-full sm:h-[480px] lg:h-[500px] xl:h-[560px]"
         >
           <div className="absolute inset-0 rounded-[2rem]">
             <Suspense

@@ -22,7 +22,7 @@ export function Footer() {
   return (
     <footer className="relative mt-20 border-t border-white/5 pt-16">
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent animate-gradient" />
-      <div className="mx-auto max-w-7xl px-6 pb-10">
+      <div className="mx-auto max-w-7xl px-6 pb-20 sm:pb-24">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -114,9 +114,11 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/5 pt-6 text-xs text-muted-foreground">
-          <div>© 2026 Digital Solution by Nasib Rehman. All rights reserved.</div>
-          <div className="flex gap-6">
-            <span className="text-muted-foreground/50">
+          <div className="text-center md:text-left">
+            © 2026 Digital Solution by Nasib Rehman. All rights reserved.
+          </div>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-1.5 text-center md:text-right pr-0 lg:pr-20">
+            <span className="text-muted-foreground/60 leading-relaxed">
               Website Development • AI Automation • AI Chatbots • AI Voice Agents
             </span>
           </div>

@@ -7,7 +7,7 @@ const SERVICES = [
   {
     icon: Globe,
     title: "Website Development",
-    desc: "Modern, responsive websites designed to help businesses build credibility, generate inquiries and convert visitors into customers.",
+    desc: "Modern, responsive websites designed to help businesses build credibility, generate inquiries and make it easier for customers to get in touch.",
     color: "from-cyan-400 to-blue-500",
     slug: "website-development",
     capabilities: [
@@ -64,7 +64,7 @@ const SERVICES = [
 
 export function HomeServices() {
   return (
-    <section id="services" className="relative py-32">
+    <section id="services" className="relative pt-12 pb-24 lg:pt-16 lg:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Services"

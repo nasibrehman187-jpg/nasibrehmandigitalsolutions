@@ -301,9 +301,9 @@ const TABS: {
   priceRange: string;
 }[] = [
   { id: "websites", label: "Website Development", icon: Globe, priceRange: "$99 – $399+" },
-  { id: "voice-agents", label: "AI Voice Agents", icon: Mic, priceRange: "$400 – $1,500+" },
   { id: "chatbots", label: "AI Chatbots", icon: Bot, priceRange: "$150 – $550+" },
   { id: "automation", label: "AI Automation", icon: Workflow, priceRange: "$200 – $750+" },
+  { id: "voice-agents", label: "AI Voice Agents", icon: Mic, priceRange: "$400 – $1,500+" },
   { id: "custom", label: "Custom Solutions", icon: Layers, priceRange: "From $500+" },
 ];
 
@@ -598,44 +598,38 @@ export function Pricing() {
           </p>
         </div>
 
-        {/* All Services Summary Grid */}
+        {/* Important Cost Information */}
         <div className="mt-20">
-          <div className="text-center">
+          <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-              Public Service Starting Rates
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+              Usage & Third-Party Costs
             </span>
-            <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto">
-              Every package is scoped clearly before work begins. No hidden recurring platform
-              retainers from our side.
+            <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
+              Important Cost Information
+            </h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+              Package prices cover development and initial setup unless otherwise stated.
+              Third-party services and usage costs are billed separately.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
             {[
-              { name: "Website Development", start: "$99", tab: "websites" as const },
-              { name: "AI Chatbots", start: "$150", tab: "chatbots" as const },
-              { name: "AI Automation", start: "$200", tab: "automation" as const },
-              { name: "AI Voice Agents", start: "$400", tab: "voice-agents" as const },
-              { name: "Custom Solutions", start: "$500+", tab: "custom" as const },
-            ].map((s, i) => (
-              <motion.button
-                key={s.name}
-                type="button"
-                onClick={() => setActiveTab(s.tab)}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className={`glass rounded-2xl p-5 text-center transition hover:bg-white/10 ${
-                  activeTab === s.tab ? "border-cyan-400/40 bg-white/10" : ""
-                }`}
+              "Domain & Hosting",
+              "AI / API Usage",
+              "Voice AI Platform Usage",
+              "Phone Numbers & Calling Minutes",
+              "Paid Automation Tools",
+              "External Software Subscriptions",
+            ].map((item) => (
+              <div
+                key={item}
+                className="glass rounded-xl px-4 py-3 border border-white/5 flex items-center justify-center gap-2 text-center"
               >
-                <div className="text-xs text-muted-foreground">{s.name}</div>
-                <div className="mt-2 font-display text-xl font-semibold text-gradient">
-                  Starting at {s.start}
-                </div>
-              </motion.button>
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shrink-0" />
+                <span className="text-xs font-medium text-foreground/90">{item}</span>
+              </div>
             ))}
           </div>
 

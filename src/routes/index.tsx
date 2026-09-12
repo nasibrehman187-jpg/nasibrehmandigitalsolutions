@@ -40,7 +40,7 @@ function Home() {
             Ready to <span className="text-gradient">build something?</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Explore the full website to see services, real projects and transparent pricing.
+            Explore our services, projects & demos, process and transparent pricing.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {[
