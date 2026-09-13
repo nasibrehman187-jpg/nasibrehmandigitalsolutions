@@ -17,9 +17,5 @@ export const Route = createFileRoute("/contact")({
       },
     ],
   }),
-  component: () => (
-    <div className="pt-24">
-      <Contact />
-    </div>
-  ),
+  component: () => <Contact />,
 });

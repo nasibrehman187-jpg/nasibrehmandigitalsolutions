@@ -31,11 +31,20 @@ export function Contact() {
       const params = new URLSearchParams(window.location.search);
       const s = params.get("service");
       const p = params.get("plan");
-      if (s || p) {
+      const proj = params.get("project");
+
+      if (s || p || proj) {
+        let initialMessage = "";
+        if (proj) {
+          initialMessage = `I am interested in discussing a solution similar to ${proj}.\n\nProject details: `;
+        } else if (p) {
+          initialMessage = `I am interested in the ${p} package.\n\nProject details: `;
+        }
+
         setForm((prev) => ({
           ...prev,
           service: s && SERVICE_OPTIONS.includes(s) ? s : prev.service,
-          message: p ? `I am interested in the ${p} package.\n\nProject details: ` : prev.message,
+          message: initialMessage || prev.message,
         }));
       }
     } catch {
@@ -86,7 +95,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-32">
+    <section id="contact" className="relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Contact"
@@ -109,39 +118,49 @@ export function Contact() {
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <Field
+                id="contact-name"
                 label="Full Name"
                 placeholder="Your name"
                 value={form.name}
                 onChange={update("name")}
+                autoComplete="name"
                 required
               />
               <Field
+                id="contact-email"
                 label="Email"
                 type="email"
                 placeholder="your@email.com"
                 value={form.email}
                 onChange={update("email")}
+                autoComplete="email"
               />
               <Field
+                id="contact-company"
                 label="Business Name"
                 placeholder="Your business (optional)"
                 value={form.company}
                 onChange={update("company")}
+                autoComplete="organization"
               />
               <Field
+                id="contact-whatsapp"
                 label="WhatsApp Number"
                 type="tel"
                 placeholder="+92 xxx xxxxxxx"
                 value={form.whatsapp}
                 onChange={update("whatsapp")}
+                autoComplete="tel"
               />
               <SelectField
+                id="contact-service"
                 label="Service Needed"
                 value={form.service}
                 onChange={update("service")}
                 options={SERVICE_OPTIONS}
               />
               <SelectField
+                id="contact-budget"
                 label="Budget Range (Optional)"
                 value={form.budget}
                 onChange={update("budget")}
@@ -149,12 +168,16 @@ export function Contact() {
               />
             </div>
             <div className="mt-5">
-              <label className="text-xs uppercase tracking-wider text-muted-foreground">
+              <label
+                htmlFor="contact-message"
+                className="text-xs uppercase tracking-wider text-muted-foreground"
+              >
                 Project Details
               </label>
               <div className="relative mt-2 rounded-xl">
                 <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-cyan-500/40 via-blue-500/20 to-violet-500/40 opacity-0 blur transition-opacity focus-within:opacity-100" />
                 <textarea
+                  id="contact-message"
                   rows={5}
                   value={form.message}
                   onChange={update("message")}
@@ -164,18 +187,18 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="mt-4 rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs text-muted-foreground">
-              Direct connection: Your message will open directly in WhatsApp or your email client
-              with all entered details preserved.
-            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              Your project details will open in WhatsApp or your email app for you to review and
+              send.
+            </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <button
                 type="submit"
                 className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(56,189,248,0.6)] transition hover:scale-[1.02]"
               >
-                Send Project Inquiry{" "}
-                <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                <MessageSquare className="h-4 w-4" />
+                Send via WhatsApp
               </button>
               <button
                 type="button"
@@ -186,6 +209,10 @@ export function Contact() {
                 Send via Email
               </button>
             </div>
+
+            <p className="mt-4 text-xs text-muted-foreground/80">
+              Direct communication with Nasib Rehman • No-obligation project discussion
+            </p>
           </motion.form>
 
           <motion.div
@@ -255,33 +282,39 @@ export function Contact() {
 }
 
 function Field({
+  id,
   label,
   placeholder,
   type = "text",
   value,
   onChange,
   required,
+  autoComplete,
 }: {
+  id: string;
   label: string;
   placeholder?: string;
   type?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
+  autoComplete?: string;
 }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-wider text-muted-foreground">
+      <label htmlFor={id} className="text-xs uppercase tracking-wider text-muted-foreground">
         {label}
         {required && <span className="text-cyan-400"> *</span>}
       </label>
       <div className="relative mt-2 rounded-xl">
         <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-cyan-500/40 via-blue-500/20 to-violet-500/40 opacity-0 blur transition-opacity focus-within:opacity-100" />
         <input
+          id={id}
           type={type}
           value={value}
           onChange={onChange}
           required={required}
+          autoComplete={autoComplete}
           placeholder={placeholder}
           className="relative w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/60 focus:border-cyan-400/50 [color-scheme:dark]"
         />
@@ -291,11 +324,13 @@ function Field({
 }
 
 function SelectField({
+  id,
   label,
   value,
   onChange,
   options,
 }: {
+  id: string;
   label: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -303,9 +338,12 @@ function SelectField({
 }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
+      <label htmlFor={id} className="text-xs uppercase tracking-wider text-muted-foreground">
+        {label}
+      </label>
       <div className="relative mt-2 rounded-xl">
         <select
+          id={id}
           value={value}
           onChange={onChange}
           className="relative w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none focus:border-cyan-400/50 [color-scheme:dark]"

@@ -45,7 +45,7 @@ const FAQ = [
 export function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative py-32">
+    <section id="faq" className="relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-3xl px-6">
         <SectionHeader
           tag="FAQ"

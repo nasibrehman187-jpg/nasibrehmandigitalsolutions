@@ -18,9 +18,5 @@ export const Route = createFileRoute("/process")({
       },
     ],
   }),
-  component: () => (
-    <div className="pt-24">
-      <Process />
-    </div>
-  ),
+  component: () => <Process />,
 });

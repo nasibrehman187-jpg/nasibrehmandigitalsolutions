@@ -17,9 +17,5 @@ export const Route = createFileRoute("/faq")({
       },
     ],
   }),
-  component: () => (
-    <div className="pt-24">
-      <FAQSection />
-    </div>
-  ),
+  component: () => <FAQSection />,
 });

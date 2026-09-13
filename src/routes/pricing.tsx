@@ -18,9 +18,5 @@ export const Route = createFileRoute("/pricing")({
       },
     ],
   }),
-  component: () => (
-    <div className="pt-24">
-      <Pricing />
-    </div>
-  ),
+  component: () => <Pricing />,
 });

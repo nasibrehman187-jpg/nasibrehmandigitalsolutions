@@ -18,13 +18,5 @@ export const Route = createFileRoute("/services/")({
       },
     ],
   }),
-  component: ServicesPage,
+  component: () => <Services />,
 });
-
-function ServicesPage() {
-  return (
-    <div className="pt-24">
-      <Services />
-    </div>
-  );
-}

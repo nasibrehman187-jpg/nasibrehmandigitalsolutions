@@ -1,12 +1,15 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Globe, Mic, Stethoscope, Building2, Package } from "lucide-react";
+import { ArrowRight, Building2, Globe, Mic, Package, Stethoscope } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "./Services";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 const PROJECTS = [
   {
     icon: Stethoscope,
     title: "SmileCare Dental Clinic",
+    service: "Website Development",
     label: "Concept Website",
     labelColor: "bg-blue-500/20 text-blue-300 border-blue-500/30",
     desc: "A modern dental clinic website concept designed to showcase services, build trust and make it easier for patients to send appointment requests.",
@@ -22,6 +25,7 @@ const PROJECTS = [
   {
     icon: Mic,
     title: "AI Restaurant Voice Agent",
+    service: "AI Voice Agent",
     label: "Concept AI Demo",
     labelColor: "bg-violet-500/20 text-violet-300 border-violet-500/30",
     desc: "A conversational voice assistant concept designed to answer customer calls, collect structured food orders and confirm order details.",
@@ -37,6 +41,7 @@ const PROJECTS = [
   {
     icon: Stethoscope,
     title: "Dental Clinic Digital System",
+    service: "Custom Digital Solution",
     label: "Concept / Demo",
     labelColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
     desc: "A digital solution concept combining a professional clinic website with inquiry and appointment workflows.",
@@ -52,6 +57,7 @@ const PROJECTS = [
   {
     icon: Building2,
     title: "Luxury Real Estate Website",
+    service: "Website Development",
     label: "Portfolio Build",
     labelColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
     desc: "A premium real estate website built as a portfolio project for luxury property presentation and investor inquiries.",
@@ -67,6 +73,7 @@ const PROJECTS = [
   {
     icon: Package,
     title: "Surgical B2B Export Website",
+    service: "Website Development",
     label: "Portfolio Build",
     labelColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
     desc: "A reusable B2B website template built for surgical and dental instrument exporters, featuring product presentation, business credentials and RFQ functionality.",
@@ -82,11 +89,16 @@ const PROJECTS = [
 ];
 
 function TiltCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const reducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const rx = useSpring(useTransform(my, [-0.5, 0.5], [10, -10]), { stiffness: 150, damping: 15 });
   const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-10, 10]), { stiffness: 150, damping: 15 });
+
+  if (reducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -110,7 +122,7 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-32">
+    <section id="projects" className="relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Projects"
@@ -180,6 +192,18 @@ export function Projects() {
                           </li>
                         ))}
                       </ul>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="mt-5 pt-4 border-t border-white/5">
+                      <Link
+                        to="/contact"
+                        search={{ service: p.service, project: p.title }}
+                        className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-300 hover:text-cyan-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816] rounded-md py-1"
+                      >
+                        Discuss a Similar Solution{" "}
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
+                      </Link>
                     </div>
                   </div>
                 </div>

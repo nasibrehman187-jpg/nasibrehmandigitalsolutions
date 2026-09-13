@@ -3,10 +3,12 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Globe, Bot, Mic, Workflow } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Particles } from "./Particles";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 const HeroScene = lazy(() => import("./HeroScene").then((m) => ({ default: m.HeroScene })));
 
 export function Hero() {
+  const reducedMotion = usePrefersReducedMotion();
   const wrap = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -14,6 +16,7 @@ export function Hero() {
   const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-8, 8]), { stiffness: 120, damping: 15 });
 
   useEffect(() => {
+    if (reducedMotion) return;
     const el = wrap.current;
     if (!el) return;
     const onMove = (e: MouseEvent) => {
@@ -23,7 +26,7 @@ export function Hero() {
     };
     el.addEventListener("mousemove", onMove);
     return () => el.removeEventListener("mousemove", onMove);
-  }, [mx, my]);
+  }, [mx, my, reducedMotion]);
 
   return (
     <section id="home" ref={wrap} className="relative overflow-hidden pt-24 lg:pt-28 xl:pt-32">
@@ -117,7 +120,11 @@ export function Hero() {
 
         {/* Right visual */}
         <motion.div
-          style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
+          style={
+            reducedMotion
+              ? { transformPerspective: 1000 }
+              : { rotateX: rx, rotateY: ry, transformPerspective: 1000 }
+          }
           className="relative h-[420px] w-full sm:h-[480px] lg:h-[500px] xl:h-[560px]"
         >
           <div className="absolute inset-0 rounded-[2rem]">

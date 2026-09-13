@@ -3,23 +3,27 @@ import { Float, MeshDistortMaterial, Sphere, Torus, Icosahedron } from "@react-t
 import { Suspense, useRef } from "react";
 import * as THREE from "three";
 
-function Brain() {
+function Brain({ reducedMotion }: { reducedMotion?: boolean }) {
   const ref = useRef<THREE.Mesh>(null);
   useFrame((state) => {
-    if (!ref.current) return;
+    if (!ref.current || reducedMotion) return;
     const { x, y } = state.pointer;
     ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, x * 0.6, 0.05);
     ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, -y * 0.4, 0.05);
   });
   return (
-    <Float speed={1.4} rotationIntensity={0.4} floatIntensity={1.2}>
+    <Float
+      speed={reducedMotion ? 0 : 1.4}
+      rotationIntensity={reducedMotion ? 0 : 0.4}
+      floatIntensity={reducedMotion ? 0 : 1.2}
+    >
       <Sphere ref={ref} args={[1.35, 48, 48]}>
         <MeshDistortMaterial
           color="#4f8bff"
           emissive="#3b6bff"
           emissiveIntensity={0.35}
-          distort={0.45}
-          speed={2.2}
+          distort={reducedMotion ? 0 : 0.45}
+          speed={reducedMotion ? 0 : 2.2}
           roughness={0.15}
           metalness={0.85}
         />
@@ -32,14 +36,16 @@ function Ring({
   tilt = 0,
   color = "#22d3ee",
   radius = 2,
+  reducedMotion,
 }: {
   tilt?: number;
   color?: string;
   radius?: number;
+  reducedMotion?: boolean;
 }) {
   const ref = useRef<THREE.Mesh>(null);
   useFrame((_, dt) => {
-    if (ref.current) ref.current.rotation.z += dt * 0.15;
+    if (ref.current && !reducedMotion) ref.current.rotation.z += dt * 0.15;
   });
   return (
     <Torus ref={ref} args={[radius, 0.012, 16, 200]} rotation={[Math.PI / 2 + tilt, tilt, 0]}>
@@ -53,10 +59,10 @@ function Ring({
   );
 }
 
-function Nodes() {
+function Nodes({ reducedMotion }: { reducedMotion?: boolean }) {
   const group = useRef<THREE.Group>(null);
   useFrame((_, dt) => {
-    if (group.current) group.current.rotation.y += dt * 0.1;
+    if (group.current && !reducedMotion) group.current.rotation.y += dt * 0.1;
   });
   const nodes = Array.from({ length: 14 });
   return (
@@ -68,7 +74,12 @@ function Nodes() {
         const z = Math.sin(a) * r;
         const y = Math.sin(i * 2.1) * 0.6;
         return (
-          <Float key={i} speed={2} floatIntensity={0.6} rotationIntensity={0.4}>
+          <Float
+            key={i}
+            speed={reducedMotion ? 0 : 2}
+            floatIntensity={reducedMotion ? 0 : 0.6}
+            rotationIntensity={reducedMotion ? 0 : 0.4}
+          >
             <Icosahedron args={[0.08, 0]} position={[x, y, z]}>
               <meshStandardMaterial
                 color={i % 2 ? "#a855f7" : "#22d3ee"}
@@ -85,6 +96,9 @@ function Nodes() {
 }
 
 export function HeroScene() {
+  const reducedMotion =
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   return (
     <Canvas
       dpr={[1, 1.6]}
@@ -97,11 +111,11 @@ export function HeroScene() {
         <pointLight position={[5, 5, 5]} intensity={2.5} color="#60a5fa" />
         <pointLight position={[-5, -3, -3]} intensity={2} color="#a855f7" />
         <pointLight position={[0, 0, 5]} intensity={1} color="#22d3ee" />
-        <Brain />
-        <Ring tilt={0} color="#22d3ee" radius={2} />
-        <Ring tilt={Math.PI / 3} color="#a855f7" radius={2.3} />
-        <Ring tilt={-Math.PI / 4} color="#60a5fa" radius={2.6} />
-        <Nodes />
+        <Brain reducedMotion={reducedMotion} />
+        <Ring tilt={0} color="#22d3ee" radius={2} reducedMotion={reducedMotion} />
+        <Ring tilt={Math.PI / 3} color="#a855f7" radius={2.3} reducedMotion={reducedMotion} />
+        <Ring tilt={-Math.PI / 4} color="#60a5fa" radius={2.6} reducedMotion={reducedMotion} />
+        <Nodes reducedMotion={reducedMotion} />
       </Suspense>
     </Canvas>
   );

@@ -24,6 +24,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (open) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [open]);
+
   return (
     <motion.header
       initial={{ y: -40, opacity: 0 }}
@@ -84,23 +94,33 @@ export function Navbar() {
         </div>
 
         <button
-          className="lg:hidden rounded-md p-2 text-foreground"
+          className="lg:hidden rounded-md p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           onClick={() => setOpen((o) => !o)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       {open && (
-        <div className="lg:hidden border-t border-white/5 bg-background/90 backdrop-blur-xl">
+        <div
+          id="mobile-nav"
+          className="lg:hidden border-t border-white/5 bg-background/95 backdrop-blur-xl"
+        >
           <ul className="mx-auto max-w-7xl px-6 py-4 flex flex-col gap-1">
             {NAV.map((n) => (
               <li key={n.to}>
                 <Link
                   to={n.to}
                   onClick={() => setOpen(false)}
-                  className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5"
+                  activeOptions={{ exact: n.to === "/" }}
+                  activeProps={{ className: "text-foreground bg-white/10 font-medium" }}
+                  inactiveProps={{
+                    className: "text-muted-foreground hover:text-foreground hover:bg-white/5",
+                  }}
+                  className="block rounded-md px-3 py-2 text-sm transition-colors"
                 >
                   {n.label}
                 </Link>
