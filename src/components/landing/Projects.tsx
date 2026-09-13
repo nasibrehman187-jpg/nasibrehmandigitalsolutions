@@ -1,9 +1,7 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, Building2, Globe, Mic, Package, Stethoscope } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "./Services";
-import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 const PROJECTS = [
   {
@@ -88,48 +86,19 @@ const PROJECTS = [
   },
 ];
 
-function TiltCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const reducedMotion = usePrefersReducedMotion();
-  const ref = useRef<HTMLDivElement>(null);
-  const rectRef = useRef<DOMRect | null>(null);
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-0.5, 0.5], [8, -8]), { stiffness: 140, damping: 18 });
-  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-8, 8]), { stiffness: 140, damping: 18 });
-
-  const isTouchOrCoarse =
-    typeof window !== "undefined" &&
-    window.matchMedia("(pointer: coarse), (max-width: 1023px)").matches;
-
-  if (reducedMotion || isTouchOrCoarse) {
-    return <div className={className}>{children}</div>;
-  }
-
+function ProjectCard({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <motion.div
-      ref={ref}
-      onMouseEnter={() => {
-        if (ref.current) rectRef.current = ref.current.getBoundingClientRect();
-      }}
-      onMouseMove={(e) => {
-        if (!rectRef.current && ref.current) {
-          rectRef.current = ref.current.getBoundingClientRect();
-        }
-        const r = rectRef.current;
-        if (!r) return;
-        mx.set((e.clientX - r.left) / r.width - 0.5);
-        my.set((e.clientY - r.top) / r.height - 0.5);
-      }}
-      onMouseLeave={() => {
-        rectRef.current = null;
-        mx.set(0);
-        my.set(0);
-      }}
-      style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
-      className={className}
+    <div
+      className={`transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_36px_-10px_rgba(34,211,238,0.25)] ${className}`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -166,7 +135,7 @@ export function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
             >
-              <TiltCard className="group relative h-full">
+              <ProjectCard className="group relative h-full">
                 <div className="glass relative h-full overflow-hidden rounded-2xl p-6">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${p.grad} opacity-60 transition-opacity group-hover:opacity-100`}
@@ -220,7 +189,7 @@ export function Projects() {
                     </div>
                   </div>
                 </div>
-              </TiltCard>
+              </ProjectCard>
             </motion.div>
           ))}
         </div>

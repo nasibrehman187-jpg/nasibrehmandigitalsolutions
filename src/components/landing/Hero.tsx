@@ -1,89 +1,15 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Globe, Bot, Mic, Workflow } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Particles } from "./Particles";
 import { HeroMobileFallback } from "./HeroMobileFallback";
-import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
-
-const HeroScene = lazy(() => import("./HeroScene").then((m) => ({ default: m.HeroScene })));
 
 export function Hero() {
-  const reducedMotion = usePrefersReducedMotion();
-  const wrap = useRef<HTMLDivElement>(null);
-  const [isDesktop, setIsDesktop] = useState(false);
-  const [inView, setInView] = useState(true);
-
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-0.5, 0.5], [6, -6]), { stiffness: 120, damping: 18 });
-  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-6, 6]), { stiffness: 120, damping: 18 });
-
-  // Viewport and pointer detection: Only load 3D on desktop (>=1024px) with fine pointer
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const media = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
-    setIsDesktop(media.matches);
-
-    const onMediaChange = (e: MediaQueryListEvent) => {
-      setIsDesktop(e.matches);
-    };
-    media.addEventListener("change", onMediaChange);
-    return () => media.removeEventListener("change", onMediaChange);
-  }, []);
-
-  // IntersectionObserver to pause 3D scene and particles when hero is scrolled out of view
-  useEffect(() => {
-    const el = wrap.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setInView(entry.isIntersecting);
-      },
-      { rootMargin: "100px" },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  // Throttled mouse tilt for desktop only
-  useEffect(() => {
-    if (reducedMotion || !isDesktop) return;
-    const el = wrap.current;
-    if (!el) return;
-
-    let ticking = false;
-    let rect = el.getBoundingClientRect();
-
-    const updateRect = () => {
-      rect = el.getBoundingClientRect();
-    };
-    window.addEventListener("resize", updateRect, { passive: true });
-
-    const onMove = (e: MouseEvent) => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          mx.set((e.clientX - rect.left) / rect.width - 0.5);
-          my.set((e.clientY - rect.top) / rect.height - 0.5);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    el.addEventListener("mousemove", onMove, { passive: true });
-    return () => {
-      el.removeEventListener("mousemove", onMove);
-      window.removeEventListener("resize", updateRect);
-    };
-  }, [mx, my, reducedMotion, isDesktop]);
-
   return (
-    <section id="home" ref={wrap} className="relative overflow-hidden pt-24 lg:pt-28 xl:pt-32">
+    <section id="home" className="relative overflow-hidden pt-24 lg:pt-28 xl:pt-32">
       <div className="absolute inset-0 grid-bg opacity-60" />
       <div className="absolute inset-0">
-        <Particles density={32} inView={inView} />
+        <Particles density={16} />
       </div>
       <div className="absolute inset-0 noise pointer-events-none" />
 
@@ -170,22 +96,9 @@ export function Hero() {
         </div>
 
         {/* Right visual */}
-        <motion.div
-          style={
-            reducedMotion || !isDesktop
-              ? { transformPerspective: 1000 }
-              : { rotateX: rx, rotateY: ry, transformPerspective: 1000 }
-          }
-          className="relative h-[420px] w-full sm:h-[480px] lg:h-[500px] xl:h-[560px]"
-        >
+        <div className="relative h-[420px] w-full sm:h-[480px] lg:h-[500px] xl:h-[560px]">
           <div className="absolute inset-0 rounded-[2rem]">
-            {isDesktop ? (
-              <Suspense fallback={<HeroMobileFallback />}>
-                <HeroScene inView={inView} />
-              </Suspense>
-            ) : (
-              <HeroMobileFallback />
-            )}
+            <HeroMobileFallback />
           </div>
 
           {/* Floating capability cards */}
@@ -233,7 +146,7 @@ export function Hero() {
               <div className="font-display text-sm">Automated Call Handling</div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

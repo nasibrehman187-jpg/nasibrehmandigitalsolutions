@@ -8,24 +8,24 @@ export function HeroMobileFallback() {
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-violet-500/10" />
 
       {/* Outer ambient blur */}
-      <div className="absolute h-56 w-56 rounded-full bg-cyan-500/20 blur-3xl" />
-      <div className="absolute h-48 w-48 rounded-full bg-violet-600/20 blur-3xl" />
+      <div className="absolute h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl lg:h-80 lg:w-80" />
+      <div className="absolute h-56 w-56 rounded-full bg-violet-600/20 blur-3xl lg:h-72 lg:w-72" />
 
       {/* SVG Orbital Rings & Accents */}
       <svg
         viewBox="0 0 400 400"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="relative z-10 h-72 w-72 sm:h-80 sm:w-80"
+        className="relative z-10 h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[440px] lg:w-[440px] xl:h-[480px] xl:w-[480px] transition-transform duration-700"
       >
         <defs>
           <linearGradient id="orb-grad-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.25" />
           </linearGradient>
           <linearGradient id="orb-grad-violet" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.25" />
           </linearGradient>
           <radialGradient id="sphere-core" cx="35%" cy="35%" r="65%">
             <stop offset="0%" stopColor="#93c5fd" />
