@@ -91,24 +91,37 @@ const PROJECTS = [
 function TiltCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const reducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-0.5, 0.5], [10, -10]), { stiffness: 150, damping: 15 });
-  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-10, 10]), { stiffness: 150, damping: 15 });
+  const rx = useSpring(useTransform(my, [-0.5, 0.5], [8, -8]), { stiffness: 140, damping: 18 });
+  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-8, 8]), { stiffness: 140, damping: 18 });
 
-  if (reducedMotion) {
+  const isTouchOrCoarse =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse), (max-width: 1023px)").matches;
+
+  if (reducedMotion || isTouchOrCoarse) {
     return <div className={className}>{children}</div>;
   }
 
   return (
     <motion.div
       ref={ref}
+      onMouseEnter={() => {
+        if (ref.current) rectRef.current = ref.current.getBoundingClientRect();
+      }}
       onMouseMove={(e) => {
-        const r = ref.current!.getBoundingClientRect();
+        if (!rectRef.current && ref.current) {
+          rectRef.current = ref.current.getBoundingClientRect();
+        }
+        const r = rectRef.current;
+        if (!r) return;
         mx.set((e.clientX - r.left) / r.width - 0.5);
         my.set((e.clientY - r.top) / r.height - 0.5);
       }}
       onMouseLeave={() => {
+        rectRef.current = null;
         mx.set(0);
         my.set(0);
       }}
@@ -122,7 +135,7 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
 
 export function Projects() {
   return (
-    <section id="projects" className="relative pt-24 pb-20 sm:pt-28 sm:pb-32">
+    <section id="projects" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Projects"

@@ -64,7 +64,7 @@ const SERVICES = [
 
 export function HomeServices() {
   return (
-    <section id="services" className="relative pt-12 pb-24 lg:pt-16 lg:pb-32">
+    <section id="services" className="content-auto relative pt-12 pb-24 lg:pt-16 lg:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Services"

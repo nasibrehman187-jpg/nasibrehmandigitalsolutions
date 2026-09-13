@@ -20,7 +20,7 @@ const QUICK_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-20 border-t border-white/5 pt-16">
+    <footer className="content-auto relative mt-20 border-t border-white/5 pt-16">
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent animate-gradient" />
       <div className="mx-auto max-w-7xl px-6 pb-20 sm:pb-24">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">

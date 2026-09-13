@@ -1,48 +1,93 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export function Cursor() {
-  const [active, setActive] = useState(false);
-  const x = useMotionValue(-200);
-  const y = useMotionValue(-200);
-  const sx = useSpring(x, { stiffness: 400, damping: 40, mass: 0.3 });
-  const sy = useSpring(y, { stiffness: 400, damping: 40, mass: 0.3 });
-  const ref = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) return;
+    // Only render and attach on desktop with fine pointer and no reduced motion
+    if (typeof window === "undefined") return;
+    const isFinePointer = window.matchMedia("(pointer: fine) and (min-width: 1024px)").matches;
+    const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const move = (e: MouseEvent) => {
-      x.set(e.clientX);
-      y.set(e.clientY);
-      if (!active) setActive(true);
+    if (!isFinePointer || isReducedMotion) {
+      return;
+    }
+
+    const dot = dotRef.current;
+    const ring = ringRef.current;
+    if (!dot || !ring) return;
+
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
+    let rafId = 0;
+    let isVisible = false;
+
+    const onMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isVisible) {
+        isVisible = true;
+        dot.style.opacity = "1";
+        ring.style.opacity = "1";
+      }
+
+      // Update dot position immediately via transform
+      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
     };
 
-    const handleMouseLeave = () => setActive(false);
-    const handleMouseEnter = () => setActive(true);
+    const onMouseLeave = () => {
+      isVisible = false;
+      dot.style.opacity = "0";
+      ring.style.opacity = "0";
+    };
 
-    window.addEventListener("mousemove", move, { passive: true });
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+    const onMouseEnter = () => {
+      isVisible = true;
+      dot.style.opacity = "1";
+      ring.style.opacity = "1";
+    };
+
+    // Smooth trailing ring loop using direct DOM transform (zero React re-renders)
+    const animateRing = () => {
+      ringX += (mouseX - ringX) * 0.2;
+      ringY += (mouseY - ringY) * 0.2;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+      rafId = requestAnimationFrame(animateRing);
+    };
+    rafId = requestAnimationFrame(animateRing);
+
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    document.addEventListener("mouseleave", onMouseLeave, { passive: true });
+    document.addEventListener("mouseenter", onMouseEnter, { passive: true });
 
     return () => {
-      window.removeEventListener("mousemove", move);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
+      document.removeEventListener("mouseenter", onMouseEnter);
     };
-  }, [x, y, active]);
-
-  if (!active) return null;
+  }, []);
 
   return (
-    <motion.div
-      ref={ref}
-      aria-hidden
-      style={{ x: sx, y: sy }}
-      className="pointer-events-none fixed left-0 top-0 z-[100] h-8 w-8 -translate-x-1/2 -translate-y-1/2"
-    >
-      <div className="h-full w-full rounded-full bg-cyan-400/20 blur-2xl" />
-      <div className="absolute inset-0 m-auto h-2 w-2 rounded-full bg-cyan-300" />
-    </motion.div>
+    <>
+      {/* Trailing glow ring */}
+      <div
+        ref={ringRef}
+        aria-hidden="true"
+        className="pointer-events-none fixed left-0 top-0 z-[100] h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/40 opacity-0 transition-opacity duration-300 will-change-transform"
+        style={{ transform: "translate3d(-100px, -100px, 0)" }}
+      />
+      {/* Precision core dot */}
+      <div
+        ref={dotRef}
+        aria-hidden="true"
+        className="pointer-events-none fixed left-0 top-0 z-[100] h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300 opacity-0 transition-opacity duration-300 shadow-[0_0_8px_rgba(34,211,238,0.8)] will-change-transform"
+        style={{ transform: "translate3d(-100px, -100px, 0)" }}
+      />
+    </>
   );
 }

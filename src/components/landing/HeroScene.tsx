@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sphere, Torus, Icosahedron } from "@react-three/drei";
-import { Suspense, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 function Brain({ reducedMotion }: { reducedMotion?: boolean }) {
@@ -8,24 +8,24 @@ function Brain({ reducedMotion }: { reducedMotion?: boolean }) {
   useFrame((state) => {
     if (!ref.current || reducedMotion) return;
     const { x, y } = state.pointer;
-    ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, x * 0.6, 0.05);
-    ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, -y * 0.4, 0.05);
+    ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, x * 0.5, 0.05);
+    ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, -y * 0.35, 0.05);
   });
   return (
     <Float
-      speed={reducedMotion ? 0 : 1.4}
-      rotationIntensity={reducedMotion ? 0 : 0.4}
-      floatIntensity={reducedMotion ? 0 : 1.2}
+      speed={reducedMotion ? 0 : 1.2}
+      rotationIntensity={reducedMotion ? 0 : 0.3}
+      floatIntensity={reducedMotion ? 0 : 1.0}
     >
-      <Sphere ref={ref} args={[1.35, 48, 48]}>
+      <Sphere ref={ref} args={[1.35, 28, 28]}>
         <MeshDistortMaterial
           color="#4f8bff"
           emissive="#3b6bff"
           emissiveIntensity={0.35}
-          distort={reducedMotion ? 0 : 0.45}
-          speed={reducedMotion ? 0 : 2.2}
-          roughness={0.15}
-          metalness={0.85}
+          distort={reducedMotion ? 0 : 0.4}
+          speed={reducedMotion ? 0 : 1.8}
+          roughness={0.2}
+          metalness={0.8}
         />
       </Sphere>
     </Float>
@@ -45,10 +45,10 @@ function Ring({
 }) {
   const ref = useRef<THREE.Mesh>(null);
   useFrame((_, dt) => {
-    if (ref.current && !reducedMotion) ref.current.rotation.z += dt * 0.15;
+    if (ref.current && !reducedMotion) ref.current.rotation.z += dt * 0.12;
   });
   return (
-    <Torus ref={ref} args={[radius, 0.012, 16, 200]} rotation={[Math.PI / 2 + tilt, tilt, 0]}>
+    <Torus ref={ref} args={[radius, 0.012, 12, 64]} rotation={[Math.PI / 2 + tilt, tilt, 0]}>
       <meshStandardMaterial
         color={color}
         emissive={color}
@@ -62,9 +62,9 @@ function Ring({
 function Nodes({ reducedMotion }: { reducedMotion?: boolean }) {
   const group = useRef<THREE.Group>(null);
   useFrame((_, dt) => {
-    if (group.current && !reducedMotion) group.current.rotation.y += dt * 0.1;
+    if (group.current && !reducedMotion) group.current.rotation.y += dt * 0.08;
   });
-  const nodes = Array.from({ length: 14 });
+  const nodes = Array.from({ length: 8 });
   return (
     <group ref={group}>
       {nodes.map((_, i) => {
@@ -76,11 +76,11 @@ function Nodes({ reducedMotion }: { reducedMotion?: boolean }) {
         return (
           <Float
             key={i}
-            speed={reducedMotion ? 0 : 2}
-            floatIntensity={reducedMotion ? 0 : 0.6}
-            rotationIntensity={reducedMotion ? 0 : 0.4}
+            speed={reducedMotion ? 0 : 1.5}
+            floatIntensity={reducedMotion ? 0 : 0.5}
+            rotationIntensity={reducedMotion ? 0 : 0.3}
           >
-            <Icosahedron args={[0.08, 0]} position={[x, y, z]}>
+            <Icosahedron args={[0.07, 0]} position={[x, y, z]}>
               <meshStandardMaterial
                 color={i % 2 ? "#a855f7" : "#22d3ee"}
                 emissive={i % 2 ? "#a855f7" : "#22d3ee"}
@@ -95,22 +95,43 @@ function Nodes({ reducedMotion }: { reducedMotion?: boolean }) {
   );
 }
 
-export function HeroScene() {
+export function HeroScene({ inView = true }: { inView?: boolean }) {
   const reducedMotion =
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const [tabVisible, setTabVisible] = useState(
+    typeof document !== "undefined" ? document.visibilityState === "visible" : true,
+  );
+
+  useEffect(() => {
+    const onVisibility = () => {
+      setTabVisible(document.visibilityState === "visible");
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  const shouldAnimate = inView && tabVisible && !reducedMotion;
+
   return (
     <Canvas
-      dpr={[1, 1.6]}
+      frameloop={shouldAnimate ? "always" : "never"}
+      dpr={[1, 1.25]}
       camera={{ position: [0, 0, 6], fov: 45 }}
-      gl={{ antialias: true, alpha: true }}
+      gl={{
+        antialias: false,
+        alpha: true,
+        powerPreference: "high-performance",
+        depth: true,
+        stencil: false,
+      }}
       style={{ background: "transparent" }}
     >
       <Suspense fallback={null}>
-        <ambientLight intensity={0.6} />
-        <pointLight position={[5, 5, 5]} intensity={2.5} color="#60a5fa" />
-        <pointLight position={[-5, -3, -3]} intensity={2} color="#a855f7" />
-        <pointLight position={[0, 0, 5]} intensity={1} color="#22d3ee" />
+        <ambientLight intensity={0.7} />
+        <pointLight position={[5, 5, 5]} intensity={2} color="#60a5fa" />
+        <pointLight position={[-5, -3, -3]} intensity={1.8} color="#a855f7" />
+        <pointLight position={[0, 0, 5]} intensity={0.8} color="#22d3ee" />
         <Brain reducedMotion={reducedMotion} />
         <Ring tilt={0} color="#22d3ee" radius={2} reducedMotion={reducedMotion} />
         <Ring tilt={Math.PI / 3} color="#a855f7" radius={2.3} reducedMotion={reducedMotion} />

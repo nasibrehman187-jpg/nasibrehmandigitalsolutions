@@ -161,15 +161,39 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    if (isReducedMotion || isTouch) return;
+
     const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
     let raf = 0;
+    let isRunning = true;
+
     const loop = (t: number) => {
+      if (!isRunning) return;
       lenis.raf(t);
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        if (!isRunning) {
+          isRunning = true;
+          raf = requestAnimationFrame(loop);
+        }
+      } else {
+        isRunning = false;
+        cancelAnimationFrame(raf);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
     return () => {
+      isRunning = false;
       cancelAnimationFrame(raf);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       lenis.destroy();
     };
   }, []);

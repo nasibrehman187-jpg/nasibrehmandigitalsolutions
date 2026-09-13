@@ -5,7 +5,7 @@ import { SERVICES } from "@/lib/services-data";
 
 export function Services() {
   return (
-    <section id="services" className="relative pt-24 pb-20 sm:pt-28 sm:pb-32">
+    <section id="services" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Services"

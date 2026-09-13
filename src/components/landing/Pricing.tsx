@@ -328,7 +328,7 @@ export function Pricing() {
   const activePlans = getActivePlans();
 
   return (
-    <section id="pricing" className="relative pt-24 pb-20 sm:pt-28 sm:pb-32">
+    <section id="pricing" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Pricing"

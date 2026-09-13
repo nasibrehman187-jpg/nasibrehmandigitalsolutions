@@ -31,7 +31,7 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section id="process" className="relative pt-24 pb-20 sm:pt-28 sm:pb-32">
+    <section id="process" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeader
           tag="How We Work"

@@ -95,7 +95,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative pt-24 pb-20 sm:pt-28 sm:pb-32">
+    <section id="contact" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Contact"
