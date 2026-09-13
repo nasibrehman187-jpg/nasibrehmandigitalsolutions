@@ -78,14 +78,14 @@ export function Cursor() {
       <div
         ref={ringRef}
         aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-[100] h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/40 opacity-0 transition-opacity duration-300 will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-[100] h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#14B8A6]/40 opacity-0 transition-opacity duration-300 will-change-transform"
         style={{ transform: "translate3d(-100px, -100px, 0)" }}
       />
       {/* Precision core dot */}
       <div
         ref={dotRef}
         aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-[100] h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300 opacity-0 transition-opacity duration-300 shadow-[0_0_8px_rgba(34,211,238,0.8)] will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-[100] h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#14B8A6] opacity-0 transition-opacity duration-300 shadow-[0_0_8px_rgba(20,184,166,0.8)] will-change-transform"
         style={{ transform: "translate3d(-100px, -100px, 0)" }}
       />
     </>

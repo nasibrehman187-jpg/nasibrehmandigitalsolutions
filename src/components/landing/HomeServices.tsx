@@ -8,8 +8,8 @@ const SERVICES = [
     icon: Globe,
     title: "Website Development",
     desc: "Modern, responsive websites designed to help businesses build credibility, generate inquiries and make it easier for customers to get in touch.",
-    accent: "text-cyan-400",
-    iconBg: "from-cyan-500/15 to-blue-500/15 border-cyan-500/20",
+    accent: "text-[#14b8a6]",
+    iconBg: "from-[#0f8b8d]/20 to-[#14b8a6]/10 border-[#0f8b8d]/30",
     slug: "website-development",
     capabilities: [
       "Business Websites",
@@ -23,8 +23,8 @@ const SERVICES = [
     icon: Bot,
     title: "AI Chatbots",
     desc: "AI chat assistants for FAQs, customer questions, lead capture and structured business support.",
-    accent: "text-cyan-300",
-    iconBg: "from-cyan-500/15 to-indigo-500/15 border-cyan-500/20",
+    accent: "text-[#14b8a6]",
+    iconBg: "from-[#0f8b8d]/20 to-[#2dd4bf]/10 border-[#0f8b8d]/30",
     slug: "ai-chatbots",
     capabilities: [
       "Website Chatbots",
@@ -38,8 +38,8 @@ const SERVICES = [
     icon: Workflow,
     title: "AI Automation",
     desc: "Custom n8n workflows, APIs and system connections that reduce repetitive manual work and connect business tools.",
-    accent: "text-blue-400",
-    iconBg: "from-blue-500/15 to-indigo-500/15 border-blue-500/20",
+    accent: "text-[#14b8a6]",
+    iconBg: "from-[#0f8b8d]/20 to-[#14b8a6]/10 border-[#0f8b8d]/30",
     slug: "ai-automation",
     capabilities: [
       "n8n Automation",
@@ -53,8 +53,8 @@ const SERVICES = [
     icon: Mic,
     title: "AI Voice Agents",
     desc: "AI calling assistants for customer inquiries, appointment requests, lead qualification and structured business call workflows.",
-    accent: "text-[#818cf8]",
-    iconBg: "from-indigo-500/15 to-[#818cf8]/15 border-[#818cf8]/20",
+    accent: "text-[#d6a84b]",
+    iconBg: "from-[#d6a84b]/20 to-[#997528]/10 border-[#d6a84b]/30",
     slug: "ai-voice-agents",
     capabilities: [
       "Inbound Call Handling",
@@ -68,7 +68,7 @@ const SERVICES = [
 
 export function HomeServices() {
   return (
-    <section id="services" className="content-auto relative pt-14 pb-20 lg:pt-18 lg:pb-28">
+    <section id="services" className="content-auto relative pt-8 pb-18 sm:pt-10 lg:pt-12 lg:pb-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Services"
@@ -90,9 +90,9 @@ export function HomeServices() {
               transition={{ duration: 0.45, delay: i * 0.07 }}
               className="group relative"
             >
-              <div className="glass relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
+              <div className="relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 border border-[rgba(247,243,232,0.10)] bg-[#111827] shadow-xl shadow-black/40 transition-all duration-300 hover:border-[#14b8a6]/40 hover:-translate-y-1">
                 {/* Hairline top gradient border on hover */}
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#14b8a6]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                 <div>
                   <div className="flex items-center justify-between gap-4">
@@ -104,27 +104,29 @@ export function HomeServices() {
                     <Link
                       to="/services/$slug"
                       params={{ slug: s.slug }}
-                      className="text-xs font-medium text-slate-400 hover:text-cyan-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md py-1 px-1.5"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#14b8a6] hover:text-[#2dd4bf] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6] rounded-md py-1 px-2.5 bg-[#14b8a6]/10 hover:bg-[#14b8a6]/15 border border-[#14b8a6]/25"
                     >
                       Learn more →
                     </Link>
                   </div>
 
-                  <h3 className="mt-5 font-display text-xl font-semibold text-white">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{s.desc}</p>
+                  <h3 className="mt-5 font-display text-xl sm:text-2xl font-bold tracking-tight text-[#f7f3e8]">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#a8b0bf]">{s.desc}</p>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-white/[0.06]">
-                  <div className="text-[11px] font-medium uppercase tracking-wider text-slate-400 mb-2.5">
+                <div className="mt-6 pt-5 border-t border-[rgba(247,243,232,0.10)]">
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-[#a8b0bf] mb-2.5">
                     Core Capabilities
                   </div>
                   <ul className="flex flex-wrap gap-2">
                     {s.capabilities.map((cap) => (
                       <li
                         key={cap}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-white/8 bg-white/[0.03] px-2.5 py-1 text-xs text-slate-300"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(247,243,232,0.10)] bg-[#162033]/80 px-2.5 py-1 text-xs font-medium text-[#f7f3e8]"
                       >
-                        <CheckCircle2 className="h-3 w-3 text-cyan-400 shrink-0" />
+                        <CheckCircle2 className="h-3 w-3 text-[#14b8a6] shrink-0" />
                         {cap}
                       </li>
                     ))}
@@ -143,19 +145,19 @@ export function HomeServices() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-6 relative group"
         >
-          <div className="glass relative rounded-2xl p-6 sm:p-8 border border-white/10 overflow-hidden">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#818cf8]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="relative rounded-2xl p-6 sm:p-8 border border-[#d6a84b]/30 bg-[#111827] shadow-xl shadow-black/40 overflow-hidden">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d6a84b]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-start gap-4">
-                <div className="inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-cyan-500/15 to-[#818cf8]/15 border border-cyan-500/20 shrink-0">
-                  <Wrench className="h-6 w-6 text-cyan-300" />
+                <div className="inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-[#d6a84b]/20 to-[#997528]/10 border border-[#d6a84b]/30 shrink-0">
+                  <Wrench className="h-6 w-6 text-[#d6a84b]" />
                 </div>
                 <div>
-                  <h3 className="font-display text-lg sm:text-xl font-semibold text-white">
+                  <h3 className="font-display text-lg sm:text-2xl font-bold text-[#f7f3e8]">
                     Custom Digital Solutions
                   </h3>
-                  <p className="mt-1 text-sm text-slate-400 max-w-2xl leading-relaxed">
+                  <p className="mt-1 text-sm text-[#a8b0bf] max-w-2xl leading-relaxed">
                     Websites, automation, chatbots and voice AI can be combined into a custom
                     solution based on your specific business workflow.
                   </p>
@@ -164,7 +166,7 @@ export function HomeServices() {
               <Link
                 to="/contact"
                 search={{ service: "Custom Digital Solution" }}
-                className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:from-cyan-400 hover:to-blue-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#0f8b8d] to-[#14b8a6] px-5 py-2.5 text-sm font-semibold text-[#f7f3e8] shadow-md shadow-[#0f8b8d]/30 hover:opacity-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
               >
                 Discuss Your Project
               </Link>

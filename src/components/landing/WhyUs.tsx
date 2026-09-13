@@ -7,29 +7,29 @@ const WHY_CARDS = [
     icon: Lightbulb,
     title: "Practical Solutions",
     desc: "We focus on useful systems designed around real business problems instead of unnecessary complexity.",
-    color: "from-cyan-500/15 to-blue-500/15 border-cyan-500/20",
-    iconColor: "text-cyan-400",
+    color: "from-[#0f8b8d]/20 to-[#14b8a6]/10 border-[#0f8b8d]/30",
+    iconColor: "text-[#14b8a6]",
   },
   {
     icon: Puzzle,
     title: "Custom Engineered",
     desc: "Every website, automation, or AI assistant is adapted to your exact project requirements instead of forcing generic templates.",
-    color: "from-blue-500/15 to-indigo-500/15 border-blue-500/20",
-    iconColor: "text-blue-400",
+    color: "from-[#0f8b8d]/20 to-[#14b8a6]/10 border-[#0f8b8d]/30",
+    iconColor: "text-[#14b8a6]",
   },
   {
     icon: Cpu,
     title: "Modern Technology Stack",
     desc: "Solutions combine modern web standards, n8n automation, AI models, APIs, webhooks, and voice assistants.",
-    color: "from-indigo-500/15 to-[#818cf8]/15 border-[#818cf8]/20",
-    iconColor: "text-[#818cf8]",
+    color: "from-[#d6a84b]/20 to-[#997528]/10 border-[#d6a84b]/30",
+    iconColor: "text-[#d6a84b]",
   },
   {
     icon: MessageSquare,
     title: "Direct Founder Access",
     desc: "Work directly with Nasib Rehman throughout planning, engineering, review, and launch with zero middlemen.",
-    color: "from-cyan-500/15 to-[#818cf8]/15 border-cyan-500/20",
-    iconColor: "text-cyan-300",
+    color: "from-[#0f8b8d]/20 to-[#14b8a6]/10 border-[#0f8b8d]/30",
+    iconColor: "text-[#14b8a6]",
   },
 ];
 
@@ -49,12 +49,12 @@ export function WhyUs() {
 
         {/* Trust Badges */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs">
-          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-4 py-1.5 text-slate-300">
-            <ShieldCheck className="h-4 w-4 text-cyan-400 shrink-0" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#0f8b8d]/30 bg-[#0f8b8d]/10 px-4 py-1.5 text-[#f7f3e8]">
+            <ShieldCheck className="h-4 w-4 text-[#14b8a6] shrink-0" />
             Direct communication with Nasib Rehman • No-obligation project discussion
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-slate-300">
-            <Laptop className="h-4 w-4 text-[#818cf8] shrink-0" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#d6a84b]/30 bg-[#d6a84b]/10 px-4 py-1.5 text-[#f7f3e8]">
+            <Laptop className="h-4 w-4 text-[#d6a84b] shrink-0" />
             Available for remote projects
           </span>
         </div>
@@ -69,18 +69,18 @@ export function WhyUs() {
               transition={{ duration: 0.45, delay: i * 0.06 }}
               className="group"
             >
-              <div className="glass relative h-full flex flex-col justify-between rounded-2xl p-6 transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
-                <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="glass relative h-full flex flex-col justify-between rounded-2xl p-6 transition-all duration-300 hover:border-[#14b8a6]/30 hover:-translate-y-1">
+                <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#14b8a6]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div>
                   <span
                     className={`inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${card.color} border`}
                   >
                     <card.icon className={`h-5 w-5 ${card.iconColor}`} />
                   </span>
-                  <h3 className="mt-5 font-display text-lg font-semibold text-white">
+                  <h3 className="mt-5 font-display text-lg font-semibold text-[#f7f3e8]">
                     {card.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{card.desc}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#a8b0bf]">{card.desc}</p>
                 </div>
               </div>
             </motion.div>

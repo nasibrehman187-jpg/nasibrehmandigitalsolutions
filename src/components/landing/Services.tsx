@@ -30,10 +30,10 @@ export function Services() {
               <Link
                 to="/services/$slug"
                 params={{ slug: s.slug }}
-                className="glass relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:border-white/20 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                className="relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 border border-[rgba(247,243,232,0.10)] bg-[#111827] shadow-xl shadow-black/40 transition-all duration-300 hover:border-[#14b8a6]/40 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
               >
                 {/* Hairline top gradient border on hover */}
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#14b8a6]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                 <div>
                   <div
@@ -41,11 +41,13 @@ export function Services() {
                   >
                     <s.icon className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-semibold text-white">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{s.desc}</p>
+                  <h3 className="mt-5 font-display text-xl sm:text-2xl font-bold tracking-tight text-[#f7f3e8]">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#a8b0bf]">{s.desc}</p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.06] inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400">
+                <div className="mt-6 pt-4 border-t border-[rgba(247,243,232,0.10)] inline-flex items-center gap-1.5 text-xs font-semibold text-[#14b8a6] group-hover:text-[#2dd4bf] transition-colors">
                   <span>Learn more</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -76,9 +78,9 @@ export function SectionHeader({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.45 }}
-        className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs text-slate-300"
+        className="inline-flex items-center gap-2 rounded-full border border-[#0f8b8d]/30 bg-[#0f8b8d]/10 px-3 py-1 text-xs text-[#f7f3e8]"
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
+        <span className="h-1.5 w-1.5 rounded-full bg-[#14b8a6] shadow-[0_0_8px_#14b8a6]" />
         <span className="font-medium tracking-wide uppercase text-[11px]">{tag}</span>
       </motion.div>
       <motion.h2
@@ -86,7 +88,7 @@ export function SectionHeader({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.05 }}
-        className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-white"
+        className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-[#f7f3e8]"
       >
         {title}
       </motion.h2>
@@ -96,7 +98,7 @@ export function SectionHeader({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed"
+          className="mt-4 text-base sm:text-lg text-[#a8b0bf] leading-relaxed"
         >
           {subtitle}
         </motion.p>

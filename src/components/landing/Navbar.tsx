@@ -50,14 +50,14 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#050816]/90 backdrop-blur-md border-b border-white/[0.08] shadow-lg shadow-black/40"
+          ? "bg-[#0b1220]/92 backdrop-blur-md border-b border-[rgba(247,243,232,0.08)] shadow-lg shadow-black/50"
           : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 sm:py-4">
         <Link
           to="/"
-          className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg p-1"
+          className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6] rounded-lg p-1"
           aria-label="Digital Solution — Home"
         >
           {/* DS brand mark */}
@@ -67,23 +67,24 @@ export function Navbar() {
               alt="Digital Solution logo mark"
               width={34}
               height={34}
-              className="h-8.5 w-8.5 rounded-lg object-cover border border-white/10 shadow-[0_0_16px_-4px_rgba(34,211,238,0.4)] transition duration-300 group-hover:border-cyan-400/40 group-hover:shadow-[0_0_24px_-4px_rgba(34,211,238,0.6)]"
+              className="h-8.5 w-8.5 rounded-lg object-cover border border-[rgba(247,243,232,0.12)] shadow-[0_0_16px_-4px_rgba(20,184,166,0.3)] transition duration-300 group-hover:border-[#14b8a6]/50 group-hover:shadow-[0_0_24px_-4px_rgba(20,184,166,0.5)]"
             />
           </div>
           {/* Brand name text */}
           <span className="flex flex-col leading-none">
             <span className="font-display text-base font-semibold tracking-tight">
-              <span className="text-white">Digital</span>{" "}
-              <span className="text-cyan-400">Solution</span>
+              <span className="text-[#f7f3e8]">Digital</span>{" "}
+              <span className="text-[#14b8a6]">Solution</span>
+              <span className="inline-block h-1 w-1 rounded-full bg-[#d6a84b] ml-1.5 align-middle opacity-80" />
             </span>
-            <span className="text-[10.5px] text-slate-400 tracking-wide font-normal">
+            <span className="text-[10.5px] text-[#a8b0bf] tracking-wide font-normal">
               by Nasib Rehman
             </span>
           </span>
         </Link>
 
         {/* Desktop Nav Items */}
-        <ul className="hidden items-center gap-1 rounded-full border border-white/[0.08] bg-[#090e24]/80 p-1.5 lg:flex shadow-inner">
+        <ul className="hidden items-center gap-1 rounded-full border border-[rgba(247,243,232,0.08)] bg-[#111827]/85 p-1.5 lg:flex shadow-inner">
           {NAV.map((n) => (
             <li key={n.to}>
               <Link
@@ -91,10 +92,10 @@ export function Navbar() {
                 activeOptions={{ exact: n.to === "/" }}
                 activeProps={{
                   className:
-                    "text-white bg-white/[0.08] font-medium shadow-sm border border-white/10",
+                    "text-[#f7f3e8] bg-[#162033] font-medium shadow-sm border border-[rgba(247,243,232,0.12)]",
                 }}
                 inactiveProps={{
-                  className: "text-slate-400 hover:text-white hover:bg-white/[0.04]",
+                  className: "text-[#a8b0bf] hover:text-[#f7f3e8] hover:bg-white/[0.04]",
                 }}
                 className="relative rounded-full px-3.5 py-1.5 text-xs tracking-wide transition-all"
               >
@@ -108,15 +109,15 @@ export function Navbar() {
         <div className="hidden lg:block">
           <Link
             to="/contact"
-            className="group relative inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 px-4.5 py-2 text-xs font-semibold text-cyan-300 transition-all duration-300 hover:border-cyan-400/60 hover:bg-cyan-500/20 hover:text-white hover:shadow-[0_0_20px_-4px_rgba(34,211,238,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+            className="group relative inline-flex items-center gap-2 rounded-full border border-[#0f8b8d]/40 bg-gradient-to-r from-[#0f8b8d]/15 to-[#14b8a6]/10 px-4.5 py-2 text-xs font-semibold text-[#f7f3e8] transition-all duration-300 hover:border-[#14b8a6]/70 hover:bg-[#0f8b8d]/25 hover:shadow-[0_0_20px_-4px_rgba(20,184,166,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#14b8a6] shadow-[0_0_8px_#14b8a6]" />
             <span>Discuss Your Project</span>
           </Link>
         </div>
 
         <button
-          className="lg:hidden rounded-lg p-2 text-slate-300 hover:text-white border border-white/10 bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+          className="lg:hidden rounded-lg p-2 text-[#f7f3e8] hover:text-white border border-[rgba(247,243,232,0.10)] bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -127,7 +128,10 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-nav" className="lg:hidden border-t border-white/10 bg-[#090e24] shadow-2xl">
+        <div
+          id="mobile-nav"
+          className="lg:hidden border-t border-[rgba(247,243,232,0.08)] bg-[#111827] shadow-2xl"
+        >
           <ul className="mx-auto max-w-7xl px-6 py-4 flex flex-col gap-1.5">
             {NAV.map((n) => (
               <li key={n.to}>
@@ -136,10 +140,11 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   activeOptions={{ exact: n.to === "/" }}
                   activeProps={{
-                    className: "text-white bg-white/[0.08] font-medium border border-white/10",
+                    className:
+                      "text-[#f7f3e8] bg-[#162033] font-medium border border-[rgba(247,243,232,0.10)]",
                   }}
                   inactiveProps={{
-                    className: "text-slate-400 hover:text-white hover:bg-white/[0.04]",
+                    className: "text-[#a8b0bf] hover:text-[#f7f3e8] hover:bg-white/[0.04]",
                   }}
                   className="block rounded-xl px-4 py-2.5 text-sm transition-colors"
                 >
@@ -151,7 +156,7 @@ export function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="block rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white shadow-md hover:opacity-95"
+                className="block rounded-xl bg-gradient-to-r from-[#0f8b8d] to-[#14b8a6] px-4 py-2.5 text-center text-sm font-semibold text-[#f7f3e8] shadow-md hover:opacity-95"
               >
                 Discuss Your Project
               </Link>

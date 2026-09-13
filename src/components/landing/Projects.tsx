@@ -9,7 +9,7 @@ const PROJECTS = [
     title: "SmileCare Dental Clinic",
     service: "Website Development",
     label: "Concept Website",
-    labelColor: "bg-cyan-500/10 text-cyan-300 border-cyan-500/30",
+    labelColor: "bg-[#0f8b8d]/15 text-[#14b8a6] border-[#0f8b8d]/30",
     desc: "A modern dental clinic website concept designed to showcase services, build trust and make it easier for patients to send appointment requests.",
     features: [
       "Responsive Design",
@@ -24,7 +24,7 @@ const PROJECTS = [
     title: "AI Restaurant Voice Agent",
     service: "AI Voice Agent",
     label: "Concept AI Demo",
-    labelColor: "bg-cyan-500/10 text-cyan-300 border-cyan-500/30",
+    labelColor: "bg-[#0f8b8d]/15 text-[#14b8a6] border-[#0f8b8d]/30",
     desc: "A conversational voice assistant concept designed to answer customer calls, collect structured food orders and confirm order details.",
     features: [
       "Voice Conversation",
@@ -39,7 +39,7 @@ const PROJECTS = [
     title: "Dental Clinic Digital System",
     service: "Custom Digital Solution",
     label: "Concept / Demo",
-    labelColor: "bg-cyan-500/10 text-cyan-300 border-cyan-500/30",
+    labelColor: "bg-[#0f8b8d]/15 text-[#14b8a6] border-[#0f8b8d]/30",
     desc: "A digital solution concept combining a professional clinic website with inquiry and appointment workflows.",
     features: [
       "Website",
@@ -54,7 +54,7 @@ const PROJECTS = [
     title: "Luxury Real Estate Website",
     service: "Website Development",
     label: "Portfolio Build",
-    labelColor: "bg-[#818cf8]/10 text-[#818cf8] border-[#818cf8]/30",
+    labelColor: "bg-[#d6a84b]/15 text-[#d6a84b] border-[#d6a84b]/30",
     desc: "A premium real estate website built as a portfolio project for luxury property presentation and investor inquiries.",
     features: [
       "Premium Property Presentation",
@@ -69,7 +69,7 @@ const PROJECTS = [
     title: "Surgical B2B Export Website",
     service: "Website Development",
     label: "Portfolio Build",
-    labelColor: "bg-[#818cf8]/10 text-[#818cf8] border-[#818cf8]/30",
+    labelColor: "bg-[#d6a84b]/15 text-[#d6a84b] border-[#d6a84b]/30",
     desc: "A reusable B2B website template built for surgical and dental instrument exporters, featuring product presentation, business credentials and RFQ functionality.",
     features: [
       "Product Catalog",
@@ -113,13 +113,13 @@ export function Projects() {
 
         {/* Label legend */}
         <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-cyan-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-            Concept Website / Concept AI Demo — design concepts and demo builds
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0f8b8d]/30 bg-[#0f8b8d]/10 px-3.5 py-1 text-xs font-medium text-[#f7f3e8]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#14b8a6]" />
+            Concept / Demo Builds
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#818cf8]/30 bg-[#818cf8]/10 px-3 py-1 text-[#818cf8]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#818cf8]" />
-            Portfolio Build — built by the developer as practice projects
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d6a84b]/30 bg-[#d6a84b]/10 px-3.5 py-1 text-xs font-medium text-[#f7f3e8]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#d6a84b]" />
+            Portfolio Builds
           </span>
         </div>
 
@@ -133,15 +133,19 @@ export function Projects() {
               transition={{ duration: 0.45, delay: i * 0.06 }}
             >
               <ProjectCard className="group relative h-full">
-                <div className="glass relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 border border-white/10 hover:border-white/20 transition-colors">
+                <div className="glass relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 border border-[rgba(247,243,232,0.08)] hover:border-[#14b8a6]/30 transition-colors">
                   {/* Hairline top gradient border */}
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#14b8a6]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   <div>
                     {/* Header */}
                     <div className="flex items-start justify-between gap-3">
-                      <div className="inline-grid h-11 w-11 place-items-center rounded-xl bg-white/[0.04] border border-white/10 shrink-0">
-                        <p.icon className="h-5 w-5 text-cyan-400" />
+                      <div className="inline-grid h-11 w-11 place-items-center rounded-xl bg-white/[0.04] border border-[rgba(247,243,232,0.10)] shrink-0">
+                        <p.icon
+                          className={`h-5 w-5 ${
+                            p.label === "Portfolio Build" ? "text-[#d6a84b]" : "text-[#14b8a6]"
+                          }`}
+                        />
                       </div>
                       <span
                         className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10.5px] font-medium tracking-wide ${p.labelColor}`}
@@ -152,25 +156,25 @@ export function Projects() {
 
                     {/* Content */}
                     <div className="mt-5">
-                      <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
+                      <div className="text-[11px] font-medium text-[#a8b0bf] uppercase tracking-wider">
                         {p.service}
                       </div>
-                      <h3 className="mt-1 font-display text-lg font-semibold text-white">
+                      <h3 className="mt-1 font-display text-lg font-semibold text-[#f7f3e8]">
                         {p.title}
                       </h3>
-                      <p className="mt-2 text-sm text-slate-400 leading-relaxed">{p.desc}</p>
+                      <p className="mt-2 text-sm text-[#a8b0bf] leading-relaxed">{p.desc}</p>
                     </div>
 
                     {/* Features */}
                     <div className="mt-5">
-                      <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium mb-2">
+                      <div className="text-[10px] uppercase tracking-wider text-[#a8b0bf] font-medium mb-2">
                         Key Elements
                       </div>
                       <ul className="flex flex-wrap gap-1.5">
                         {p.features.map((f) => (
                           <li
                             key={f}
-                            className="rounded-full border border-white/8 bg-white/[0.03] px-2.5 py-1 text-[11px] text-slate-300"
+                            className="rounded-full border border-[rgba(247,243,232,0.08)] bg-white/[0.02] px-2.5 py-1 text-[11px] text-[#a8b0bf]"
                           >
                             {f}
                           </li>
@@ -180,11 +184,11 @@ export function Projects() {
                   </div>
 
                   {/* CTA */}
-                  <div className="mt-6 pt-4 border-t border-white/[0.06]">
+                  <div className="mt-6 pt-4 border-t border-[rgba(247,243,232,0.06)]">
                     <Link
                       to="/contact"
                       search={{ service: p.service, project: p.title }}
-                      className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md py-1"
+                      className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#14b8a6] hover:text-[#2dd4bf] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6] rounded-md py-1"
                     >
                       Discuss a Similar Solution{" "}
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
@@ -202,13 +206,13 @@ export function Projects() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-xs text-slate-400 leading-relaxed"
+          className="mt-10 rounded-xl border border-[rgba(247,243,232,0.08)] bg-[#111827] px-5 py-4 text-xs text-[#a8b0bf] leading-relaxed"
         >
-          <strong className="text-white font-medium">Note:</strong> Projects 1–3 are concept/demo
-          builds created to demonstrate capability. Projects 4–5 are portfolio builds created by the
-          developer. Any certification badges shown within the Surgical B2B Export demo website are
-          part of the sample exporter content and do not represent certifications owned by Digital
-          Solution.
+          <strong className="text-[#f7f3e8] font-medium">Note:</strong> Projects 1–3 are
+          concept/demo builds created to demonstrate capability. Projects 4–5 are portfolio builds
+          created by the developer. Any certification badges shown within the Surgical B2B Export
+          demo website are part of the sample exporter content and do not represent certifications
+          owned by Digital Solution.
         </motion.div>
       </div>
     </section>

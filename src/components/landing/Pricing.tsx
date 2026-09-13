@@ -350,16 +350,20 @@ export function Pricing() {
                 key={t.id}
                 type="button"
                 onClick={() => setActiveTab(t.id)}
-                className={`group inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                className={`group inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6] ${
                   isActive
-                    ? "border border-cyan-400/40 bg-cyan-500/15 text-white shadow-md shadow-cyan-950/40"
-                    : "border border-white/10 bg-white/[0.03] text-slate-400 hover:bg-white/[0.07] hover:text-white"
+                    ? "border border-[#14b8a6]/50 bg-[#0f8b8d]/20 text-[#f7f3e8] shadow-md shadow-[#0f8b8d]/30"
+                    : "border border-[rgba(247,243,232,0.08)] bg-[#111827] text-[#a8b0bf] hover:bg-[#162033] hover:text-[#f7f3e8]"
                 }`}
               >
-                <Icon className={`h-3.5 w-3.5 ${isActive ? "text-cyan-400" : "text-slate-400"}`} />
+                <Icon className={`h-3.5 w-3.5 ${isActive ? "text-[#14b8a6]" : "text-[#a8b0bf]"}`} />
                 <span>{t.label}</span>
                 <span
-                  className={`rounded-full px-2 py-0.5 text-[10px] ${isActive ? "bg-white/15 text-cyan-300 font-semibold" : "bg-white/5 text-slate-400"}`}
+                  className={`rounded-full px-2 py-0.5 text-[10px] ${
+                    isActive
+                      ? "bg-[#14b8a6]/20 text-[#14b8a6] font-semibold"
+                      : "bg-white/5 text-[#a8b0bf]"
+                  }`}
                 >
                   {t.priceRange}
                 </span>
@@ -370,8 +374,8 @@ export function Pricing() {
 
         {/* Tab Header Label */}
         <div className="mt-8 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs text-slate-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#0f8b8d]/30 bg-[#0f8b8d]/10 px-3 py-1 text-xs text-[#f7f3e8]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#14b8a6] shadow-[0_0_8px_#14b8a6]" />
             {activeTab === "websites" && "Website Development Packages"}
             {activeTab === "chatbots" && "AI Chatbot Development Packages"}
             {activeTab === "automation" && "AI & Workflow Automation Packages"}
@@ -394,43 +398,43 @@ export function Pricing() {
                 <div
                   className={`relative flex h-full flex-col justify-between rounded-3xl p-7 sm:p-8 transition-all duration-300 ${
                     p.highlight
-                      ? "glass-strong border-2 border-cyan-400/40 shadow-xl shadow-cyan-950/20"
-                      : "glass border border-white/10 hover:border-white/20"
+                      ? "glass-strong border-2 border-[#14b8a6]/60 shadow-xl shadow-[#0f8b8d]/20"
+                      : "glass border border-[rgba(247,243,232,0.08)] hover:border-[#14b8a6]/30"
                   }`}
                 >
                   <div>
                     {p.badge && (
-                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-3 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-white shadow-md">
-                        <Sparkles className="h-3 w-3" /> {p.badge}
+                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full border border-[#d6a84b]/40 bg-[#d6a84b] px-3.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-[#0b1220] shadow-md shadow-[#d6a84b]/20">
+                        <Sparkles className="h-3 w-3 fill-[#0b1220]" /> {p.badge}
                       </div>
                     )}
-                    <div className="font-display text-base font-semibold text-slate-300">
+                    <div className="font-display text-base font-semibold text-[#f7f3e8]">
                       {p.name}
                     </div>
                     <div className="mt-3 flex items-baseline gap-2">
                       <span
                         className={`font-display text-4xl sm:text-5xl font-bold tracking-tight ${
-                          p.highlight ? "text-gradient" : "text-white"
+                          p.highlight ? "text-gradient" : "text-[#f7f3e8]"
                         }`}
                       >
                         {p.price}
                       </span>
-                      <span className="text-xs text-slate-400 font-medium">/ {p.per}</span>
+                      <span className="text-xs text-[#a8b0bf] font-medium">/ {p.per}</span>
                     </div>
-                    <div className="mt-2 text-xs text-cyan-400 font-medium">
+                    <div className="mt-2 text-xs text-[#14b8a6] font-medium">
                       Estimated Delivery: {p.delivery}
                     </div>
 
-                    <p className="mt-4 text-sm text-slate-400 leading-relaxed">{p.description}</p>
+                    <p className="mt-4 text-sm text-[#a8b0bf] leading-relaxed">{p.description}</p>
 
-                    <div className="mt-6 pt-5 border-t border-white/[0.06]">
-                      <div className="text-[11px] font-medium uppercase tracking-wider text-slate-400 mb-3">
+                    <div className="mt-6 pt-5 border-t border-[rgba(247,243,232,0.06)]">
+                      <div className="text-[11px] font-medium uppercase tracking-wider text-[#a8b0bf] mb-3">
                         Included Features
                       </div>
                       <ul className="space-y-2.5">
                         {p.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2.5 text-xs text-slate-300">
-                            <span className="mt-0.5 grid h-4 w-4 place-items-center rounded-full bg-cyan-400/15 text-cyan-400 shrink-0">
+                          <li key={f} className="flex items-start gap-2.5 text-xs text-[#f7f3e8]">
+                            <span className="mt-0.5 grid h-4 w-4 place-items-center rounded-full bg-[#0f8b8d]/20 text-[#14b8a6] shrink-0">
                               <Check className="h-2.5 w-2.5" />
                             </span>
                             <span className="leading-snug">{f}</span>
@@ -453,10 +457,10 @@ export function Pricing() {
                               : "AI Automation",
                       plan: p.serviceParam,
                     }}
-                    className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                    className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6] ${
                       p.highlight
-                        ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-950/40 hover:from-cyan-400 hover:to-blue-500 hover:-translate-y-0.5"
-                        : "border border-white/10 bg-white/[0.04] text-slate-200 hover:bg-white/[0.08] hover:text-white"
+                        ? "bg-gradient-to-r from-[#0f8b8d] to-[#14b8a6] text-[#f7f3e8] shadow-md shadow-[#0f8b8d]/30 hover:opacity-95 hover:-translate-y-0.5"
+                        : "border border-[#0f8b8d]/30 bg-[#162033] text-[#f7f3e8] hover:border-[#14b8a6]/60 hover:bg-[#111827]"
                     }`}
                   >
                     <span>{p.cta}</span>
@@ -474,44 +478,44 @@ export function Pricing() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="mt-10 rounded-2xl border border-amber-500/20 bg-amber-500/5 p-6 text-left"
+            className="mt-10 rounded-2xl border border-[#d6a84b]/30 bg-[#d6a84b]/5 p-6 text-left"
           >
-            <div className="flex items-center gap-2 font-display text-sm font-semibold text-amber-300">
+            <div className="flex items-center gap-2 font-display text-sm font-semibold text-[#d6a84b]">
               <AlertCircle className="h-4 w-4 shrink-0" />
               <span>Voice AI Running Cost Notice</span>
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+            <p className="mt-2 text-xs leading-relaxed text-[#a8b0bf]">
               Voice Agent package prices cover development and initial setup. Ongoing third-party
               usage charges are billed separately.
             </p>
-            <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4 text-xs text-muted-foreground">
+            <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4 text-xs text-[#a8b0bf]">
               <div className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-amber-400" /> Voice AI platform usage
+                <span className="h-1 w-1 rounded-full bg-[#d6a84b]" /> Voice AI platform usage
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-amber-400" /> Phone number rental
+                <span className="h-1 w-1 rounded-full bg-[#d6a84b]" /> Phone number rental
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-amber-400" /> Calling minutes
+                <span className="h-1 w-1 rounded-full bg-[#d6a84b]" /> Calling minutes
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-amber-400" /> AI model / API usage
+                <span className="h-1 w-1 rounded-full bg-[#d6a84b]" /> AI model / API usage
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-amber-400" /> Speech-to-text usage
+                <span className="h-1 w-1 rounded-full bg-[#d6a84b]" /> Speech-to-text usage
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-amber-400" /> Text-to-speech usage
+                <span className="h-1 w-1 rounded-full bg-[#d6a84b]" /> Text-to-speech usage
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-amber-400" /> Automation hosting
+                <span className="h-1 w-1 rounded-full bg-[#d6a84b]" /> Automation hosting
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-amber-400" /> Other required third-party
+                <span className="h-1 w-1 rounded-full bg-[#d6a84b]" /> Other required third-party
                 software
               </div>
             </div>
-            <p className="mt-3 text-[11px] text-muted-foreground/80">
+            <p className="mt-3 text-[11px] text-[#a8b0bf]/80">
               Package fees do not include unlimited calling minutes or bundled airtime. Usage
               charges are billed directly by your chosen platform and telephony providers based on
               actual volume.
@@ -527,42 +531,42 @@ export function Pricing() {
             transition={{ duration: 0.4 }}
             className="mt-8 mx-auto max-w-3xl"
           >
-            <div className="glass-strong rounded-3xl border border-white/15 p-8 sm:p-10 text-center shadow-xl">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 px-3 py-1 text-xs font-semibold text-cyan-300">
+            <div className="glass-strong rounded-3xl border border-[#d6a84b]/30 p-8 sm:p-10 text-center shadow-xl">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d6a84b]/15 border border-[#d6a84b]/30 px-3 py-1 text-xs font-semibold text-[#d6a84b]">
                 <Layers className="h-3.5 w-3.5" /> Multi-System Architecture
               </span>
-              <h3 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-white">
+              <h3 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-[#f7f3e8]">
                 Custom Digital Solutions
               </h3>
               <div className="mt-4 flex items-center justify-center gap-2">
-                <span className="font-display text-4xl sm:text-5xl font-bold text-gradient">
+                <span className="font-display text-4xl sm:text-5xl font-bold text-gradient-accent">
                   Starting from $500+
                 </span>
               </div>
-              <p className="mt-2 text-xs text-cyan-400 font-medium">
+              <p className="mt-2 text-xs text-[#14b8a6] font-medium">
                 Final pricing depends on project scope
               </p>
-              <p className="mt-4 text-sm text-slate-400 leading-relaxed max-w-xl mx-auto">
+              <p className="mt-4 text-sm text-[#a8b0bf] leading-relaxed max-w-xl mx-auto">
                 If a custom project combines multiple advanced systems such as Website, Voice Agent,
                 AI Automation, Chatbot, and multiple integrations, the project scope is evaluated as
                 a whole and quoted transparently.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2 text-left text-xs sm:text-sm">
-                <div className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-white/[0.02] p-3.5 text-slate-300">
-                  <Check className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
+                <div className="flex items-start gap-2.5 rounded-xl border border-[rgba(247,243,232,0.08)] bg-white/[0.02] p-3.5 text-[#f7f3e8]">
+                  <Check className="h-4 w-4 text-[#14b8a6] mt-0.5 shrink-0" />
                   <span>Custom Combined Architecture (Web + AI + Workflows)</span>
                 </div>
-                <div className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-white/[0.02] p-3.5 text-slate-300">
-                  <Check className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
+                <div className="flex items-start gap-2.5 rounded-xl border border-[rgba(247,243,232,0.08)] bg-white/[0.02] p-3.5 text-[#f7f3e8]">
+                  <Check className="h-4 w-4 text-[#14b8a6] mt-0.5 shrink-0" />
                   <span>Bespoke System Integrations & Webhooks</span>
                 </div>
-                <div className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-white/[0.02] p-3.5 text-slate-300">
-                  <Check className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
+                <div className="flex items-start gap-2.5 rounded-xl border border-[rgba(247,243,232,0.08)] bg-white/[0.02] p-3.5 text-[#f7f3e8]">
+                  <Check className="h-4 w-4 text-[#14b8a6] mt-0.5 shrink-0" />
                   <span>Tailored Business Logic & Database Setup</span>
                 </div>
-                <div className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-white/[0.02] p-3.5 text-slate-300">
-                  <Check className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
+                <div className="flex items-start gap-2.5 rounded-xl border border-[rgba(247,243,232,0.08)] bg-white/[0.02] p-3.5 text-[#f7f3e8]">
+                  <Check className="h-4 w-4 text-[#14b8a6] mt-0.5 shrink-0" />
                   <span>End-to-End Testing, Handover & Revisions</span>
                 </div>
               </div>
@@ -574,7 +578,7 @@ export function Pricing() {
                     service: "Custom Digital Solution",
                     plan: "Custom Digital Solution — Starting from $500+",
                   }}
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-cyan-950/40 hover:from-cyan-400 hover:to-blue-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0f8b8d] to-[#14b8a6] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#f7f3e8] shadow-md shadow-[#0f8b8d]/30 hover:opacity-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
                 >
                   Discuss Custom Solution <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -582,7 +586,7 @@ export function Pricing() {
                   href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to discuss a Custom Digital Solution for my business.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-xs sm:text-sm font-medium text-slate-200 hover:bg-white/[0.08] hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                  className="inline-flex items-center gap-2 rounded-full border border-[rgba(247,243,232,0.12)] bg-[#162033] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#f7f3e8] hover:border-[#14b8a6]/40 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
                 >
                   <MessageSquare className="h-4 w-4 text-emerald-400" />
                   Chat on WhatsApp
@@ -593,7 +597,7 @@ export function Pricing() {
         )}
 
         {/* Pricing notes */}
-        <div className="mt-12 space-y-2 text-center text-xs text-slate-400">
+        <div className="mt-12 space-y-2 text-center text-xs text-[#a8b0bf]">
           <p>
             Final pricing may vary depending on project scope, integrations and custom requirements.
           </p>
@@ -606,14 +610,14 @@ export function Pricing() {
         {/* Important Cost Information */}
         <div className="mt-16 sm:mt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs text-slate-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#0f8b8d]/30 bg-[#0f8b8d]/10 px-3 py-1 text-xs text-[#f7f3e8]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#14b8a6] shadow-[0_0_8px_#14b8a6]" />
               Usage & Third-Party Costs
             </span>
-            <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl text-white">
+            <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl text-[#f7f3e8]">
               Important Cost Information
             </h3>
-            <p className="mt-3 text-sm text-slate-400 leading-relaxed">
+            <p className="mt-3 text-sm text-[#a8b0bf] leading-relaxed">
               Package prices cover development and initial setup unless otherwise stated.
               Third-party services and usage costs are billed separately.
             </p>
@@ -630,10 +634,10 @@ export function Pricing() {
             ].map((item) => (
               <div
                 key={item}
-                className="glass rounded-xl px-4 py-3 border border-white/8 flex items-center justify-center gap-2 text-center"
+                className="glass rounded-xl px-4 py-3 border border-[rgba(247,243,232,0.08)] flex items-center justify-center gap-2 text-center"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shrink-0" />
-                <span className="text-xs font-medium text-slate-200">{item}</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-[#14b8a6] shrink-0" />
+                <span className="text-xs font-medium text-[#f7f3e8]">{item}</span>
               </div>
             ))}
           </div>
@@ -643,15 +647,15 @@ export function Pricing() {
               href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to get a custom quote for my project.")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white hover:from-cyan-400 hover:to-blue-500 transition shadow-md shadow-cyan-950/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0f8b8d] to-[#14b8a6] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#f7f3e8] hover:opacity-95 transition shadow-md shadow-[#0f8b8d]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
             >
               Get Custom Quote <ArrowRight className="h-4 w-4" />
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-xs sm:text-sm font-medium text-slate-200 hover:bg-white/[0.08] hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+              className="inline-flex items-center gap-2 rounded-full border border-[rgba(247,243,232,0.12)] bg-[#162033] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#f7f3e8] hover:border-[#14b8a6]/40 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
             >
-              <MessageSquare className="h-4 w-4 text-cyan-400" />
+              <MessageSquare className="h-4 w-4 text-[#14b8a6]" />
               Send Project Details
             </Link>
           </div>

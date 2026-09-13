@@ -63,19 +63,21 @@ export function FAQSection() {
             return (
               <div
                 key={f.q}
-                className="glass rounded-2xl overflow-hidden border border-white/8 transition-colors hover:border-white/15"
+                className="glass rounded-2xl overflow-hidden border border-[rgba(247,243,232,0.08)] bg-[#111827]/60 transition-colors hover:border-[rgba(20,184,166,0.25)]"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display text-sm sm:text-base font-semibold text-white">
+                  <span className="font-display text-sm sm:text-base font-semibold text-[#F7F3E8]">
                     {f.q}
                   </span>
                   <span
-                    className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] transition-transform duration-200 ${
-                      isOpen ? "rotate-45 text-cyan-400 border-cyan-500/30" : "text-slate-400"
+                    className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border transition-transform duration-200 ${
+                      isOpen
+                        ? "rotate-45 text-[#14B8A6] border-[#14B8A6]/40 bg-[#14B8A6]/10"
+                        : "text-[#A8B0BF] border-[rgba(247,243,232,0.1)] bg-white/[0.02]"
                     }`}
                   >
                     <Plus className="h-4 w-4" />
@@ -89,7 +91,7 @@ export function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                     >
-                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm text-slate-400 leading-relaxed pt-0 border-t border-white/[0.04]">
+                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm text-[#A8B0BF] leading-relaxed pt-0 border-t border-[rgba(247,243,232,0.06)]">
                         {f.a}
                       </div>
                     </motion.div>
