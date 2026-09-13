@@ -70,7 +70,7 @@ export function Process() {
                   </div>
                 </div>
                 <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 md:top-1/2 md:-translate-y-1/2">
-                  <div className="h-4 w-4 rounded-full bg-gradient-to-br from-[#14b8a6] to-[#0f8b8d] shadow-[0_0_12px_rgba(20,184,166,0.6)] border-2 border-[#0b1220]" />
+                  <div className="h-4 w-4 rounded-full bg-gradient-to-br from-[#14b8a6] to-[#0f8b8d] shadow-[0_0_12px_rgba(20,184,166,0.6)] border-2 border-[#080d16]" />
                 </div>
                 <div className="hidden md:block md:w-1/2" />
               </motion.div>

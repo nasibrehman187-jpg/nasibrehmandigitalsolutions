@@ -192,7 +192,7 @@ export function Contact() {
                   value={form.message}
                   onChange={update("message")}
                   placeholder="Describe your project, requirements or the problem you want to solve..."
-                  className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#0B1220] px-4 py-3 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
+                  className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#080D16] px-4 py-3 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
                 />
               </div>
             </div>
@@ -205,7 +205,7 @@ export function Contact() {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <button
                 type="submit"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0F8B8D] to-[#14B8A6] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#0B1220] shadow-md shadow-[#0F8B8D]/20 hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0F8B8D] to-[#14B8A6] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#080D16] shadow-md shadow-[#0F8B8D]/20 hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
               >
                 <MessageSquare className="h-4 w-4" />
                 Send via WhatsApp
@@ -337,7 +337,7 @@ function Field({
           required={required}
           autoComplete={autoComplete}
           placeholder={placeholder}
-          className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#0B1220] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6] [color-scheme:dark]"
+          className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#080D16] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6] [color-scheme:dark]"
         />
       </div>
     </div>
@@ -367,13 +367,13 @@ function SelectField({
           id={id}
           value={value}
           onChange={onChange}
-          className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#0B1220] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6] [color-scheme:dark]"
+          className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#080D16] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6] [color-scheme:dark]"
         >
-          <option value="" className="bg-[#0B1220] text-[#A8B0BF]">
+          <option value="" className="bg-[#080D16] text-[#A8B0BF]">
             Select…
           </option>
           {options.map((o) => (
-            <option key={o} value={o} className="bg-[#0B1220] text-[#F7F3E8]">
+            <option key={o} value={o} className="bg-[#080D16] text-[#F7F3E8]">
               {o}
             </option>
           ))}

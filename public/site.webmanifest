@@ -4,8 +4,8 @@
   "description": "Digital Solution by Nasib Rehman — Websites, AI Automation & Voice Agents",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#12213D",
-  "theme_color": "#087E8B",
+  "background_color": "#080D16",
+  "theme_color": "#0F8B8D",
   "icons": [
     {
       "src": "/apple-touch-icon.png",

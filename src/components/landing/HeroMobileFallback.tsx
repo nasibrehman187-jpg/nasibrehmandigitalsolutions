@@ -31,7 +31,7 @@ export function HeroMobileFallback() {
             <stop offset="0%" stopColor="#2dd4bf" />
             <stop offset="35%" stopColor="#0f8b8d" />
             <stop offset="70%" stopColor="#162033" />
-            <stop offset="100%" stopColor="#0b1220" />
+            <stop offset="100%" stopColor="#080d16" />
           </radialGradient>
           <filter id="core-glow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="8" result="blur" />

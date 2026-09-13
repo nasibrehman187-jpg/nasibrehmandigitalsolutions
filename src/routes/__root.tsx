@@ -89,6 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#080D16" },
         { title: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents" },
         {
           name: "description",

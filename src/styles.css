@@ -38,7 +38,7 @@
 
 :root {
   --radius: 0.875rem;
-  --background: #0b1220;
+  --background: #080d16;
   --foreground: #f7f3e8;
   --card: #111827;
   --card-foreground: #f7f3e8;
@@ -54,7 +54,7 @@
   --muted: #162033;
   --muted-foreground: #a8b0bf;
   --accent: #d6a84b;
-  --accent-foreground: #0b1220;
+  --accent-foreground: #080d16;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: rgba(247, 243, 232, 0.08);
@@ -68,8 +68,8 @@
   --gradient-primary: linear-gradient(135deg, #0f8b8d 0%, #14b8a6 100%);
   --gradient-accent: linear-gradient(135deg, #0f8b8d 0%, #d6a84b 100%);
   --gradient-hero:
-    radial-gradient(ellipse at top, rgba(15, 139, 141, 0.14), transparent 60%),
-    radial-gradient(ellipse at bottom right, rgba(214, 168, 75, 0.08), transparent 60%);
+    radial-gradient(ellipse at top, rgba(15, 139, 141, 0.10), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(214, 168, 75, 0.05), transparent 60%);
   --shadow-glow: 0 0 32px -8px rgba(15, 139, 141, 0.3);
   --shadow-gold: 0 0 32px -8px rgba(214, 168, 75, 0.25);
   --shadow-elegant: 0 20px 48px -20px rgba(0, 0, 0, 0.75);
@@ -81,11 +81,11 @@
 
 html {
   color-scheme: dark;
-  background-color: #0b1220;
+  background-color: #080d16;
 }
 
 body {
-  background-color: #0b1220;
+  background-color: #080d16;
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -100,9 +100,9 @@ body::before {
   z-index: -10;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(15, 139, 141, 0.08), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 90% 25%, rgba(20, 184, 166, 0.04), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 10% 65%, rgba(214, 168, 75, 0.03), transparent 60%);
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(15, 139, 141, 0.06), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 25%, rgba(20, 184, 166, 0.03), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 10% 65%, rgba(214, 168, 75, 0.02), transparent 60%);
   transform: translateZ(0);
 }
 
@@ -117,11 +117,12 @@ body::before {
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    color: var(--color-foreground);
   }
-  a:focus-visible,
   button:focus-visible,
   input:focus-visible,
   select:focus-visible,
@@ -129,7 +130,7 @@ body::before {
   [tabindex]:focus-visible {
     outline: none;
     box-shadow:
-      0 0 0 2px #0b1220,
+      0 0 0 2px #080d16,
       0 0 0 4px rgba(20, 184, 166, 0.8);
   }
 }

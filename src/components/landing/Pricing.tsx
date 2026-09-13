@@ -404,8 +404,8 @@ export function Pricing() {
                 >
                   <div>
                     {p.badge && (
-                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full border border-[#d6a84b]/40 bg-[#d6a84b] px-3.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-[#0b1220] shadow-md shadow-[#d6a84b]/20">
-                        <Sparkles className="h-3 w-3 fill-[#0b1220]" /> {p.badge}
+                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full border border-[#d6a84b]/40 bg-[#d6a84b] px-3.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-[#080d16] shadow-md shadow-[#d6a84b]/20">
+                        <Sparkles className="h-3 w-3 fill-[#080d16]" /> {p.badge}
                       </div>
                     )}
                     <div className="font-display text-base font-semibold text-[#f7f3e8]">
