@@ -37,42 +37,49 @@ const FAQ = [
     a: "Voice Agent and AI package fees cover development and initial setup. Ongoing third-party usage charges (such as telephony minutes, phone number rental, AI model tokens, and speech-to-text / text-to-speech) are billed separately by their respective providers based on actual usage.",
   },
   {
-    q: "Do you work with international clients?",
-    a: "Yes. Projects are planned and delivered remotely for clients worldwide, with direct communication via WhatsApp and email.",
+    q: "Are services available remotely?",
+    a: "Yes. Digital Solution is available for remote projects, with direct communication with Nasib Rehman via WhatsApp and email throughout every phase.",
   },
 ];
 
 export function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
+    <section id="faq" className="content-auto relative pt-20 pb-20 sm:pt-24 sm:pb-28">
       <div className="mx-auto max-w-3xl px-6">
         <SectionHeader
           tag="FAQ"
           title={
             <>
-              Common <span className="text-gradient">questions</span>
+              Frequently Asked <span className="text-gradient">Questions</span>
             </>
           }
+          subtitle="Answers to common questions regarding pricing, workflows, integrations, and project delivery."
         />
 
-        <div className="mt-12 space-y-3">
+        <div className="mt-12 sm:mt-14 space-y-3">
           {FAQ.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className="glass rounded-2xl overflow-hidden">
+              <div
+                key={f.q}
+                className="glass rounded-2xl overflow-hidden border border-white/8 transition-colors hover:border-white/15"
+              >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 p-6 text-left"
+                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display text-base font-medium">{f.q}</span>
-                  <motion.span
-                    animate={{ rotate: isOpen ? 45 : 0 }}
-                    className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/5 border border-white/10"
+                  <span className="font-display text-sm sm:text-base font-semibold text-white">
+                    {f.q}
+                  </span>
+                  <span
+                    className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] transition-transform duration-200 ${
+                      isOpen ? "rotate-45 text-cyan-400 border-cyan-500/30" : "text-slate-400"
+                    }`}
                   >
                     <Plus className="h-4 w-4" />
-                  </motion.span>
+                  </span>
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -80,9 +87,9 @@ export function FAQSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.2, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed">
+                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm text-slate-400 leading-relaxed pt-0 border-t border-white/[0.04]">
                         {f.a}
                       </div>
                     </motion.div>

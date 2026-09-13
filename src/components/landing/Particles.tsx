@@ -36,7 +36,7 @@ export function Particles({ density = 16, inView = true }: { density?: number; i
       vx: (Math.random() - 0.5) * 0.18,
       vy: (Math.random() - 0.5) * 0.18,
       r: Math.random() * 1.5 + 0.5,
-      c: Math.random() > 0.5 ? "34, 211, 238" : "168, 85, 247",
+      c: Math.random() > 0.5 ? "34, 211, 238" : "129, 140, 248",
     }));
 
     // Static draw for reduced motion or coarse pointers

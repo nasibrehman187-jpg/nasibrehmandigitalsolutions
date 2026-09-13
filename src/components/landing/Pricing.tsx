@@ -341,7 +341,7 @@ export function Pricing() {
         />
 
         {/* Service Category Tabs */}
-        <div className="mt-12 flex flex-wrap justify-center gap-2">
+        <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-2">
           {TABS.map((t) => {
             const Icon = t.icon;
             const isActive = activeTab === t.id;
@@ -350,18 +350,16 @@ export function Pricing() {
                 key={t.id}
                 type="button"
                 onClick={() => setActiveTab(t.id)}
-                className={`group inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-medium transition-all ${
+                className={`group inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                   isActive
-                    ? "border border-cyan-400/30 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-violet-500/20 text-white shadow-[0_0_25px_-5px_rgba(56,189,248,0.5)]"
-                    : "border border-white/10 bg-white/5 text-muted-foreground hover:bg-white/10 hover:text-white"
+                    ? "border border-cyan-400/40 bg-cyan-500/15 text-white shadow-md shadow-cyan-950/40"
+                    : "border border-white/10 bg-white/[0.03] text-slate-400 hover:bg-white/[0.07] hover:text-white"
                 }`}
               >
-                <Icon
-                  className={`h-3.5 w-3.5 ${isActive ? "text-cyan-300" : "text-muted-foreground"}`}
-                />
+                <Icon className={`h-3.5 w-3.5 ${isActive ? "text-cyan-400" : "text-slate-400"}`} />
                 <span>{t.label}</span>
                 <span
-                  className={`rounded-full px-2 py-0.5 text-[10px] ${isActive ? "bg-white/15 text-cyan-200" : "bg-white/5 text-muted-foreground"}`}
+                  className={`rounded-full px-2 py-0.5 text-[10px] ${isActive ? "bg-white/15 text-cyan-300 font-semibold" : "bg-white/5 text-slate-400"}`}
                 >
                   {t.priceRange}
                 </span>
@@ -372,12 +370,12 @@ export function Pricing() {
 
         {/* Tab Header Label */}
         <div className="mt-8 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs text-slate-300">
             <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
             {activeTab === "websites" && "Website Development Packages"}
-            {activeTab === "voice-agents" && "AI Voice Agent Engineering Packages"}
             {activeTab === "chatbots" && "AI Chatbot Development Packages"}
             {activeTab === "automation" && "AI & Workflow Automation Packages"}
+            {activeTab === "voice-agents" && "AI Voice Agent Engineering Packages"}
             {activeTab === "custom" && "Custom Multi-System Architecture"}
           </span>
         </div>
@@ -390,52 +388,56 @@ export function Pricing() {
                 key={p.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className={`relative ${p.highlight ? "lg:-my-4" : ""}`}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className={`relative ${p.highlight ? "lg:-my-2" : ""}`}
               >
-                {p.highlight && (
-                  <div className="pointer-events-none absolute -inset-1 rounded-3xl bg-gradient-to-br from-cyan-500/60 via-blue-500/40 to-violet-500/60 blur-lg opacity-70 animate-pulse-glow" />
-                )}
                 <div
-                  className={`relative flex h-full flex-col justify-between rounded-3xl p-8 ${
-                    p.highlight ? "glass-strong border border-white/20" : "glass"
+                  className={`relative flex h-full flex-col justify-between rounded-3xl p-7 sm:p-8 transition-all duration-300 ${
+                    p.highlight
+                      ? "glass-strong border-2 border-cyan-400/40 shadow-xl shadow-cyan-950/20"
+                      : "glass border border-white/10 hover:border-white/20"
                   }`}
                 >
                   <div>
                     {p.badge && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white shadow-lg">
+                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-3 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-white shadow-md">
                         <Sparkles className="h-3 w-3" /> {p.badge}
                       </div>
                     )}
-                    <div className="font-display text-lg font-medium text-muted-foreground">
+                    <div className="font-display text-base font-semibold text-slate-300">
                       {p.name}
                     </div>
-                    <div className="mt-4 flex items-end gap-2">
+                    <div className="mt-3 flex items-baseline gap-2">
                       <span
-                        className={`font-display text-5xl font-semibold ${
-                          p.highlight ? "text-gradient" : ""
+                        className={`font-display text-4xl sm:text-5xl font-bold tracking-tight ${
+                          p.highlight ? "text-gradient" : "text-white"
                         }`}
                       >
                         {p.price}
                       </span>
-                      <span className="mb-1 text-sm text-muted-foreground">/ {p.per}</span>
+                      <span className="text-xs text-slate-400 font-medium">/ {p.per}</span>
                     </div>
-                    <div className="mt-2 text-xs text-cyan-300 font-medium">
-                      Delivery: {p.delivery}
+                    <div className="mt-2 text-xs text-cyan-400 font-medium">
+                      Estimated Delivery: {p.delivery}
                     </div>
 
-                    <p className="mt-4 text-sm text-muted-foreground">{p.description}</p>
+                    <p className="mt-4 text-sm text-slate-400 leading-relaxed">{p.description}</p>
 
-                    <ul className="mt-6 space-y-3">
-                      {p.features.map((f) => (
-                        <li key={f} className="flex items-start gap-3 text-sm">
-                          <span className="mt-0.5 grid h-5 w-5 place-items-center rounded-full bg-cyan-400/15 text-cyan-300 shrink-0">
-                            <Check className="h-3 w-3" />
-                          </span>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="mt-6 pt-5 border-t border-white/[0.06]">
+                      <div className="text-[11px] font-medium uppercase tracking-wider text-slate-400 mb-3">
+                        Included Features
+                      </div>
+                      <ul className="space-y-2.5">
+                        {p.features.map((f) => (
+                          <li key={f} className="flex items-start gap-2.5 text-xs text-slate-300">
+                            <span className="mt-0.5 grid h-4 w-4 place-items-center rounded-full bg-cyan-400/15 text-cyan-400 shrink-0">
+                              <Check className="h-2.5 w-2.5" />
+                            </span>
+                            <span className="leading-snug">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
                   <Link
@@ -451,13 +453,14 @@ export function Pricing() {
                               : "AI Automation",
                       plan: p.serviceParam,
                     }}
-                    className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
+                    className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                       p.highlight
-                        ? "bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 text-white shadow-[0_10px_40px_-10px_rgba(56,189,248,0.6)] hover:scale-[1.02]"
-                        : "border border-white/10 bg-white/5 hover:bg-white/10"
+                        ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-950/40 hover:from-cyan-400 hover:to-blue-500 hover:-translate-y-0.5"
+                        : "border border-white/10 bg-white/[0.04] text-slate-200 hover:bg-white/[0.08] hover:text-white"
                     }`}
                   >
-                    {p.cta} <ArrowRight className="h-4 w-4" />
+                    <span>{p.cta}</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </motion.div>
@@ -524,52 +527,54 @@ export function Pricing() {
             transition={{ duration: 0.4 }}
             className="mt-8 mx-auto max-w-3xl"
           >
-            <div className="glass-strong rounded-3xl border border-white/20 p-8 sm:p-10 text-center">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-500/20 to-violet-500/20 border border-cyan-400/30 px-3 py-1 text-xs font-semibold text-cyan-300">
+            <div className="glass-strong rounded-3xl border border-white/15 p-8 sm:p-10 text-center shadow-xl">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 px-3 py-1 text-xs font-semibold text-cyan-300">
                 <Layers className="h-3.5 w-3.5" /> Multi-System Architecture
               </span>
-              <h3 className="mt-4 font-display text-3xl font-semibold">Custom Digital Solutions</h3>
+              <h3 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-white">
+                Custom Digital Solutions
+              </h3>
               <div className="mt-4 flex items-center justify-center gap-2">
-                <span className="font-display text-5xl font-semibold text-gradient">
+                <span className="font-display text-4xl sm:text-5xl font-bold text-gradient">
                   Starting from $500+
                 </span>
               </div>
-              <p className="mt-2 text-xs text-cyan-300 font-medium">
+              <p className="mt-2 text-xs text-cyan-400 font-medium">
                 Final pricing depends on project scope
               </p>
-              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+              <p className="mt-4 text-sm text-slate-400 leading-relaxed max-w-xl mx-auto">
                 If a custom project combines multiple advanced systems such as Website, Voice Agent,
                 AI Automation, Chatbot, and multiple integrations, the project scope is evaluated as
                 a whole and quoted transparently.
               </p>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2 text-left text-sm">
-                <div className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+              <div className="mt-8 grid gap-3 sm:grid-cols-2 text-left text-xs sm:text-sm">
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-white/[0.02] p-3.5 text-slate-300">
                   <Check className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
                   <span>Custom Combined Architecture (Web + AI + Workflows)</span>
                 </div>
-                <div className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-white/[0.02] p-3.5 text-slate-300">
                   <Check className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
                   <span>Bespoke System Integrations & Webhooks</span>
                 </div>
-                <div className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-white/[0.02] p-3.5 text-slate-300">
                   <Check className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
                   <span>Tailored Business Logic & Database Setup</span>
                 </div>
-                <div className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-white/[0.02] p-3.5 text-slate-300">
                   <Check className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
                   <span>End-to-End Testing, Handover & Revisions</span>
                 </div>
               </div>
 
-              <div className="mt-8 flex flex-wrap justify-center items-center gap-4">
+              <div className="mt-8 flex flex-wrap justify-center items-center gap-3">
                 <Link
                   to="/contact"
                   search={{
                     service: "Custom Digital Solution",
                     plan: "Custom Digital Solution — Starting from $500+",
                   }}
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(56,189,248,0.6)] hover:scale-[1.02] transition"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-cyan-950/40 hover:from-cyan-400 hover:to-blue-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
                   Discuss Custom Solution <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -577,7 +582,7 @@ export function Pricing() {
                   href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to discuss a Custom Digital Solution for my business.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium hover:bg-white/10 transition"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-xs sm:text-sm font-medium text-slate-200 hover:bg-white/[0.08] hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
                   <MessageSquare className="h-4 w-4 text-emerald-400" />
                   Chat on WhatsApp
@@ -588,7 +593,7 @@ export function Pricing() {
         )}
 
         {/* Pricing notes */}
-        <div className="mt-12 space-y-2 text-center text-xs text-muted-foreground">
+        <div className="mt-12 space-y-2 text-center text-xs text-slate-400">
           <p>
             Final pricing may vary depending on project scope, integrations and custom requirements.
           </p>
@@ -599,16 +604,16 @@ export function Pricing() {
         </div>
 
         {/* Important Cost Information */}
-        <div className="mt-20">
+        <div className="mt-16 sm:mt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs text-slate-300">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
               Usage & Third-Party Costs
             </span>
-            <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
+            <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl text-white">
               Important Cost Information
             </h3>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-3 text-sm text-slate-400 leading-relaxed">
               Package prices cover development and initial setup unless otherwise stated.
               Third-party services and usage costs are billed separately.
             </p>
@@ -625,10 +630,10 @@ export function Pricing() {
             ].map((item) => (
               <div
                 key={item}
-                className="glass rounded-xl px-4 py-3 border border-white/5 flex items-center justify-center gap-2 text-center"
+                className="glass rounded-xl px-4 py-3 border border-white/8 flex items-center justify-center gap-2 text-center"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shrink-0" />
-                <span className="text-xs font-medium text-foreground/90">{item}</span>
+                <span className="text-xs font-medium text-slate-200">{item}</span>
               </div>
             ))}
           </div>
@@ -638,15 +643,15 @@ export function Pricing() {
               href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to get a custom quote for my project.")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition shadow-[0_10px_30px_-10px_rgba(56,189,248,0.5)]"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white hover:from-cyan-400 hover:to-blue-500 transition shadow-md shadow-cyan-950/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
               Get Custom Quote <ArrowRight className="h-4 w-4" />
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium hover:bg-white/10 transition"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-xs sm:text-sm font-medium text-slate-200 hover:bg-white/[0.08] hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
-              <MessageSquare className="h-4 w-4 text-cyan-300" />
+              <MessageSquare className="h-4 w-4 text-cyan-400" />
               Send Project Details
             </Link>
           </div>

@@ -8,13 +8,13 @@ export const Route = createFileRoute("/services/")({
       {
         name: "description",
         content:
-          "Professional website development, AI automation, AI chatbots and AI voice agent services for businesses.",
+          "Professional website development, AI chatbots, AI automation, AI voice agents, and custom digital solutions for growing businesses.",
       },
       { property: "og:title", content: "Services — Digital Solution by Nasib Rehman" },
       {
         property: "og:description",
         content:
-          "Websites, AI automation, chatbots and voice agents — practical digital solutions for growing businesses.",
+          "Websites, AI chatbots, AI automation, AI voice agents, and custom digital solutions for growing businesses.",
       },
     ],
   }),

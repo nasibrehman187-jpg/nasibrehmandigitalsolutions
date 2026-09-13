@@ -24,7 +24,7 @@ export const SERVICES: Service[] = [
     title: "Website Development",
     tagline: "Professional websites for businesses that need a strong online presence",
     desc: "Professional, responsive websites built for businesses that need a strong online presence and an easier way for customers to contact them.",
-    color: "from-cyan-400 to-blue-500",
+    color: "from-cyan-500 to-blue-600",
     features: [
       "Business Websites",
       "Landing Pages",
@@ -40,13 +40,29 @@ export const SERVICES: Service[] = [
     ],
   },
   {
+    slug: "ai-chatbots",
+    icon: Bot,
+    title: "AI Chatbots",
+    tagline: "AI chat assistants for FAQs, customer questions and structured support",
+    desc: "AI chat assistants for FAQs, customer questions, lead capture and structured business support.",
+    color: "from-cyan-500 to-indigo-500",
+    features: [
+      "Website Chatbots",
+      "FAQ Assistants",
+      "Lead Capture",
+      "Business Knowledge Assistants",
+      "AI-powered Responses",
+      "API-connected Chatbots",
+    ],
+  },
+  {
     slug: "ai-automation",
     icon: Workflow,
     title: "AI Automation",
     tagline:
       "Custom automation workflows that reduce repetitive manual work and connect business tools",
     desc: "Custom automation workflows designed to reduce repetitive manual work, connect business tools and streamline digital processes.",
-    color: "from-blue-400 to-indigo-500",
+    color: "from-blue-500 to-indigo-600",
     features: [
       "n8n Automation",
       "Lead Management Workflows",
@@ -60,28 +76,12 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: "ai-chatbots",
-    icon: Bot,
-    title: "AI Chatbots",
-    tagline: "AI chat assistants for FAQs, customer questions and structured support",
-    desc: "AI chat assistants for FAQs, customer questions, lead capture and structured business support.",
-    color: "from-violet-400 to-fuchsia-500",
-    features: [
-      "Website Chatbots",
-      "FAQ Assistants",
-      "Lead Capture",
-      "Business Knowledge Assistants",
-      "AI-powered Responses",
-      "API-connected Chatbots",
-    ],
-  },
-  {
     slug: "ai-voice-agents",
     icon: Mic,
     title: "AI Voice Agents",
     tagline: "AI-powered calling assistants for structured customer conversations",
     desc: "AI-powered calling assistants designed for structured customer conversations and business workflows.",
-    color: "from-fuchsia-400 to-rose-500",
+    color: "from-indigo-500 to-[#818cf8]",
     features: [
       "Inbound Call Handling",
       "Customer Inquiries",
@@ -97,7 +97,7 @@ export const SERVICES: Service[] = [
     title: "Custom Digital Solutions",
     tagline: "Combined websites, automation and AI tailored to your business workflow",
     desc: "Websites, automation, chatbots and voice AI can be combined into a custom solution based on a specific business workflow.",
-    color: "from-cyan-400 to-violet-500",
+    color: "from-cyan-500 to-[#818cf8]",
     features: [
       "Custom Project Scoping",
       "Multi-service Combinations",

@@ -31,41 +31,46 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section id="process" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
+    <section id="process" className="content-auto relative pt-20 pb-20 sm:pt-24 sm:pb-28">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeader
           tag="How We Work"
           title={
             <>
-              A simple <span className="text-gradient">process</span> from start to launch
+              A Clear, Direct <span className="text-gradient">Process</span> from Start to Launch
             </>
           }
-          subtitle="A simple process from understanding your requirements to launching the final solution."
+          subtitle="Every project follows a straightforward, structured path so you know exactly what is happening at each stage."
         />
 
-        <div className="mt-20 relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/60 via-violet-500/60 to-transparent" />
-          <div className="space-y-12">
+        <div className="mt-16 sm:mt-20 relative">
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/50 via-[#818cf8]/30 to-transparent" />
+          <div className="space-y-10 sm:space-y-12">
             {STEPS.map((s, i) => (
               <motion.div
                 key={s.n}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.45 }}
                 className={`relative flex flex-col md:flex-row ${i % 2 ? "md:flex-row-reverse" : ""} items-start md:items-center gap-6`}
               >
-                <div className="md:w-1/2 pl-12 md:pl-0 md:px-10">
-                  <div className="glass rounded-2xl p-6">
-                    <div className="font-display text-3xl font-semibold text-gradient">{s.n}</div>
-                    <h3 className="mt-2 font-display text-xl font-semibold">{s.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                <div className="md:w-1/2 pl-12 md:pl-0 md:px-8">
+                  <div className="glass relative rounded-2xl p-6 sm:p-7 border border-white/10 hover:border-white/20 transition-colors">
+                    {/* Hairline top gradient border */}
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                    <div className="font-display text-2xl sm:text-3xl font-bold text-cyan-400">
+                      {s.n}
+                    </div>
+                    <h3 className="mt-2 font-display text-lg sm:text-xl font-semibold text-white">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-400 leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
                 <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 md:top-1/2 md:-translate-y-1/2">
-                  <div className="relative h-4 w-4 rounded-full bg-gradient-to-br from-cyan-400 to-violet-500 shadow-[0_0_20px_rgba(56,189,248,0.9)]">
-                    <div className="absolute inset-0 animate-ping rounded-full bg-cyan-400/50" />
-                  </div>
+                  <div className="h-4 w-4 rounded-full bg-gradient-to-br from-cyan-400 to-[#818cf8] shadow-[0_0_12px_rgba(34,211,238,0.7)] border-2 border-[#050816]" />
                 </div>
                 <div className="hidden md:block md:w-1/2" />
               </motion.div>

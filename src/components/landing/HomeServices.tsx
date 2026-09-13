@@ -8,7 +8,8 @@ const SERVICES = [
     icon: Globe,
     title: "Website Development",
     desc: "Modern, responsive websites designed to help businesses build credibility, generate inquiries and make it easier for customers to get in touch.",
-    color: "from-cyan-400 to-blue-500",
+    accent: "text-cyan-400",
+    iconBg: "from-cyan-500/15 to-blue-500/15 border-cyan-500/20",
     slug: "website-development",
     capabilities: [
       "Business Websites",
@@ -19,24 +20,11 @@ const SERVICES = [
     ],
   },
   {
-    icon: Workflow,
-    title: "AI Automation",
-    desc: "Custom n8n workflows, APIs and system connections that reduce repetitive manual work and connect business tools.",
-    color: "from-blue-400 to-indigo-500",
-    slug: "ai-automation",
-    capabilities: [
-      "n8n Automation",
-      "Lead Management",
-      "Google Sheets",
-      "API Integrations",
-      "Business Process Automation",
-    ],
-  },
-  {
     icon: Bot,
     title: "AI Chatbots",
     desc: "AI chat assistants for FAQs, customer questions, lead capture and structured business support.",
-    color: "from-violet-400 to-fuchsia-500",
+    accent: "text-cyan-300",
+    iconBg: "from-cyan-500/15 to-indigo-500/15 border-cyan-500/20",
     slug: "ai-chatbots",
     capabilities: [
       "Website Chatbots",
@@ -47,10 +35,26 @@ const SERVICES = [
     ],
   },
   {
+    icon: Workflow,
+    title: "AI Automation",
+    desc: "Custom n8n workflows, APIs and system connections that reduce repetitive manual work and connect business tools.",
+    accent: "text-blue-400",
+    iconBg: "from-blue-500/15 to-indigo-500/15 border-blue-500/20",
+    slug: "ai-automation",
+    capabilities: [
+      "n8n Automation",
+      "Lead Management",
+      "Google Sheets",
+      "API Integrations",
+      "Business Process Automation",
+    ],
+  },
+  {
     icon: Mic,
     title: "AI Voice Agents",
     desc: "AI calling assistants for customer inquiries, appointment requests, lead qualification and structured business call workflows.",
-    color: "from-fuchsia-400 to-rose-500",
+    accent: "text-[#818cf8]",
+    iconBg: "from-indigo-500/15 to-[#818cf8]/15 border-[#818cf8]/20",
     slug: "ai-voice-agents",
     capabilities: [
       "Inbound Call Handling",
@@ -64,7 +68,7 @@ const SERVICES = [
 
 export function HomeServices() {
   return (
-    <section id="services" className="content-auto relative pt-12 pb-24 lg:pt-16 lg:pb-32">
+    <section id="services" className="content-auto relative pt-14 pb-20 lg:pt-18 lg:pb-28">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           tag="Services"
@@ -76,60 +80,82 @@ export function HomeServices() {
           subtitle="From professional websites to intelligent automation, we build practical digital solutions designed around real business needs."
         />
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2">
           {SERVICES.map((s, i) => (
             <motion.div
               key={s.slug}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.45, delay: i * 0.07 }}
               className="group relative"
             >
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-cyan-500/40 via-blue-500/20 to-violet-500/40 opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="glass relative h-full block overflow-hidden rounded-2xl p-6 transition-transform duration-500 group-hover:-translate-y-1">
-                <div
-                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-20 blur-3xl transition-opacity group-hover:opacity-40"
-                  style={{ background: "conic-gradient(from 90deg, #22d3ee, #a855f7, #22d3ee)" }}
-                />
-                <div
-                  className={`inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${s.color} shadow-[0_10px_30px_-10px_rgba(56,189,248,0.6)]`}
-                >
-                  <s.icon className="h-6 w-6 text-white" />
+              <div className="glass relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
+                {/* Hairline top gradient border on hover */}
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div>
+                  <div className="flex items-center justify-between gap-4">
+                    <div
+                      className={`inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${s.iconBg} border`}
+                    >
+                      <s.icon className={`h-6 w-6 ${s.accent}`} />
+                    </div>
+                    <Link
+                      to="/services/$slug"
+                      params={{ slug: s.slug }}
+                      className="text-xs font-medium text-slate-400 hover:text-cyan-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md py-1 px-1.5"
+                    >
+                      Learn more →
+                    </Link>
+                  </div>
+
+                  <h3 className="mt-5 font-display text-xl font-semibold text-white">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{s.desc}</p>
                 </div>
-                <h3 className="mt-5 font-display text-xl font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {s.capabilities.map((cap) => (
-                    <li key={cap} className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <CheckCircle2 className="h-3 w-3 text-cyan-400 shrink-0" />
-                      {cap}
-                    </li>
-                  ))}
-                </ul>
+
+                <div className="mt-6 pt-5 border-t border-white/[0.06]">
+                  <div className="text-[11px] font-medium uppercase tracking-wider text-slate-400 mb-2.5">
+                    Core Capabilities
+                  </div>
+                  <ul className="flex flex-wrap gap-2">
+                    {s.capabilities.map((cap) => (
+                      <li
+                        key={cap}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-white/8 bg-white/[0.03] px-2.5 py-1 text-xs text-slate-300"
+                      >
+                        <CheckCircle2 className="h-3 w-3 text-cyan-400 shrink-0" />
+                        {cap}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Custom Solutions CTA */}
+        {/* Custom Solutions Full-width Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-6 relative group"
         >
-          <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-cyan-500/30 via-blue-500/20 to-violet-500/30 opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-100" />
-          <div className="glass relative rounded-2xl p-6 border border-white/5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="glass relative rounded-2xl p-6 sm:p-8 border border-white/10 overflow-hidden">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#818cf8]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-start gap-4">
-                <div className="inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-cyan-400/20 to-violet-500/20 border border-white/10 shrink-0">
+                <div className="inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-cyan-500/15 to-[#818cf8]/15 border border-cyan-500/20 shrink-0">
                   <Wrench className="h-6 w-6 text-cyan-300" />
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-semibold">Custom Digital Solutions</h3>
-                  <p className="mt-1 text-sm text-muted-foreground max-w-xl">
+                  <h3 className="font-display text-lg sm:text-xl font-semibold text-white">
+                    Custom Digital Solutions
+                  </h3>
+                  <p className="mt-1 text-sm text-slate-400 max-w-2xl leading-relaxed">
                     Websites, automation, chatbots and voice AI can be combined into a custom
                     solution based on your specific business workflow.
                   </p>
@@ -137,7 +163,8 @@ export function HomeServices() {
               </div>
               <Link
                 to="/contact"
-                className="shrink-0 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition"
+                search={{ service: "Custom Digital Solution" }}
+                className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:from-cyan-400 hover:to-blue-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               >
                 Discuss Your Project
               </Link>

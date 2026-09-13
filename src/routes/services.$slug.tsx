@@ -53,24 +53,24 @@ function ServiceDetailPage() {
             transition={{ duration: 0.6 }}
           >
             <div
-              className={`inline-grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br ${service.color} shadow-[0_10px_40px_-10px_rgba(56,189,248,0.6)]`}
+              className={`inline-grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br ${service.color} shadow-md shadow-cyan-950/40`}
             >
               <service.icon className="h-7 w-7 text-white" />
             </div>
-            <h1 className="mt-5 font-display text-4xl sm:text-5xl font-semibold tracking-tight">
+            <h1 className="mt-5 font-display text-4xl sm:text-5xl font-semibold tracking-tight text-white">
               {service.title}
             </h1>
-            <p className="mt-3 text-lg text-muted-foreground">{service.tagline}</p>
-            <p className="mt-4 text-sm text-muted-foreground max-w-xl">{service.desc}</p>
+            <p className="mt-3 text-lg text-slate-300">{service.tagline}</p>
+            <p className="mt-4 text-sm text-slate-400 max-w-xl leading-relaxed">{service.desc}</p>
 
             <div className="mt-6 max-w-xl">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
+              <div className="text-xs uppercase tracking-wider text-slate-400 font-medium mb-3">
                 Capabilities
               </div>
               <ul className="grid gap-2 sm:grid-cols-2">
                 {service.features.map((f: string) => (
-                  <li key={f} className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
+                  <li key={f} className="flex items-start gap-2 text-sm text-slate-300">
+                    <CheckCircle2 className="h-4 w-4 text-cyan-400 mt-0.5 shrink-0" />
                     <span>{f}</span>
                   </li>
                 ))}
@@ -80,13 +80,14 @@ function ServiceDetailPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${service.color} px-6 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90`}
+                search={{ service: service.title }}
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-medium text-white shadow-md shadow-cyan-950/30 hover:opacity-95 transition"
               >
                 Discuss Your Project <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/pricing"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold backdrop-blur-md hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-medium text-slate-200 hover:bg-white/[0.08] hover:border-white/20 transition"
               >
                 View Pricing
               </Link>
@@ -94,15 +95,12 @@ function ServiceDetailPage() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="relative"
           >
-            <div
-              className={`absolute -inset-6 rounded-3xl bg-gradient-to-br ${service.color} opacity-20 blur-3xl`}
-            />
-            <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur-md">
+            <div className="rounded-3xl border border-white/10 bg-[#070c1e]/90 p-8 shadow-xl shadow-black/40">
               <div className="flex items-start gap-4">
                 <span
                   className={`inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${service.color} shrink-0`}
@@ -110,18 +108,20 @@ function ServiceDetailPage() {
                   <service.icon className="h-6 w-6 text-white" />
                 </span>
                 <div>
-                  <div className="font-display text-xl font-semibold">{service.title}</div>
-                  <div className="mt-1 text-sm text-muted-foreground">{service.tagline}</div>
+                  <div className="font-display text-xl font-semibold text-white">
+                    {service.title}
+                  </div>
+                  <div className="mt-1 text-sm text-slate-400">{service.tagline}</div>
                 </div>
               </div>
               <div className="mt-6 space-y-3">
                 {service.features.slice(0, 5).map((f: string) => (
                   <div
                     key={f}
-                    className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                    className="flex items-center gap-3 rounded-xl border border-white/5 bg-[#050816]/70 px-4 py-3"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                    <span className="text-sm">{f}</span>
+                    <CheckCircle2 className="h-4 w-4 text-cyan-400 shrink-0" />
+                    <span className="text-sm text-slate-300">{f}</span>
                   </div>
                 ))}
               </div>
@@ -130,23 +130,20 @@ function ServiceDetailPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-20 glass rounded-3xl p-8 sm:p-12 text-center overflow-hidden relative">
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{ background: "var(--gradient-hero)" }}
-          />
+        <div className="mt-20 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8 sm:p-12 text-center relative">
           <div className="relative">
-            <h3 className="font-display text-3xl sm:text-4xl font-semibold">
+            <h3 className="font-display text-3xl sm:text-4xl font-semibold text-white">
               Interested in <span className="text-gradient">{service.title}</span> for your
               business?
             </h3>
-            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Send your requirements and we can discuss what's needed for your project.
+            <p className="mt-3 text-slate-400 max-w-xl mx-auto">
+              Direct communication with Nasib Rehman • No-obligation project discussion
             </p>
             <div className="mt-6 flex justify-center gap-3 flex-wrap">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white"
+                search={{ service: service.title }}
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-medium text-white shadow-md shadow-cyan-950/30 hover:opacity-95 transition"
               >
                 Discuss Your Project <ArrowRight className="h-4 w-4" />
               </Link>
@@ -154,7 +151,7 @@ function ServiceDetailPage() {
                 href={`https://wa.me/923317962794?text=${encodeURIComponent(`Hi Nasib, I'm interested in ${service.title} for my business.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-300 px-6 py-3 text-sm font-medium hover:bg-emerald-500/20 transition"
               >
                 <MessageSquare className="h-4 w-4 text-emerald-400" />
                 Chat on WhatsApp

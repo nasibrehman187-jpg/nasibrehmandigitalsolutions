@@ -17,35 +17,36 @@ export function Services() {
           subtitle="From professional websites to intelligent automation, we build practical digital solutions designed around real business needs."
         />
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 sm:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <motion.div
               key={s.slug}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.45, delay: i * 0.05 }}
               className="group relative"
             >
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-cyan-500/40 via-blue-500/20 to-violet-500/40 opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-100" />
               <Link
                 to="/services/$slug"
                 params={{ slug: s.slug }}
-                className="glass relative h-full block overflow-hidden rounded-2xl p-6 transition-transform duration-500 group-hover:-translate-y-1"
+                className="glass relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:border-white/20 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               >
-                <div
-                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-20 blur-3xl transition-opacity group-hover:opacity-40"
-                  style={{ background: "conic-gradient(from 90deg, #22d3ee, #a855f7, #22d3ee)" }}
-                />
-                <div
-                  className={`inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${s.color} shadow-[0_10px_30px_-10px_rgba(56,189,248,0.6)]`}
-                >
-                  <s.icon className="h-6 w-6 text-white" />
+                {/* Hairline top gradient border on hover */}
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div>
+                  <div
+                    className={`inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${s.color} shadow-md shadow-black/40`}
+                  >
+                    <s.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="mt-5 font-display text-xl font-semibold text-white">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{s.desc}</p>
                 </div>
-                <h3 className="mt-5 font-display text-xl font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                <div className="mt-6 inline-flex items-center gap-1.5 text-xs font-medium text-cyan-300">
-                  Learn more
+
+                <div className="mt-6 pt-4 border-t border-white/[0.06] inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400">
+                  <span>Learn more</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
               </Link>
@@ -74,18 +75,18 @@ export function SectionHeader({
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted-foreground backdrop-blur-md"
+        transition={{ duration: 0.45 }}
+        className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs text-slate-300"
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
-        {tag}
+        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
+        <span className="font-medium tracking-wide uppercase text-[11px]">{tag}</span>
       </motion.div>
       <motion.h2
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.05 }}
-        className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl"
+        transition={{ duration: 0.5, delay: 0.05 }}
+        className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-white"
       >
         {title}
       </motion.h2>
@@ -94,8 +95,8 @@ export function SectionHeader({
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-4 text-muted-foreground"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed"
         >
           {subtitle}
         </motion.p>

@@ -6,10 +6,10 @@ import { SectionHeader } from "./Services";
 
 const SERVICE_OPTIONS = [
   "Website Development",
+  "AI Chatbots",
   "AI Automation",
-  "AI Chatbot",
-  "AI Voice Agent",
-  "Custom Digital Solution",
+  "AI Voice Agents",
+  "Custom Digital Solutions",
 ];
 
 const BUDGET_OPTIONS = ["Under $200", "$200 – $500", "$500 – $1,000", "$1,000+", "Not sure yet"];
@@ -41,9 +41,20 @@ export function Contact() {
           initialMessage = `I am interested in the ${p} package.\n\nProject details: `;
         }
 
+        // Match service accurately whether singular or plural
+        const matchedService = SERVICE_OPTIONS.find(
+          (opt) =>
+            opt.toLowerCase() === s?.toLowerCase() ||
+            (s?.toLowerCase().includes("chatbot") && opt === "AI Chatbots") ||
+            (s?.toLowerCase().includes("voice") && opt === "AI Voice Agents") ||
+            (s?.toLowerCase().includes("website") && opt === "Website Development") ||
+            (s?.toLowerCase().includes("automation") && opt === "AI Automation") ||
+            (s?.toLowerCase().includes("custom") && opt === "Custom Digital Solutions"),
+        );
+
         setForm((prev) => ({
           ...prev,
-          service: s && SERVICE_OPTIONS.includes(s) ? s : prev.service,
+          service: matchedService || prev.service,
           message: initialMessage || prev.message,
         }));
       }
@@ -170,32 +181,31 @@ export function Contact() {
             <div className="mt-5">
               <label
                 htmlFor="contact-message"
-                className="text-xs uppercase tracking-wider text-muted-foreground"
+                className="text-xs uppercase tracking-wider text-slate-400 font-medium"
               >
                 Project Details
               </label>
               <div className="relative mt-2 rounded-xl">
-                <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-cyan-500/40 via-blue-500/20 to-violet-500/40 opacity-0 blur transition-opacity focus-within:opacity-100" />
                 <textarea
                   id="contact-message"
                   rows={5}
                   value={form.message}
                   onChange={update("message")}
                   placeholder="Describe your project, requirements or the problem you want to solve..."
-                  className="relative w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/60 focus:border-cyan-400/50"
+                  className="relative w-full rounded-xl border border-white/10 bg-[#070c1e] px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
                 />
               </div>
             </div>
 
-            <p className="mt-4 text-xs text-muted-foreground">
-              Your project details will open in WhatsApp or your email app for you to review and
-              send.
+            <p className="mt-4 text-xs text-slate-400">
+              Your project details will open directly in WhatsApp or your email client for you to
+              review and send.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <button
                 type="submit"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(56,189,248,0.6)] transition hover:scale-[1.02]"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-cyan-950/40 hover:from-cyan-400 hover:to-blue-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               >
                 <MessageSquare className="h-4 w-4" />
                 Send via WhatsApp
@@ -203,14 +213,14 @@ export function Contact() {
               <button
                 type="button"
                 onClick={onSendEmail}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium hover:bg-white/10 transition"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-xs sm:text-sm font-medium text-slate-200 hover:bg-white/[0.08] hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               >
-                <Mail className="h-4 w-4 text-cyan-300" />
+                <Mail className="h-4 w-4 text-cyan-400" />
                 Send via Email
               </button>
             </div>
 
-            <p className="mt-4 text-xs text-muted-foreground/80">
+            <p className="mt-4 text-xs text-slate-400">
               Direct communication with Nasib Rehman • No-obligation project discussion
             </p>
           </motion.form>
@@ -223,12 +233,12 @@ export function Contact() {
             className="space-y-6 lg:col-span-2"
           >
             {/* Contact info */}
-            <div className="glass rounded-2xl p-6">
-              <div className="font-display text-lg font-semibold">Get in Touch</div>
+            <div className="glass rounded-2xl p-6 sm:p-7 border border-white/10">
+              <div className="font-display text-lg font-semibold text-white">Direct Contact</div>
               <ul className="mt-4 space-y-4 text-sm">
                 <InfoRow
                   icon={MessageSquare}
-                  label="Chat on WhatsApp"
+                  label="Chat on WhatsApp (+92 331 7962794)"
                   href="https://wa.me/923317962794"
                   isLink
                 />
@@ -248,30 +258,40 @@ export function Contact() {
               href="https://wa.me/923317962794"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass group flex items-center gap-4 rounded-2xl p-6 transition hover:bg-white/5"
+              className="glass group flex items-center gap-4 rounded-2xl p-5 border border-emerald-500/20 bg-emerald-500/5 transition hover:bg-emerald-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
             >
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-emerald-500/30 bg-emerald-500/20">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-emerald-500/30 bg-emerald-500/20">
                 <MessageSquare className="h-5 w-5 text-emerald-400" />
               </span>
               <div>
-                <div className="text-sm font-semibold">Chat on WhatsApp</div>
-                <div className="mt-0.5 text-xs text-muted-foreground">+92 331 7962794</div>
+                <div className="text-sm font-semibold text-white">Chat on WhatsApp</div>
+                <div className="mt-0.5 text-xs text-slate-400">+92 331 7962794</div>
               </div>
-              <Send className="ml-auto h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
+              <Send className="ml-auto h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-1" />
             </a>
 
-            {/* Services quick reference */}
-            <div className="glass rounded-2xl p-6">
-              <div className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">
-                Services Available
+            {/* Trust highlights */}
+            <div className="glass rounded-2xl p-6 border border-white/10">
+              <div className="mb-3 text-xs uppercase tracking-wider text-slate-400 font-medium">
+                Working Together
               </div>
-              <ul className="space-y-2 text-sm">
-                {SERVICE_OPTIONS.map((s) => (
-                  <li key={s} className="flex items-center gap-2 text-muted-foreground">
-                    <span className="h-1 w-1 rounded-full bg-cyan-400" />
-                    {s}
-                  </li>
-                ))}
+              <ul className="space-y-2.5 text-xs text-slate-300">
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                  Direct communication with Nasib Rehman
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                  No-obligation project discussion
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#818cf8]" />
+                  Available for remote projects
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#818cf8]" />
+                  Clear scope & transparent pricing
+                </li>
               </ul>
             </div>
           </motion.div>
@@ -302,12 +322,11 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-wider text-muted-foreground">
+      <label htmlFor={id} className="text-xs uppercase tracking-wider text-slate-400 font-medium">
         {label}
         {required && <span className="text-cyan-400"> *</span>}
       </label>
       <div className="relative mt-2 rounded-xl">
-        <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-cyan-500/40 via-blue-500/20 to-violet-500/40 opacity-0 blur transition-opacity focus-within:opacity-100" />
         <input
           id={id}
           type={type}
@@ -316,7 +335,7 @@ function Field({
           required={required}
           autoComplete={autoComplete}
           placeholder={placeholder}
-          className="relative w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/60 focus:border-cyan-400/50 [color-scheme:dark]"
+          className="relative w-full rounded-xl border border-white/10 bg-[#070c1e] px-4 py-2.5 text-sm text-white outline-none placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 [color-scheme:dark]"
         />
       </div>
     </div>
@@ -338,7 +357,7 @@ function SelectField({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-wider text-muted-foreground">
+      <label htmlFor={id} className="text-xs uppercase tracking-wider text-slate-400 font-medium">
         {label}
       </label>
       <div className="relative mt-2 rounded-xl">
@@ -346,11 +365,13 @@ function SelectField({
           id={id}
           value={value}
           onChange={onChange}
-          className="relative w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none focus:border-cyan-400/50 [color-scheme:dark]"
+          className="relative w-full rounded-xl border border-white/10 bg-[#070c1e] px-4 py-2.5 text-sm text-white outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 [color-scheme:dark]"
         >
-          <option value="">Select…</option>
+          <option value="" className="bg-[#070c1e] text-slate-400">
+            Select…
+          </option>
           {options.map((o) => (
-            <option key={o} value={o}>
+            <option key={o} value={o} className="bg-[#070c1e] text-white">
               {o}
             </option>
           ))}
@@ -372,11 +393,11 @@ function InfoRow({
   isLink?: boolean;
 }) {
   const content = (
-    <li className="flex items-center gap-3">
-      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-cyan-500/20 to-violet-500/20">
-        <Icon className="h-4 w-4 text-cyan-300" />
+    <li className="flex items-center gap-3 text-slate-300">
+      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-cyan-500/20 bg-cyan-500/10">
+        <Icon className="h-4 w-4 text-cyan-400" />
       </span>
-      <span className={isLink ? "transition-colors hover:text-foreground" : ""}>{label}</span>
+      <span className={isLink ? "transition-colors hover:text-white" : ""}>{label}</span>
     </li>
   );
 
@@ -386,6 +407,7 @@ function InfoRow({
         href={href}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel="noopener noreferrer"
+        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg"
       >
         {content}
       </a>

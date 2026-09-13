@@ -4,12 +4,12 @@ export function HeroMobileFallback() {
       className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[2rem]"
       aria-hidden="true"
     >
-      {/* Ambient background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-violet-500/10" />
+      {/* Ambient background glow - restrained */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-[#818cf8]/10" />
 
       {/* Outer ambient blur */}
-      <div className="absolute h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl lg:h-80 lg:w-80" />
-      <div className="absolute h-56 w-56 rounded-full bg-violet-600/20 blur-3xl lg:h-72 lg:w-72" />
+      <div className="absolute h-64 w-64 rounded-full bg-cyan-500/15 blur-3xl lg:h-80 lg:w-80" />
+      <div className="absolute h-56 w-56 rounded-full bg-[#818cf8]/12 blur-3xl lg:h-72 lg:w-72" />
 
       {/* SVG Orbital Rings & Accents */}
       <svg
@@ -24,14 +24,14 @@ export function HeroMobileFallback() {
             <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.25" />
           </linearGradient>
           <linearGradient id="orb-grad-violet" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#818cf8" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#6366f1" stopOpacity="0.25" />
           </linearGradient>
           <radialGradient id="sphere-core" cx="35%" cy="35%" r="65%">
             <stop offset="0%" stopColor="#93c5fd" />
             <stop offset="35%" stopColor="#3b82f6" />
-            <stop offset="70%" stopColor="#1d4ed8" />
-            <stop offset="100%" stopColor="#0f172a" />
+            <stop offset="70%" stopColor="#1e293b" />
+            <stop offset="100%" stopColor="#050816" />
           </radialGradient>
           <filter id="core-glow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="8" result="blur" />
@@ -52,7 +52,7 @@ export function HeroMobileFallback() {
           opacity="0.85"
         />
 
-        {/* Outer Ring 2 (tilted violet) */}
+        {/* Outer Ring 2 (tilted restrained indigo) */}
         <ellipse
           cx="200"
           cy="200"
@@ -70,9 +70,9 @@ export function HeroMobileFallback() {
           cy="200"
           rx="185"
           ry="65"
-          stroke="#60a5fa"
+          stroke="#38bdf8"
           strokeWidth="1"
-          strokeOpacity="0.4"
+          strokeOpacity="0.35"
           transform="rotate(-5 200 200)"
         />
 
@@ -86,16 +86,16 @@ export function HeroMobileFallback() {
           rx="32"
           ry="18"
           fill="#ffffff"
-          opacity="0.35"
+          opacity="0.3"
           transform="rotate(-30 175 168)"
         />
 
         {/* Orbital Nodes */}
         <circle cx="95" cy="145" r="4.5" fill="#22d3ee" opacity="0.9" />
-        <circle cx="310" cy="245" r="4" fill="#a855f7" opacity="0.85" />
-        <circle cx="280" cy="120" r="3.5" fill="#60a5fa" opacity="0.8" />
+        <circle cx="310" cy="245" r="4" fill="#818cf8" opacity="0.85" />
+        <circle cx="280" cy="120" r="3.5" fill="#38bdf8" opacity="0.8" />
         <circle cx="120" cy="275" r="3.5" fill="#22d3ee" opacity="0.7" />
-        <circle cx="200" cy="70" r="3" fill="#a855f7" opacity="0.8" />
+        <circle cx="200" cy="70" r="3" fill="#818cf8" opacity="0.8" />
       </svg>
     </div>
   );
