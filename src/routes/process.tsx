@@ -16,7 +16,9 @@ export const Route = createFileRoute("/process")({
         content:
           "How Digital Solution designs, builds and delivers websites, AI automation and digital solutions.",
       },
+      { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/process" },
     ],
+    links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/process" }],
   }),
   component: () => <Process />,
 });

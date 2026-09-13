@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nasibrehmandigitalsolutions.vercel.app/sitemap.xml

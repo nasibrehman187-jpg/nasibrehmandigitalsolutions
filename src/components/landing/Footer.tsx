@@ -33,7 +33,7 @@ export function Footer() {
               aria-label="Digital Solution — Home"
             >
               <img
-                src="/logo-icon.jpg"
+                src="/logo-icon.png"
                 alt="Digital Solution logo mark"
                 width={34}
                 height={34}
@@ -128,10 +128,34 @@ export function Footer() {
           <div className="text-center md:text-left">
             © 2026 Digital Solution by Nasib Rehman. All rights reserved.
           </div>
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1 text-center md:text-right">
-            <span className="text-[#A8B0BF] leading-relaxed">
-              Website Development • AI Chatbots • AI Automation • AI Voice Agents • Custom Solutions
-            </span>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-1 text-center md:text-right">
+            <Link
+              to="/privacy"
+              className="hover:text-[#14B8A6] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#14B8A6] rounded"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-white/20">•</span>
+            <Link
+              to="/terms"
+              className="hover:text-[#14B8A6] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#14B8A6] rounded"
+            >
+              Terms of Service
+            </Link>
+            <span className="text-white/20">•</span>
+            <Link
+              to="/disclaimer"
+              className="hover:text-[#14B8A6] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#14B8A6] rounded"
+            >
+              Disclaimer
+            </Link>
+            <span className="text-white/20">•</span>
+            <Link
+              to="/accessibility"
+              className="hover:text-[#14B8A6] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#14B8A6] rounded"
+            >
+              Accessibility
+            </Link>
           </div>
         </div>
       </div>

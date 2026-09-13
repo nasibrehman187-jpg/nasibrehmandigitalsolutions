@@ -15,7 +15,9 @@ export const Route = createFileRoute("/faq")({
         property: "og:description",
         content: "Common questions about Digital Solution services, pricing and delivery.",
       },
+      { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/faq" },
     ],
+    links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/faq" }],
   }),
   component: () => <FAQSection />,
 });

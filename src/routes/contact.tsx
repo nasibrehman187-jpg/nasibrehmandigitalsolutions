@@ -15,7 +15,9 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Get in touch with Digital Solution to discuss your project requirements.",
       },
+      { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/contact" }],
   }),
   component: () => <Contact />,
 });

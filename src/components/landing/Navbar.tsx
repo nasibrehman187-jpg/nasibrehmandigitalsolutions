@@ -37,8 +37,13 @@ export function Navbar() {
     if (open) {
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
+      const onKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setOpen(false);
+      };
+      window.addEventListener("keydown", onKeyDown);
       return () => {
         document.body.style.overflow = originalOverflow;
+        window.removeEventListener("keydown", onKeyDown);
       };
     }
   }, [open]);
@@ -63,7 +68,7 @@ export function Navbar() {
           {/* DS brand mark */}
           <div className="relative">
             <img
-              src="/logo-icon.jpg"
+              src="/logo-icon.png"
               alt="Digital Solution logo mark"
               width={34}
               height={34}

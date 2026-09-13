@@ -17,19 +17,39 @@ import { FloatingWhatsApp } from "../components/landing/FloatingWhatsApp";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-gradient">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Signal lost</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for drifted into the void.
+    <div className="flex min-h-[75vh] items-center justify-center px-6 py-24">
+      <div className="mx-auto max-w-lg text-center">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#0F8B8D]/30 bg-[#0F8B8D]/10 px-4 py-1 text-xs font-semibold text-[#14B8A6]">
+          <span>Error 404</span>
+        </div>
+        <h1 className="mt-4 font-display text-5xl sm:text-6xl font-bold tracking-tight text-[#F7F3E8]">
+          404
+        </h1>
+        <h2 className="mt-3 font-display text-xl sm:text-2xl font-semibold text-[#F7F3E8]">
+          Page not found
+        </h2>
+        <p className="mt-3 text-sm text-[#A8B0BF] leading-relaxed">
+          The page you're looking for may have moved or no longer exists.
         </p>
-        <div className="mt-6">
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0F8B8D] to-[#14B8A6] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#080D16] shadow-md shadow-[#0F8B8D]/20 hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
           >
-            Go home
+            Back to Home
+          </Link>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 rounded-full border border-[rgba(247,243,232,0.1)] bg-[#111827] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#F7F3E8] hover:bg-[#162033] hover:border-[rgba(20,184,166,0.3)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+          >
+            Explore Services
+          </Link>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-full border border-[rgba(247,243,232,0.1)] bg-[#111827] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#F7F3E8] hover:bg-[#162033] hover:border-[rgba(20,184,166,0.3)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+          >
+            Contact Us
           </Link>
         </div>
       </div>

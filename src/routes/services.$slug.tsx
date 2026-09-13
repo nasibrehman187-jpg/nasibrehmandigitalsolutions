@@ -20,13 +20,16 @@ export const Route = createFileRoute("/services/$slug")({
       };
     }
     const s = loaderData.service;
+    const url = `https://nasibrehmandigitalsolutions.vercel.app/services/${s.slug}`;
     return {
       meta: [
         { title: `${s.title} — Digital Solution by Nasib Rehman` },
         { name: "description", content: s.tagline },
         { property: "og:title", content: `${s.title} — Digital Solution by Nasib Rehman` },
         { property: "og:description", content: s.tagline },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: ServiceDetailPage,

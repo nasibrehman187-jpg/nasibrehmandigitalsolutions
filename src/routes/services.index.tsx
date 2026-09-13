@@ -16,7 +16,9 @@ export const Route = createFileRoute("/services/")({
         content:
           "Websites, AI chatbots, AI automation, AI voice agents, and custom digital solutions for growing businesses.",
       },
+      { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/services" },
     ],
+    links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/services" }],
   }),
   component: () => <Services />,
 });

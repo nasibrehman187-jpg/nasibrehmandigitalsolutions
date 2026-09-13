@@ -16,7 +16,9 @@ export const Route = createFileRoute("/pricing")({
         content:
           "Transparent pricing for websites from $99, AI chatbots from $150, AI automation from $200, AI voice agents from $400, and custom solutions from $500+.",
       },
+      { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/pricing" },
     ],
+    links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/pricing" }],
   }),
   component: () => <Pricing />,
 });

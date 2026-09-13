@@ -16,7 +16,9 @@ export const Route = createFileRoute("/projects")({
         content:
           "Selected projects and demos by Digital Solution — websites, AI automation, chatbots and voice agents.",
       },
+      { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/projects" },
     ],
+    links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/projects" }],
   }),
   component: () => <Projects />,
 });

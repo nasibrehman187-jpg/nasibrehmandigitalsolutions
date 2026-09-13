@@ -23,7 +23,9 @@ export const Route = createFileRoute("/")({
         content:
           "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
       },
+      { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/" }],
   }),
   component: Home,
 });

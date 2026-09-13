@@ -63,10 +63,43 @@ export function Contact() {
     }
   }, []);
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
   const update =
     (k: keyof typeof form) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       setForm((f) => ({ ...f, [k]: e.target.value }));
+      if (errors[k]) {
+        setErrors((prev) => {
+          const next = { ...prev };
+          delete next[k];
+          return next;
+        });
+      }
+    };
+
+  const validate = () => {
+    const errs: Record<string, string> = {};
+    if (!form.name.trim()) {
+      errs.name = "Please enter your full name.";
+    }
+    if (form.email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(form.email.trim())) {
+        errs.email = "Please enter a valid email address (e.g. name@domain.com).";
+      }
+    }
+    if (!form.service) {
+      errs.service = "Please select the service you need.";
+    }
+    if (!form.message.trim()) {
+      errs.message = "Please describe your project or requirements.";
+    } else if (form.message.trim().length < 10) {
+      errs.message = "Please provide at least 10 characters describing your project.";
+    }
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
 
   const buildInquiryText = () => {
     return [
@@ -84,25 +117,26 @@ export function Contact() {
 
   const onSendWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim()) {
-      toast.error("Please enter your name.");
+    if (!validate()) {
+      toast.error("Please complete the required project fields.");
       return;
     }
     const text = buildInquiryText();
     const url = `https://wa.me/923317962794?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
-    toast.success("Opening WhatsApp with your project inquiry details!");
+    toast.success("Your project details are ready to open in WhatsApp.");
   };
 
   const onSendEmail = () => {
-    if (!form.name.trim()) {
-      toast.error("Please enter your name first.");
+    if (!validate()) {
+      toast.error("Please complete the required project fields.");
       return;
     }
     const text = buildInquiryText();
-    const subject = `Project Inquiry from ${form.name.trim()}`;
+    const subject = `Project Inquiry: ${form.service} — ${form.name.trim()}`;
     const url = `mailto:nasibrehman187@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
     window.location.href = url;
+    toast.success("Your email app is being opened with your project details.");
   };
 
   return (
@@ -136,6 +170,7 @@ export function Contact() {
                 onChange={update("name")}
                 autoComplete="name"
                 required
+                error={errors.name}
               />
               <Field
                 id="contact-email"
@@ -145,6 +180,7 @@ export function Contact() {
                 value={form.email}
                 onChange={update("email")}
                 autoComplete="email"
+                error={errors.email}
               />
               <Field
                 id="contact-company"
@@ -169,6 +205,8 @@ export function Contact() {
                 value={form.service}
                 onChange={update("service")}
                 options={SERVICE_OPTIONS}
+                required
+                error={errors.service}
               />
               <SelectField
                 id="contact-budget"
@@ -183,7 +221,7 @@ export function Contact() {
                 htmlFor="contact-message"
                 className="text-xs uppercase tracking-wider text-[#A8B0BF] font-medium"
               >
-                Project Details
+                Project Details <span className="text-[#14B8A6]">*</span>
               </label>
               <div className="relative mt-2 rounded-xl">
                 <textarea
@@ -191,10 +229,21 @@ export function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={update("message")}
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? "contact-message-error" : undefined}
                   placeholder="Describe your project, requirements or the problem you want to solve..."
-                  className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#080D16] px-4 py-3 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
+                  className={`relative w-full rounded-xl border ${
+                    errors.message
+                      ? "border-red-500/80 focus:border-red-400 focus:ring-1 focus:ring-red-400"
+                      : "border-[rgba(247,243,232,0.1)] focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
+                  } bg-[#080D16] px-4 py-3 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 [color-scheme:dark]`}
                 />
               </div>
+              {errors.message && (
+                <p id="contact-message-error" className="mt-1.5 text-xs text-red-400" role="alert">
+                  {errors.message}
+                </p>
+              )}
             </div>
 
             <p className="mt-4 text-xs text-[#A8B0BF]">
@@ -312,6 +361,7 @@ function Field({
   onChange,
   required,
   autoComplete,
+  error,
 }: {
   id: string;
   label: string;
@@ -321,6 +371,7 @@ function Field({
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   autoComplete?: string;
+  error?: string;
 }) {
   return (
     <div>
@@ -337,9 +388,20 @@ function Field({
           required={required}
           autoComplete={autoComplete}
           placeholder={placeholder}
-          className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#080D16] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6] [color-scheme:dark]"
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? `${id}-error` : undefined}
+          className={`relative w-full rounded-xl border ${
+            error
+              ? "border-red-500/80 focus:border-red-400 focus:ring-1 focus:ring-red-400"
+              : "border-[rgba(247,243,232,0.1)] focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
+          } bg-[#080D16] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 [color-scheme:dark]`}
         />
       </div>
+      {error && (
+        <p id={`${id}-error`} className="mt-1.5 text-xs text-red-400" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
@@ -350,24 +412,35 @@ function SelectField({
   value,
   onChange,
   options,
+  required,
+  error,
 }: {
   id: string;
   label: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   options: string[];
+  required?: boolean;
+  error?: string;
 }) {
   return (
     <div>
       <label htmlFor={id} className="text-xs uppercase tracking-wider text-[#A8B0BF] font-medium">
         {label}
+        {required && <span className="text-[#14B8A6]"> *</span>}
       </label>
       <div className="relative mt-2 rounded-xl">
         <select
           id={id}
           value={value}
           onChange={onChange}
-          className="relative w-full rounded-xl border border-[rgba(247,243,232,0.1)] bg-[#080D16] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6] [color-scheme:dark]"
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? `${id}-error` : undefined}
+          className={`relative w-full rounded-xl border ${
+            error
+              ? "border-red-500/80 focus:border-red-400 focus:ring-1 focus:ring-red-400"
+              : "border-[rgba(247,243,232,0.1)] focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
+          } bg-[#080D16] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none [color-scheme:dark]`}
         >
           <option value="" className="bg-[#080D16] text-[#A8B0BF]">
             Select…
@@ -379,6 +452,11 @@ function SelectField({
           ))}
         </select>
       </div>
+      {error && (
+        <p id={`${id}-error`} className="mt-1.5 text-xs text-red-400" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
