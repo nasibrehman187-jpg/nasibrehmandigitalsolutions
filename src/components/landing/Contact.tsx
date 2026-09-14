@@ -146,7 +146,7 @@ export function Contact() {
           tag="Contact"
           title={
             <>
-              Tell Me About <span className="text-gradient">Your Project</span>
+              Tell Me About <span className="text-[#0F766E]">Your Project</span>
             </>
           }
           subtitle="Have a website, automation or AI idea? Send your requirements directly via WhatsApp or email to discuss the most suitable solution for your business."
@@ -159,7 +159,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             onSubmit={onSendWhatsApp}
-            className="glass-strong rounded-3xl border border-[rgba(247,243,232,0.08)] bg-[#111827]/80 p-8 lg:col-span-3"
+            className="rounded-3xl border border-[#E7E1D6] bg-[#FFFFFF] p-8 lg:col-span-3 shadow-sm"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <Field
@@ -219,9 +219,9 @@ export function Contact() {
             <div className="mt-5">
               <label
                 htmlFor="contact-message"
-                className="text-xs uppercase tracking-wider text-[#A8B0BF] font-medium"
+                className="text-xs uppercase tracking-wider text-[#5B6472] font-semibold"
               >
-                Project Details <span className="text-[#14B8A6]">*</span>
+                Project Details <span className="text-[#0F766E]">*</span>
               </label>
               <div className="relative mt-2 rounded-xl">
                 <textarea
@@ -234,19 +234,19 @@ export function Contact() {
                   placeholder="Describe your project, requirements or the problem you want to solve..."
                   className={`relative w-full rounded-xl border ${
                     errors.message
-                      ? "border-red-500/80 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-                      : "border-[rgba(247,243,232,0.1)] focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
-                  } bg-[#080D16] px-4 py-3 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 [color-scheme:dark]`}
+                      ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                      : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
+                  } px-4 py-3 text-sm text-[#111827] outline-none placeholder:text-[#5B6472]/60 [color-scheme:light]`}
                 />
               </div>
               {errors.message && (
-                <p id="contact-message-error" className="mt-1.5 text-xs text-red-400" role="alert">
+                <p id="contact-message-error" className="mt-1.5 text-xs text-red-600" role="alert">
                   {errors.message}
                 </p>
               )}
             </div>
 
-            <p className="mt-4 text-xs text-[#A8B0BF]">
+            <p className="mt-4 text-xs text-[#5B6472]">
               Your project details will open directly in WhatsApp or your email client for you to
               review and send.
             </p>
@@ -254,7 +254,7 @@ export function Contact() {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <button
                 type="submit"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0F8B8D] to-[#14B8A6] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#080D16] shadow-md shadow-[#0F8B8D]/20 hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#0F766E] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#FFFFFF] shadow-sm hover:bg-[#0D9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
               >
                 <MessageSquare className="h-4 w-4" />
                 Send via WhatsApp
@@ -262,14 +262,14 @@ export function Contact() {
               <button
                 type="button"
                 onClick={onSendEmail}
-                className="inline-flex items-center gap-2 rounded-full border border-[rgba(247,243,232,0.1)] bg-[#111827] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#F7F3E8] hover:bg-[#162033] hover:border-[rgba(20,184,166,0.3)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+                className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
               >
-                <Mail className="h-4 w-4 text-[#14B8A6]" />
+                <Mail className="h-4 w-4 text-[#0F766E]" />
                 Send via Email
               </button>
             </div>
 
-            <p className="mt-4 text-xs text-[#A8B0BF]">
+            <p className="mt-4 text-xs text-[#5B6472]">
               Direct communication with Nasib Rehman • No-obligation project discussion
             </p>
           </motion.form>
@@ -282,8 +282,8 @@ export function Contact() {
             className="space-y-6 lg:col-span-2"
           >
             {/* Contact info */}
-            <div className="glass rounded-2xl p-6 sm:p-7 border border-[rgba(247,243,232,0.08)] bg-[#111827]">
-              <div className="font-display text-lg font-semibold text-[#F7F3E8]">
+            <div className="rounded-2xl p-6 sm:p-7 border border-[#E7E1D6] bg-[#FFFFFF] shadow-sm">
+              <div className="font-display text-lg font-semibold text-[#111827]">
                 Direct Contact
               </div>
               <ul className="mt-4 space-y-4 text-sm">
@@ -309,38 +309,38 @@ export function Contact() {
               href="https://wa.me/923317962794"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass group flex items-center gap-4 rounded-2xl p-5 border border-emerald-500/20 bg-emerald-500/5 transition hover:bg-emerald-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              className="group flex items-center gap-4 rounded-2xl p-5 border border-emerald-600/20 bg-emerald-50/70 transition hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] shadow-sm"
             >
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-emerald-500/30 bg-emerald-500/20">
-                <MessageSquare className="h-5 w-5 text-emerald-400" />
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-emerald-600/30 bg-emerald-100">
+                <MessageSquare className="h-5 w-5 text-emerald-700" />
               </span>
               <div>
-                <div className="text-sm font-semibold text-[#F7F3E8]">Chat on WhatsApp</div>
-                <div className="mt-0.5 text-xs text-[#A8B0BF]">+92 331 7962794</div>
+                <div className="text-sm font-semibold text-[#111827]">Chat on WhatsApp</div>
+                <div className="mt-0.5 text-xs text-[#5B6472]">+92 331 7962794</div>
               </div>
-              <Send className="ml-auto h-4 w-4 text-[#A8B0BF] transition-transform group-hover:translate-x-1" />
+              <Send className="ml-auto h-4 w-4 text-[#5B6472] transition-transform group-hover:translate-x-1" />
             </a>
 
             {/* Trust highlights */}
-            <div className="glass rounded-2xl p-6 border border-[rgba(247,243,232,0.08)] bg-[#111827]">
-              <div className="mb-3 text-xs uppercase tracking-wider text-[#A8B0BF] font-medium">
+            <div className="rounded-2xl p-6 border border-[#E7E1D6] bg-[#FFFFFF] shadow-sm">
+              <div className="mb-3 text-xs uppercase tracking-wider text-[#5B6472] font-semibold">
                 Working Together
               </div>
-              <ul className="space-y-2.5 text-xs text-[#A8B0BF]">
+              <ul className="space-y-2.5 text-xs text-[#5B6472]">
                 <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#14B8A6]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
                   Direct communication with Nasib Rehman
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#14B8A6]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
                   No-obligation project discussion
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#D6A84B]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
                   Available for remote projects
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#D6A84B]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
                   Clear scope & transparent pricing
                 </li>
               </ul>
@@ -375,9 +375,9 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-wider text-[#A8B0BF] font-medium">
+      <label htmlFor={id} className="text-xs uppercase tracking-wider text-[#5B6472] font-semibold">
         {label}
-        {required && <span className="text-[#14B8A6]"> *</span>}
+        {required && <span className="text-[#0F766E]"> *</span>}
       </label>
       <div className="relative mt-2 rounded-xl">
         <input
@@ -392,13 +392,13 @@ function Field({
           aria-describedby={error ? `${id}-error` : undefined}
           className={`relative w-full rounded-xl border ${
             error
-              ? "border-red-500/80 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-              : "border-[rgba(247,243,232,0.1)] focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
-          } bg-[#080D16] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none placeholder:text-[#A8B0BF]/50 [color-scheme:dark]`}
+              ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+              : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
+          } px-4 py-2.5 text-sm text-[#111827] outline-none placeholder:text-[#5B6472]/60 [color-scheme:light]`}
         />
       </div>
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-xs text-red-400" role="alert">
+        <p id={`${id}-error`} className="mt-1.5 text-xs text-red-600" role="alert">
           {error}
         </p>
       )}
@@ -425,9 +425,9 @@ function SelectField({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-wider text-[#A8B0BF] font-medium">
+      <label htmlFor={id} className="text-xs uppercase tracking-wider text-[#5B6472] font-semibold">
         {label}
-        {required && <span className="text-[#14B8A6]"> *</span>}
+        {required && <span className="text-[#0F766E]"> *</span>}
       </label>
       <div className="relative mt-2 rounded-xl">
         <select
@@ -438,22 +438,22 @@ function SelectField({
           aria-describedby={error ? `${id}-error` : undefined}
           className={`relative w-full rounded-xl border ${
             error
-              ? "border-red-500/80 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-              : "border-[rgba(247,243,232,0.1)] focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6]"
-          } bg-[#080D16] px-4 py-2.5 text-sm text-[#F7F3E8] outline-none [color-scheme:dark]`}
+              ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+              : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
+          } px-4 py-2.5 text-sm text-[#111827] outline-none [color-scheme:light]`}
         >
-          <option value="" className="bg-[#080D16] text-[#A8B0BF]">
+          <option value="" className="bg-[#FFFFFF] text-[#5B6472]">
             Select…
           </option>
           {options.map((o) => (
-            <option key={o} value={o} className="bg-[#080D16] text-[#F7F3E8]">
+            <option key={o} value={o} className="bg-[#FFFFFF] text-[#111827]">
               {o}
             </option>
           ))}
         </select>
       </div>
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-xs text-red-400" role="alert">
+        <p id={`${id}-error`} className="mt-1.5 text-xs text-red-600" role="alert">
           {error}
         </p>
       )}
@@ -473,11 +473,11 @@ function InfoRow({
   isLink?: boolean;
 }) {
   const content = (
-    <li className="flex items-center gap-3 text-[#A8B0BF]">
-      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-[#14B8A6]/20 bg-[#14B8A6]/10">
-        <Icon className="h-4 w-4 text-[#14B8A6]" />
+    <li className="flex items-center gap-3 text-[#5B6472]">
+      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-[#E7E1D6] bg-[#F3EEE6]">
+        <Icon className="h-4 w-4 text-[#0F766E]" />
       </span>
-      <span className={isLink ? "transition-colors hover:text-[#F7F3E8]" : ""}>{label}</span>
+      <span className={isLink ? "transition-colors hover:text-[#111827]" : ""}>{label}</span>
     </li>
   );
 
@@ -487,7 +487,7 @@ function InfoRow({
         href={href}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel="noopener noreferrer"
-        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded-lg"
+        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] rounded-lg"
       >
         {content}
       </a>

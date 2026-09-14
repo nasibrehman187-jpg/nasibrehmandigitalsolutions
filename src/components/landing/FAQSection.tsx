@@ -51,7 +51,7 @@ export function FAQSection() {
           tag="FAQ"
           title={
             <>
-              Frequently Asked <span className="text-gradient">Questions</span>
+              Frequently Asked <span className="text-[#0F766E]">Questions</span>
             </>
           }
           subtitle="Answers to common questions regarding pricing, workflows, integrations, and project delivery."
@@ -63,21 +63,21 @@ export function FAQSection() {
             return (
               <div
                 key={f.q}
-                className="glass rounded-2xl overflow-hidden border border-[rgba(247,243,232,0.08)] bg-[#111827]/60 transition-colors hover:border-[rgba(20,184,166,0.25)]"
+                className="rounded-2xl overflow-hidden border border-[#E7E1D6] bg-[#FFFFFF] transition-colors shadow-sm"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display text-sm sm:text-base font-semibold text-[#F7F3E8]">
+                  <span className="font-display text-sm sm:text-base font-semibold text-[#111827]">
                     {f.q}
                   </span>
                   <span
                     className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border transition-transform duration-200 ${
                       isOpen
-                        ? "rotate-45 text-[#14B8A6] border-[#14B8A6]/40 bg-[#14B8A6]/10"
-                        : "text-[#A8B0BF] border-[rgba(247,243,232,0.1)] bg-white/[0.02]"
+                        ? "rotate-45 text-[#0F766E] border-[#0F766E]/40 bg-[#0F766E]/10"
+                        : "text-[#5B6472] border-[#E7E1D6] bg-[#F3EEE6]"
                     }`}
                   >
                     <Plus className="h-4 w-4" />
@@ -91,7 +91,7 @@ export function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                     >
-                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm text-[#A8B0BF] leading-relaxed pt-0 border-t border-[rgba(247,243,232,0.06)]">
+                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm text-[#5B6472] leading-relaxed pt-0 border-t border-[#E7E1D6]/60">
                         {f.a}
                       </div>
                     </motion.div>

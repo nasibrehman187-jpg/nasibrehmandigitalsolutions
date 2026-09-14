@@ -21,8 +21,7 @@ const QUICK_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="content-auto relative mt-20 border-t border-[rgba(247,243,232,0.06)] pt-16 bg-[#070D17]">
-      <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0F8B8D]/30 to-transparent" />
+    <footer className="content-auto relative mt-20 border-t border-[#E7E1D6] pt-16 bg-[#111827]">
       <div className="mx-auto max-w-7xl px-6 pb-20 sm:pb-24">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -37,29 +36,30 @@ export function Footer() {
                 alt="Digital Solution logo mark"
                 width={34}
                 height={34}
-                className="h-8.5 w-8.5 rounded-lg object-cover border border-[rgba(247,243,232,0.1)] opacity-90 transition group-hover:opacity-100"
+                className="h-8.5 w-8.5 rounded-lg object-cover border border-white/10 opacity-90 transition group-hover:opacity-100"
               />
               <span className="flex flex-col leading-none">
                 <span className="font-display text-base font-semibold">
-                  <span className="text-[#F7F3E8]">Digital</span>{" "}
+                  <span className="text-[#F7F3EC]">Digital</span>{" "}
                   <span className="text-[#14B8A6]">Solution</span>
+                  <span className="text-[#B38A3D]">.</span>
                 </span>
-                <span className="text-[10.5px] text-[#A8B0BF]">by Nasib Rehman</span>
+                <span className="text-[10.5px] text-[#9CA3AF]">by Nasib Rehman</span>
               </span>
             </Link>
-            <p className="mt-4 max-w-xs text-xs sm:text-sm text-[#A8B0BF] leading-relaxed">
+            <p className="mt-4 max-w-xs text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
               Engineering practical websites, automations and AI systems for growing businesses.
             </p>
-            <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-[rgba(247,243,232,0.1)] bg-white/[0.02] px-3 py-1 text-[11px] text-[#A8B0BF]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#D6A84B]" />
+            <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-[#9CA3AF]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
               Available for remote projects
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <div className="font-display text-sm font-semibold text-[#F7F3E8]">Services</div>
-            <ul className="mt-4 space-y-2 text-xs sm:text-sm text-[#A8B0BF]">
+            <div className="font-display text-sm font-semibold text-[#F7F3EC]">Services</div>
+            <ul className="mt-4 space-y-2 text-xs sm:text-sm text-[#9CA3AF]">
               {SERVICES_LINKS.map((l) => (
                 <li key={l.to}>
                   <Link
@@ -75,8 +75,8 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <div className="font-display text-sm font-semibold text-[#F7F3E8]">Quick Links</div>
-            <ul className="mt-4 space-y-2 text-xs sm:text-sm text-[#A8B0BF]">
+            <div className="font-display text-sm font-semibold text-[#F7F3EC]">Quick Links</div>
+            <ul className="mt-4 space-y-2 text-xs sm:text-sm text-[#9CA3AF]">
               {QUICK_LINKS.map((l) => (
                 <li key={l.to}>
                   <Link
@@ -92,14 +92,14 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <div className="font-display text-sm font-semibold text-[#F7F3E8]">Direct Contact</div>
+            <div className="font-display text-sm font-semibold text-[#F7F3EC]">Direct Contact</div>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
                   href="https://wa.me/923317962794"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs sm:text-sm text-[#A8B0BF] hover:text-[#F7F3E8] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded"
+                  className="flex items-center gap-2 text-xs sm:text-sm text-[#9CA3AF] hover:text-[#F7F3EC] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded"
                 >
                   <MessageSquare className="h-4 w-4 text-emerald-400 shrink-0" />
                   WhatsApp (+92 331 7962794)
@@ -108,15 +108,15 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:nasibrehman187@gmail.com"
-                  className="flex items-center gap-2 text-xs sm:text-sm text-[#A8B0BF] hover:text-[#F7F3E8] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded"
+                  className="flex items-center gap-2 text-xs sm:text-sm text-[#9CA3AF] hover:text-[#F7F3EC] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded"
                 >
                   <Mail className="h-4 w-4 text-[#14B8A6] shrink-0" />
                   nasibrehman187@gmail.com
                 </a>
               </li>
               <li>
-                <span className="flex items-start gap-2 text-xs sm:text-sm text-[#A8B0BF]">
-                  <MapPin className="h-4 w-4 text-[#D6A84B] shrink-0 mt-0.5" />
+                <span className="flex items-start gap-2 text-xs sm:text-sm text-[#9CA3AF]">
+                  <MapPin className="h-4 w-4 text-[#B38A3D] shrink-0 mt-0.5" />
                   Khairpur, Sindh, Pakistan
                 </span>
               </li>
@@ -124,7 +124,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-[rgba(247,243,232,0.06)] pt-6 text-xs text-[#A8B0BF]">
+        <div className="mt-14 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-[#9CA3AF]">
           <div className="text-center md:text-left">
             © 2026 Digital Solution by Nasib Rehman. All rights reserved.
           </div>

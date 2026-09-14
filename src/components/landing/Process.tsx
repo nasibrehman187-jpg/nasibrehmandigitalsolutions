@@ -37,14 +37,14 @@ export function Process() {
           tag="How We Work"
           title={
             <>
-              A Clear, Direct <span className="text-gradient">Process</span> from Start to Launch
+              A Clear, Direct <span className="text-[#0f766e]">Process</span> from Start to Launch
             </>
           }
           subtitle="Every project follows a straightforward, structured path so you know exactly what is happening at each stage."
         />
 
         <div className="mt-16 sm:mt-20 relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#14b8a6]/50 via-[#d6a84b]/30 to-transparent" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-[#e7e1d6]" />
           <div className="space-y-10 sm:space-y-12">
             {STEPS.map((s, i) => (
               <motion.div
@@ -56,21 +56,18 @@ export function Process() {
                 className={`relative flex flex-col md:flex-row ${i % 2 ? "md:flex-row-reverse" : ""} items-start md:items-center gap-6`}
               >
                 <div className="md:w-1/2 pl-12 md:pl-0 md:px-8">
-                  <div className="glass relative rounded-2xl p-6 sm:p-7 border border-[rgba(247,243,232,0.08)] hover:border-[#14b8a6]/30 transition-colors">
-                    {/* Hairline top gradient border */}
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#14b8a6]/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                    <div className="font-display text-2xl sm:text-3xl font-bold text-[#14b8a6]">
+                  <div className="relative rounded-2xl p-6 sm:p-7 border border-[#e7e1d6] bg-[#ffffff] shadow-xs transition-all duration-300 hover:border-[#0f766e]/40 hover:-translate-y-0.5 hover:shadow-sm">
+                    <div className="font-display text-2xl sm:text-3xl font-bold text-[#0f766e]">
                       {s.n}
                     </div>
-                    <h3 className="mt-2 font-display text-lg sm:text-xl font-semibold text-[#f7f3e8]">
+                    <h3 className="mt-2 font-display text-lg sm:text-xl font-semibold text-[#111827]">
                       {s.title}
                     </h3>
-                    <p className="mt-2 text-sm text-[#a8b0bf] leading-relaxed">{s.desc}</p>
+                    <p className="mt-2 text-sm text-[#5b6472] leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
                 <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 md:top-1/2 md:-translate-y-1/2">
-                  <div className="h-4 w-4 rounded-full bg-gradient-to-br from-[#14b8a6] to-[#0f8b8d] shadow-[0_0_12px_rgba(20,184,166,0.6)] border-2 border-[#080d16]" />
+                  <div className="h-4 w-4 rounded-full bg-[#ffffff] border-2 border-[#0f766e] shadow-xs" />
                 </div>
                 <div className="hidden md:block md:w-1/2" />
               </motion.div>

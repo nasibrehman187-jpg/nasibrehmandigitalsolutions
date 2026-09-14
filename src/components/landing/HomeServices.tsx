@@ -74,7 +74,7 @@ export function HomeServices() {
           tag="Services"
           title={
             <>
-              Solutions Built Around <span className="text-gradient">Your Business</span>
+              Solutions Built Around <span className="text-[#0f766e]">Your Business</span>
             </>
           }
           subtitle="From professional websites to intelligent automation, we build practical digital solutions designed around real business needs."
@@ -90,43 +90,38 @@ export function HomeServices() {
               transition={{ duration: 0.45, delay: i * 0.07 }}
               className="group relative"
             >
-              <div className="relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 border border-[rgba(247,243,232,0.10)] bg-[#111827] shadow-xl shadow-black/40 transition-all duration-300 hover:border-[#14b8a6]/40 hover:-translate-y-1">
-                {/* Hairline top gradient border on hover */}
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#14b8a6]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
+              <div className="relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 border border-[#e7e1d6] bg-[#ffffff] shadow-xs transition-all duration-300 hover:border-[#0f766e]/40 hover:-translate-y-0.5 hover:shadow-sm">
                 <div>
                   <div className="flex items-center justify-between gap-4">
-                    <div
-                      className={`inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${s.iconBg} border`}
-                    >
-                      <s.icon className={`h-6 w-6 ${s.accent}`} />
+                    <div className="inline-grid h-12 w-12 place-items-center rounded-xl bg-[#f3eee6] text-[#0f766e] border border-[#e7e1d6]">
+                      <s.icon className="h-6 w-6 text-[#0f766e]" />
                     </div>
                     <Link
                       to="/services/$slug"
                       params={{ slug: s.slug }}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#14b8a6] hover:text-[#2dd4bf] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6] rounded-md py-1 px-2.5 bg-[#14b8a6]/10 hover:bg-[#14b8a6]/15 border border-[#14b8a6]/25"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded-md py-1 px-2.5 bg-[#f3eee6] hover:bg-[#e7e1d6]/60 border border-[#e7e1d6]"
                     >
                       Learn more →
                     </Link>
                   </div>
 
-                  <h3 className="mt-5 font-display text-xl sm:text-2xl font-bold tracking-tight text-[#f7f3e8]">
+                  <h3 className="mt-5 font-display text-xl sm:text-2xl font-bold tracking-tight text-[#111827]">
                     {s.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#a8b0bf]">{s.desc}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#5b6472]">{s.desc}</p>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-[rgba(247,243,232,0.10)]">
-                  <div className="text-[11px] font-semibold uppercase tracking-wider text-[#a8b0bf] mb-2.5">
+                <div className="mt-6 pt-5 border-t border-[#e7e1d6]">
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-[#5b6472] mb-2.5">
                     Core Capabilities
                   </div>
                   <ul className="flex flex-wrap gap-2">
                     {s.capabilities.map((cap) => (
                       <li
                         key={cap}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(247,243,232,0.10)] bg-[#162033]/80 px-2.5 py-1 text-xs font-medium text-[#f7f3e8]"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-[#e7e1d6] bg-[#f3eee6]/70 px-2.5 py-1 text-xs font-medium text-[#111827]"
                       >
-                        <CheckCircle2 className="h-3 w-3 text-[#14b8a6] shrink-0" />
+                        <CheckCircle2 className="h-3 w-3 text-[#0f766e] shrink-0" />
                         {cap}
                       </li>
                     ))}
@@ -145,19 +140,17 @@ export function HomeServices() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-6 relative group"
         >
-          <div className="relative rounded-2xl p-6 sm:p-8 border border-[#d6a84b]/30 bg-[#111827] shadow-xl shadow-black/40 overflow-hidden">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d6a84b]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
+          <div className="relative rounded-2xl p-6 sm:p-8 border border-[#e7e1d6] bg-[#ffffff] shadow-xs overflow-hidden">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-start gap-4">
-                <div className="inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-[#d6a84b]/20 to-[#997528]/10 border border-[#d6a84b]/30 shrink-0">
-                  <Wrench className="h-6 w-6 text-[#d6a84b]" />
+                <div className="inline-grid h-12 w-12 place-items-center rounded-xl bg-[#f3eee6] text-[#b38a3d] border border-[#e7e1d6] shrink-0">
+                  <Wrench className="h-6 w-6 text-[#b38a3d]" />
                 </div>
                 <div>
-                  <h3 className="font-display text-lg sm:text-2xl font-bold text-[#f7f3e8]">
+                  <h3 className="font-display text-lg sm:text-2xl font-bold text-[#111827]">
                     Custom Digital Solutions
                   </h3>
-                  <p className="mt-1 text-sm text-[#a8b0bf] max-w-2xl leading-relaxed">
+                  <p className="mt-1 text-sm text-[#5b6472] max-w-2xl leading-relaxed">
                     Websites, automation, chatbots and voice AI can be combined into a custom
                     solution based on your specific business workflow.
                   </p>
@@ -166,7 +159,7 @@ export function HomeServices() {
               <Link
                 to="/contact"
                 search={{ service: "Custom Digital Solution" }}
-                className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#0f8b8d] to-[#14b8a6] px-5 py-2.5 text-sm font-semibold text-[#f7f3e8] shadow-md shadow-[#0f8b8d]/30 hover:opacity-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
+                className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#0f766e] px-5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-[#0d9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
               >
                 Discuss Your Project
               </Link>

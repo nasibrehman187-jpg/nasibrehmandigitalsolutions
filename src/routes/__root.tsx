@@ -19,35 +19,35 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-[75vh] items-center justify-center px-6 py-24">
       <div className="mx-auto max-w-lg text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#0F8B8D]/30 bg-[#0F8B8D]/10 px-4 py-1 text-xs font-semibold text-[#14B8A6]">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#FFFFFF] px-4 py-1 text-xs font-semibold text-[#0F766E] shadow-xs">
           <span>Error 404</span>
         </div>
-        <h1 className="mt-4 font-display text-5xl sm:text-6xl font-bold tracking-tight text-[#F7F3E8]">
+        <h1 className="mt-4 font-display text-5xl sm:text-6xl font-bold tracking-tight text-[#111827]">
           404
         </h1>
-        <h2 className="mt-3 font-display text-xl sm:text-2xl font-semibold text-[#F7F3E8]">
+        <h2 className="mt-3 font-display text-xl sm:text-2xl font-semibold text-[#111827]">
           Page not found
         </h2>
-        <p className="mt-3 text-sm text-[#A8B0BF] leading-relaxed">
+        <p className="mt-3 text-sm text-[#5B6472] leading-relaxed">
           The page you're looking for may have moved or no longer exists.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0F8B8D] to-[#14B8A6] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#080D16] shadow-md shadow-[#0F8B8D]/20 hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#0F766E] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#0D9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
           >
             Back to Home
           </Link>
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-[rgba(247,243,232,0.1)] bg-[#111827] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#F7F3E8] hover:bg-[#162033] hover:border-[rgba(20,184,166,0.3)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+            className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
           >
             Explore Services
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-[rgba(247,243,232,0.1)] bg-[#111827] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#F7F3E8] hover:bg-[#162033] hover:border-[rgba(20,184,166,0.3)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6]"
+            className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
           >
             Contact Us
           </Link>
@@ -109,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "theme-color", content: "#080D16" },
+        { name: "theme-color", content: "#F7F3EC" },
         { title: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents" },
         {
           name: "description",
@@ -163,7 +163,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
@@ -188,7 +188,7 @@ function RootComponent() {
         <Footer />
         <FloatingWhatsApp />
       </div>
-      <Toaster position="top-center" richColors theme="dark" />
+      <Toaster position="top-center" richColors theme="light" />
     </QueryClientProvider>
   );
 }

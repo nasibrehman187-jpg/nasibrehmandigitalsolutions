@@ -55,14 +55,14 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#080d16]/92 backdrop-blur-md border-b border-[rgba(247,243,232,0.08)] shadow-lg shadow-black/50"
-          : "bg-transparent"
+          ? "bg-[#fffdfc]/95 backdrop-blur-md border-b border-[#e7e1d6] shadow-xs"
+          : "bg-[#f7f3ec]/80 backdrop-blur-sm"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 sm:py-4">
         <Link
           to="/"
-          className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6] rounded-lg p-1"
+          className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded-lg p-1"
           aria-label="Digital Solution — Home"
         >
           {/* DS brand mark */}
@@ -72,24 +72,24 @@ export function Navbar() {
               alt="Digital Solution logo mark"
               width={34}
               height={34}
-              className="h-8.5 w-8.5 rounded-lg object-cover border border-[rgba(247,243,232,0.12)] shadow-[0_0_16px_-4px_rgba(20,184,166,0.3)] transition duration-300 group-hover:border-[#14b8a6]/50 group-hover:shadow-[0_0_24px_-4px_rgba(20,184,166,0.5)]"
+              className="h-8.5 w-8.5 rounded-lg object-cover border border-[#e7e1d6] shadow-xs transition duration-300 group-hover:border-[#0f766e]/50"
             />
           </div>
           {/* Brand name text */}
           <span className="flex flex-col leading-none">
             <span className="font-display text-base font-semibold tracking-tight">
-              <span className="text-[#f7f3e8]">Digital</span>{" "}
-              <span className="text-[#14b8a6]">Solution</span>
-              <span className="inline-block h-1 w-1 rounded-full bg-[#d6a84b] ml-1.5 align-middle opacity-80" />
+              <span className="text-[#111827]">Digital</span>{" "}
+              <span className="text-[#0f766e]">Solution</span>
+              <span className="inline-block h-1 w-1 rounded-full bg-[#b38a3d] ml-1.5 align-middle opacity-90" />
             </span>
-            <span className="text-[10.5px] text-[#a8b0bf] tracking-wide font-normal">
+            <span className="text-[10.5px] text-[#5b6472] tracking-wide font-normal">
               by Nasib Rehman
             </span>
           </span>
         </Link>
 
         {/* Desktop Nav Items */}
-        <ul className="hidden items-center gap-1 rounded-full border border-[rgba(247,243,232,0.08)] bg-[#111827]/85 p-1.5 lg:flex shadow-inner">
+        <ul className="hidden items-center gap-1 rounded-full border border-[#e7e1d6] bg-[#f3eee6]/90 p-1 lg:flex shadow-xs">
           {NAV.map((n) => (
             <li key={n.to}>
               <Link
@@ -97,10 +97,10 @@ export function Navbar() {
                 activeOptions={{ exact: n.to === "/" }}
                 activeProps={{
                   className:
-                    "text-[#f7f3e8] bg-[#162033] font-medium shadow-sm border border-[rgba(247,243,232,0.12)]",
+                    "text-[#0f766e] bg-[#ffffff] font-medium shadow-xs border border-[#e7e1d6]",
                 }}
                 inactiveProps={{
-                  className: "text-[#a8b0bf] hover:text-[#f7f3e8] hover:bg-white/[0.04]",
+                  className: "text-[#5b6472] hover:text-[#111827] hover:bg-[#ffffff]/60",
                 }}
                 className="relative rounded-full px-3.5 py-1.5 text-xs tracking-wide transition-all"
               >
@@ -114,15 +114,15 @@ export function Navbar() {
         <div className="hidden lg:block">
           <Link
             to="/contact"
-            className="group relative inline-flex items-center gap-2 rounded-full border border-[#0f8b8d]/40 bg-gradient-to-r from-[#0f8b8d]/15 to-[#14b8a6]/10 px-4.5 py-2 text-xs font-semibold text-[#f7f3e8] transition-all duration-300 hover:border-[#14b8a6]/70 hover:bg-[#0f8b8d]/25 hover:shadow-[0_0_20px_-4px_rgba(20,184,166,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
+            className="group relative inline-flex items-center gap-2 rounded-full bg-[#0f766e] px-4.5 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#0d9488] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#14b8a6] shadow-[0_0_8px_#14b8a6]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
             <span>Discuss Your Project</span>
           </Link>
         </div>
 
         <button
-          className="lg:hidden rounded-lg p-2 text-[#f7f3e8] hover:text-white border border-[rgba(247,243,232,0.10)] bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14b8a6]"
+          className="lg:hidden rounded-lg p-2 text-[#111827] hover:text-[#0f766e] border border-[#e7e1d6] bg-[#ffffff] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -133,10 +133,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div
-          id="mobile-nav"
-          className="lg:hidden border-t border-[rgba(247,243,232,0.08)] bg-[#111827] shadow-2xl"
-        >
+        <div id="mobile-nav" className="lg:hidden border-t border-[#e7e1d6] bg-[#fffdfc] shadow-xl">
           <ul className="mx-auto max-w-7xl px-6 py-4 flex flex-col gap-1.5">
             {NAV.map((n) => (
               <li key={n.to}>
@@ -145,11 +142,10 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   activeOptions={{ exact: n.to === "/" }}
                   activeProps={{
-                    className:
-                      "text-[#f7f3e8] bg-[#162033] font-medium border border-[rgba(247,243,232,0.10)]",
+                    className: "text-[#0f766e] bg-[#f3eee6] font-medium border border-[#e7e1d6]",
                   }}
                   inactiveProps={{
-                    className: "text-[#a8b0bf] hover:text-[#f7f3e8] hover:bg-white/[0.04]",
+                    className: "text-[#5b6472] hover:text-[#111827] hover:bg-[#f3eee6]/50",
                   }}
                   className="block rounded-xl px-4 py-2.5 text-sm transition-colors"
                 >
@@ -161,7 +157,7 @@ export function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="block rounded-xl bg-gradient-to-r from-[#0f8b8d] to-[#14b8a6] px-4 py-2.5 text-center text-sm font-semibold text-[#f7f3e8] shadow-md hover:opacity-95"
+                className="block rounded-xl bg-[#0f766e] px-4 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-[#0d9488]"
               >
                 Discuss Your Project
               </Link>
@@ -172,7 +168,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 text-center text-sm font-semibold text-emerald-400 hover:bg-emerald-500/20 transition"
+                className="flex items-center justify-center gap-2 rounded-xl border border-emerald-600/25 bg-emerald-50 px-4 py-2.5 text-center text-sm font-semibold text-emerald-800 hover:bg-emerald-100 transition"
               >
                 <MessageSquare className="h-4 w-4" />
                 WhatsApp (+92 331 7962794)
