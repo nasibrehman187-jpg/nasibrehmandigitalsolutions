@@ -19,7 +19,8 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-[75vh] items-center justify-center px-6 py-24">
       <div className="mx-auto max-w-lg text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#FFFFFF] px-4 py-1 text-xs font-semibold text-[#0F766E] shadow-xs">
+        <div className="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0F766E]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
           <span>Error 404</span>
         </div>
         <h1 className="mt-4 font-display text-5xl sm:text-6xl font-bold tracking-tight text-[#111827]">
@@ -35,19 +36,19 @@ function NotFoundComponent() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 rounded-full bg-[#0F766E] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#0D9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+            className="inline-flex items-center gap-2 rounded-md bg-[#0F766E] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#0D9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
           >
             Back to Home
           </Link>
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+            className="inline-flex items-center gap-2 rounded-md border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
           >
             Explore Services
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+            className="inline-flex items-center gap-2 rounded-md border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
           >
             Contact Us
           </Link>

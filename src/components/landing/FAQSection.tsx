@@ -57,30 +57,26 @@ export function FAQSection() {
           subtitle="Answers to common questions regarding pricing, workflows, integrations, and project delivery."
         />
 
-        <div className="mt-12 sm:mt-14 space-y-3">
+        {/* Open Editorial Accordion */}
+        <div className="mt-14 sm:mt-18 border-t border-[#E7E1D6]">
           {FAQ.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div
-                key={f.q}
-                className="rounded-2xl overflow-hidden border border-[#E7E1D6] bg-[#FFFFFF] transition-colors shadow-sm"
-              >
+              <div key={f.q} className="border-b border-[#E7E1D6]">
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+                  className="flex w-full items-center justify-between gap-4 py-5 sm:py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] rounded"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display text-sm sm:text-base font-semibold text-[#111827]">
+                  <span className="font-display text-base sm:text-lg font-semibold text-[#111827]">
                     {f.q}
                   </span>
                   <span
-                    className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border transition-transform duration-200 ${
-                      isOpen
-                        ? "rotate-45 text-[#0F766E] border-[#0F766E]/40 bg-[#0F766E]/10"
-                        : "text-[#5B6472] border-[#E7E1D6] bg-[#F3EEE6]"
+                    className={`shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-45 text-[#0F766E]" : "text-[#5B6472]"
                     }`}
                   >
-                    <Plus className="h-4 w-4" />
+                    <Plus className="h-4.5 w-4.5" />
                   </span>
                 </button>
                 <AnimatePresence initial={false}>
@@ -91,7 +87,7 @@ export function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                     >
-                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm text-[#5B6472] leading-relaxed pt-0 border-t border-[#E7E1D6]/60">
+                      <div className="pb-6 text-sm sm:text-base text-[#5B6472] leading-relaxed max-w-2xl">
                         {f.a}
                       </div>
                     </motion.div>

@@ -37,8 +37,8 @@ function DisclaimerPage() {
         </Link>
 
         <header className="mt-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#F3EEE6] px-3.5 py-1 text-xs text-[#0F766E]">
-            <AlertCircle className="h-3.5 w-3.5 text-[#0F766E]" />
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0F766E]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
             <span>Legal Disclaimer</span>
           </div>
           <h1 className="mt-4 font-display text-3xl sm:text-4xl font-semibold text-[#111827] tracking-tight">
@@ -51,7 +51,7 @@ function DisclaimerPage() {
         </header>
 
         <div className="mt-10 space-y-8 text-sm text-[#5B6472] leading-relaxed">
-          <section className="rounded-2xl border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8 shadow-sm">
+          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
             <h2 className="font-display text-lg font-semibold text-[#111827]">
               1. Demonstration Projects & Portfolio Builds
             </h2>
@@ -70,7 +70,7 @@ function DisclaimerPage() {
             </p>
           </section>
 
-          <section className="rounded-2xl border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8 shadow-sm">
+          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
             <h2 className="font-display text-lg font-semibold text-[#111827]">
               2. Artificial Intelligence & Automated Systems
             </h2>
@@ -83,7 +83,7 @@ function DisclaimerPage() {
             </p>
           </section>
 
-          <section className="rounded-2xl border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8 shadow-sm">
+          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
             <h2 className="font-display text-lg font-semibold text-[#111827]">
               3. Third-Party Platforms & Service Availability
             </h2>
@@ -96,7 +96,7 @@ function DisclaimerPage() {
             </p>
           </section>
 
-          <section className="rounded-2xl border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8 shadow-sm">
+          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
             <h2 className="font-display text-lg font-semibold text-[#111827]">
               4. Business Outcomes & Performance
             </h2>
@@ -114,7 +114,7 @@ function DisclaimerPage() {
             </p>
           </section>
 
-          <section className="rounded-2xl border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8 shadow-sm">
+          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
             <h2 className="font-display text-lg font-semibold text-[#111827]">
               5. Questions & Contact
             </h2>

@@ -1,101 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Building2, Globe, Mic, Package, Stethoscope } from "lucide-react";
+import { ArrowRight, Globe, Mic, Stethoscope, Building2, Package, Sparkles } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "./Services";
-
-const PROJECTS = [
-  {
-    icon: Stethoscope,
-    title: "SmileCare Dental Clinic",
-    service: "Website Development",
-    label: "Concept Website",
-    labelColor: "bg-[#f3eee6] text-[#0f766e] border-[#e7e1d6]",
-    desc: "A modern dental clinic website concept designed to showcase services, build trust and make it easier for patients to send appointment requests.",
-    features: [
-      "Responsive Design",
-      "Service Pages",
-      "Appointment Request Form",
-      "Contact Integration",
-      "Mobile-Friendly Interface",
-    ],
-  },
-  {
-    icon: Mic,
-    title: "AI Restaurant Voice Agent",
-    service: "AI Voice Agent",
-    label: "Concept AI Demo",
-    labelColor: "bg-[#f3eee6] text-[#0f766e] border-[#e7e1d6]",
-    desc: "A conversational voice assistant concept designed to answer customer calls, collect structured food orders and confirm order details.",
-    features: [
-      "Voice Conversation",
-      "Menu Assistance",
-      "Order Collection",
-      "Customer Detail Collection",
-      "Order Confirmation Workflow",
-    ],
-  },
-  {
-    icon: Stethoscope,
-    title: "Dental Clinic Digital System",
-    service: "Custom Digital Solution",
-    label: "Concept / Demo",
-    labelColor: "bg-[#f3eee6] text-[#0f766e] border-[#e7e1d6]",
-    desc: "A digital solution concept combining a professional clinic website with inquiry and appointment workflows.",
-    features: [
-      "Website",
-      "Inquiry Capture",
-      "Appointment Requests",
-      "Lead Organization",
-      "Automation-ready Workflow",
-    ],
-  },
-  {
-    icon: Building2,
-    title: "Luxury Real Estate Website",
-    service: "Website Development",
-    label: "Portfolio Build",
-    labelColor: "bg-[#f3eee6] text-[#b38a3d] border-[#e7e1d6]",
-    desc: "A premium real estate website built as a portfolio project for luxury property presentation and investor inquiries.",
-    features: [
-      "Premium Property Presentation",
-      "Responsive Design",
-      "Inquiry Forms",
-      "Modern Interface",
-      "Investor-focused Layout",
-    ],
-  },
-  {
-    icon: Package,
-    title: "Surgical B2B Export Website",
-    service: "Website Development",
-    label: "Portfolio Build",
-    labelColor: "bg-[#f3eee6] text-[#b38a3d] border-[#e7e1d6]",
-    desc: "A reusable B2B website template built for surgical and dental instrument exporters, featuring product presentation, business credentials and RFQ functionality.",
-    features: [
-      "Product Catalog",
-      "Certification Display Areas",
-      "RFQ Form",
-      "WhatsApp Integration",
-      "Mega-menu Navigation",
-    ],
-  },
-];
-
-function ProjectCard({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
 
 export function Projects() {
   return (
@@ -108,108 +14,500 @@ export function Projects() {
               Selected Projects & <span className="text-[#0f766e]">Demonstration Builds</span>
             </>
           }
-          subtitle="Explore concept websites, demo systems, and developer portfolio builds showcasing the practical solutions we can engineer for your business."
+          subtitle="A mix of portfolio builds and concept demonstration projects showing practical website and AI solutions."
         />
 
-        {/* Label legend */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#e7e1d6] bg-[#ffffff] px-3.5 py-1 text-xs font-medium text-[#5b6472] shadow-xs">
+        {/* Studio Legend / Classification */}
+        <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-[#5b6472]">
+          <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
-            Concept / Demo Builds
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[#111827]">
+              Concept / Demo Builds (Capabilities Showcase)
+            </span>
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#e7e1d6] bg-[#ffffff] px-3.5 py-1 text-xs font-medium text-[#5b6472] shadow-xs">
+          <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
-            Portfolio Builds
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[#111827]">
+              Developer Portfolio Builds
+            </span>
           </span>
         </div>
 
-        <div className="mt-12 sm:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((p, i) => (
-            <motion.div
-              key={p.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.06 }}
-            >
-              <ProjectCard className="group relative h-full">
-                <div className="relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-7 border border-[#e7e1d6] bg-[#ffffff] shadow-xs transition-all duration-300 hover:border-[#0f766e]/40 hover:-translate-y-0.5 hover:shadow-sm">
-                  <div>
-                    {/* Header */}
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="inline-grid h-11 w-11 place-items-center rounded-xl bg-[#f3eee6] border border-[#e7e1d6] shrink-0">
-                        <p.icon
-                          className={`h-5 w-5 ${
-                            p.label === "Portfolio Build" ? "text-[#b38a3d]" : "text-[#0f766e]"
-                          }`}
-                        />
-                      </div>
-                      <span
-                        className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10.5px] font-medium tracking-wide ${p.labelColor}`}
-                      >
-                        {p.label}
+        {/* Editorial Case Study Flow */}
+        <div className="mt-14 sm:mt-20 space-y-16 sm:space-y-20">
+          {/* PROJECT 1 — SmileCare Dental Clinic (Split: Visual Left, Narrative Right) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-t border-[#e7e1d6] pt-12"
+          >
+            {/* Visual Preview Frame */}
+            <div className="lg:col-span-6">
+              <div className="relative overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] shadow-xs">
+                {/* Browser bar */}
+                <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/60 px-4 py-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                  </div>
+                  <span className="font-mono text-[10px] text-[#5b6472]">
+                    smilecare-clinic.preview
+                  </span>
+                </div>
+                {/* Mockup Canvas */}
+                <div className="p-6 sm:p-8 bg-[#fffdfc]">
+                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
+                    <div className="flex items-center gap-2">
+                      <Stethoscope className="h-4 w-4 text-[#0f766e]" />
+                      <span className="font-display text-sm font-semibold text-[#111827]">
+                        SmileCare Clinic
                       </span>
                     </div>
-
-                    {/* Content */}
-                    <div className="mt-5">
-                      <div className="text-[11px] font-medium text-[#5b6472] uppercase tracking-wider">
-                        {p.service}
-                      </div>
-                      <h3 className="mt-1 font-display text-lg font-semibold text-[#111827]">
-                        {p.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-[#5b6472] leading-relaxed">{p.desc}</p>
+                    <span className="text-[10px] font-mono text-[#5b6472]">MON–SAT 9AM–7PM</span>
+                  </div>
+                  <div className="mt-6 space-y-3">
+                    <div className="h-6 w-3/4 rounded bg-[#f3eee6]" />
+                    <div className="h-3 w-full rounded bg-[#f3eee6]/70" />
+                    <div className="h-3 w-5/6 rounded bg-[#f3eee6]/70" />
+                  </div>
+                  <div className="mt-6 flex gap-3">
+                    <div className="h-8 w-28 rounded bg-[#0f766e]/15 flex items-center justify-center text-[10.5px] font-semibold text-[#0f766e]">
+                      Book Visit
                     </div>
-
-                    {/* Features */}
-                    <div className="mt-5">
-                      <div className="text-[10px] uppercase tracking-wider text-[#5b6472] font-medium mb-2">
-                        Key Elements
-                      </div>
-                      <ul className="flex flex-wrap gap-1.5">
-                        {p.features.map((f) => (
-                          <li
-                            key={f}
-                            className="rounded-full border border-[#e7e1d6] bg-[#f3eee6]/70 px-2.5 py-1 text-[11px] text-[#5b6472]"
-                          >
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="h-8 w-28 rounded border border-[#e7e1d6] flex items-center justify-center text-[10.5px] text-[#5b6472]">
+                      Our Services
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
 
-                  {/* CTA */}
-                  <div className="mt-6 pt-4 border-t border-[#e7e1d6]">
+            {/* Narrative Content */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs font-semibold text-[#b38a3d]">01</span>
+                <span className="text-[#e7e1d6]">•</span>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                  Website Development
+                </span>
+                <span className="text-[#e7e1d6]">•</span>
+                <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                  Concept Website
+                </span>
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+                SmileCare Dental Clinic
+              </h3>
+              <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
+                A modern dental clinic website concept designed to showcase services, build trust
+                and make it easier for patients to send appointment requests.
+              </p>
+              <div className="pt-2">
+                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                  Key Elements:
+                </div>
+                <div className="text-xs text-[#5b6472] leading-relaxed">
+                  Responsive Design · Service Pages · Appointment Request Form · Contact Integration
+                  · Mobile-Friendly Interface
+                </div>
+              </div>
+              <div className="pt-4">
+                <Link
+                  to="/contact"
+                  search={{ service: "Website Development", project: "SmileCare Dental Clinic" }}
+                  className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
+                >
+                  Discuss a Similar Solution
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* PROJECT 2 — AI Restaurant Voice Agent (Reverse Split: Narrative Left, Visual Right) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-t border-[#e7e1d6] pt-12"
+          >
+            {/* Narrative Content */}
+            <div className="lg:col-span-6 space-y-4 order-2 lg:order-1">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs font-semibold text-[#b38a3d]">02</span>
+                <span className="text-[#e7e1d6]">•</span>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                  AI Voice Agent
+                </span>
+                <span className="text-[#e7e1d6]">•</span>
+                <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                  Concept AI Demo
+                </span>
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+                AI Restaurant Voice Agent
+              </h3>
+              <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
+                A conversational voice assistant concept designed to answer customer calls, collect
+                structured food orders and confirm order details.
+              </p>
+              <div className="pt-2">
+                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                  Key Elements:
+                </div>
+                <div className="text-xs text-[#5b6472] leading-relaxed">
+                  Voice Conversation · Menu Assistance · Order Collection · Customer Detail
+                  Collection · Order Confirmation Workflow
+                </div>
+              </div>
+              <div className="pt-4">
+                <Link
+                  to="/contact"
+                  search={{ service: "AI Voice Agent", project: "AI Restaurant Voice Agent" }}
+                  className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
+                >
+                  Discuss a Similar Solution
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Visual Voice Waveform Frame */}
+            <div className="lg:col-span-6 order-1 lg:order-2">
+              <div className="relative overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] shadow-xs">
+                {/* Browser bar */}
+                <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/60 px-4 py-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                  </div>
+                  <span className="font-mono text-[10px] text-[#5b6472]">
+                    voice-agent.inbound.call
+                  </span>
+                </div>
+                {/* Audio Telephony Canvas */}
+                <div className="p-6 sm:p-8 bg-[#fffdfc]">
+                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
+                    <div className="flex items-center gap-2">
+                      <Mic className="h-4 w-4 text-[#b38a3d]" />
+                      <span className="font-display text-sm font-semibold text-[#111827]">
+                        Restaurant Inbound Assistant
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-[#0f766e]">ORDER #1042</span>
+                  </div>
+                  {/* Waveform graphic */}
+                  <div className="my-6 flex items-center justify-center gap-1 h-12">
+                    {[35, 60, 20, 80, 45, 95, 30, 75, 50, 90, 40, 65, 25, 85, 40].map((h, idx) => (
+                      <span
+                        key={idx}
+                        className="w-1.5 rounded-full bg-[#0f766e]/40"
+                        style={{ height: `${h}%` }}
+                      />
+                    ))}
+                  </div>
+                  <div className="rounded-xl border border-[#e7e1d6] bg-[#f3eee6]/50 p-3 text-xs text-[#5b6472] font-mono">
+                    "I have confirmed your order for delivery: 2x Signature Platters to Main Blvd."
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* PROJECT 3 — Dental Clinic Digital System (Full-Width Featured Block) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="border-t border-[#e7e1d6] pt-12"
+          >
+            <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-8 sm:p-10 shadow-xs">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs font-semibold text-[#b38a3d]">03</span>
+                    <span className="text-[#e7e1d6]">•</span>
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                      Custom Digital Solution
+                    </span>
+                    <span className="text-[#e7e1d6]">•</span>
+                    <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                      Concept / Demo
+                    </span>
+                  </div>
+                  <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+                    Dental Clinic Digital System
+                  </h3>
+                  <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
+                    A digital solution concept combining a professional clinic website with inquiry
+                    and appointment workflows.
+                  </p>
+                  <div className="pt-2">
+                    <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                      Key Elements:
+                    </div>
+                    <div className="text-xs text-[#5b6472] leading-relaxed">
+                      Website · Inquiry Capture · Appointment Requests · Lead Organization ·
+                      Automation-ready Workflow
+                    </div>
+                  </div>
+                  <div className="pt-2">
                     <Link
                       to="/contact"
-                      search={{ service: p.service, project: p.title }}
-                      className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded-md py-1"
+                      search={{
+                        service: "Custom Digital Solution",
+                        project: "Dental Clinic Digital System",
+                      }}
+                      className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
                     >
-                      Discuss a Similar Solution{" "}
+                      Discuss a Similar Solution
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
                     </Link>
                   </div>
                 </div>
-              </ProjectCard>
-            </motion.div>
-          ))}
+
+                <div className="lg:col-span-5">
+                  <div className="rounded-xl border border-[#e7e1d6] bg-[#f7f3ec]/50 p-6 space-y-3 font-mono text-xs text-[#5b6472]">
+                    <div className="flex items-center justify-between text-[#111827] font-semibold pb-2 border-b border-[#e7e1d6]">
+                      <span>SYSTEM ARCHITECTURE</span>
+                      <Sparkles className="h-3.5 w-3.5 text-[#b38a3d]" />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
+                      <span>Website Frontend (Modern UI)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
+                      <span>Inquiry & Intake Form Capture</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
+                      <span>WhatsApp Notification Webhook</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
+                      <span>Automated Booking Synchronization</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* PROJECT 4 — Luxury Real Estate Website (Split: Visual Left, Narrative Right) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-t border-[#e7e1d6] pt-12"
+          >
+            {/* Visual Preview Frame */}
+            <div className="lg:col-span-6">
+              <div className="relative overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] shadow-xs">
+                <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/60 px-4 py-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                  </div>
+                  <span className="font-mono text-[10px] text-[#5b6472]">
+                    luxury-estates.portfolio.preview
+                  </span>
+                </div>
+                <div className="p-6 sm:p-8 bg-[#fffdfc]">
+                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
+                    <div className="flex items-center gap-2">
+                      <Building2 className="h-4 w-4 text-[#b38a3d]" />
+                      <span className="font-display text-sm font-semibold text-[#111827]">
+                        Apex Estates
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-[#b38a3d]">PRIVATE ARCHIVE</span>
+                  </div>
+                  <div className="mt-6 space-y-3">
+                    <div className="h-24 w-full rounded bg-[#f3eee6]/80 flex items-center justify-center">
+                      <span className="font-mono text-[10px] text-[#5b6472]">
+                        WATERFRONT RESIDENCE WIREFRAME
+                      </span>
+                    </div>
+                    <div className="flex gap-2">
+                      <div className="h-3 w-1/3 rounded bg-[#f3eee6]" />
+                      <div className="h-3 w-1/4 rounded bg-[#f3eee6]" />
+                    </div>
+                  </div>
+                  <div className="mt-6 flex gap-3">
+                    <div className="h-8 w-32 rounded bg-[#0f766e]/15 flex items-center justify-center text-[10.5px] font-semibold text-[#0f766e]">
+                      Inquire Listing
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Narrative Content */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs font-semibold text-[#b38a3d]">04</span>
+                <span className="text-[#e7e1d6]">•</span>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                  Website Development
+                </span>
+                <span className="text-[#e7e1d6]">•</span>
+                <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                  Portfolio Build
+                </span>
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+                Luxury Real Estate Website
+              </h3>
+              <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
+                A premium real estate website built as a portfolio project for luxury property
+                presentation and investor inquiries.
+              </p>
+              <div className="pt-2">
+                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                  Key Elements:
+                </div>
+                <div className="text-xs text-[#5b6472] leading-relaxed">
+                  Premium Property Presentation · Responsive Design · Inquiry Forms · Modern
+                  Interface · Investor-focused Layout
+                </div>
+              </div>
+              <div className="pt-4">
+                <Link
+                  to="/contact"
+                  search={{
+                    service: "Website Development",
+                    project: "Luxury Real Estate Website",
+                  }}
+                  className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
+                >
+                  Discuss a Similar Solution
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* PROJECT 5 — Surgical B2B Export Website (Reverse Split: Narrative Left, Visual Right) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-t border-[#e7e1d6] pt-12"
+          >
+            {/* Narrative Content */}
+            <div className="lg:col-span-6 space-y-4 order-2 lg:order-1">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs font-semibold text-[#b38a3d]">05</span>
+                <span className="text-[#e7e1d6]">•</span>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                  Website Development
+                </span>
+                <span className="text-[#e7e1d6]">•</span>
+                <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                  Portfolio Build
+                </span>
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+                Surgical B2B Export Website
+              </h3>
+              <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
+                A reusable B2B website template built for surgical and dental instrument exporters,
+                featuring product presentation, business credentials and RFQ functionality.
+              </p>
+              <div className="pt-2">
+                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                  Key Elements:
+                </div>
+                <div className="text-xs text-[#5b6472] leading-relaxed">
+                  Product Catalog · Certification Display Areas · RFQ Form · WhatsApp Integration ·
+                  Mega-menu Navigation
+                </div>
+              </div>
+              <div className="pt-4">
+                <Link
+                  to="/contact"
+                  search={{
+                    service: "Website Development",
+                    project: "Surgical B2B Export Website",
+                  }}
+                  className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
+                >
+                  Discuss a Similar Solution
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Visual Preview Frame */}
+            <div className="lg:col-span-6 order-1 lg:order-2">
+              <div className="relative overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] shadow-xs">
+                <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/60 px-4 py-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+                  </div>
+                  <span className="font-mono text-[10px] text-[#5b6472]">
+                    surgical-export.b2b.preview
+                  </span>
+                </div>
+                <div className="p-6 sm:p-8 bg-[#fffdfc]">
+                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
+                    <div className="flex items-center gap-2">
+                      <Package className="h-4 w-4 text-[#0f766e]" />
+                      <span className="font-display text-sm font-semibold text-[#111827]">
+                        MedSpec Instruments
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-[#0f766e]">ISO COMPLIANT</span>
+                  </div>
+                  <div className="mt-6 grid grid-cols-3 gap-2">
+                    <div className="h-16 rounded bg-[#f3eee6]/70 flex items-center justify-center text-[9.5px] font-mono text-[#5b6472]">
+                      Surgical
+                    </div>
+                    <div className="h-16 rounded bg-[#f3eee6]/70 flex items-center justify-center text-[9.5px] font-mono text-[#5b6472]">
+                      Dental
+                    </div>
+                    <div className="h-16 rounded bg-[#f3eee6]/70 flex items-center justify-center text-[9.5px] font-mono text-[#5b6472]">
+                      Sterile
+                    </div>
+                  </div>
+                  <div className="mt-6 flex gap-3">
+                    <div className="h-8 w-32 rounded bg-[#0f766e]/15 flex items-center justify-center text-[10.5px] font-semibold text-[#0f766e]">
+                      Request RFQ
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Note about certifications */}
+        {/* Editorial Footnote Disclaimer */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 rounded-xl border border-[#e7e1d6] bg-[#f3eee6]/60 px-5 py-4 text-xs text-[#5b6472] leading-relaxed"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-14 border-t border-[#e7e1d6] pt-6 text-xs text-[#5b6472] leading-relaxed"
         >
-          <strong className="text-[#111827] font-medium">Note:</strong> Projects 1–3 are
-          concept/demo builds created to demonstrate capability. Projects 4–5 are portfolio builds
-          created by the developer. Any certification badges shown within the Surgical B2B Export
-          demo website are part of the sample exporter content and do not represent certifications
-          owned by Digital Solution.
+          <span className="font-semibold text-[#111827] font-mono uppercase tracking-wider mr-1.5">
+            Note:
+          </span>
+          Projects 1–3 are concept/demo builds created to demonstrate capability. Projects 4–5 are
+          portfolio builds created by the developer. Any certification badges shown within the
+          Surgical B2B Export demo website are part of the sample exporter content and do not
+          represent certifications owned by Digital Solution.
         </motion.div>
       </div>
     </section>

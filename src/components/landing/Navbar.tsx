@@ -89,20 +89,19 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav Items */}
-        <ul className="hidden items-center gap-1 rounded-full border border-[#e7e1d6] bg-[#f3eee6]/90 p-1 lg:flex shadow-xs">
+        <ul className="hidden items-center gap-6 xl:gap-8 lg:flex">
           {NAV.map((n) => (
             <li key={n.to}>
               <Link
                 to={n.to}
                 activeOptions={{ exact: n.to === "/" }}
                 activeProps={{
-                  className:
-                    "text-[#0f766e] bg-[#ffffff] font-medium shadow-xs border border-[#e7e1d6]",
+                  className: "text-[#0f766e] font-semibold after:scale-x-100",
                 }}
                 inactiveProps={{
-                  className: "text-[#5b6472] hover:text-[#111827] hover:bg-[#ffffff]/60",
+                  className: "text-[#5b6472] hover:text-[#111827] font-medium after:scale-x-0",
                 }}
-                className="relative rounded-full px-3.5 py-1.5 text-xs tracking-wide transition-all"
+                className="relative py-1 text-[13px] tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded after:content-[''] after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-[2px] after:bg-[#0f766e] after:rounded-full after:transition-transform"
               >
                 {n.label}
               </Link>
@@ -111,10 +110,10 @@ export function Navbar() {
         </ul>
 
         {/* Desktop Header CTA */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-3">
           <Link
             to="/contact"
-            className="group relative inline-flex items-center gap-2 rounded-full bg-[#0f766e] px-4.5 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#0d9488] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+            className="group relative inline-flex items-center gap-2 rounded-md bg-[#0f766e] px-4 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#0d9488] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
             <span>Discuss Your Project</span>
@@ -142,12 +141,13 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   activeOptions={{ exact: n.to === "/" }}
                   activeProps={{
-                    className: "text-[#0f766e] bg-[#f3eee6] font-medium border border-[#e7e1d6]",
+                    className:
+                      "text-[#0f766e] bg-[#f3eee6]/70 font-semibold border-l-2 border-[#0f766e] pl-3.5",
                   }}
                   inactiveProps={{
-                    className: "text-[#5b6472] hover:text-[#111827] hover:bg-[#f3eee6]/50",
+                    className: "text-[#5b6472] hover:text-[#111827] hover:bg-[#f3eee6]/40",
                   }}
-                  className="block rounded-xl px-4 py-2.5 text-sm transition-colors"
+                  className="block rounded-md px-4 py-2.5 text-sm transition-colors"
                 >
                   {n.label}
                 </Link>
@@ -157,7 +157,7 @@ export function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="block rounded-xl bg-[#0f766e] px-4 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-[#0d9488]"
+                className="block rounded-md bg-[#0f766e] px-4 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-[#0d9488]"
               >
                 Discuss Your Project
               </Link>
@@ -168,7 +168,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-xl border border-emerald-600/25 bg-emerald-50 px-4 py-2.5 text-center text-sm font-semibold text-emerald-800 hover:bg-emerald-100 transition"
+                className="flex items-center justify-center gap-2 rounded-md border border-emerald-600/25 bg-emerald-50 px-4 py-2.5 text-center text-sm font-semibold text-emerald-800 hover:bg-emerald-100 transition"
               >
                 <MessageSquare className="h-4 w-4" />
                 WhatsApp (+92 331 7962794)

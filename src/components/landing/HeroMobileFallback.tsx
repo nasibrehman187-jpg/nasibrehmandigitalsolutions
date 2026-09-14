@@ -1,132 +1,87 @@
-import { Globe, Workflow, ShieldCheck, ArrowUpRight } from "lucide-react";
-
 export function HeroMobileFallback() {
   return (
     <div
-      className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-3xl border border-[#e7e1d6] bg-[#fffdfc] p-6 sm:p-8 shadow-xs"
+      className="relative flex w-full items-center justify-center overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-6 sm:p-10 shadow-xs"
       aria-hidden="true"
     >
-      {/* Subtle architectural grid pattern */}
-      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
-
-      {/* Elegant geometric studio background linework */}
+      {/* Precision architectural linework background */}
       <svg
-        viewBox="0 0 400 400"
+        viewBox="0 0 500 500"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 h-full w-full pointer-events-none opacity-40"
+        className="absolute inset-0 h-full w-full pointer-events-none opacity-60"
       >
-        <circle cx="200" cy="200" r="160" stroke="#e7e1d6" strokeWidth="1" strokeDasharray="4 4" />
-        <circle cx="200" cy="200" r="110" stroke="#e7e1d6" strokeWidth="1" />
-        <circle cx="200" cy="200" r="60" stroke="#0f766e" strokeWidth="1" strokeOpacity="0.25" />
+        {/* Subtle grid pattern */}
+        <defs>
+          <pattern id="studio-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f3eee6" strokeWidth="1" />
+          </pattern>
+        </defs>
+        <rect width="500" height="500" fill="url(#studio-grid)" />
+
+        {/* Concentric harmonic circles */}
+        <circle cx="250" cy="220" r="170" stroke="#e7e1d6" strokeWidth="1" strokeDasharray="3 3" />
+        <circle cx="250" cy="220" r="120" stroke="#e7e1d6" strokeWidth="1" />
+        <circle cx="250" cy="220" r="70" stroke="#0f766e" strokeWidth="1" strokeOpacity="0.35" />
+
+        {/* Architectural alignment axes */}
+        <line x1="250" y1="20" x2="250" y2="420" stroke="#e7e1d6" strokeWidth="1" />
+        <line x1="50" y1="220" x2="450" y2="220" stroke="#e7e1d6" strokeWidth="1" />
         <line
-          x1="200"
-          y1="20"
-          x2="200"
-          y2="380"
-          stroke="#e7e1d6"
-          strokeWidth="1"
-          strokeDasharray="3 3"
-        />
-        <line
-          x1="20"
-          y1="200"
+          x1="120"
+          y1="90"
           x2="380"
-          y2="200"
+          y2="350"
           stroke="#e7e1d6"
-          strokeWidth="1"
-          strokeDasharray="3 3"
+          strokeWidth="0.75"
+          strokeDasharray="2 4"
         />
+        <line
+          x1="120"
+          y1="350"
+          x2="380"
+          y2="90"
+          stroke="#e7e1d6"
+          strokeWidth="0.75"
+          strokeDasharray="2 4"
+        />
+
+        {/* Corner registration marks */}
+        <path d="M 30 40 L 40 40 L 40 30" stroke="#b38a3d" strokeWidth="1.5" />
+        <path d="M 470 40 L 460 40 L 460 30" stroke="#b38a3d" strokeWidth="1.5" />
+        <path d="M 30 460 L 40 460 L 40 470" stroke="#b38a3d" strokeWidth="1.5" />
+        <path d="M 470 460 L 460 460 L 460 470" stroke="#b38a3d" strokeWidth="1.5" />
       </svg>
 
-      {/* Layered Editorial Studio Composition */}
-      <div className="relative z-10 flex w-full max-w-md flex-col gap-3.5 sm:gap-4.5">
-        {/* Studio Crest Header */}
-        <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-2.5 text-[11px] uppercase tracking-wider text-[#5b6472]">
-          <span className="flex items-center gap-1.5 font-medium text-[#111827]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
-            Founder-Led Studio
-          </span>
-          <span className="font-normal text-[#5b6472]">Khairpur, Pakistan</span>
-        </div>
+      {/* Bespoke Editorial Monogram Composition */}
+      <div className="relative z-10 flex w-full max-w-sm flex-col items-center text-center">
+        {/* Studio Monogram Emblem */}
+        <div className="relative my-4 sm:my-6 flex items-center justify-center">
+          <div className="relative grid h-28 w-28 sm:h-32 sm:w-32 place-items-center rounded-2xl border border-[#e7e1d6] bg-[#fffdfc] shadow-xs">
+            {/* Inner frame */}
+            <div className="absolute inset-1.5 rounded-xl border border-[#e7e1d6]/70" />
 
-        {/* Primary Editorial Service Card */}
-        <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-4 sm:p-5 shadow-xs transition-transform duration-300 hover:-translate-y-0.5">
-          <div className="flex items-start justify-between">
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#f3eee6] text-[#0f766e]">
-                <Globe className="h-4.5 w-4.5" />
+            {/* Monogram Display Typography */}
+            <div className="relative flex flex-col items-center">
+              <span className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#111827]">
+                D<span className="text-[#0f766e]">S</span>
               </span>
-              <div>
-                <div className="text-[10.5px] font-semibold uppercase tracking-wider text-[#0f766e]">
-                  Web Architecture
-                </div>
-                <div className="font-display text-sm font-bold text-[#111827]">
-                  Modern Business Websites
-                </div>
-              </div>
-            </div>
-            <ArrowUpRight className="h-4 w-4 text-[#5b6472]/60" />
-          </div>
-          <p className="mt-2 text-xs text-[#5b6472] leading-relaxed">
-            Responsive, fast-loading business sites engineered for credibility, lead capture, and
-            seamless WhatsApp communication.
-          </p>
-          <div className="mt-2.5 flex flex-wrap gap-1.5 text-[10.5px] font-medium text-[#5b6472]">
-            <span className="rounded-md border border-[#e7e1d6] bg-[#f3eee6]/70 px-2 py-0.5">
-              Clean UI
-            </span>
-            <span className="rounded-md border border-[#e7e1d6] bg-[#f3eee6]/70 px-2 py-0.5">
-              Mobile-First
-            </span>
-            <span className="rounded-md border border-[#e7e1d6] bg-[#f3eee6]/70 px-2 py-0.5">
-              Inquiry Forms
-            </span>
-          </div>
-        </div>
-
-        {/* Secondary Editorial Service Card */}
-        <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-4 sm:p-5 shadow-xs transition-transform duration-300 hover:-translate-y-0.5">
-          <div className="flex items-start justify-between">
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#f3eee6] text-[#b38a3d]">
-                <Workflow className="h-4.5 w-4.5" />
+              <span className="mt-0.5 text-[9px] font-mono uppercase tracking-[0.25em] text-[#b38a3d]">
+                FOUNDER-LED
               </span>
-              <div>
-                <div className="text-[10.5px] font-semibold uppercase tracking-wider text-[#b38a3d]">
-                  Automation & Voice
-                </div>
-                <div className="font-display text-sm font-bold text-[#111827]">
-                  n8n & Voice AI Systems
-                </div>
-              </div>
             </div>
-            <ArrowUpRight className="h-4 w-4 text-[#5b6472]/60" />
-          </div>
-          <p className="mt-2 text-xs text-[#5b6472] leading-relaxed">
-            Structured workflow automations, custom AI assistants, and intelligent inbound voice
-            agents connected to your business tools.
-          </p>
-          <div className="mt-2.5 flex flex-wrap gap-1.5 text-[10.5px] font-medium text-[#5b6472]">
-            <span className="rounded-md border border-[#e7e1d6] bg-[#f3eee6]/70 px-2 py-0.5">
-              n8n Flows
-            </span>
-            <span className="rounded-md border border-[#e7e1d6] bg-[#f3eee6]/70 px-2 py-0.5">
-              AI Chatbots
-            </span>
-            <span className="rounded-md border border-[#e7e1d6] bg-[#f3eee6]/70 px-2 py-0.5">
-              Voice Agents
-            </span>
+
+            {/* Corner accents */}
+            <span className="absolute -top-1 -left-1 h-2 w-2 border-t-2 border-l-2 border-[#0f766e]" />
+            <span className="absolute -bottom-1 -right-1 h-2 w-2 border-b-2 border-r-2 border-[#b38a3d]" />
           </div>
         </div>
 
-        {/* Trust & Engagement Footer Strip */}
-        <div className="flex items-center justify-between rounded-xl border border-[#e7e1d6] bg-[#f3eee6]/60 px-3.5 py-2 text-[11px] text-[#5b6472]">
-          <span className="flex items-center gap-1.5 font-medium text-[#111827]">
-            <ShieldCheck className="h-3.5 w-3.5 text-[#0f766e]" />
-            Direct Communication
-          </span>
-          <span>No middlemen • Transparent scope</span>
+        {/* Brand Title & Identity */}
+        <div className="w-full">
+          <div className="font-display text-lg sm:text-xl font-semibold tracking-tight text-[#111827]">
+            Digital Solution <span className="text-[#0f766e]">by Nasib Rehman</span>
+          </div>
         </div>
       </div>
     </div>

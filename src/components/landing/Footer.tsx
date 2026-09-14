@@ -50,9 +50,9 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
               Engineering practical websites, automations and AI systems for growing businesses.
             </p>
-            <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-[#9CA3AF]">
+            <div className="mt-4 flex items-center gap-2 text-xs text-[#9CA3AF]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
-              Available for remote projects
+              <span>Available for remote projects</span>
             </div>
           </div>
 

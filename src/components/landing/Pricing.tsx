@@ -340,99 +340,75 @@ export function Pricing() {
           subtitle="Clear package pricing with defined deliverables. Website development from $99, AI automation from $200, chatbots from $150, and voice agents from $400."
         />
 
-        {/* Service Category Tabs */}
-        <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-2">
+        {/* Service Category Tabs — Quiet Editorial Text Tabs */}
+        <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-6 sm:gap-10 border-b border-[#e7e1d6] pb-3">
           {TABS.map((t) => {
-            const Icon = t.icon;
             const isActive = activeTab === t.id;
             return (
               <button
                 key={t.id}
                 type="button"
                 onClick={() => setActiveTab(t.id)}
-                className={`group inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] ${
+                className={`relative pb-3 text-xs sm:text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] ${
                   isActive
-                    ? "border border-[#0f766e] bg-[#ffffff] text-[#0f766e] shadow-xs font-semibold"
-                    : "border border-[#e7e1d6] bg-[#f3eee6] text-[#5b6472] hover:bg-[#ffffff] hover:text-[#111827]"
+                    ? "text-[#0f766e] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#0f766e]"
+                    : "text-[#5b6472] hover:text-[#111827]"
                 }`}
               >
-                <Icon className={`h-3.5 w-3.5 ${isActive ? "text-[#0f766e]" : "text-[#5b6472]"}`} />
-                <span>{t.label}</span>
-                <span
-                  className={`rounded-full px-2 py-0.5 text-[10px] ${
-                    isActive
-                      ? "bg-[#f3eee6] text-[#0f766e] font-semibold"
-                      : "bg-[#ffffff] text-[#5b6472]"
-                  }`}
-                >
-                  {t.priceRange}
-                </span>
+                {t.label}
               </button>
             );
           })}
         </div>
 
-        {/* Tab Header Label */}
-        <div className="mt-8 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#e7e1d6] bg-[#ffffff] px-3.5 py-1 text-xs text-[#5b6472] shadow-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
-            {activeTab === "websites" && "Website Development Packages"}
-            {activeTab === "chatbots" && "AI Chatbot Development Packages"}
-            {activeTab === "automation" && "AI & Workflow Automation Packages"}
-            {activeTab === "voice-agents" && "AI Voice Agent Engineering Packages"}
-            {activeTab === "custom" && "Custom Multi-System Architecture"}
-          </span>
-        </div>
-
         {/* 3-Card Grid for Standard Services */}
         {activeTab !== "custom" && (
-          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {activePlans.map((p, i) => (
               <motion.div
                 key={p.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className={`relative ${p.highlight ? "lg:-my-2" : ""}`}
+                className="relative"
               >
                 <div
-                  className={`relative flex h-full flex-col justify-between rounded-3xl p-7 sm:p-8 transition-all duration-300 ${
+                  className={`relative flex h-full flex-col justify-between rounded-xl p-7 sm:p-8 transition-all duration-300 ${
                     p.highlight
-                      ? "bg-[#ffffff] border-2 border-[#0f766e] shadow-sm"
-                      : "bg-[#ffffff] border border-[#e7e1d6] shadow-xs hover:border-[#0f766e]/40 hover:-translate-y-0.5 hover:shadow-sm"
+                      ? "bg-[#ffffff] border border-[#0f766e]/70 shadow-xs ring-1 ring-[#0f766e]/20"
+                      : "bg-[#ffffff] border border-[#e7e1d6] shadow-xs hover:border-[#0f766e]/40"
                   }`}
                 >
                   <div>
                     {p.badge && (
-                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full border border-[#b38a3d] bg-[#f3eee6] px-3.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-[#b38a3d] shadow-xs">
-                        <Sparkles className="h-3 w-3 fill-[#b38a3d]" /> {p.badge}
+                      <div className="flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-[#b38a3d] mb-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
+                        {p.badge}
                       </div>
                     )}
                     <div className="font-display text-base font-semibold text-[#111827]">
                       {p.name}
                     </div>
                     <div className="mt-3 flex items-baseline gap-2">
-                      <span className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#111827]">
+                      <span className="font-display text-4xl sm:text-5xl font-semibold tracking-tight text-[#111827]">
                         {p.price}
                       </span>
                       <span className="text-xs text-[#5b6472] font-medium">/ {p.per}</span>
                     </div>
-                    <div className="mt-2 text-xs text-[#0f766e] font-medium">
+                    <div className="mt-2 font-mono text-xs text-[#0f766e] font-medium">
                       Estimated Delivery: {p.delivery}
                     </div>
 
                     <p className="mt-4 text-sm text-[#5b6472] leading-relaxed">{p.description}</p>
 
                     <div className="mt-6 pt-5 border-t border-[#e7e1d6]">
-                      <div className="text-[11px] font-medium uppercase tracking-wider text-[#5b6472] mb-3">
+                      <div className="font-mono text-[10.5px] font-semibold uppercase tracking-wider text-[#5b6472] mb-3">
                         Included Features
                       </div>
                       <ul className="space-y-2.5">
                         {p.features.map((f) => (
                           <li key={f} className="flex items-start gap-2.5 text-xs text-[#111827]">
-                            <span className="mt-0.5 grid h-4 w-4 place-items-center rounded-full bg-[#f3eee6] text-[#0f766e] shrink-0">
-                              <Check className="h-2.5 w-2.5" />
-                            </span>
+                            <Check className="h-3.5 w-3.5 text-[#0f766e] shrink-0 mt-0.5" />
                             <span className="leading-snug">{f}</span>
                           </li>
                         ))}
@@ -453,7 +429,7 @@ export function Pricing() {
                               : "AI Automation",
                       plan: p.serviceParam,
                     }}
-                    className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] ${
+                    className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] ${
                       p.highlight
                         ? "bg-[#0f766e] text-white shadow-xs hover:bg-[#0d9488]"
                         : "border border-[#e7e1d6] bg-[#ffffff] text-[#111827] hover:bg-[#f3eee6] hover:border-[#d6cebe]"
@@ -474,7 +450,7 @@ export function Pricing() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="mt-10 rounded-2xl border border-[#e7e1d6] bg-[#f3eee6]/70 p-6 text-left"
+            className="mt-10 rounded-2xl border border-[#e7e1d6] bg-[#fffdfc] p-6 text-left"
           >
             <div className="flex items-center gap-2 font-display text-sm font-semibold text-[#b38a3d]">
               <AlertCircle className="h-4 w-4 shrink-0" />
@@ -527,19 +503,19 @@ export function Pricing() {
             transition={{ duration: 0.4 }}
             className="mt-8 mx-auto max-w-3xl"
           >
-            <div className="rounded-3xl border border-[#e7e1d6] bg-[#ffffff] p-8 sm:p-10 text-center shadow-xs">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f3eee6] border border-[#e7e1d6] px-3 py-1 text-xs font-semibold text-[#b38a3d]">
+            <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-8 sm:p-10 text-center shadow-xs">
+              <span className="inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d] font-semibold">
                 <Layers className="h-3.5 w-3.5" /> Multi-System Architecture
               </span>
-              <h3 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-[#111827]">
+              <h3 className="mt-3 font-display text-2xl sm:text-3xl font-semibold text-[#111827]">
                 Custom Digital Solutions
               </h3>
               <div className="mt-4 flex items-center justify-center gap-2">
-                <span className="font-display text-4xl sm:text-5xl font-bold text-[#111827]">
+                <span className="font-display text-4xl sm:text-5xl font-semibold text-[#111827]">
                   Starting from $500+
                 </span>
               </div>
-              <p className="mt-2 text-xs text-[#0f766e] font-medium">
+              <p className="mt-2 font-mono text-xs text-[#0f766e] font-medium">
                 Final pricing depends on project scope
               </p>
               <p className="mt-4 text-sm text-[#5b6472] leading-relaxed max-w-xl mx-auto">
@@ -549,19 +525,19 @@ export function Pricing() {
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2 text-left text-xs sm:text-sm">
-                <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#f3eee6]/50 p-3.5 text-[#111827]">
+                <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#fffdfc] p-3.5 text-[#111827]">
                   <Check className="h-4 w-4 text-[#0f766e] mt-0.5 shrink-0" />
                   <span>Custom Combined Architecture (Web + AI + Workflows)</span>
                 </div>
-                <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#f3eee6]/50 p-3.5 text-[#111827]">
+                <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#fffdfc] p-3.5 text-[#111827]">
                   <Check className="h-4 w-4 text-[#0f766e] mt-0.5 shrink-0" />
                   <span>Bespoke System Integrations & Webhooks</span>
                 </div>
-                <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#f3eee6]/50 p-3.5 text-[#111827]">
+                <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#fffdfc] p-3.5 text-[#111827]">
                   <Check className="h-4 w-4 text-[#0f766e] mt-0.5 shrink-0" />
                   <span>Tailored Business Logic & Database Setup</span>
                 </div>
-                <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#f3eee6]/50 p-3.5 text-[#111827]">
+                <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#fffdfc] p-3.5 text-[#111827]">
                   <Check className="h-4 w-4 text-[#0f766e] mt-0.5 shrink-0" />
                   <span>End-to-End Testing, Handover & Revisions</span>
                 </div>
@@ -574,7 +550,7 @@ export function Pricing() {
                     service: "Custom Digital Solution",
                     plan: "Custom Digital Solution — Starting from $500+",
                   }}
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0f766e] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#0d9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+                  className="inline-flex items-center gap-2 rounded-md bg-[#0f766e] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#0d9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
                 >
                   Discuss Custom Solution <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -582,7 +558,7 @@ export function Pricing() {
                   href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to discuss a Custom Digital Solution for my business.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-emerald-600/25 bg-emerald-50 px-5 py-2.5 text-xs sm:text-sm font-medium text-emerald-800 hover:bg-emerald-100 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+                  className="inline-flex items-center gap-2 rounded-md border border-emerald-600/25 bg-emerald-50 px-5 py-2.5 text-xs sm:text-sm font-medium text-emerald-800 hover:bg-emerald-100 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
                 >
                   <MessageSquare className="h-4 w-4 text-emerald-600" />
                   Chat on WhatsApp
@@ -606,8 +582,8 @@ export function Pricing() {
         {/* Important Cost Information */}
         <div className="mt-16 sm:mt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#e7e1d6] bg-[#ffffff] px-3.5 py-1 text-xs text-[#5b6472] shadow-xs">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0f766e]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
               Usage & Third-Party Costs
             </span>
             <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl text-[#111827]">
@@ -643,13 +619,13 @@ export function Pricing() {
               href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to get a custom quote for my project.")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#0f766e] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#0d9488] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+              className="inline-flex items-center gap-2 rounded-md bg-[#0f766e] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#0d9488] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
             >
               Get Custom Quote <ArrowRight className="h-4 w-4" />
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-[#e7e1d6] bg-[#ffffff] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#f3eee6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+              className="inline-flex items-center gap-2 rounded-md border border-[#e7e1d6] bg-[#ffffff] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#f3eee6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
             >
               <MessageSquare className="h-4 w-4 text-[#0f766e]" />
               Send Project Details

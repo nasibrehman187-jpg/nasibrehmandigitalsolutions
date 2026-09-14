@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, MessageSquare } from "lucide-react";
+import { Mail, MapPin, Phone, MessageSquare, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { SectionHeader } from "./Services";
@@ -143,7 +143,7 @@ export function Contact() {
     <section id="contact" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          tag="Contact"
+          tag="Direct Consultation"
           title={
             <>
               Tell Me About <span className="text-[#0F766E]">Your Project</span>
@@ -152,14 +152,67 @@ export function Contact() {
           subtitle="Have a website, automation or AI idea? Send your requirements directly via WhatsApp or email to discuss the most suitable solution for your business."
         />
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-5">
+        {/* Founder Consultation Split Layout */}
+        <div className="mt-14 sm:mt-18 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+          {/* Left Column — Direct Contact & Working Together */}
+          <div className="lg:col-span-5 space-y-8">
+            {/* Direct Contact Details */}
+            <div>
+              <div className="font-display text-xl font-semibold text-[#111827]">
+                Direct Contact
+              </div>
+              <ul className="mt-4 space-y-3.5 text-xs sm:text-sm">
+                <InfoRow
+                  icon={MessageSquare}
+                  label="Chat on WhatsApp (+92 331 7962794)"
+                  href="https://wa.me/923317962794"
+                  isLink
+                />
+                <InfoRow icon={Phone} label="+92 331 7962794" href="tel:+923317962794" isLink />
+                <InfoRow
+                  icon={Mail}
+                  label="nasibrehman187@gmail.com"
+                  href="mailto:nasibrehman187@gmail.com"
+                  isLink
+                />
+                <InfoRow icon={MapPin} label="Khairpur, Sindh, Pakistan" />
+              </ul>
+            </div>
+
+            {/* Working Together */}
+            <div className="border-t border-[#E7E1D6] pt-6 space-y-3">
+              <div className="text-xs uppercase tracking-wider text-[#5B6472] font-semibold mb-3">
+                Working Together
+              </div>
+              <ul className="space-y-2.5 text-xs text-[#5B6472]">
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
+                  <span>Direct communication with Nasib Rehman</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
+                  <span>No-obligation project discussion</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
+                  <span>Available for remote projects</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
+                  <span>Clear scope & transparent pricing</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Right Column — Single Clean Form Container */}
           <motion.form
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             onSubmit={onSendWhatsApp}
-            className="rounded-3xl border border-[#E7E1D6] bg-[#FFFFFF] p-8 lg:col-span-3 shadow-sm"
+            className="rounded-xl border border-[#E7E1D6] bg-[#FFFFFF] p-7 sm:p-9 lg:col-span-7 shadow-xs"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <Field
@@ -219,11 +272,11 @@ export function Contact() {
             <div className="mt-5">
               <label
                 htmlFor="contact-message"
-                className="text-xs uppercase tracking-wider text-[#5B6472] font-semibold"
+                className="font-mono text-[10.5px] uppercase tracking-wider text-[#5B6472] font-semibold"
               >
                 Project Details <span className="text-[#0F766E]">*</span>
               </label>
-              <div className="relative mt-2 rounded-xl">
+              <div className="relative mt-2">
                 <textarea
                   id="contact-message"
                   rows={5}
@@ -232,7 +285,7 @@ export function Contact() {
                   aria-invalid={Boolean(errors.message)}
                   aria-describedby={errors.message ? "contact-message-error" : undefined}
                   placeholder="Describe your project, requirements or the problem you want to solve..."
-                  className={`relative w-full rounded-xl border ${
+                  className={`relative w-full rounded-md border ${
                     errors.message
                       ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                       : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
@@ -254,7 +307,7 @@ export function Contact() {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <button
                 type="submit"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#0F766E] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#FFFFFF] shadow-sm hover:bg-[#0D9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+                className="group inline-flex items-center gap-2 rounded-md bg-[#0F766E] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#FFFFFF] shadow-xs hover:bg-[#0D9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
               >
                 <MessageSquare className="h-4 w-4" />
                 Send via WhatsApp
@@ -262,90 +315,17 @@ export function Contact() {
               <button
                 type="button"
                 onClick={onSendEmail}
-                className="inline-flex items-center gap-2 rounded-full border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+                className="inline-flex items-center gap-2 rounded-md border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
               >
                 <Mail className="h-4 w-4 text-[#0F766E]" />
                 Send via Email
               </button>
             </div>
 
-            <p className="mt-4 text-xs text-[#5B6472]">
+            <div className="mt-5 pt-4 border-t border-[#E7E1D6] text-xs text-[#5B6472]">
               Direct communication with Nasib Rehman • No-obligation project discussion
-            </p>
+            </div>
           </motion.form>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-6 lg:col-span-2"
-          >
-            {/* Contact info */}
-            <div className="rounded-2xl p-6 sm:p-7 border border-[#E7E1D6] bg-[#FFFFFF] shadow-sm">
-              <div className="font-display text-lg font-semibold text-[#111827]">
-                Direct Contact
-              </div>
-              <ul className="mt-4 space-y-4 text-sm">
-                <InfoRow
-                  icon={MessageSquare}
-                  label="Chat on WhatsApp (+92 331 7962794)"
-                  href="https://wa.me/923317962794"
-                  isLink
-                />
-                <InfoRow icon={Phone} label="+92 331 7962794" href="tel:+923317962794" isLink />
-                <InfoRow
-                  icon={Mail}
-                  label="nasibrehman187@gmail.com"
-                  href="mailto:nasibrehman187@gmail.com"
-                  isLink
-                />
-                <InfoRow icon={MapPin} label="Khairpur, Sindh, Pakistan" />
-              </ul>
-            </div>
-
-            {/* WhatsApp CTA */}
-            <a
-              href="https://wa.me/923317962794"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-2xl p-5 border border-emerald-600/20 bg-emerald-50/70 transition hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] shadow-sm"
-            >
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-emerald-600/30 bg-emerald-100">
-                <MessageSquare className="h-5 w-5 text-emerald-700" />
-              </span>
-              <div>
-                <div className="text-sm font-semibold text-[#111827]">Chat on WhatsApp</div>
-                <div className="mt-0.5 text-xs text-[#5B6472]">+92 331 7962794</div>
-              </div>
-              <Send className="ml-auto h-4 w-4 text-[#5B6472] transition-transform group-hover:translate-x-1" />
-            </a>
-
-            {/* Trust highlights */}
-            <div className="rounded-2xl p-6 border border-[#E7E1D6] bg-[#FFFFFF] shadow-sm">
-              <div className="mb-3 text-xs uppercase tracking-wider text-[#5B6472] font-semibold">
-                Working Together
-              </div>
-              <ul className="space-y-2.5 text-xs text-[#5B6472]">
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
-                  Direct communication with Nasib Rehman
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
-                  No-obligation project discussion
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
-                  Available for remote projects
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
-                  Clear scope & transparent pricing
-                </li>
-              </ul>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
@@ -375,11 +355,14 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-wider text-[#5B6472] font-semibold">
+      <label
+        htmlFor={id}
+        className="font-mono text-[10.5px] uppercase tracking-wider text-[#5B6472] font-semibold"
+      >
         {label}
         {required && <span className="text-[#0F766E]"> *</span>}
       </label>
-      <div className="relative mt-2 rounded-xl">
+      <div className="relative mt-2">
         <input
           id={id}
           type={type}
@@ -390,7 +373,7 @@ function Field({
           placeholder={placeholder}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? `${id}-error` : undefined}
-          className={`relative w-full rounded-xl border ${
+          className={`relative w-full rounded-md border ${
             error
               ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
               : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
@@ -425,18 +408,21 @@ function SelectField({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-wider text-[#5B6472] font-semibold">
+      <label
+        htmlFor={id}
+        className="font-mono text-[10.5px] uppercase tracking-wider text-[#5B6472] font-semibold"
+      >
         {label}
         {required && <span className="text-[#0F766E]"> *</span>}
       </label>
-      <div className="relative mt-2 rounded-xl">
+      <div className="relative mt-2">
         <select
           id={id}
           value={value}
           onChange={onChange}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? `${id}-error` : undefined}
-          className={`relative w-full rounded-xl border ${
+          className={`relative w-full rounded-md border ${
             error
               ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
               : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
@@ -473,10 +459,8 @@ function InfoRow({
   isLink?: boolean;
 }) {
   const content = (
-    <li className="flex items-center gap-3 text-[#5B6472]">
-      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-[#E7E1D6] bg-[#F3EEE6]">
-        <Icon className="h-4 w-4 text-[#0F766E]" />
-      </span>
+    <li className="flex items-center gap-3 text-[#5B6472] py-0.5">
+      <Icon className="h-4 w-4 text-[#0F766E] shrink-0" />
       <span className={isLink ? "transition-colors hover:text-[#111827]" : ""}>{label}</span>
     </li>
   );
