@@ -24,12 +24,12 @@ export function Services() {
               className="group border-b border-[#e7e1d6] py-8 sm:py-10 transition-colors duration-200 hover:bg-[#fffdfc]/60"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
-                <div className="lg:col-span-1 font-mono text-sm sm:text-base font-semibold text-[#b38a3d]">
+                <div className="lg:col-span-1 text-sm sm:text-base font-medium text-[#111827]/50">
                   0{i + 1}
                 </div>
 
                 <div className="lg:col-span-4">
-                  <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827] group-hover:text-[#0f766e] transition-colors">
+                  <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827] group-hover:text-[#0f766e] transition-colors">
                     {s.title}
                   </h3>
                 </div>
@@ -38,7 +38,7 @@ export function Services() {
                   <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">{s.desc}</p>
                   {s.features && s.features.length > 0 && (
                     <div className="mt-4 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs text-[#5b6472]">
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-[#111827] font-semibold">
+                      <span className="text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold">
                         DELIVERABLES:
                       </span>
                       {s.features.map((f, fi) => (
@@ -89,7 +89,7 @@ export function SectionHeader({
         <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
         <span className="tracking-widest text-[11px]">{tag}</span>
       </div>
-      <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-[#111827]">
+      <h2 className="mt-4 font-display text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl text-[#111827]">
         {title}
       </h2>
       {subtitle && (

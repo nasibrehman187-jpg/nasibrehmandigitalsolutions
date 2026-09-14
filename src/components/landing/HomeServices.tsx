@@ -95,13 +95,13 @@ export function HomeServices() {
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
                 {/* Numeral */}
-                <div className="lg:col-span-1 font-mono text-sm sm:text-base font-semibold text-[#b38a3d]">
+                <div className="lg:col-span-1 text-sm sm:text-base font-medium text-[#111827]/50">
                   {s.num}
                 </div>
 
                 {/* Service Title */}
                 <div className="lg:col-span-4">
-                  <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827] group-hover:text-[#0f766e] transition-colors">
+                  <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827] group-hover:text-[#0f766e] transition-colors">
                     {s.title}
                   </h3>
                 </div>
@@ -110,7 +110,7 @@ export function HomeServices() {
                 <div className="lg:col-span-5">
                   <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">{s.desc}</p>
                   <div className="mt-4 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs text-[#5b6472]">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#111827] font-semibold">
+                    <span className="text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold">
                       INCLUDES:
                     </span>
                     {s.capabilities.map((cap, ci) => (

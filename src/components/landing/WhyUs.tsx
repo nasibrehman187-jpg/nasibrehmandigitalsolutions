@@ -77,11 +77,11 @@ export function WhyUs() {
                 className="group border-b border-[#e7e1d6] py-7 sm:py-8 transition-colors duration-200"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 items-baseline">
-                  <span className="sm:col-span-2 font-mono text-sm sm:text-base font-semibold text-[#b38a3d]">
+                  <span className="sm:col-span-2 text-sm sm:text-base font-medium text-[#111827]/40">
                     {point.n}
                   </span>
                   <div className="sm:col-span-10">
-                    <h4 className="font-display text-lg sm:text-xl font-semibold text-[#111827] group-hover:text-[#0f766e] transition-colors">
+                    <h4 className="font-display text-lg sm:text-xl font-medium text-[#111827] group-hover:text-[#0f766e] transition-colors">
                       {point.title}
                     </h4>
                     <p className="mt-2 text-sm text-[#5b6472] leading-relaxed">{point.desc}</p>

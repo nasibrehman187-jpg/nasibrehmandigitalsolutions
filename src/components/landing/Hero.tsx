@@ -6,8 +6,6 @@ import { HeroMobileFallback } from "./HeroMobileFallback";
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pt-20 lg:pt-24 xl:pt-28">
-      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
-
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-6 pb-6 lg:pb-8 lg:grid-cols-2">
         <div>
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0f766e]">
@@ -15,8 +13,9 @@ export function Hero() {
             <span className="tracking-widest text-[11px]">WEB • AUTOMATION • AI</span>
           </div>
 
-          <h1 className="mt-5 font-display text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-semibold leading-[1.08] tracking-tight text-[#111827]">
-            Smart Digital Solutions for <span className="text-[#0f766e]">Growing Businesses</span>
+          <h1 className="mt-5 font-display text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-medium leading-[1.1] tracking-tight text-[#111827]">
+            Smart Digital Solutions for{" "}
+            <span className="text-[#0f766e] italic">Growing Businesses</span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base sm:text-lg text-[#5b6472] leading-relaxed">

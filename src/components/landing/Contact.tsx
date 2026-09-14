@@ -158,9 +158,7 @@ export function Contact() {
           <div className="lg:col-span-5 space-y-8">
             {/* Direct Contact Details */}
             <div>
-              <div className="font-display text-xl font-semibold text-[#111827]">
-                Direct Contact
-              </div>
+              <div className="font-display text-xl font-medium text-[#111827]">Direct Contact</div>
               <ul className="mt-4 space-y-3.5 text-xs sm:text-sm">
                 <InfoRow
                   icon={MessageSquare}
@@ -272,7 +270,7 @@ export function Contact() {
             <div className="mt-5">
               <label
                 htmlFor="contact-message"
-                className="font-mono text-[10.5px] uppercase tracking-wider text-[#5B6472] font-semibold"
+                className="text-[10.5px] uppercase tracking-wider text-[#5B6472] font-medium"
               >
                 Project Details <span className="text-[#0F766E]">*</span>
               </label>
@@ -357,7 +355,7 @@ function Field({
     <div>
       <label
         htmlFor={id}
-        className="font-mono text-[10.5px] uppercase tracking-wider text-[#5B6472] font-semibold"
+        className="text-[10.5px] uppercase tracking-wider text-[#5B6472] font-medium"
       >
         {label}
         {required && <span className="text-[#0F766E]"> *</span>}
@@ -410,7 +408,7 @@ function SelectField({
     <div>
       <label
         htmlFor={id}
-        className="font-mono text-[10.5px] uppercase tracking-wider text-[#5B6472] font-semibold"
+        className="text-[10.5px] uppercase tracking-wider text-[#5B6472] font-medium"
       >
         {label}
         {required && <span className="text-[#0F766E]"> *</span>}

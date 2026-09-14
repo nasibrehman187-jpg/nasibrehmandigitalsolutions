@@ -56,13 +56,13 @@ export function Process() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-8 items-baseline">
                 {/* Numeral */}
-                <div className="sm:col-span-2 font-mono text-2xl sm:text-3xl font-semibold text-[#b38a3d]">
+                <div className="sm:col-span-2 font-display text-2xl sm:text-3xl font-medium text-[#111827]/30 group-hover:text-[#0f766e] transition-colors">
                   {s.n}
                 </div>
 
                 {/* Step Title */}
                 <div className="sm:col-span-4">
-                  <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827] group-hover:text-[#0f766e] transition-colors">
+                  <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827] group-hover:text-[#0f766e] transition-colors">
                     {s.title}
                   </h3>
                 </div>

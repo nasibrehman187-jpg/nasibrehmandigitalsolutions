@@ -381,28 +381,26 @@ export function Pricing() {
                 >
                   <div>
                     {p.badge && (
-                      <div className="flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-[#b38a3d] mb-2">
+                      <div className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-[#b38a3d] mb-2">
                         <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
                         {p.badge}
                       </div>
                     )}
-                    <div className="font-display text-base font-semibold text-[#111827]">
-                      {p.name}
-                    </div>
+                    <div className="font-display text-lg font-medium text-[#111827]">{p.name}</div>
                     <div className="mt-3 flex items-baseline gap-2">
-                      <span className="font-display text-4xl sm:text-5xl font-semibold tracking-tight text-[#111827]">
+                      <span className="font-sans text-4xl sm:text-5xl font-bold tracking-tight text-[#111827]">
                         {p.price}
                       </span>
                       <span className="text-xs text-[#5b6472] font-medium">/ {p.per}</span>
                     </div>
-                    <div className="mt-2 font-mono text-xs text-[#0f766e] font-medium">
+                    <div className="mt-2 text-xs text-[#0f766e] font-medium">
                       Estimated Delivery: {p.delivery}
                     </div>
 
                     <p className="mt-4 text-sm text-[#5b6472] leading-relaxed">{p.description}</p>
 
                     <div className="mt-6 pt-5 border-t border-[#e7e1d6]">
-                      <div className="font-mono text-[10.5px] font-semibold uppercase tracking-wider text-[#5b6472] mb-3">
+                      <div className="text-[10.5px] font-semibold uppercase tracking-wider text-[#5b6472] mb-3">
                         Included Features
                       </div>
                       <ul className="space-y-2.5">
@@ -504,18 +502,18 @@ export function Pricing() {
             className="mt-8 mx-auto max-w-3xl"
           >
             <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-8 sm:p-10 text-center shadow-xs">
-              <span className="inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d] font-semibold">
+              <span className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-wider text-[#b38a3d] font-medium">
                 <Layers className="h-3.5 w-3.5" /> Multi-System Architecture
               </span>
-              <h3 className="mt-3 font-display text-2xl sm:text-3xl font-semibold text-[#111827]">
+              <h3 className="mt-3 font-display text-2xl sm:text-3xl font-medium text-[#111827]">
                 Custom Digital Solutions
               </h3>
               <div className="mt-4 flex items-center justify-center gap-2">
-                <span className="font-display text-4xl sm:text-5xl font-semibold text-[#111827]">
+                <span className="font-sans text-4xl sm:text-5xl font-bold text-[#111827]">
                   Starting from $500+
                 </span>
               </div>
-              <p className="mt-2 font-mono text-xs text-[#0f766e] font-medium">
+              <p className="mt-2 text-xs text-[#0f766e] font-medium">
                 Final pricing depends on project scope
               </p>
               <p className="mt-4 text-sm text-[#5b6472] leading-relaxed max-w-xl mx-auto">

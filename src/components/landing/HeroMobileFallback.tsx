@@ -1,87 +1,107 @@
+import { Shield, Calendar, ArrowRight, Lock, Check } from "lucide-react";
+
 export function HeroMobileFallback() {
   return (
     <div
-      className="relative flex w-full items-center justify-center overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-6 sm:p-10 shadow-xs"
+      className="relative w-full max-w-xl mx-auto rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-2.5 sm:p-3.5 shadow-lg shadow-[#111827]/4 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Precision architectural linework background */}
-      <svg
-        viewBox="0 0 500 500"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 h-full w-full pointer-events-none opacity-60"
-      >
-        {/* Subtle grid pattern */}
-        <defs>
-          <pattern id="studio-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f3eee6" strokeWidth="1" />
-          </pattern>
-        </defs>
-        <rect width="500" height="500" fill="url(#studio-grid)" />
+      {/* Clean Device / Browser Frame Top */}
+      <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/70 px-4 py-2.5 rounded-t-xl">
+        <div className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-[#d6cebe]" />
+          <span className="h-2 w-2 rounded-full bg-[#d6cebe]" />
+          <span className="h-2 w-2 rounded-full bg-[#d6cebe]" />
+        </div>
+        <div className="flex items-center gap-1.5 rounded-md border border-[#e7e1d6] bg-[#ffffff] px-3 py-1 text-[11px] text-[#5b6472]">
+          <Lock className="h-3 w-3 text-[#0f766e]" />
+          <span>smilecare-clinic.preview</span>
+        </div>
+        <div className="text-[11px] font-medium text-[#5b6472] hidden sm:block">
+          Concept Website Demo
+        </div>
+      </div>
 
-        {/* Concentric harmonic circles */}
-        <circle cx="250" cy="220" r="170" stroke="#e7e1d6" strokeWidth="1" strokeDasharray="3 3" />
-        <circle cx="250" cy="220" r="120" stroke="#e7e1d6" strokeWidth="1" />
-        <circle cx="250" cy="220" r="70" stroke="#0f766e" strokeWidth="1" strokeOpacity="0.35" />
-
-        {/* Architectural alignment axes */}
-        <line x1="250" y1="20" x2="250" y2="420" stroke="#e7e1d6" strokeWidth="1" />
-        <line x1="50" y1="220" x2="450" y2="220" stroke="#e7e1d6" strokeWidth="1" />
-        <line
-          x1="120"
-          y1="90"
-          x2="380"
-          y2="350"
-          stroke="#e7e1d6"
-          strokeWidth="0.75"
-          strokeDasharray="2 4"
-        />
-        <line
-          x1="120"
-          y1="350"
-          x2="380"
-          y2="90"
-          stroke="#e7e1d6"
-          strokeWidth="0.75"
-          strokeDasharray="2 4"
-        />
-
-        {/* Corner registration marks */}
-        <path d="M 30 40 L 40 40 L 40 30" stroke="#b38a3d" strokeWidth="1.5" />
-        <path d="M 470 40 L 460 40 L 460 30" stroke="#b38a3d" strokeWidth="1.5" />
-        <path d="M 30 460 L 40 460 L 40 470" stroke="#b38a3d" strokeWidth="1.5" />
-        <path d="M 470 460 L 460 460 L 460 470" stroke="#b38a3d" strokeWidth="1.5" />
-      </svg>
-
-      {/* Bespoke Editorial Monogram Composition */}
-      <div className="relative z-10 flex w-full max-w-sm flex-col items-center text-center">
-        {/* Studio Monogram Emblem */}
-        <div className="relative my-4 sm:my-6 flex items-center justify-center">
-          <div className="relative grid h-28 w-28 sm:h-32 sm:w-32 place-items-center rounded-2xl border border-[#e7e1d6] bg-[#fffdfc] shadow-xs">
-            {/* Inner frame */}
-            <div className="absolute inset-1.5 rounded-xl border border-[#e7e1d6]/70" />
-
-            {/* Monogram Display Typography */}
-            <div className="relative flex flex-col items-center">
-              <span className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#111827]">
-                D<span className="text-[#0f766e]">S</span>
-              </span>
-              <span className="mt-0.5 text-[9px] font-mono uppercase tracking-[0.25em] text-[#b38a3d]">
-                FOUNDER-LED
-              </span>
+      {/* Website Hero Preview Canvas */}
+      <div className="p-6 sm:p-8 bg-[#fffdfc] rounded-b-xl space-y-6">
+        {/* Practice Mini Navbar */}
+        <div className="flex items-center justify-between border-b border-[#e7e1d6]/80 pb-4">
+          <div className="flex items-center gap-2">
+            <span className="grid h-7 w-7 place-items-center rounded-md bg-[#0f766e] text-white">
+              <Shield className="h-3.5 w-3.5" />
+            </span>
+            <div>
+              <div className="font-display text-sm font-semibold text-[#111827]">
+                SmileCare Dental Clinic
+              </div>
+              <div className="text-[10px] text-[#5b6472]">Family & Cosmetic Care</div>
             </div>
-
-            {/* Corner accents */}
-            <span className="absolute -top-1 -left-1 h-2 w-2 border-t-2 border-l-2 border-[#0f766e]" />
-            <span className="absolute -bottom-1 -right-1 h-2 w-2 border-b-2 border-r-2 border-[#b38a3d]" />
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-[11px] text-[#5b6472] hidden sm:inline">Mon–Fri 8am–6pm</span>
+            <span className="rounded-md bg-[#0f766e] px-2.5 py-1 text-[11px] font-medium text-white">
+              Book Online
+            </span>
           </div>
         </div>
 
-        {/* Brand Title & Identity */}
-        <div className="w-full">
-          <div className="font-display text-lg sm:text-xl font-semibold tracking-tight text-[#111827]">
-            Digital Solution <span className="text-[#0f766e]">by Nasib Rehman</span>
+        {/* Practice Hero Content */}
+        <div className="pt-2">
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-wider uppercase text-[#0f766e]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
+            Comprehensive Oral Care
+          </span>
+
+          <h2 className="mt-3 font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827] leading-[1.18]">
+            Gentle, modern dental care designed around your family.
+          </h2>
+
+          <p className="mt-3 text-xs sm:text-sm text-[#5b6472] leading-relaxed max-w-md">
+            Providing preventative dentistry, restorative treatments, and aesthetic smile design in
+            a calm, welcoming clinic environment.
+          </p>
+
+          <div className="mt-5 flex flex-wrap items-center gap-2.5">
+            <span className="inline-flex items-center gap-1.5 rounded-md bg-[#0f766e] px-4 py-2 text-xs font-semibold text-white">
+              <Calendar className="h-3.5 w-3.5" />
+              Schedule Visit
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-md border border-[#e7e1d6] bg-[#ffffff] px-3.5 py-2 text-xs font-medium text-[#111827]">
+              View Treatments
+              <ArrowRight className="h-3 w-3 text-[#0f766e]" />
+            </span>
           </div>
+        </div>
+
+        {/* 3 Real Clinic Value Pillars */}
+        <div className="grid grid-cols-3 gap-2.5 pt-4 border-t border-[#e7e1d6]/80">
+          <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-2.5 text-left">
+            <div className="text-[11px] font-semibold text-[#111827]">Preventative</div>
+            <div className="mt-0.5 text-[10px] text-[#5b6472] leading-tight">
+              Routine checkups & cleanings
+            </div>
+          </div>
+          <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-2.5 text-left">
+            <div className="text-[11px] font-semibold text-[#111827]">Restorative</div>
+            <div className="mt-0.5 text-[10px] text-[#5b6472] leading-tight">
+              Implants & natural crowns
+            </div>
+          </div>
+          <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-2.5 text-left">
+            <div className="text-[11px] font-semibold text-[#111827]">Emergency</div>
+            <div className="mt-0.5 text-[10px] text-[#5b6472] leading-tight">
+              Same-day urgent relief
+            </div>
+          </div>
+        </div>
+
+        {/* Honest Portfolio Attribution Footnote */}
+        <div className="flex items-center justify-between pt-3 border-t border-[#e7e1d6] text-[11px] text-[#5b6472]">
+          <span className="flex items-center gap-1.5 text-[#111827] font-medium">
+            <Check className="h-3.5 w-3.5 text-[#0f766e]" />
+            Selected Portfolio Build — SmileCare Dental Clinic
+          </span>
+          <span className="text-[#b38a3d] font-medium">Concept Website</span>
         </div>
       </div>
     </div>

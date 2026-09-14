@@ -21,15 +21,13 @@ export function Projects() {
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-[#5b6472]">
           <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
-            <span className="font-mono text-[11px] uppercase tracking-wider text-[#111827]">
+            <span className="text-xs font-medium text-[#111827]">
               Concept / Demo Builds (Capabilities Showcase)
             </span>
           </span>
           <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
-            <span className="font-mono text-[11px] uppercase tracking-wider text-[#111827]">
-              Developer Portfolio Builds
-            </span>
+            <span className="text-xs font-medium text-[#111827]">Developer Portfolio Builds</span>
           </span>
         </div>
 
@@ -53,32 +51,37 @@ export function Projects() {
                     <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
                     <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
                   </div>
-                  <span className="font-mono text-[10px] text-[#5b6472]">
-                    smilecare-clinic.preview
-                  </span>
+                  <span className="text-[11px] text-[#5b6472]">smilecare-clinic.preview</span>
                 </div>
                 {/* Mockup Canvas */}
-                <div className="p-6 sm:p-8 bg-[#fffdfc]">
-                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
+                <div className="p-6 sm:p-8 bg-[#fffdfc] space-y-5">
+                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-3.5">
                     <div className="flex items-center gap-2">
                       <Stethoscope className="h-4 w-4 text-[#0f766e]" />
                       <span className="font-display text-sm font-semibold text-[#111827]">
                         SmileCare Clinic
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-[#5b6472]">MON–SAT 9AM–7PM</span>
+                    <span className="text-[11px] text-[#5b6472]">Mon–Sat 9am–7pm</span>
                   </div>
-                  <div className="mt-6 space-y-3">
-                    <div className="h-6 w-3/4 rounded bg-[#f3eee6]" />
-                    <div className="h-3 w-full rounded bg-[#f3eee6]/70" />
-                    <div className="h-3 w-5/6 rounded bg-[#f3eee6]/70" />
-                  </div>
-                  <div className="mt-6 flex gap-3">
-                    <div className="h-8 w-28 rounded bg-[#0f766e]/15 flex items-center justify-center text-[10.5px] font-semibold text-[#0f766e]">
-                      Book Visit
+                  <div>
+                    <div className="text-[10.5px] uppercase tracking-wider font-semibold text-[#0f766e]">
+                      Preventative & Cosmetic Dentistry
                     </div>
-                    <div className="h-8 w-28 rounded border border-[#e7e1d6] flex items-center justify-center text-[10.5px] text-[#5b6472]">
-                      Our Services
+                    <h4 className="mt-2 font-display text-lg sm:text-xl font-medium text-[#111827] leading-snug">
+                      Gentle, modern dental treatments for your whole family.
+                    </h4>
+                    <p className="mt-2 text-xs text-[#5b6472] leading-relaxed">
+                      Comprehensive oral diagnostics, restorative care, and cosmetic smile design in
+                      a welcoming setting.
+                    </p>
+                  </div>
+                  <div className="flex gap-2.5 pt-1">
+                    <div className="rounded-md bg-[#0f766e] px-3.5 py-1.5 text-xs font-semibold text-white">
+                      Request Visit
+                    </div>
+                    <div className="rounded-md border border-[#e7e1d6] px-3.5 py-1.5 text-xs font-medium text-[#111827]">
+                      Our Treatments
                     </div>
                   </div>
                 </div>
@@ -87,18 +90,18 @@ export function Projects() {
 
             {/* Narrative Content */}
             <div className="lg:col-span-6 space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-semibold text-[#b38a3d]">01</span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs font-medium text-[#111827]/50">01</span>
                 <span className="text-[#e7e1d6]">•</span>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#0f766e]">
                   Website Development
                 </span>
                 <span className="text-[#e7e1d6]">•</span>
-                <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                <span className="text-xs font-medium uppercase tracking-wider text-[#b38a3d]">
                   Concept Website
                 </span>
               </div>
-              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+              <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827]">
                 SmileCare Dental Clinic
               </h3>
               <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
@@ -106,7 +109,7 @@ export function Projects() {
                 and make it easier for patients to send appointment requests.
               </p>
               <div className="pt-2">
-                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
                   Key Elements:
                 </div>
                 <div className="text-xs text-[#5b6472] leading-relaxed">
@@ -137,18 +140,18 @@ export function Projects() {
           >
             {/* Narrative Content */}
             <div className="lg:col-span-6 space-y-4 order-2 lg:order-1">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-semibold text-[#b38a3d]">02</span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs font-medium text-[#111827]/50">02</span>
                 <span className="text-[#e7e1d6]">•</span>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#0f766e]">
                   AI Voice Agent
                 </span>
                 <span className="text-[#e7e1d6]">•</span>
-                <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                <span className="text-xs font-medium uppercase tracking-wider text-[#b38a3d]">
                   Concept AI Demo
                 </span>
               </div>
-              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+              <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827]">
                 AI Restaurant Voice Agent
               </h3>
               <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
@@ -156,7 +159,7 @@ export function Projects() {
                 structured food orders and confirm order details.
               </p>
               <div className="pt-2">
-                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
                   Key Elements:
                 </div>
                 <div className="text-xs text-[#5b6472] leading-relaxed">
@@ -176,44 +179,71 @@ export function Projects() {
               </div>
             </div>
 
-            {/* Visual Voice Waveform Frame */}
+            {/* Editorial Case-Study Composition (Priority C: Honest approved copy, no fake telephony/browser data) */}
             <div className="lg:col-span-6 order-1 lg:order-2">
-              <div className="relative overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] shadow-xs">
-                {/* Browser bar */}
-                <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/60 px-4 py-2.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
+              <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-6 sm:p-8 shadow-xs space-y-5">
+                <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
+                  <div className="flex items-center gap-2.5">
+                    <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#0f766e]/10 text-[#0f766e]">
+                      <Mic className="h-4 w-4" />
+                    </span>
+                    <div>
+                      <div className="font-display text-base font-medium text-[#111827]">
+                        AI Restaurant Voice Agent
+                      </div>
+                      <div className="text-[11px] text-[#5b6472]">Demonstration Case Study</div>
+                    </div>
                   </div>
-                  <span className="font-mono text-[10px] text-[#5b6472]">
-                    voice-agent.inbound.call
+                  <span className="rounded-md border border-[#e7e1d6] bg-[#f7f3ec]/60 px-2.5 py-1 text-[11px] font-medium text-[#b38a3d]">
+                    Concept AI Demo
                   </span>
                 </div>
-                {/* Audio Telephony Canvas */}
-                <div className="p-6 sm:p-8 bg-[#fffdfc]">
-                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
-                    <div className="flex items-center gap-2">
-                      <Mic className="h-4 w-4 text-[#b38a3d]" />
-                      <span className="font-display text-sm font-semibold text-[#111827]">
-                        Restaurant Inbound Assistant
-                      </span>
+
+                <div className="space-y-4">
+                  <p className="text-xs text-[#5b6472] leading-relaxed">
+                    Designed as an AI capability demonstration to explore automated conversational
+                    telephone handling for hospitality businesses.
+                  </p>
+
+                  <div className="rounded-xl border border-[#e7e1d6] bg-[#f7f3ec]/40 p-4 space-y-3">
+                    <div className="text-[10.5px] font-semibold uppercase tracking-wider text-[#111827]">
+                      Demonstrated Capabilities
                     </div>
-                    <span className="text-[10px] font-mono text-[#0f766e]">ORDER #1042</span>
+                    <ul className="space-y-2 text-xs text-[#5b6472]">
+                      <li className="flex items-start gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e] mt-1.5 shrink-0" />
+                        <span>
+                          <strong className="text-[#111827] font-medium">
+                            Inbound Call Handling:
+                          </strong>{" "}
+                          Conversational responses to customer inquiries and menu questions
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e] mt-1.5 shrink-0" />
+                        <span>
+                          <strong className="text-[#111827] font-medium">
+                            Structured Order Collection:
+                          </strong>{" "}
+                          Capturing requested food items, quantities and delivery preferences
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e] mt-1.5 shrink-0" />
+                        <span>
+                          <strong className="text-[#111827] font-medium">
+                            Order Confirmation Workflow:
+                          </strong>{" "}
+                          Verifying customer details before concluding the conversation
+                        </span>
+                      </li>
+                    </ul>
                   </div>
-                  {/* Waveform graphic */}
-                  <div className="my-6 flex items-center justify-center gap-1 h-12">
-                    {[35, 60, 20, 80, 45, 95, 30, 75, 50, 90, 40, 65, 25, 85, 40].map((h, idx) => (
-                      <span
-                        key={idx}
-                        className="w-1.5 rounded-full bg-[#0f766e]/40"
-                        style={{ height: `${h}%` }}
-                      />
-                    ))}
-                  </div>
-                  <div className="rounded-xl border border-[#e7e1d6] bg-[#f3eee6]/50 p-3 text-xs text-[#5b6472] font-mono">
-                    "I have confirmed your order for delivery: 2x Signature Platters to Main Blvd."
-                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-2 border-t border-[#e7e1d6] text-[11px] text-[#5b6472]">
+                  <span>AI Voice Agent Demonstration</span>
+                  <span className="text-[#b38a3d] font-medium">Concept Build</span>
                 </div>
               </div>
             </div>
@@ -230,18 +260,18 @@ export function Projects() {
             <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-8 sm:p-10 shadow-xs">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs font-semibold text-[#b38a3d]">03</span>
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-xs font-medium text-[#111827]/50">03</span>
                     <span className="text-[#e7e1d6]">•</span>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#0f766e]">
                       Custom Digital Solution
                     </span>
                     <span className="text-[#e7e1d6]">•</span>
-                    <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                    <span className="text-xs font-medium uppercase tracking-wider text-[#b38a3d]">
                       Concept / Demo
                     </span>
                   </div>
-                  <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+                  <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827]">
                     Dental Clinic Digital System
                   </h3>
                   <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
@@ -249,7 +279,7 @@ export function Projects() {
                     and appointment workflows.
                   </p>
                   <div className="pt-2">
-                    <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                    <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
                       Key Elements:
                     </div>
                     <div className="text-xs text-[#5b6472] leading-relaxed">
@@ -273,26 +303,57 @@ export function Projects() {
                 </div>
 
                 <div className="lg:col-span-5">
-                  <div className="rounded-xl border border-[#e7e1d6] bg-[#f7f3ec]/50 p-6 space-y-3 font-mono text-xs text-[#5b6472]">
-                    <div className="flex items-center justify-between text-[#111827] font-semibold pb-2 border-b border-[#e7e1d6]">
-                      <span>SYSTEM ARCHITECTURE</span>
+                  <div className="rounded-xl border border-[#e7e1d6] bg-[#f7f3ec]/50 p-6 space-y-4">
+                    <div className="flex items-center justify-between pb-3 border-b border-[#e7e1d6]">
+                      <span className="text-xs font-semibold tracking-wide text-[#111827] uppercase">
+                        Workflow Architecture
+                      </span>
                       <Sparkles className="h-3.5 w-3.5 text-[#b38a3d]" />
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
-                      <span>Website Frontend (Modern UI)</span>
+
+                    <div className="space-y-3">
+                      <div className="rounded-lg border border-[#e7e1d6] bg-[#ffffff] p-3.5 space-y-1">
+                        <div className="flex items-center justify-between text-xs font-medium text-[#111827]">
+                          <span>01 · Website Interface</span>
+                          <span className="text-[10.5px] text-[#0f766e] font-medium">
+                            Front-End
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-[#5b6472] leading-snug">
+                          Professional clinic presentation showcasing services, practice hours and
+                          doctor profiles.
+                        </p>
+                      </div>
+
+                      <div className="rounded-lg border border-[#e7e1d6] bg-[#ffffff] p-3.5 space-y-1">
+                        <div className="flex items-center justify-between text-xs font-medium text-[#111827]">
+                          <span>02 · Inquiry & Intake Form</span>
+                          <span className="text-[10.5px] text-[#0f766e] font-medium">
+                            Lead Capture
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-[#5b6472] leading-snug">
+                          Captures patient consultation requests and preferred appointment slots.
+                        </p>
+                      </div>
+
+                      <div className="rounded-lg border border-[#e7e1d6] bg-[#ffffff] p-3.5 space-y-1">
+                        <div className="flex items-center justify-between text-xs font-medium text-[#111827]">
+                          <span>03 · Notification & Sync</span>
+                          <span className="text-[10.5px] text-[#b38a3d] font-medium">
+                            Automation
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-[#5b6472] leading-snug">
+                          Structured notification routing to clinic staff and automated confirmation
+                          messaging.
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e]" />
-                      <span>Inquiry & Intake Form Capture</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
-                      <span>WhatsApp Notification Webhook</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
-                      <span>Automated Booking Synchronization</span>
+
+                    <div className="pt-2 text-[10.5px] text-[#5b6472] text-center border-t border-[#e7e1d6]">
+                      Demonstration concept showing integration between web intake and practice
+                      workflows
                     </div>
                   </div>
                 </div>
@@ -317,34 +378,49 @@ export function Projects() {
                     <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
                     <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
                   </div>
-                  <span className="font-mono text-[10px] text-[#5b6472]">
-                    luxury-estates.portfolio.preview
-                  </span>
+                  <span className="text-[11px] text-[#5b6472]">realestate-portfolio.preview</span>
                 </div>
-                <div className="p-6 sm:p-8 bg-[#fffdfc]">
-                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
+                <div className="p-6 sm:p-8 bg-[#fffdfc] space-y-5">
+                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-3.5">
                     <div className="flex items-center gap-2">
                       <Building2 className="h-4 w-4 text-[#b38a3d]" />
                       <span className="font-display text-sm font-semibold text-[#111827]">
-                        Apex Estates
+                        Luxury Real Estate Website
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-[#b38a3d]">PRIVATE ARCHIVE</span>
+                    <span className="text-[11px] text-[#b38a3d] font-medium">Portfolio Build</span>
                   </div>
-                  <div className="mt-6 space-y-3">
-                    <div className="h-24 w-full rounded bg-[#f3eee6]/80 flex items-center justify-center">
-                      <span className="font-mono text-[10px] text-[#5b6472]">
-                        WATERFRONT RESIDENCE WIREFRAME
+
+                  {/* Property Card Mockup */}
+                  <div className="rounded-xl border border-[#e7e1d6] bg-[#f7f3ec]/40 p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-[#0f766e]">
+                        Curated Portfolio
+                      </span>
+                      <span className="text-xs font-medium text-[#111827]">
+                        Sample Presentation
                       </span>
                     </div>
-                    <div className="flex gap-2">
-                      <div className="h-3 w-1/3 rounded bg-[#f3eee6]" />
-                      <div className="h-3 w-1/4 rounded bg-[#f3eee6]" />
+                    <h4 className="font-display text-base font-medium text-[#111827]">
+                      Curated Architectural Residences & Estates
+                    </h4>
+                    <div className="flex flex-wrap gap-3 text-xs text-[#5b6472] border-t border-[#e7e1d6]/70 pt-2.5">
+                      <span>Property Showcase</span>
+                      <span>•</span>
+                      <span>Investor Layout</span>
+                      <span>•</span>
+                      <span>Inquiry Forms</span>
+                      <span>•</span>
+                      <span>Responsive UI</span>
                     </div>
                   </div>
-                  <div className="mt-6 flex gap-3">
-                    <div className="h-8 w-32 rounded bg-[#0f766e]/15 flex items-center justify-center text-[10.5px] font-semibold text-[#0f766e]">
-                      Inquire Listing
+
+                  <div className="flex gap-2.5 pt-1">
+                    <div className="rounded-md bg-[#0f766e] px-3.5 py-1.5 text-xs font-semibold text-white">
+                      Request Similar Build
+                    </div>
+                    <div className="rounded-md border border-[#e7e1d6] px-3.5 py-1.5 text-xs font-medium text-[#111827]">
+                      View Structure
                     </div>
                   </div>
                 </div>
@@ -353,18 +429,18 @@ export function Projects() {
 
             {/* Narrative Content */}
             <div className="lg:col-span-6 space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-semibold text-[#b38a3d]">04</span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs font-medium text-[#111827]/50">04</span>
                 <span className="text-[#e7e1d6]">•</span>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#0f766e]">
                   Website Development
                 </span>
                 <span className="text-[#e7e1d6]">•</span>
-                <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                <span className="text-xs font-medium uppercase tracking-wider text-[#b38a3d]">
                   Portfolio Build
                 </span>
               </div>
-              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+              <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827]">
                 Luxury Real Estate Website
               </h3>
               <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
@@ -372,7 +448,7 @@ export function Projects() {
                 presentation and investor inquiries.
               </p>
               <div className="pt-2">
-                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
                   Key Elements:
                 </div>
                 <div className="text-xs text-[#5b6472] leading-relaxed">
@@ -406,18 +482,18 @@ export function Projects() {
           >
             {/* Narrative Content */}
             <div className="lg:col-span-6 space-y-4 order-2 lg:order-1">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-semibold text-[#b38a3d]">05</span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs font-medium text-[#111827]/50">05</span>
                 <span className="text-[#e7e1d6]">•</span>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#0f766e] font-semibold">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#0f766e]">
                   Website Development
                 </span>
                 <span className="text-[#e7e1d6]">•</span>
-                <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#b38a3d]">
+                <span className="text-xs font-medium uppercase tracking-wider text-[#b38a3d]">
                   Portfolio Build
                 </span>
               </div>
-              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#111827]">
+              <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827]">
                 Surgical B2B Export Website
               </h3>
               <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
@@ -425,7 +501,7 @@ export function Projects() {
                 featuring product presentation, business credentials and RFQ functionality.
               </p>
               <div className="pt-2">
-                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold mb-2">
+                <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
                   Key Elements:
                 </div>
                 <div className="text-xs text-[#5b6472] leading-relaxed">
@@ -457,34 +533,46 @@ export function Projects() {
                     <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
                     <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
                   </div>
-                  <span className="font-mono text-[10px] text-[#5b6472]">
-                    surgical-export.b2b.preview
-                  </span>
+                  <span className="text-[11px] text-[#5b6472]">surgical-export.preview</span>
                 </div>
-                <div className="p-6 sm:p-8 bg-[#fffdfc]">
-                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-4">
+                <div className="p-6 sm:p-8 bg-[#fffdfc] space-y-5">
+                  <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-3.5">
                     <div className="flex items-center gap-2">
                       <Package className="h-4 w-4 text-[#0f766e]" />
                       <span className="font-display text-sm font-semibold text-[#111827]">
-                        MedSpec Instruments
+                        Surgical B2B Export Website
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-[#0f766e]">ISO COMPLIANT</span>
+                    <span className="text-[11px] font-medium text-[#0f766e] bg-[#0f766e]/10 px-2 py-0.5 rounded">
+                      Portfolio Build
+                    </span>
                   </div>
-                  <div className="mt-6 grid grid-cols-3 gap-2">
-                    <div className="h-16 rounded bg-[#f3eee6]/70 flex items-center justify-center text-[9.5px] font-mono text-[#5b6472]">
-                      Surgical
+
+                  <div className="grid grid-cols-3 gap-2.5 text-xs">
+                    <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-3 text-center">
+                      <span className="font-medium text-[#111827] block">Micro-Surgical</span>
+                      <span className="text-[10px] text-[#5b6472] mt-0.5 block">Grade 316L</span>
                     </div>
-                    <div className="h-16 rounded bg-[#f3eee6]/70 flex items-center justify-center text-[9.5px] font-mono text-[#5b6472]">
-                      Dental
+                    <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-3 text-center">
+                      <span className="font-medium text-[#111827] block">Dental Care</span>
+                      <span className="text-[10px] text-[#5b6472] mt-0.5 block">
+                        Titanium Coated
+                      </span>
                     </div>
-                    <div className="h-16 rounded bg-[#f3eee6]/70 flex items-center justify-center text-[9.5px] font-mono text-[#5b6472]">
-                      Sterile
+                    <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-3 text-center">
+                      <span className="font-medium text-[#111827] block">Diagnostic</span>
+                      <span className="text-[10px] text-[#5b6472] mt-0.5 block">
+                        CE / ISO Standard
+                      </span>
                     </div>
                   </div>
-                  <div className="mt-6 flex gap-3">
-                    <div className="h-8 w-32 rounded bg-[#0f766e]/15 flex items-center justify-center text-[10.5px] font-semibold text-[#0f766e]">
-                      Request RFQ
+
+                  <div className="flex gap-2.5 pt-1">
+                    <div className="rounded-md bg-[#0f766e] px-3.5 py-1.5 text-xs font-semibold text-white">
+                      Request Wholesale RFQ
+                    </div>
+                    <div className="rounded-md border border-[#e7e1d6] px-3.5 py-1.5 text-xs font-medium text-[#111827]">
+                      Download Catalog
                     </div>
                   </div>
                 </div>
@@ -501,7 +589,7 @@ export function Projects() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-14 border-t border-[#e7e1d6] pt-6 text-xs text-[#5b6472] leading-relaxed"
         >
-          <span className="font-semibold text-[#111827] font-mono uppercase tracking-wider mr-1.5">
+          <span className="font-semibold text-[#111827] uppercase tracking-wider mr-1.5">
             Note:
           </span>
           Projects 1–3 are concept/demo builds created to demonstrate capability. Projects 4–5 are

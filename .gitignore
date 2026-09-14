@@ -46,3 +46,6 @@ coverage/
 review-screenshots/
 review-screenshots-final/
 review-screenshots-final-v2/
+review-screenshots-boutique/
+review-screenshots*.zip
+*.zip
