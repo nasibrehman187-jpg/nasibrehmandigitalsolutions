@@ -503,7 +503,7 @@ export function Pricing() {
           >
             <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-8 sm:p-10 text-center shadow-xs">
               <span className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-wider text-[#b38a3d] font-medium">
-                <Layers className="h-3.5 w-3.5" /> Multi-System Architecture
+                <Layers className="h-3.5 w-3.5" /> Multi-System Setup
               </span>
               <h3 className="mt-3 font-display text-2xl sm:text-3xl font-medium text-[#111827]">
                 Custom Digital Solutions

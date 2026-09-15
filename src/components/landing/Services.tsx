@@ -14,7 +14,7 @@ export function Services() {
               Solutions Built Around <span className="text-[#0f766e]">Your Business</span>
             </>
           }
-          subtitle="From professional websites to intelligent automation, we build practical digital solutions designed around real business needs."
+          subtitle="From practical business websites to workflow automations, we build practical digital solutions designed around real business needs."
         />
 
         <div className="mt-14 sm:mt-18 border-t border-[#e7e1d6]">

@@ -7,7 +7,7 @@ const SERVICES = [
   {
     num: "01",
     title: "Website Development",
-    desc: "Modern, responsive websites designed to help businesses build credibility, generate inquiries and make it easier for customers to get in touch.",
+    desc: "Fast, responsive business websites designed to make services clear and make it easier for customers to contact the business through forms, phone or WhatsApp.",
     slug: "website-development",
     capabilities: [
       "Business Websites",
@@ -20,7 +20,7 @@ const SERVICES = [
   {
     num: "02",
     title: "AI Chatbots",
-    desc: "AI chat assistants for FAQs, customer questions, lead capture and structured business support.",
+    desc: "Website chat assistants for FAQs, customer questions, lead capture and structured inquiries.",
     slug: "ai-chatbots",
     capabilities: [
       "Website Chatbots",
@@ -33,7 +33,7 @@ const SERVICES = [
   {
     num: "03",
     title: "AI Automation",
-    desc: "Custom n8n workflows, APIs and system connections that reduce repetitive manual work and connect business tools.",
+    desc: "Automations that connect forms, email, Google Sheets, webhooks and business tools to reduce repetitive manual work.",
     slug: "ai-automation",
     capabilities: [
       "n8n Automation",
@@ -46,7 +46,7 @@ const SERVICES = [
   {
     num: "04",
     title: "AI Voice Agents",
-    desc: "AI calling assistants for customer inquiries, appointment requests, lead qualification and structured business call workflows.",
+    desc: "Voice assistants designed to handle structured customer calls, collect information and support lead or appointment workflows.",
     slug: "ai-voice-agents",
     capabilities: [
       "Inbound Call Handling",
@@ -59,7 +59,7 @@ const SERVICES = [
   {
     num: "05",
     title: "Custom Digital Solutions",
-    desc: "Websites, automation, chatbots and voice AI can be combined into a custom solution based on your specific business workflow.",
+    desc: "Combined web and automation solutions tailored to workflows that do not fit a standard package.",
     slug: "custom-digital-solutions",
     capabilities: [
       "Multi-System Architecture",
@@ -83,7 +83,7 @@ export function HomeServices() {
               Solutions Built Around <span className="text-[#0f766e]">Your Business</span>
             </>
           }
-          subtitle="From professional websites to intelligent automation, we build practical digital solutions designed around real business needs."
+          subtitle="From practical business websites to workflow automations, we build practical digital solutions designed around real business needs."
         />
 
         {/* Editorial Numbered Rows */}

@@ -105,8 +105,8 @@ export function Projects() {
                 SmileCare Dental Clinic
               </h3>
               <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
-                A modern dental clinic website concept designed to showcase services, build trust
-                and make it easier for patients to send appointment requests.
+                A dental clinic website concept designed to present practice services clearly,
+                provide key patient information and make it easier to submit appointment requests.
               </p>
               <div className="pt-2">
                 <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
@@ -155,8 +155,8 @@ export function Projects() {
                 AI Restaurant Voice Agent
               </h3>
               <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
-                A conversational voice assistant concept designed to answer customer calls, collect
-                structured food orders and confirm order details.
+                A conversational voice assistant concept built to demonstrate telephone call
+                handling, menu assistance, structured order collection and customer verification.
               </p>
               <div className="pt-2">
                 <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
@@ -275,8 +275,8 @@ export function Projects() {
                     Dental Clinic Digital System
                   </h3>
                   <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
-                    A digital solution concept combining a professional clinic website with inquiry
-                    and appointment workflows.
+                    A digital system concept created to demonstrate how a clinic website can connect
+                    with inquiry capture, appointment workflows and automated notification routing.
                   </p>
                   <div className="pt-2">
                     <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
@@ -444,8 +444,8 @@ export function Projects() {
                 Luxury Real Estate Website
               </h3>
               <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
-                A premium real estate website built as a portfolio project for luxury property
-                presentation and investor inquiries.
+                A portfolio website build designed to showcase high-end property listings,
+                structured architectural galleries and direct inquiry forms for prospective buyers.
               </p>
               <div className="pt-2">
                 <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">
@@ -497,8 +497,8 @@ export function Projects() {
                 Surgical B2B Export Website
               </h3>
               <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">
-                A reusable B2B website template built for surgical and dental instrument exporters,
-                featuring product presentation, business credentials and RFQ functionality.
+                A portfolio website build structured for instrument exporters to present product
+                lines, certification information and structured quotation request forms.
               </p>
               <div className="pt-2">
                 <div className="text-[11px] uppercase tracking-wider text-[#111827] font-semibold mb-1.5">

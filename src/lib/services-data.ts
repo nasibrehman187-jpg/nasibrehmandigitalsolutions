@@ -22,8 +22,9 @@ export const SERVICES: Service[] = [
     slug: "website-development",
     icon: Globe,
     title: "Website Development",
-    tagline: "Professional websites for businesses that need a strong online presence",
-    desc: "Professional, responsive websites built for businesses that need a strong online presence and an easier way for customers to contact them.",
+    tagline:
+      "Fast, responsive business websites designed to make services clear and customer contact easier",
+    desc: "Fast, responsive business websites designed to make services clear and make it easier for customers to contact the business through forms, phone or WhatsApp.",
     color: "from-[#0f8b8d] to-[#14b8a6]",
     features: [
       "Business Websites",
@@ -43,8 +44,9 @@ export const SERVICES: Service[] = [
     slug: "ai-chatbots",
     icon: Bot,
     title: "AI Chatbots",
-    tagline: "AI chat assistants for FAQs, customer questions and structured support",
-    desc: "AI chat assistants for FAQs, customer questions, lead capture and structured business support.",
+    tagline:
+      "Website chat assistants for FAQs, customer questions, lead capture and structured inquiries",
+    desc: "Website chat assistants for FAQs, customer questions, lead capture and structured inquiries.",
     color: "from-[#0f8b8d] to-[#2dd4bf]",
     features: [
       "Website Chatbots",
@@ -60,8 +62,8 @@ export const SERVICES: Service[] = [
     icon: Workflow,
     title: "AI Automation",
     tagline:
-      "Custom automation workflows that reduce repetitive manual work and connect business tools",
-    desc: "Custom automation workflows designed to reduce repetitive manual work, connect business tools and streamline digital processes.",
+      "Automations that connect forms, email, Google Sheets, webhooks and business tools to reduce repetitive manual work",
+    desc: "Automations that connect forms, email, Google Sheets, webhooks and business tools to reduce repetitive manual work.",
     color: "from-[#0f8b8d] to-[#14b8a6]",
     features: [
       "n8n Automation",
@@ -79,8 +81,9 @@ export const SERVICES: Service[] = [
     slug: "ai-voice-agents",
     icon: Mic,
     title: "AI Voice Agents",
-    tagline: "AI-powered calling assistants for structured customer conversations",
-    desc: "AI-powered calling assistants designed for structured customer conversations and business workflows.",
+    tagline:
+      "Voice assistants designed to handle structured customer calls, collect information and support workflows",
+    desc: "Voice assistants designed to handle structured customer calls, collect information and support lead or appointment workflows.",
     color: "from-[#0f8b8d] to-[#d6a84b]",
     features: [
       "Inbound Call Handling",
@@ -95,8 +98,9 @@ export const SERVICES: Service[] = [
     slug: "custom-digital-solutions",
     icon: Wrench,
     title: "Custom Digital Solutions",
-    tagline: "Combined websites, automation and AI tailored to your business workflow",
-    desc: "Websites, automation, chatbots and voice AI can be combined into a custom solution based on a specific business workflow.",
+    tagline:
+      "Combined web and automation solutions tailored to workflows that do not fit a standard package",
+    desc: "Combined web and automation solutions tailored to workflows that do not fit a standard package.",
     color: "from-[#14b8a6] to-[#d6a84b]",
     features: [
       "Custom Project Scoping",

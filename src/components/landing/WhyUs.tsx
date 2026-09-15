@@ -5,23 +5,23 @@ import { ShieldCheck, Laptop } from "lucide-react";
 const WHY_POINTS = [
   {
     n: "01",
-    title: "Practical Solutions",
-    desc: "We focus on useful systems designed around real business problems instead of unnecessary complexity.",
+    title: "Clear Project Scope",
+    desc: "Every project starts with an agreed scope, transparent deliverables and practical expectations before any build begins.",
   },
   {
     n: "02",
-    title: "Custom Engineered",
-    desc: "Every website, automation, or AI assistant is adapted to your exact project requirements instead of forcing generic templates.",
+    title: "Direct Communication",
+    desc: "You communicate directly with Nasib Rehman throughout planning, development, review and handover.",
   },
   {
     n: "03",
-    title: "Modern Technology Stack",
-    desc: "Solutions combine modern web standards, n8n automation, AI models, APIs, webhooks, and voice assistants.",
+    title: "Built for Business Requirements",
+    desc: "Websites, automations and assistants are built around how your business works rather than a one-size-fits-all template.",
   },
   {
     n: "04",
-    title: "Direct Founder Access",
-    desc: "Work directly with Nasib Rehman throughout planning, engineering, review, and launch with zero middlemen.",
+    title: "No-Obligation Discussion",
+    desc: "Review your requirements and discuss practical solution options before making any project commitments.",
   },
 ];
 
@@ -36,7 +36,7 @@ export function WhyUs() {
               Why Choose <span className="text-[#0f766e]">Digital Solution?</span>
             </>
           }
-          subtitle="A focused, founder-led studio dedicated to engineering practical digital tools that work reliably for your business."
+          subtitle="A founder-led service dedicated to building practical websites, automations and digital systems for your business."
         />
 
         {/* Editorial Split Layout */}
@@ -47,8 +47,12 @@ export function WhyUs() {
               Practical Digital Solutions Built Around Your Business
             </h3>
             <p className="text-base text-[#5b6472] leading-relaxed">
-              We focus on useful systems designed around real business problems instead of
-              unnecessary complexity.
+              You work directly with Nasib Rehman throughout the project — from understanding the
+              requirement to final delivery.
+            </p>
+            <p className="text-sm text-[#5b6472] leading-relaxed">
+              Best suited to clinics, real estate businesses and local service businesses looking
+              for a stronger online presence or simpler customer-handling workflows.
             </p>
 
             <div className="pt-4 border-t border-[#e7e1d6] space-y-3">

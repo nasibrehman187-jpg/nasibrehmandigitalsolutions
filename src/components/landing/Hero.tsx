@@ -14,13 +14,13 @@ export function Hero() {
           </div>
 
           <h1 className="mt-5 font-display text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-medium leading-[1.1] tracking-tight text-[#111827]">
-            Smart Digital Solutions for{" "}
+            Websites & Digital Systems Built for{" "}
             <span className="text-[#0f766e] italic">Growing Businesses</span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base sm:text-lg text-[#5b6472] leading-relaxed">
-            We build professional websites, AI automations, chatbots and AI voice agents that help
-            businesses save time, manage leads and improve customer communication.
+            I build practical websites, chatbots, automations and voice solutions that help
+            businesses capture inquiries, handle customer communication and reduce repetitive work.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3.5">

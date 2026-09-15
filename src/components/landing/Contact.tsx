@@ -149,7 +149,7 @@ export function Contact() {
               Tell Me About <span className="text-[#0F766E]">Your Project</span>
             </>
           }
-          subtitle="Have a website, automation or AI idea? Send your requirements directly via WhatsApp or email to discuss the most suitable solution for your business."
+          subtitle="Share what you want to build or improve, and send your requirements directly through WhatsApp or email."
         />
 
         {/* Founder Consultation Split Layout */}
