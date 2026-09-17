@@ -72,12 +72,12 @@ export function Navbar() {
     >
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 sm:py-4"
+        className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 sm:py-4"
       >
         <BrandLink inverted onClick={() => setOpen(false)} />
 
-        {/* Desktop Nav Items */}
-        <ul className="hidden items-center gap-6 xl:gap-8 lg:flex">
+        {/* Desktop Nav Items — Centered */}
+        <ul className="hidden items-center gap-6 xl:gap-8 lg:flex lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
           {NAV_LINKS.map((n) => (
             <li key={n.to}>
               <Link
