@@ -24,30 +24,30 @@ const QUICK_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="content-auto relative mt-20 border-t border-[#E7E1D6] pt-16 bg-[#111827]">
+    <footer className="content-auto relative mt-20 border-t border-slate-800 pt-16 bg-[#10233F] text-slate-300">
       <div className="mx-auto max-w-7xl px-6 pb-20 sm:pb-24">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
             <BrandLink inverted />
-            <p className="mt-4 max-w-xs text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
+            <p className="mt-4 max-w-xs text-xs sm:text-sm text-slate-300 leading-relaxed">
               Engineering practical websites, automations and AI systems for growing businesses.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-xs text-[#9CA3AF]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
+            <div className="mt-4 flex items-center gap-2 text-xs text-slate-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
               <span>Available for remote projects</span>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <div className="font-display text-sm font-semibold text-[#F7F3EC]">Services</div>
-            <ul className="mt-4 space-y-2 text-xs sm:text-sm text-[#9CA3AF]">
+            <div className="font-display text-sm font-bold text-white tracking-wide">Services</div>
+            <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
               {SERVICES_LINKS.map((l) => (
                 <li key={l.to}>
                   <Link
                     to={l.to}
-                    className="hover:text-[#14B8A6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded"
+                    className="hover:text-teal-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded"
                   >
                     {l.label}
                   </Link>
@@ -58,13 +58,15 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <div className="font-display text-sm font-semibold text-[#F7F3EC]">Quick Links</div>
-            <ul className="mt-4 space-y-2 text-xs sm:text-sm text-[#9CA3AF]">
+            <div className="font-display text-sm font-bold text-white tracking-wide">
+              Quick Links
+            </div>
+            <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
               {QUICK_LINKS.map((l) => (
                 <li key={l.to}>
                   <Link
                     to={l.to}
-                    className="hover:text-[#14B8A6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded"
+                    className="hover:text-teal-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded"
                   >
                     {l.label}
                   </Link>
@@ -75,39 +77,41 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <div className="font-display text-sm font-semibold text-[#F7F3EC]">Direct Contact</div>
+            <div className="font-display text-sm font-bold text-white tracking-wide">
+              Direct Contact
+            </div>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
                   href={CONTACT_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs sm:text-sm text-[#9CA3AF] hover:text-[#F7F3EC] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded"
+                  className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded"
                 >
                   <MessageSquare className="h-4 w-4 text-emerald-400 shrink-0" />
-                  WhatsApp ({CONTACT_INFO.phone})
+                  <span>WhatsApp ({CONTACT_INFO.phone})</span>
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center gap-2 text-xs sm:text-sm text-[#9CA3AF] hover:text-[#F7F3EC] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#14B8A6] rounded"
+                  className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded"
                 >
-                  <Mail className="h-4 w-4 text-[#14B8A6] shrink-0" />
-                  {CONTACT_INFO.email}
+                  <Mail className="h-4 w-4 text-teal-400 shrink-0" />
+                  <span>{CONTACT_INFO.email}</span>
                 </a>
               </li>
               <li>
-                <span className="flex items-start gap-2 text-xs sm:text-sm text-[#9CA3AF]">
-                  <MapPin className="h-4 w-4 text-[#B38A3D] shrink-0 mt-0.5" />
-                  {CONTACT_INFO.location}
+                <span className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-400">
+                  <MapPin className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                  <span>{CONTACT_INFO.location}</span>
                 </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-[#9CA3AF]">
+        <div className="mt-14 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-400">
           <div className="text-center md:text-left">
             © 2026 Digital Solution by Nasib Rehman. All rights reserved.
           </div>
@@ -117,7 +121,7 @@ export function Footer() {
                 {index > 0 && <span className="text-white/20 select-none">•</span>}
                 <Link
                   to={item.to}
-                  className="hover:text-[#14B8A6] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#14B8A6] rounded"
+                  className="hover:text-teal-300 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-400 rounded"
                 >
                   {item.label}
                 </Link>

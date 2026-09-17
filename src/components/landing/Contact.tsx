@@ -117,189 +117,281 @@ export function Contact() {
           tag="Direct Consultation"
           title={
             <>
-              Tell Me About <span className="text-[#0F766E]">Your Project</span>
+              Tell Me About <span className="text-[#087F8C]">Your Project</span>
             </>
           }
           subtitle="Share what you want to build or improve, and send your requirements directly through WhatsApp or email."
         />
 
         {/* Founder Consultation Split Layout */}
-        <div className="mt-14 sm:mt-18 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
-          {/* Left Column — Direct Contact & Working Together */}
-          <div className="lg:col-span-5 space-y-8">
-            {/* Direct Contact Details */}
-            <div>
-              <div className="font-display text-xl font-medium text-[#111827]">Direct Contact</div>
-              <ul className="mt-4 space-y-3.5 text-xs sm:text-sm">
-                <InfoRow
-                  icon={MessageSquare}
-                  label={`Chat on WhatsApp (${CONTACT_INFO.phone})`}
-                  href={CONTACT_INFO.whatsappUrl}
-                  isLink
-                />
-                <InfoRow
-                  icon={Phone}
-                  label={CONTACT_INFO.phone}
-                  href={`tel:${CONTACT_INFO.phoneRaw}`}
-                  isLink
-                />
-                <InfoRow
-                  icon={Mail}
-                  label={CONTACT_INFO.email}
-                  href={`mailto:${CONTACT_INFO.email}`}
-                  isLink
-                />
-                <InfoRow icon={MapPin} label={CONTACT_INFO.location} />
-              </ul>
-            </div>
+        <div className="mt-14 sm:mt-18 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+          {/* Left Column — Deep Navy Direct Contact Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-5 rounded-2xl bg-[#10233F] p-6 sm:p-8 lg:p-10 text-white flex flex-col justify-between shadow-lg relative overflow-hidden"
+          >
+            {/* Ambient blur */}
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-56 h-56 rounded-full bg-[#087F8C]/20 blur-3xl pointer-events-none" />
 
-            {/* Working Together */}
-            <div className="border-t border-[#E7E1D6] pt-6 space-y-3">
-              <div className="text-xs uppercase tracking-wider text-[#5B6472] font-semibold mb-3">
-                Working Together
+            <div className="relative z-10 space-y-6">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-teal-300 border border-white/10">
+                  <MessageSquare className="h-3.5 w-3.5 text-teal-400" />
+                  <span>Direct Communication</span>
+                </div>
+                <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold text-white">
+                  Direct Contact
+                </h3>
+                <p className="mt-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Have questions or want to discuss project feasibility? Reach out directly via
+                  WhatsApp or email.
+                </p>
+
+                {/* Compact & Prominent Direct Contact Options */}
+                <div className="mt-5 space-y-2.5">
+                  <a
+                    href={CONTACT_INFO.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between gap-3 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/25 transition group min-h-[44px]"
+                  >
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold">
+                      <MessageSquare className="h-4 w-4 text-emerald-400 shrink-0" />
+                      <span>Chat on WhatsApp</span>
+                    </div>
+                    <span className="text-xs font-mono text-emerald-400 font-normal group-hover:translate-x-0.5 transition-transform">
+                      {CONTACT_INFO.phone} →
+                    </span>
+                  </a>
+
+                  <a
+                    href={`mailto:${CONTACT_INFO.email}`}
+                    className="flex items-center justify-between gap-3 p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:bg-white/10 hover:text-white transition min-h-[44px]"
+                  >
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm">
+                      <Mail className="h-4 w-4 text-teal-300 shrink-0" />
+                      <span>{CONTACT_INFO.email}</span>
+                    </div>
+                    <span className="text-xs text-slate-400">Email →</span>
+                  </a>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                    <a
+                      href={`tel:${CONTACT_INFO.phoneRaw}`}
+                      className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 hover:text-white transition min-h-[44px]"
+                    >
+                      <Phone className="h-3.5 w-3.5 text-teal-300 shrink-0" />
+                      <span>{CONTACT_INFO.phone}</span>
+                    </a>
+                    <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 min-h-[44px]">
+                      <MapPin className="h-3.5 w-3.5 text-teal-300 shrink-0" />
+                      <span>{CONTACT_INFO.location}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <ul className="space-y-2.5 text-xs text-[#5B6472]">
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
-                  <span>Direct communication with Nasib Rehman</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0F766E]" />
-                  <span>No-obligation project discussion</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
-                  <span>Available for remote projects</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
-                  <span>Clear scope & transparent pricing</span>
-                </li>
-              </ul>
-            </div>
-          </div>
 
-          {/* Right Column — Single Clean Form Container */}
+              {/* Working Together (Desktop view) */}
+              <div className="hidden lg:block border-t border-white/10 pt-6 space-y-3">
+                <div className="text-xs uppercase tracking-wider text-teal-300 font-bold mb-3">
+                  Working Together
+                </div>
+                <ul className="space-y-2.5 text-xs text-slate-200">
+                  <li className="flex items-center gap-2.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-teal-400 shrink-0" />
+                    <span>Direct communication with Nasib Rehman</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-teal-400 shrink-0" />
+                    <span>No-obligation project discussion</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" />
+                    <span>Available for remote projects</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" />
+                    <span>Clear scope & transparent pricing</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="hidden lg:block relative z-10 pt-6 mt-6 border-t border-white/10 text-xs text-slate-300">
+              Typical response time: within a few business hours.
+            </div>
+          </motion.div>
+
+          {/* Right Column — Clean White Form Container */}
           <motion.form
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             onSubmit={onSendWhatsApp}
-            className="rounded-xl border border-[#E7E1D6] bg-[#FFFFFF] p-7 sm:p-9 lg:col-span-7 shadow-xs"
+            className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-10 lg:col-span-7 shadow-xs flex flex-col justify-between"
           >
-            <div className="grid gap-5 sm:grid-cols-2">
-              <Field
-                id="contact-name"
-                label="Full Name"
-                placeholder="Your name"
-                value={form.name}
-                onChange={update("name")}
-                autoComplete="name"
-                required
-                error={errors.name}
-              />
-              <Field
-                id="contact-email"
-                label="Email"
-                type="email"
-                placeholder="your@email.com"
-                value={form.email}
-                onChange={update("email")}
-                autoComplete="email"
-                error={errors.email}
-              />
-              <Field
-                id="contact-company"
-                label="Business Name"
-                placeholder="Your business (optional)"
-                value={form.company}
-                onChange={update("company")}
-                autoComplete="organization"
-              />
-              <Field
-                id="contact-whatsapp"
-                label="WhatsApp Number"
-                type="tel"
-                placeholder="+92 xxx xxxxxxx"
-                value={form.whatsapp}
-                onChange={update("whatsapp")}
-                autoComplete="tel"
-              />
-              <SelectField
-                id="contact-service"
-                label="Service Needed"
-                value={form.service}
-                onChange={update("service")}
-                options={SERVICE_OPTIONS}
-                required
-                error={errors.service}
-              />
-              <SelectField
-                id="contact-budget"
-                label="Budget Range (Optional)"
-                value={form.budget}
-                onChange={update("budget")}
-                options={BUDGET_OPTIONS}
-              />
-            </div>
-            <div className="mt-5">
-              <label
-                htmlFor="contact-message"
-                className="text-[10.5px] uppercase tracking-wider text-[#5B6472] font-medium"
-              >
-                Project Details <span className="text-[#0F766E]">*</span>
-              </label>
-              <div className="relative mt-2">
-                <textarea
-                  id="contact-message"
-                  rows={5}
-                  value={form.message}
-                  onChange={update("message")}
-                  aria-invalid={Boolean(errors.message)}
-                  aria-describedby={errors.message ? "contact-message-error" : undefined}
-                  placeholder="Describe your project, requirements or the problem you want to solve..."
-                  className={`relative w-full rounded-md border ${
-                    errors.message
-                      ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                      : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
-                  } px-4 py-3 text-sm text-[#111827] outline-none placeholder:text-[#5B6472]/60 [color-scheme:light]`}
+            <div>
+              <div className="mb-6 pb-4 border-b border-slate-100">
+                <h4 className="font-display text-lg sm:text-xl font-bold text-[#142338]">
+                  Send Project Inquiry
+                </h4>
+                <p className="text-xs text-[#526174] mt-0.5">
+                  Fill in your details below to prepare your message.
+                </p>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field
+                  id="contact-name"
+                  label="Full Name"
+                  placeholder="Your name"
+                  value={form.name}
+                  onChange={update("name")}
+                  autoComplete="name"
+                  required
+                  error={errors.name}
+                />
+                <Field
+                  id="contact-email"
+                  label="Email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={form.email}
+                  onChange={update("email")}
+                  autoComplete="email"
+                  error={errors.email}
+                />
+                <Field
+                  id="contact-company"
+                  label="Business Name"
+                  placeholder="Your business (optional)"
+                  value={form.company}
+                  onChange={update("company")}
+                  autoComplete="organization"
+                />
+                <Field
+                  id="contact-whatsapp"
+                  label="WhatsApp Number"
+                  type="tel"
+                  placeholder="+92 xxx xxxxxxx"
+                  value={form.whatsapp}
+                  onChange={update("whatsapp")}
+                  autoComplete="tel"
+                />
+                <SelectField
+                  id="contact-service"
+                  label="Service Needed"
+                  value={form.service}
+                  onChange={update("service")}
+                  options={SERVICE_OPTIONS}
+                  required
+                  error={errors.service}
+                />
+                <SelectField
+                  id="contact-budget"
+                  label="Budget Range (Optional)"
+                  value={form.budget}
+                  onChange={update("budget")}
+                  options={BUDGET_OPTIONS}
                 />
               </div>
-              {errors.message && (
-                <p id="contact-message-error" className="mt-1.5 text-xs text-red-600" role="alert">
-                  {errors.message}
-                </p>
-              )}
+
+              <div className="mt-5">
+                <label
+                  htmlFor="contact-message"
+                  className="text-xs font-bold uppercase tracking-wider text-[#142338]"
+                >
+                  Project Details <span className="text-[#087F8C]">*</span>
+                </label>
+                <div className="relative mt-2">
+                  <textarea
+                    id="contact-message"
+                    rows={5}
+                    value={form.message}
+                    onChange={update("message")}
+                    aria-invalid={Boolean(errors.message)}
+                    aria-describedby={errors.message ? "contact-message-error" : undefined}
+                    placeholder="Describe your project, requirements or the problem you want to solve..."
+                    className={`relative w-full rounded-xl border ${
+                      errors.message
+                        ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                        : "border-[#DCE4EC] bg-[#F8FAFC] focus:border-[#087F8C] focus:bg-white focus:ring-2 focus:ring-[#087F8C]/20"
+                    } px-4 py-3 text-sm text-[#142338] outline-none placeholder:text-slate-400 transition-all [color-scheme:light]`}
+                  />
+                </div>
+                {errors.message && (
+                  <p
+                    id="contact-message-error"
+                    className="mt-1.5 text-xs text-red-600"
+                    role="alert"
+                  >
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+
+              <p className="mt-4 text-xs text-[#526174] leading-relaxed">
+                Your project details will open directly in WhatsApp or your email client for you to
+                review and send.
+              </p>
             </div>
 
-            <p className="mt-4 text-xs text-[#5B6472]">
-              Your project details will open directly in WhatsApp or your email client for you to
-              review and send.
-            </p>
+            <div className="mt-8 pt-6 border-t border-slate-100">
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  type="submit"
+                  className="group inline-flex items-center gap-2 rounded-xl bg-[#087F8C] px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066570] transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+                >
+                  <MessageSquare className="h-4 w-4" />
+                  <span>Send via WhatsApp</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={onSendEmail}
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-[#142338] hover:bg-slate-50 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+                >
+                  <Mail className="h-4 w-4 text-[#087F8C]" />
+                  <span>Send via Email</span>
+                </button>
+              </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <button
-                type="submit"
-                className="group inline-flex items-center gap-2 rounded-md bg-[#0F766E] px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#FFFFFF] shadow-xs hover:bg-[#0D9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
-              >
-                <MessageSquare className="h-4 w-4" />
-                Send via WhatsApp
-              </button>
-              <button
-                type="button"
-                onClick={onSendEmail}
-                className="inline-flex items-center gap-2 rounded-md border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
-              >
-                <Mail className="h-4 w-4 text-[#0F766E]" />
-                Send via Email
-              </button>
-            </div>
-
-            <div className="mt-5 pt-4 border-t border-[#E7E1D6] text-xs text-[#5B6472]">
-              Direct communication with Nasib Rehman • No-obligation project discussion
+              <div className="mt-4 text-xs text-[#526174]">
+                Direct communication with Nasib Rehman • No-obligation project discussion
+              </div>
             </div>
           </motion.form>
+        </div>
+
+        {/* Mobile Working Together Card — positioned below form on mobile */}
+        <div className="mt-8 lg:hidden rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs space-y-4">
+          <div className="text-xs uppercase tracking-wider text-[#087F8C] font-bold">
+            Working Together
+          </div>
+          <ul className="grid gap-2.5 text-xs text-[#526174]">
+            <li className="flex items-center gap-2.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#087F8C] shrink-0" />
+              <span>Direct communication with Nasib Rehman</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#087F8C] shrink-0" />
+              <span>No-obligation project discussion</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D] shrink-0" />
+              <span>Available for remote projects</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D] shrink-0" />
+              <span>Clear scope & transparent pricing</span>
+            </li>
+          </ul>
+          <div className="pt-3 border-t border-slate-100 text-xs text-[#526174]">
+            Typical response time: within a few business hours.
+          </div>
         </div>
       </div>
     </section>
@@ -329,12 +421,9 @@ function Field({
 }) {
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="text-[10.5px] uppercase tracking-wider text-[#5B6472] font-medium"
-      >
+      <label htmlFor={id} className="text-xs font-bold uppercase tracking-wider text-[#142338]">
         {label}
-        {required && <span className="text-[#0F766E]"> *</span>}
+        {required && <span className="text-[#087F8C]"> *</span>}
       </label>
       <div className="relative mt-2">
         <input
@@ -347,11 +436,11 @@ function Field({
           placeholder={placeholder}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? `${id}-error` : undefined}
-          className={`relative w-full rounded-md border ${
+          className={`relative w-full rounded-xl border ${
             error
               ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
-              : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
-          } px-4 py-2.5 text-sm text-[#111827] outline-none placeholder:text-[#5B6472]/60 [color-scheme:light]`}
+              : "border-[#DCE4EC] bg-[#F8FAFC] focus:border-[#087F8C] focus:bg-white focus:ring-2 focus:ring-[#087F8C]/20"
+          } px-4 py-2.5 text-sm text-[#142338] outline-none placeholder:text-slate-400 transition-all [color-scheme:light]`}
         />
       </div>
       {error && (
@@ -382,12 +471,9 @@ function SelectField({
 }) {
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="text-[10.5px] uppercase tracking-wider text-[#5B6472] font-medium"
-      >
+      <label htmlFor={id} className="text-xs font-bold uppercase tracking-wider text-[#142338]">
         {label}
-        {required && <span className="text-[#0F766E]"> *</span>}
+        {required && <span className="text-[#087F8C]"> *</span>}
       </label>
       <div className="relative mt-2">
         <select
@@ -396,17 +482,17 @@ function SelectField({
           onChange={onChange}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? `${id}-error` : undefined}
-          className={`relative w-full rounded-md border ${
+          className={`relative w-full rounded-xl border ${
             error
               ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
-              : "border-[#E7E1D6] bg-[#F7F3EC]/40 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]"
-          } px-4 py-2.5 text-sm text-[#111827] outline-none [color-scheme:light]`}
+              : "border-[#DCE4EC] bg-[#F8FAFC] focus:border-[#087F8C] focus:bg-white focus:ring-2 focus:ring-[#087F8C]/20"
+          } px-4 py-2.5 text-sm text-[#142338] outline-none transition-all [color-scheme:light]`}
         >
-          <option value="" className="bg-[#FFFFFF] text-[#5B6472]">
+          <option value="" className="bg-white text-slate-400">
             Select…
           </option>
           {options.map((o) => (
-            <option key={o} value={o} className="bg-[#FFFFFF] text-[#111827]">
+            <option key={o} value={o} className="bg-white text-[#142338]">
               {o}
             </option>
           ))}
@@ -433,9 +519,11 @@ function InfoRow({
   isLink?: boolean;
 }) {
   const content = (
-    <li className="flex items-center gap-3 text-[#5B6472] py-0.5">
-      <Icon className="h-4 w-4 text-[#0F766E] shrink-0" />
-      <span className={isLink ? "transition-colors hover:text-[#111827]" : ""}>{label}</span>
+    <li className="flex items-center gap-3 text-slate-200 py-1 hover:text-white transition-colors">
+      <span className="grid h-7 w-7 place-items-center rounded-lg bg-white/10 text-teal-300 shrink-0">
+        <Icon className="h-3.5 w-3.5" />
+      </span>
+      <span className={isLink ? "transition-colors hover:text-teal-300" : ""}>{label}</span>
     </li>
   );
 
@@ -445,7 +533,7 @@ function InfoRow({
         href={href}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel="noopener noreferrer"
-        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] rounded-lg"
+        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded-lg"
       >
         {content}
       </a>

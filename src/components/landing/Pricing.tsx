@@ -354,41 +354,45 @@ export function Pricing() {
           tag="Pricing"
           title={
             <>
-              Transparent, <span className="text-[#0f766e]">honest pricing</span>
+              Transparent, <span className="text-[#087F8C]">honest pricing</span>
             </>
           }
           subtitle="Clear package pricing with defined deliverables. Website development from $99, AI automation from $200, chatbots from $150, and voice agents from $400."
         />
 
-        {/* Service Category Tabs — Quiet Editorial Text Tabs with ARIA semantics */}
-        <div
-          role="tablist"
-          aria-label="Service categories"
-          onKeyDown={onTabKeyDown}
-          className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-6 sm:gap-10 border-b border-[#e7e1d6] pb-3"
-        >
-          {TABS.map((t) => {
-            const isActive = activeTab === t.id;
-            return (
-              <button
-                key={t.id}
-                type="button"
-                role="tab"
-                id={`pricing-tab-${t.id}`}
-                aria-selected={isActive}
-                aria-controls={`pricing-panel-${t.id}`}
-                tabIndex={isActive ? 0 : -1}
-                onClick={() => setActiveTab(t.id)}
-                className={`relative pb-3 text-xs sm:text-sm font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded ${
-                  isActive
-                    ? "text-[#0f766e] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#0f766e]"
-                    : "text-[#5b6472] hover:text-[#111827]"
-                }`}
-              >
-                {t.label}
-              </button>
-            );
-          })}
+        {/* Service Category Tabs — High-Contrast Segmented Control */}
+        <div className="mt-10 sm:mt-12 flex justify-center">
+          <div
+            role="tablist"
+            aria-label="Service categories"
+            onKeyDown={onTabKeyDown}
+            className="flex flex-wrap items-center justify-center gap-2 max-w-full rounded-2xl bg-slate-100/90 p-2 border border-slate-200 shadow-2xs"
+          >
+            {TABS.map((t) => {
+              const isActive = activeTab === t.id;
+              const Icon = t.icon;
+              return (
+                <button
+                  key={t.id}
+                  type="button"
+                  role="tab"
+                  id={`pricing-tab-${t.id}`}
+                  aria-selected={isActive}
+                  aria-controls={`pricing-panel-${t.id}`}
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={() => setActiveTab(t.id)}
+                  className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
+                    isActive
+                      ? "bg-[#10233F] text-white shadow-sm"
+                      : "text-[#526174] hover:text-[#142338] bg-white/60 sm:bg-transparent hover:bg-white"
+                  }`}
+                >
+                  <Icon className={`h-4 w-4 ${isActive ? "text-teal-300" : "text-slate-400"}`} />
+                  <span>{t.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Tabpanel wrapper */}
@@ -401,52 +405,63 @@ export function Pricing() {
         >
           {/* 3-Card Grid for Standard Services */}
           {activeTab !== "custom" && (
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            <div className="mt-12 grid gap-6 lg:grid-cols-3 items-stretch">
               {activePlans.map((p, i) => (
                 <motion.div
                   key={p.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="relative"
+                  className="flex"
                 >
                   <div
-                    className={`relative flex h-full flex-col justify-between rounded-xl p-7 sm:p-8 transition-all duration-300 ${
+                    className={`relative flex w-full flex-col justify-between rounded-2xl p-7 sm:p-8 transition-all duration-300 ${
                       p.highlight
-                        ? "bg-[#ffffff] border border-[#0f766e]/70 shadow-xs ring-1 ring-[#0f766e]/20"
-                        : "bg-[#ffffff] border border-[#e7e1d6] shadow-xs hover:border-[#0f766e]/40"
+                        ? "bg-white border-2 border-[#087F8C] shadow-lg ring-4 ring-[#087F8C]/10"
+                        : "bg-white border border-[#DCE4EC] shadow-xs hover:border-[#087F8C]/40 hover:shadow-md"
                     }`}
                   >
                     <div>
-                      {p.badge && (
-                        <div className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-[#b38a3d] mb-2">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
-                          {p.badge}
-                        </div>
-                      )}
-                      <div className="font-display text-lg font-medium text-[#111827]">
-                        {p.name}
+                      {/* Reserved Badge Container — Guarantees Identical Price Alignment */}
+                      <div className="h-7 flex items-center mb-3">
+                        {p.badge ? (
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200/80 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-800">
+                            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
+                            {p.badge}
+                          </span>
+                        ) : (
+                          <span className="invisible text-[11px] select-none" aria-hidden="true">
+                            Standard Package
+                          </span>
+                        )}
                       </div>
+
+                      <div className="font-display text-xl font-bold text-[#142338]">{p.name}</div>
+
                       <div className="mt-3 flex items-baseline gap-2">
-                        <span className="font-sans text-4xl sm:text-5xl font-bold tracking-tight text-[#111827]">
+                        <span className="font-sans text-4xl sm:text-5xl font-bold tracking-tight text-[#142338]">
                           {p.price}
                         </span>
-                        <span className="text-xs text-[#5b6472] font-medium">/ {p.per}</span>
-                      </div>
-                      <div className="mt-2 text-xs text-[#0f766e] font-medium">
-                        Estimated Delivery: {p.delivery}
+                        <span className="text-xs text-[#526174] font-medium">/ {p.per}</span>
                       </div>
 
-                      <p className="mt-4 text-sm text-[#5b6472] leading-relaxed">{p.description}</p>
+                      <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-md bg-teal-50 px-2.5 py-1 text-xs font-semibold text-[#087F8C] border border-teal-100">
+                        <span>Estimated Delivery:</span>
+                        <span className="font-bold">{p.delivery}</span>
+                      </div>
 
-                      <div className="mt-6 pt-5 border-t border-[#e7e1d6]">
-                        <div className="text-[10.5px] font-semibold uppercase tracking-wider text-[#5b6472] mb-3">
+                      <p className="mt-4 text-xs sm:text-sm text-[#526174] leading-relaxed min-h-[40px]">
+                        {p.description}
+                      </p>
+
+                      <div className="mt-6 pt-5 border-t border-slate-100">
+                        <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#142338] mb-3.5">
                           Included Features
                         </div>
                         <ul className="space-y-2.5">
                           {p.features.map((f) => (
-                            <li key={f} className="flex items-start gap-2.5 text-xs text-[#111827]">
-                              <Check className="h-3.5 w-3.5 text-[#0f766e] shrink-0 mt-0.5" />
+                            <li key={f} className="flex items-start gap-2.5 text-xs text-[#142338]">
+                              <Check className="h-4 w-4 text-[#087F8C] shrink-0 mt-0.5" />
                               <span className="leading-snug">{f}</span>
                             </li>
                           ))}
@@ -467,14 +482,14 @@ export function Pricing() {
                                 : "AI Automation",
                         plan: p.serviceParam,
                       }}
-                      className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] ${
+                      className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
                         p.highlight
-                          ? "bg-[#0f766e] text-white shadow-xs hover:bg-[#0d9488]"
-                          : "border border-[#e7e1d6] bg-[#ffffff] text-[#111827] hover:bg-[#f3eee6] hover:border-[#d6cebe]"
+                          ? "bg-[#087F8C] text-white shadow-xs hover:bg-[#066570]"
+                          : "border border-slate-200 bg-slate-50 text-[#142338] hover:bg-slate-100"
                       }`}
                     >
                       <span>{p.cta}</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
+                      <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
                 </motion.div>
@@ -488,44 +503,37 @@ export function Pricing() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="mt-10 rounded-2xl border border-[#e7e1d6] bg-[#fffdfc] p-6 text-left"
+              className="mt-10 rounded-2xl border border-amber-200/80 bg-amber-50/40 p-6 sm:p-8 text-left shadow-xs"
             >
-              <div className="flex items-center gap-2 font-display text-sm font-semibold text-[#b38a3d]">
-                <AlertCircle className="h-4 w-4 shrink-0" />
+              <div className="flex items-center gap-2 font-display text-sm sm:text-base font-bold text-amber-900">
+                <AlertCircle className="h-4.5 w-4.5 text-amber-700 shrink-0" />
                 <span>Voice AI Running Cost Notice</span>
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-[#5b6472]">
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#526174]">
                 Voice Agent package prices cover development and initial setup. Ongoing third-party
                 usage charges are billed separately.
               </p>
-              <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4 text-xs text-[#5b6472]">
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" /> Voice AI platform usage
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" /> Phone number rental
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" /> Calling minutes
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" /> AI model / API usage
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" /> Speech-to-text usage
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" /> Text-to-speech usage
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" /> Automation hosting
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" /> Other required
-                  third-party software
-                </div>
+              <div className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4 text-xs text-[#526174]">
+                {[
+                  "Voice AI platform usage",
+                  "Phone number rental",
+                  "Calling minutes",
+                  "AI model / API usage",
+                  "Speech-to-text usage",
+                  "Text-to-speech usage",
+                  "Automation hosting",
+                  "Other required third-party software",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 rounded-lg bg-white p-2.5 border border-amber-200/50 shadow-2xs"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-600 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-              <p className="mt-3 text-[11px] text-[#5b6472]/80">
+              <p className="mt-4 text-[11px] text-[#526174]">
                 Package fees do not include unlimited calling minutes or bundled airtime. Usage
                 charges are billed directly by your chosen platform and telephony providers based on
                 actual volume.
@@ -541,42 +549,42 @@ export function Pricing() {
               transition={{ duration: 0.4 }}
               className="mt-8 mx-auto max-w-3xl"
             >
-              <div className="rounded-2xl border border-[#e7e1d6] bg-[#ffffff] p-8 sm:p-10 text-center shadow-xs">
-                <span className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-wider text-[#b38a3d] font-medium">
-                  <Layers className="h-3.5 w-3.5" /> Multi-System Setup
+              <div className="rounded-2xl border border-[#DCE4EC] bg-white p-8 sm:p-12 text-center shadow-xs">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-[10.5px] uppercase tracking-wider text-amber-800 font-bold">
+                  <Layers className="h-3.5 w-3.5 text-amber-600" /> Multi-System Setup
                 </span>
-                <h3 className="mt-3 font-display text-2xl sm:text-3xl font-medium text-[#111827]">
+                <h3 className="mt-4 font-display text-2xl sm:text-4xl font-bold text-[#142338]">
                   Custom Digital Solutions
                 </h3>
                 <div className="mt-4 flex items-center justify-center gap-2">
-                  <span className="font-sans text-4xl sm:text-5xl font-bold text-[#111827]">
+                  <span className="font-sans text-4xl sm:text-5xl font-bold text-[#142338]">
                     Starting from $500+
                   </span>
                 </div>
-                <p className="mt-2 text-xs text-[#0f766e] font-medium">
+                <p className="mt-2 text-xs text-[#087F8C] font-semibold">
                   Final pricing depends on project scope
                 </p>
-                <p className="mt-4 text-sm text-[#5b6472] leading-relaxed max-w-xl mx-auto">
+                <p className="mt-4 text-xs sm:text-sm text-[#526174] leading-relaxed max-w-xl mx-auto">
                   If a custom project combines multiple advanced systems such as Website, Voice
                   Agent, AI Automation, Chatbot, and multiple integrations, the project scope is
                   evaluated as a whole and quoted transparently.
                 </p>
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2 text-left text-xs sm:text-sm">
-                  <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#fffdfc] p-3.5 text-[#111827]">
-                    <Check className="h-4 w-4 text-[#0f766e] mt-0.5 shrink-0" />
+                  <div className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-[#FAFCFF] p-3.5 text-[#142338]">
+                    <Check className="h-4 w-4 text-[#087F8C] mt-0.5 shrink-0" />
                     <span>Custom Combined Architecture (Web + AI + Workflows)</span>
                   </div>
-                  <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#fffdfc] p-3.5 text-[#111827]">
-                    <Check className="h-4 w-4 text-[#0f766e] mt-0.5 shrink-0" />
+                  <div className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-[#FAFCFF] p-3.5 text-[#142338]">
+                    <Check className="h-4 w-4 text-[#087F8C] mt-0.5 shrink-0" />
                     <span>Bespoke System Integrations & Webhooks</span>
                   </div>
-                  <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#fffdfc] p-3.5 text-[#111827]">
-                    <Check className="h-4 w-4 text-[#0f766e] mt-0.5 shrink-0" />
+                  <div className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-[#FAFCFF] p-3.5 text-[#142338]">
+                    <Check className="h-4 w-4 text-[#087F8C] mt-0.5 shrink-0" />
                     <span>Tailored Business Logic & Database Setup</span>
                   </div>
-                  <div className="flex items-start gap-2.5 rounded-xl border border-[#e7e1d6] bg-[#fffdfc] p-3.5 text-[#111827]">
-                    <Check className="h-4 w-4 text-[#0f766e] mt-0.5 shrink-0" />
+                  <div className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-[#FAFCFF] p-3.5 text-[#142338]">
+                    <Check className="h-4 w-4 text-[#087F8C] mt-0.5 shrink-0" />
                     <span>End-to-End Testing, Handover & Revisions</span>
                   </div>
                 </div>
@@ -588,18 +596,19 @@ export function Pricing() {
                       service: "Custom Digital Solution",
                       plan: "Custom Digital Solution — Starting from $500+",
                     }}
-                    className="inline-flex items-center gap-2 rounded-md bg-[#0f766e] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#0d9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#087F8C] px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066570] transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                   >
-                    Discuss Custom Solution <ArrowRight className="h-4 w-4" />
+                    <span>Discuss Custom Solution</span>
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                   <a
                     href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to discuss a Custom Digital Solution for my business.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-md border border-emerald-600/25 bg-emerald-50 px-5 py-2.5 text-xs sm:text-sm font-medium text-emerald-800 hover:bg-emerald-100 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+                    className="inline-flex items-center gap-2 rounded-xl border border-emerald-600/25 bg-emerald-50 px-5 py-3 text-xs sm:text-sm font-medium text-emerald-800 hover:bg-emerald-100 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                   >
                     <MessageSquare className="h-4 w-4 text-emerald-600" />
-                    Chat on WhatsApp
+                    <span>Chat on WhatsApp</span>
                   </a>
                 </div>
               </div>
@@ -608,7 +617,7 @@ export function Pricing() {
         </div>
 
         {/* Pricing notes */}
-        <div className="mt-12 space-y-2 text-center text-xs text-[#5b6472]">
+        <div className="mt-12 space-y-2 text-center text-xs text-[#526174]">
           <p>
             Final pricing may vary depending on project scope, integrations and custom requirements.
           </p>
@@ -621,14 +630,14 @@ export function Pricing() {
         {/* Important Cost Information */}
         <div className="mt-16 sm:mt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0f766e]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#087F8C]">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
               Usage & Third-Party Costs
             </span>
-            <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl text-[#111827]">
+            <h3 className="mt-4 font-display text-2xl font-bold sm:text-3xl text-[#142338]">
               Important Cost Information
             </h3>
-            <p className="mt-3 text-sm text-[#5b6472] leading-relaxed">
+            <p className="mt-3 text-sm text-[#526174] leading-relaxed">
               Package prices cover development and initial setup unless otherwise stated.
               Third-party services and usage costs are billed separately.
             </p>
@@ -645,10 +654,10 @@ export function Pricing() {
             ].map((item) => (
               <div
                 key={item}
-                className="rounded-xl px-4 py-3 border border-[#e7e1d6] bg-[#ffffff] shadow-xs flex items-center justify-center gap-2 text-center"
+                className="rounded-xl px-4 py-3 border border-[#DCE4EC] bg-white shadow-2xs flex items-center justify-center gap-2 text-center"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-[#0f766e] shrink-0" />
-                <span className="text-xs font-medium text-[#111827]">{item}</span>
+                <span className="h-2 w-2 rounded-full bg-[#087F8C] shrink-0" />
+                <span className="text-xs font-semibold text-[#142338]">{item}</span>
               </div>
             ))}
           </div>
@@ -658,16 +667,17 @@ export function Pricing() {
               href={`https://wa.me/923317962794?text=${encodeURIComponent("Hi Nasib, I would like to get a custom quote for my project.")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-[#0f766e] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#0d9488] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#087F8C] px-6 py-3 text-xs sm:text-sm font-semibold text-white hover:bg-[#066570] transition shadow-xs min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
             >
-              Get Custom Quote <ArrowRight className="h-4 w-4" />
+              <span>Get Custom Quote</span>
+              <ArrowRight className="h-4 w-4" />
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-md border border-[#e7e1d6] bg-[#ffffff] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#f3eee6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs sm:text-sm font-medium text-[#142338] hover:bg-slate-50 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
             >
-              <MessageSquare className="h-4 w-4 text-[#0f766e]" />
-              Send Project Details
+              <MessageSquare className="h-4 w-4 text-[#087F8C]" />
+              <span>Send Project Details</span>
             </Link>
           </div>
         </div>

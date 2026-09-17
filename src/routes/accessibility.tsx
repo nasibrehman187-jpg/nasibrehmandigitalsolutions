@@ -37,28 +37,28 @@ function AccessibilityPage() {
       <div className="mx-auto max-w-4xl px-6">
         <Link
           to="/"
-          className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#111827] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] rounded"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#526174] hover:text-[#142338] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] rounded py-1"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Home
         </Link>
 
         <header className="mt-8">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0F766E]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 border border-teal-200/60 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#087F8C]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#087F8C]" />
             <span>Inclusive Design</span>
           </div>
-          <h1 className="mt-4 font-display text-3xl sm:text-4xl font-semibold text-[#111827] tracking-tight">
+          <h1 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-[#142338] tracking-tight">
             Accessibility Statement
           </h1>
-          <p className="mt-2 text-sm text-[#5B6472]">
+          <p className="mt-2 text-xs sm:text-sm text-[#526174]">
             Digital Solution by Nasib Rehman • Khairpur, Sindh, Pakistan • Effective Date: September
             2026
           </p>
         </header>
 
-        <div className="mt-10 space-y-8 text-sm text-[#5B6472] leading-relaxed">
-          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
-            <h2 className="font-display text-lg font-semibold text-[#111827]">
+        <div className="mt-10 space-y-6 text-sm text-[#526174] leading-relaxed">
+          <section className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs">
+            <h2 className="font-display text-lg font-bold text-[#142338]">
               1. Our Accessibility Commitment
             </h2>
             <p className="mt-3">
@@ -74,8 +74,8 @@ function AccessibilityPage() {
             </p>
           </section>
 
-          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
-            <h2 className="font-display text-lg font-semibold text-[#111827]">
+          <section className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs">
+            <h2 className="font-display text-lg font-bold text-[#142338]">
               2. Implemented Accessibility Measures
             </h2>
             <p className="mt-3">
@@ -83,34 +83,34 @@ function AccessibilityPage() {
             </p>
             <ul className="mt-3 list-disc pl-5 space-y-2">
               <li>
-                <strong className="text-[#111827]">Color Contrast:</strong> Body copy, headings, and
+                <strong className="text-[#142338]">Color Contrast:</strong> Body copy, headings, and
                 interactive elements are tested to meet or exceed recommended contrast ratios.
               </li>
               <li>
-                <strong className="text-[#111827]">Keyboard Navigation:</strong> All navigation
+                <strong className="text-[#142338]">Keyboard Navigation:</strong> All navigation
                 links, interactive buttons, and form controls are accessible via keyboard Tab
                 ordering with clear visible focus indicators.
               </li>
               <li>
-                <strong className="text-[#111827]">Responsive Scaling:</strong> Layouts adapt
+                <strong className="text-[#142338]">Responsive Scaling:</strong> Layouts adapt
                 gracefully across screen widths from 320px mobile devices to large desktop monitors
                 without horizontal overflow or text clipping.
               </li>
               <li>
-                <strong className="text-[#111827]">Semantic HTML & ARIA:</strong> Landmarks (`nav`,
+                <strong className="text-[#142338]">Semantic HTML & ARIA:</strong> Landmarks (`nav`,
                 `main`, `footer`, `aside`), form labels, and interactive states (`aria-expanded`,
                 `aria-label`) are used to assist screen reader users.
               </li>
               <li>
-                <strong className="text-[#111827]">Motion Sensitivity:</strong> Animation styles
+                <strong className="text-[#142338]">Motion Sensitivity:</strong> Animation styles
                 respect user OS preferences for reduced motion and avoid disorienting parallax or
                 persistent flashing effects.
               </li>
             </ul>
           </section>
 
-          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
-            <h2 className="font-display text-lg font-semibold text-[#111827]">
+          <section className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs">
+            <h2 className="font-display text-lg font-bold text-[#142338]">
               3. Accessibility Feedback & Assistance
             </h2>
             <p className="mt-3">
@@ -118,23 +118,23 @@ function AccessibilityPage() {
               experience difficulty accessing any content, encounter an interactive barrier, or have
               suggestions on how we can improve accessibility, please contact us directly:
             </p>
-            <div className="mt-4 flex flex-wrap gap-4 text-xs sm:text-sm">
+            <div className="mt-4 flex flex-wrap gap-3 text-xs sm:text-sm">
               <a
                 href="mailto:nasibrehman187@gmail.com"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#E7E1D6] bg-[#F3EEE6] px-4 py-2 text-[#111827] hover:border-[#0F766E]/40 transition"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-[#142338] hover:border-[#087F8C]/40 transition min-h-[44px]"
               >
-                <Mail className="h-4 w-4 text-[#0F766E]" /> nasibrehman187@gmail.com
+                <Mail className="h-4 w-4 text-[#087F8C]" /> nasibrehman187@gmail.com
               </a>
               <a
                 href="https://wa.me/923317962794"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-emerald-600/30 bg-emerald-50 text-emerald-800 px-4 py-2 hover:bg-emerald-100 transition"
+                className="inline-flex items-center gap-2 rounded-xl border border-emerald-600/30 bg-emerald-50 text-emerald-800 px-4 py-2.5 hover:bg-emerald-100 transition min-h-[44px]"
               >
                 <MessageSquare className="h-4 w-4 text-emerald-600" /> WhatsApp: +92 331 7962794
               </a>
             </div>
-            <p className="mt-4 text-xs text-[#5B6472]">
+            <p className="mt-4 text-xs text-[#526174]">
               We aim to review and respond to accessibility inquiries within a reasonable timeframe.
             </p>
           </section>

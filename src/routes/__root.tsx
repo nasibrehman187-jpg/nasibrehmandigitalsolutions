@@ -19,39 +19,39 @@ import { FloatingWhatsApp } from "../components/landing/FloatingWhatsApp";
 function NotFoundComponent() {
   return (
     <div className="flex min-h-[75vh] items-center justify-center px-6 py-24">
-      <div className="mx-auto max-w-lg text-center">
-        <div className="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0F766E]">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
+      <div className="mx-auto max-w-lg text-center rounded-2xl border border-[#DCE4EC] bg-white p-8 sm:p-12 shadow-xs">
+        <div className="flex items-center justify-center gap-2 rounded-full bg-teal-50 border border-teal-200/60 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#087F8C] w-fit mx-auto">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#087F8C]" />
           <span>Error 404</span>
         </div>
-        <h1 className="mt-4 font-display text-5xl sm:text-6xl font-bold tracking-tight text-[#111827]">
+        <h1 className="mt-4 font-display text-5xl sm:text-6xl font-bold tracking-tight text-[#142338]">
           404
         </h1>
-        <h2 className="mt-3 font-display text-xl sm:text-2xl font-semibold text-[#111827]">
+        <h2 className="mt-2 font-display text-xl sm:text-2xl font-bold text-[#142338]">
           Page not found
         </h2>
-        <p className="mt-3 text-sm text-[#5B6472] leading-relaxed">
+        <p className="mt-3 text-xs sm:text-sm text-[#526174] leading-relaxed">
           The page you're looking for may have moved or no longer exists.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 rounded-md bg-[#0F766E] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#0D9488] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#087F8C] px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066570] transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
           >
-            Back to Home
+            <span>Back to Home</span>
           </Link>
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 rounded-md border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-[#142338] hover:bg-slate-50 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
           >
-            Explore Services
+            <span>Explore Services</span>
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-md border border-[#E7E1D6] bg-[#FFFFFF] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#111827] hover:bg-[#F3EEE6] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E]"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-[#142338] hover:bg-slate-50 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
           >
-            Contact Us
+            <span>Contact Us</span>
           </Link>
         </div>
       </div>
@@ -111,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "theme-color", content: "#F7F3EC" },
+        { name: "theme-color", content: "#10233F" },
         { title: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents" },
         {
           name: "description",

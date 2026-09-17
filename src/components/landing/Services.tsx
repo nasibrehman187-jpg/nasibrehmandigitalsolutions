@@ -12,60 +12,63 @@ export function Services() {
           tag="Services"
           title={
             <>
-              Solutions Built Around <span className="text-[#0f766e]">Your Business</span>
+              Solutions Built Around <span className="text-[#087F8C]">Your Business</span>
             </>
           }
           subtitle="From practical business websites to workflow automations, we build practical digital solutions designed around real business needs."
         />
 
-        <div className="mt-14 sm:mt-18 border-t border-[#e7e1d6]">
+        <div className="mt-14 sm:mt-18 space-y-4">
           {SERVICES.map((s, i) => (
-            <div
+            <motion.div
               key={s.slug}
-              className="group border-b border-[#e7e1d6] py-8 sm:py-10 transition-colors duration-200 hover:bg-[#fffdfc]/60"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              className="group rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs hover:border-[#087F8C]/40 hover:shadow-md transition-all duration-300"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
-                <div className="lg:col-span-1 text-sm sm:text-base font-medium text-[#111827]/50">
-                  0{i + 1}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div className="lg:col-span-1 flex items-center">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-sm font-bold text-slate-400 group-hover:bg-[#087F8C] group-hover:text-white transition-colors">
+                    0{i + 1}
+                  </span>
                 </div>
 
-                <div className="lg:col-span-4">
-                  <h3 className="font-display text-2xl sm:text-3xl font-medium tracking-tight text-[#111827] group-hover:text-[#0f766e] transition-colors">
+                <div className="lg:col-span-3">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-[#142338] group-hover:text-[#087F8C] transition-colors">
                     {s.title}
                   </h3>
                 </div>
 
-                <div className="lg:col-span-5">
-                  <p className="text-sm sm:text-base text-[#5b6472] leading-relaxed">{s.desc}</p>
+                <div className="lg:col-span-6">
+                  <p className="text-base text-[#526174] leading-relaxed">{s.desc}</p>
                   {s.features && s.features.length > 0 && (
-                    <div className="mt-4 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs text-[#5b6472]">
-                      <span className="text-[10.5px] uppercase tracking-wider text-[#111827] font-semibold">
-                        DELIVERABLES:
-                      </span>
-                      {s.features.map((f, fi) => (
-                        <span key={f} className="inline-flex items-center">
-                          <span className="font-medium text-[#111827]">{f}</span>
-                          {fi < (s.features?.length ?? 0) - 1 && (
-                            <span className="ml-2.5 text-[#e7e1d6] select-none">•</span>
-                          )}
+                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                      {s.features.map((f) => (
+                        <span
+                          key={f}
+                          className="rounded-lg bg-slate-50 border border-slate-200/80 px-3 py-1 text-sm font-medium text-[#142338]"
+                        >
+                          {f}
                         </span>
                       ))}
                     </div>
                   )}
                 </div>
 
-                <div className="lg:col-span-2 lg:text-right flex items-center lg:justify-end pt-2 lg:pt-1">
+                <div className="lg:col-span-2 lg:text-right flex items-center lg:justify-end pt-2 lg:pt-0">
                   <Link
                     to="/services/$slug"
                     params={{ slug: s.slug }}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#0f766e] group-hover:text-[#0d9488] transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-semibold text-[#142338] group-hover:bg-[#087F8C] group-hover:text-white group-hover:border-[#087F8C] transition-all"
                   >
-                    <span>Learn more</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    <span>View Service</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

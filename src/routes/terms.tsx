@@ -29,30 +29,28 @@ function TermsPage() {
       <div className="mx-auto max-w-4xl px-6">
         <Link
           to="/"
-          className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#111827] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] rounded"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#526174] hover:text-[#142338] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] rounded py-1"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Home
         </Link>
 
         <header className="mt-8">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0F766E]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 border border-teal-200/60 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#087F8C]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#087F8C]" />
             <span>Legal & Service Terms</span>
           </div>
-          <h1 className="mt-4 font-display text-3xl sm:text-4xl font-semibold text-[#111827] tracking-tight">
+          <h1 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-[#142338] tracking-tight">
             Terms of Service
           </h1>
-          <p className="mt-2 text-sm text-[#5B6472]">
+          <p className="mt-2 text-xs sm:text-sm text-[#526174]">
             Digital Solution by Nasib Rehman • Khairpur, Sindh, Pakistan • Effective Date: September
             2026
           </p>
         </header>
 
-        <div className="mt-10 space-y-8 text-sm text-[#5B6472] leading-relaxed">
-          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
-            <h2 className="font-display text-lg font-semibold text-[#111827]">
-              1. Services Offered
-            </h2>
+        <div className="mt-10 space-y-6 text-sm text-[#526174] leading-relaxed">
+          <section className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs">
+            <h2 className="font-display text-lg font-bold text-[#142338]">1. Services Offered</h2>
             <p className="mt-3">
               Digital Solution by Nasib Rehman provides professional design and engineering
               services, including:
@@ -81,15 +79,15 @@ function TermsPage() {
             </ul>
           </section>
 
-          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
-            <h2 className="font-display text-lg font-semibold text-[#111827]">
+          <section className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs">
+            <h2 className="font-display text-lg font-bold text-[#142338]">
               2. Individual Project Agreements & Scope
             </h2>
             <p className="mt-3">
               This website provides general information and package estimates. Because every client
               workflow is unique:
             </p>
-            <p className="mt-3 font-medium text-[#111827]">
+            <p className="mt-3 font-semibold text-[#142338]">
               Project scope, deliverables, timelines, payment terms, revisions,
               intellectual-property transfer, and any ongoing support are agreed separately in the
               written proposal or project agreement.
@@ -100,8 +98,8 @@ function TermsPage() {
             </p>
           </section>
 
-          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
-            <h2 className="font-display text-lg font-semibold text-[#111827]">
+          <section className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs">
+            <h2 className="font-display text-lg font-bold text-[#142338]">
               3. Third-Party Platforms & Tooling
             </h2>
             <p className="mt-3">
@@ -117,8 +115,8 @@ function TermsPage() {
             </p>
           </section>
 
-          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
-            <h2 className="font-display text-lg font-semibold text-[#111827]">
+          <section className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs">
+            <h2 className="font-display text-lg font-bold text-[#142338]">
               4. Website Use & Intellectual Property
             </h2>
             <p className="mt-3">
@@ -128,26 +126,26 @@ function TermsPage() {
             </p>
           </section>
 
-          <section className="rounded-lg border border-[#E7E1D6] bg-[#FFFFFF] p-6 sm:p-8">
-            <h2 className="font-display text-lg font-semibold text-[#111827]">
+          <section className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs">
+            <h2 className="font-display text-lg font-bold text-[#142338]">
               5. Contact & Inquiries
             </h2>
             <p className="mt-3">
               For any questions regarding these Terms of Service or to request a written project
               proposal:
             </p>
-            <div className="mt-4 flex flex-wrap gap-4 text-xs sm:text-sm">
+            <div className="mt-4 flex flex-wrap gap-3 text-xs sm:text-sm">
               <a
                 href="mailto:nasibrehman187@gmail.com"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#E7E1D6] bg-[#F3EEE6] px-4 py-2 text-[#111827] hover:border-[#0F766E]/40 transition"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-[#142338] hover:border-[#087F8C]/40 transition min-h-[44px]"
               >
-                <Mail className="h-4 w-4 text-[#0F766E]" /> nasibrehman187@gmail.com
+                <Mail className="h-4 w-4 text-[#087F8C]" /> nasibrehman187@gmail.com
               </a>
               <a
                 href="https://wa.me/923317962794"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-emerald-600/30 bg-emerald-50 text-emerald-800 px-4 py-2 hover:bg-emerald-100 transition"
+                className="inline-flex items-center gap-2 rounded-xl border border-emerald-600/30 bg-emerald-50 text-emerald-800 px-4 py-2.5 hover:bg-emerald-100 transition min-h-[44px]"
               >
                 <MessageSquare className="h-4 w-4 text-emerald-600" /> WhatsApp: +92 331 7962794
               </a>

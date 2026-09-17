@@ -21,7 +21,7 @@ export function FloatingWhatsApp() {
         <MessageSquare className="h-5 w-5 sm:h-5.5 sm:w-5.5 fill-white/20 stroke-[2.2]" />
 
         {/* Floating Tooltip — hidden on touch devices, shown on desktop hover */}
-        <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-xl border border-[#E7E1D6] bg-[#FFFFFF] px-3 py-1.5 text-xs font-medium text-[#111827] opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 sm:block">
+        <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-lg border border-[#DCE4EC] bg-[#FFFFFF] px-3 py-1.5 text-xs font-semibold text-[#142338] opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 sm:block">
           Chat on WhatsApp • {CONTACT_INFO.phone}
         </span>
       </a>

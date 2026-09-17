@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import { SectionHeader } from "./Services";
+import { SectionHeader } from "./SectionHeader";
 
 const FAQ = [
   {
@@ -46,40 +46,49 @@ export function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section id="faq" className="content-auto relative pt-20 pb-20 sm:pt-24 sm:pb-28">
-      <div className="mx-auto max-w-3xl px-6">
+      <div className="mx-auto max-w-4xl px-6">
         <SectionHeader
           tag="FAQ"
           title={
             <>
-              Frequently Asked <span className="text-[#0F766E]">Questions</span>
+              Frequently Asked <span className="text-[#087F8C]">Questions</span>
             </>
           }
           subtitle="Answers to common questions regarding pricing, workflows, integrations, and project delivery."
         />
 
-        {/* Open Editorial Accordion */}
-        <div className="mt-14 sm:mt-18 border-t border-[#E7E1D6]">
+        {/* Modern Rounded Card Accordion */}
+        <div className="mt-14 sm:mt-18 space-y-3.5">
           {FAQ.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className="border-b border-[#E7E1D6]">
+              <div
+                key={f.q}
+                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  isOpen
+                    ? "border-[#087F8C]/60 bg-[#FAFCFF] shadow-sm ring-2 ring-[#087F8C]/10"
+                    : "border-[#DCE4EC] bg-white hover:border-[#087F8C]/30 hover:shadow-xs"
+                }`}
+              >
                 <button
                   type="button"
                   id={`faq-btn-${i}`}
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 sm:py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] rounded cursor-pointer"
+                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] cursor-pointer"
                   aria-expanded={isOpen}
                   aria-controls={`faq-panel-${i}`}
                 >
-                  <span className="font-display text-base sm:text-lg font-semibold text-[#111827]">
+                  <span className="font-display text-base sm:text-lg font-bold text-[#142338]">
                     {f.q}
                   </span>
                   <span
-                    className={`shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-45 text-[#0F766E]" : "text-[#5B6472]"
+                    className={`grid h-8 w-8 place-items-center rounded-full transition-all duration-200 shrink-0 ${
+                      isOpen
+                        ? "rotate-45 bg-[#087F8C] text-white"
+                        : "bg-slate-100 text-slate-500 hover:bg-slate-200"
                     }`}
                   >
-                    <Plus aria-hidden="true" className="h-4.5 w-4.5" />
+                    <Plus aria-hidden="true" className="h-4 w-4" />
                   </span>
                 </button>
                 <AnimatePresence initial={false}>
@@ -91,9 +100,9 @@ export function FAQSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2, ease: "easeInOut" }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
                     >
-                      <div className="pb-6 text-sm sm:text-base text-[#5B6472] leading-relaxed max-w-2xl">
+                      <div className="px-5 pb-6 sm:px-6 text-xs sm:text-sm text-[#526174] leading-relaxed border-t border-slate-100 pt-4">
                         {f.a}
                       </div>
                     </motion.div>

@@ -12,17 +12,16 @@ type FieldFrameProps = {
 export function FieldFrame({ id, label, required, error, children }: FieldFrameProps) {
   return (
     <div className="min-w-0">
-      <label htmlFor={id} className="block text-sm font-medium text-[#111827]">
+      <label
+        htmlFor={id}
+        className="block text-xs font-semibold uppercase tracking-wider text-[#526174]"
+      >
         {label}
-        {required && <span className="text-[#0F766E]"> *</span>}
+        {required && <span className="text-[#087F8C]"> *</span>}
       </label>
-      <div className="mt-2">{children}</div>
+      <div className="mt-1.5">{children}</div>
       {error && (
-        <p
-          id={id + "-error"}
-          className="mt-2 text-xs sm:text-sm text-red-600 font-medium"
-          role="alert"
-        >
+        <p id={id + "-error"} className="mt-1.5 text-xs text-red-600 font-medium" role="alert">
           {error}
         </p>
       )}
@@ -47,7 +46,7 @@ export function Field({
         aria-invalid={Boolean(error)}
         aria-describedby={error ? id + "-error" : undefined}
         className={cn(
-          "form-control transition duration-150 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]",
+          "form-control transition duration-150 border-[#DCE4EC] bg-white text-[#142338] focus:border-[#087F8C] focus:ring-1 focus:ring-[#087F8C] rounded-lg",
           error && "border-red-500",
           className,
         )}
@@ -79,7 +78,7 @@ export function SelectField({
         aria-invalid={Boolean(error)}
         aria-describedby={error ? id + "-error" : undefined}
         className={cn(
-          "form-control transition duration-150 focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E]",
+          "form-control transition duration-150 border-[#DCE4EC] bg-white text-[#142338] focus:border-[#087F8C] focus:ring-1 focus:ring-[#087F8C] rounded-lg",
           error && "border-red-500",
           className,
         )}
