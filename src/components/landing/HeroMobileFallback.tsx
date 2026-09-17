@@ -13,11 +13,11 @@ export function HeroMobileFallback() {
           <span className="h-2 w-2 rounded-full bg-[#d6cebe]" />
           <span className="h-2 w-2 rounded-full bg-[#d6cebe]" />
         </div>
-        <div className="flex items-center gap-1.5 rounded-md border border-[#e7e1d6] bg-[#ffffff] px-3 py-1 text-[11px] text-[#5b6472]">
+        <div className="flex items-center gap-1.5 rounded-md border border-[#e7e1d6] bg-[#ffffff] px-3 py-1 text-xs text-[#5b6472]">
           <Lock className="h-3 w-3 text-[#0f766e]" />
           <span>smilecare-clinic.preview</span>
         </div>
-        <div className="text-[11px] font-medium text-[#5b6472] hidden sm:block">
+        <div className="text-xs font-medium text-[#5b6472] hidden sm:block">
           Concept Website Demo
         </div>
       </div>
@@ -34,12 +34,12 @@ export function HeroMobileFallback() {
               <div className="font-display text-sm font-semibold text-[#111827]">
                 SmileCare Dental Clinic
               </div>
-              <div className="text-[10px] text-[#5b6472]">Family & Cosmetic Care</div>
+              <div className="text-xs text-[#5b6472]">Family & Cosmetic Care</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-[11px] text-[#5b6472] hidden sm:inline">Mon–Fri 8am–6pm</span>
-            <span className="rounded-md bg-[#0f766e] px-2.5 py-1 text-[11px] font-medium text-white">
+            <span className="text-xs text-[#5b6472] hidden sm:inline">Mon–Fri 8am–6pm</span>
+            <span className="rounded-md bg-[#0f766e] px-2.5 py-1 text-xs font-medium text-white">
               Book Online
             </span>
           </div>
@@ -47,7 +47,7 @@ export function HeroMobileFallback() {
 
         {/* Practice Hero Content */}
         <div className="pt-2">
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-wider uppercase text-[#0f766e]">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-[#0f766e]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#b38a3d]" />
             Comprehensive Oral Care
           </span>
@@ -76,27 +76,27 @@ export function HeroMobileFallback() {
         {/* 3 Real Clinic Value Pillars */}
         <div className="grid grid-cols-3 gap-2.5 pt-4 border-t border-[#e7e1d6]/80">
           <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-2.5 text-left">
-            <div className="text-[11px] font-semibold text-[#111827]">Preventative</div>
-            <div className="mt-0.5 text-[10px] text-[#5b6472] leading-tight">
+            <div className="text-xs font-semibold text-[#111827]">Preventative</div>
+            <div className="mt-0.5 text-xs text-[#5b6472] leading-tight">
               Routine checkups & cleanings
             </div>
           </div>
           <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-2.5 text-left">
-            <div className="text-[11px] font-semibold text-[#111827]">Restorative</div>
-            <div className="mt-0.5 text-[10px] text-[#5b6472] leading-tight">
+            <div className="text-xs font-semibold text-[#111827]">Restorative</div>
+            <div className="mt-0.5 text-xs text-[#5b6472] leading-tight">
               Implants & natural crowns
             </div>
           </div>
           <div className="rounded-lg border border-[#e7e1d6] bg-[#f7f3ec]/40 p-2.5 text-left">
-            <div className="text-[11px] font-semibold text-[#111827]">Emergency</div>
-            <div className="mt-0.5 text-[10px] text-[#5b6472] leading-tight">
+            <div className="text-xs font-semibold text-[#111827]">Emergency</div>
+            <div className="mt-0.5 text-xs text-[#5b6472] leading-tight">
               Same-day urgent relief
             </div>
           </div>
         </div>
 
         {/* Honest Portfolio Attribution Footnote */}
-        <div className="flex items-center justify-between pt-3 border-t border-[#e7e1d6] text-[11px] text-[#5b6472]">
+        <div className="flex items-center justify-between pt-3 border-t border-[#e7e1d6] text-xs text-[#5b6472]">
           <span className="flex items-center gap-1.5 text-[#111827] font-medium">
             <Check className="h-3.5 w-3.5 text-[#0f766e]" />
             Selected Portfolio Build — SmileCare Dental Clinic

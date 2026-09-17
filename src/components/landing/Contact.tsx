@@ -186,10 +186,16 @@ export function Contact() {
                       <Phone className="h-3.5 w-3.5 text-teal-300 shrink-0" />
                       <span>{CONTACT_INFO.phone}</span>
                     </a>
-                    <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 min-h-[44px]">
+                    <a
+                      href={CONTACT_INFO.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View location on Google Maps: ${CONTACT_INFO.location}`}
+                      className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 hover:text-white transition min-h-[44px]"
+                    >
                       <MapPin className="h-3.5 w-3.5 text-teal-300 shrink-0" />
                       <span>{CONTACT_INFO.location}</span>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>

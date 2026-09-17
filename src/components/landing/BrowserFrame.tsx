@@ -18,12 +18,12 @@ export function BrowserFrame({
           <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]/40" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#10B981]/40" />
         </div>
-        <div className="flex items-center gap-1.5 rounded-md border border-[#DCE4EC] bg-white px-2.5 py-0.5 text-[11px] text-[#526174] shadow-2xs font-mono">
+        <div className="flex items-center gap-1.5 rounded-md border border-[#DCE4EC] bg-white px-2.5 py-0.5 text-xs text-[#526174] shadow-2xs font-mono">
           <Lock className="h-2.5 w-2.5 text-[#087F8C]" />
           <span>{address}</span>
         </div>
         {badge ? (
-          <span className="text-[10px] font-medium text-[#087F8C] bg-[#E6F5F6] border border-[#087F8C]/20 px-2 py-0.5 rounded">
+          <span className="text-xs font-medium text-[#087F8C] bg-[#E6F5F6] border border-[#087F8C]/20 px-2 py-0.5 rounded">
             {badge}
           </span>
         ) : (

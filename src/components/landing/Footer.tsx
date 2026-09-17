@@ -14,12 +14,10 @@ const SERVICES_LINKS = [
 
 const QUICK_LINKS = [
   { label: "Home", to: "/" },
-  { label: "Services", to: "/services" },
-  { label: "Projects & Demos", to: "/projects" },
+  { label: "Projects", to: "/projects" },
   { label: "Process", to: "/process" },
   { label: "Pricing", to: "/pricing" },
   { label: "FAQ", to: "/faq" },
-  { label: "Contact", to: "/contact" },
 ];
 
 export function Footer() {
@@ -88,7 +86,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded"
                 >
-                  <MessageSquare className="h-4 w-4 text-emerald-400 shrink-0" />
+                  <MessageSquare className="h-4 w-4 text-teal-400 shrink-0" />
                   <span>WhatsApp ({CONTACT_INFO.phone})</span>
                 </a>
               </li>
@@ -102,10 +100,16 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <span className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-400">
-                  <MapPin className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                <a
+                  href={CONTACT_INFO.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View location on Google Maps: ${CONTACT_INFO.location}`}
+                  className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded"
+                >
+                  <MapPin className="h-4 w-4 text-teal-400 shrink-0 mt-0.5" />
                   <span>{CONTACT_INFO.location}</span>
-                </span>
+                </a>
               </li>
             </ul>
           </div>

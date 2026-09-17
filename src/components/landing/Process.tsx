@@ -70,13 +70,13 @@ export function Process() {
                   <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#087F8C]/10 text-xs font-bold text-[#087F8C] group-hover:bg-[#087F8C] group-hover:text-white transition-colors">
                     {s.n}
                   </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
                     Step {i + 1}
                   </span>
                 </div>
 
                 <div className="mt-4">
-                  <div className="text-[10.5px] font-semibold uppercase tracking-wider text-[#087F8C]">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-[#087F8C]">
                     {s.highlight}
                   </div>
                   <h3 className="mt-1 font-display text-xl font-bold tracking-tight text-[#142338]">
@@ -86,7 +86,7 @@ export function Process() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-3 border-t border-slate-100 flex items-center gap-1 text-[11px] font-medium text-slate-400">
+              <div className="mt-6 pt-3 border-t border-slate-100 flex items-center gap-1 text-xs font-medium text-slate-400">
                 <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
                 <span>Verified Milestones</span>
               </div>

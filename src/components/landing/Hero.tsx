@@ -19,7 +19,7 @@ export function Hero() {
         <div className="lg:col-span-6 xl:col-span-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#1E3A63] bg-[#162C4E] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#2DD4BF]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
-            <span className="tracking-widest text-[11px]">WEB • AUTOMATION • AI</span>
+            <span className="tracking-widest text-xs">WEB • AUTOMATION • AI</span>
           </div>
 
           <h1 className="mt-5 font-display text-4xl sm:text-5xl lg:text-[3.35rem] font-bold leading-[1.12] tracking-tight text-white">
@@ -67,7 +67,7 @@ export function Hero() {
         </div>
 
         {/* Right visual - Connected System Architecture */}
-        <div className="lg:col-span-6 xl:col-span-6 relative w-full">
+        <div className="lg:col-span-6 xl:col-span-6 relative w-full lg:pr-6 xl:pr-10 2xl:pr-14">
           <HeroSystemVisual />
         </div>
       </div>

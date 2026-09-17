@@ -43,7 +43,7 @@ export function BrandLink({
         </span>
         <span
           className={cn(
-            "text-[10.5px] tracking-wide font-medium mt-1",
+            "text-xs tracking-wide font-medium mt-1",
             inverted ? "text-[#8A9EB5]" : "text-[#526174]",
           )}
         >

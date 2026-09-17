@@ -7,6 +7,7 @@ export const CONTACT_INFO = {
   whatsappUrl: "https://wa.me/923317962794",
   email: "nasibrehman187@gmail.com",
   location: "Khairpur, Sindh, Pakistan",
+  mapsUrl: "https://maps.google.com/?q=Khairpur,+Sindh,+Pakistan",
 } as const;
 
 export function getWhatsAppUrl(message?: string): string {

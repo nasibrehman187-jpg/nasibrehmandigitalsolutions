@@ -89,7 +89,7 @@ export function Navbar() {
                 inactiveProps={{
                   className: "text-[#D1DCE8] hover:text-white font-medium after:scale-x-0",
                 }}
-                className="relative py-1 text-[13px] tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] rounded after:content-[''] after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-[2px] after:bg-[#2DD4BF] after:rounded-full after:transition-transform"
+                className="relative py-1 text-sm tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] rounded after:content-[''] after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-[2px] after:bg-[#2DD4BF] after:rounded-full after:transition-transform"
               >
                 {n.label}
               </Link>

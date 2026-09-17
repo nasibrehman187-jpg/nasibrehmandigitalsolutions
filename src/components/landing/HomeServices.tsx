@@ -10,6 +10,7 @@ import {
   Lock,
   MessageSquare,
   Sparkles,
+  ChevronRight,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "./Services";
@@ -151,10 +152,10 @@ export function HomeServices() {
 
                     {/* Capabilities Tags */}
                     <div className="pt-2">
-                      <div className="text-[11px] font-semibold uppercase tracking-wider text-[#142338] mb-2.5">
+                      <div className="text-xs font-semibold uppercase tracking-wider text-[#142338] mb-2.5">
                         Key Deliverables:
                       </div>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-x-2.5 gap-y-2.5">
                         {s.capabilities.map((cap) => (
                           <span
                             key={cap}
@@ -182,9 +183,10 @@ export function HomeServices() {
                       </Link>
                       <Link
                         to="/pricing"
-                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#526174] hover:text-[#142338] transition-colors py-2"
+                        className="group inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#087F8C] hover:text-[#066670] transition-colors py-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                       >
-                        Compare Packages
+                        <span>Compare Packages</span>
+                        <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                       </Link>
                     </div>
                   </div>
@@ -194,18 +196,18 @@ export function HomeServices() {
                     {/* Visual 1: Website Development */}
                     {s.slug === "website-development" && (
                       <div className="rounded-xl border border-[#DCE4EC] bg-[#F6F8FB] p-4 shadow-2xs">
-                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-[11px] text-[#526174]">
+                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-xs text-[#526174]">
                           <div className="flex items-center gap-1">
                             <span className="h-2 w-2 rounded-full bg-red-400" />
                             <span className="h-2 w-2 rounded-full bg-amber-400" />
                             <span className="h-2 w-2 rounded-full bg-emerald-400" />
                           </div>
-                          <span className="font-mono text-[10px]">yourbusiness.com</span>
-                          <span className="text-[10px] text-[#087F8C]">Mobile-Ready</span>
+                          <span className="font-mono text-xs">yourbusiness.com</span>
+                          <span className="text-xs text-[#087F8C]">Mobile-Ready</span>
                         </div>
                         <div className="mt-3 space-y-2.5 bg-white rounded-lg p-3 border border-[#DCE4EC]">
                           <div className="h-3 w-1/3 bg-[#087F8C]/20 rounded" />
-                          <div className="h-5 w-4/5 bg-[#142338]/10 rounded font-semibold text-[11px] flex items-center px-2 text-[#142338]">
+                          <div className="h-5 w-4/5 bg-[#142338]/10 rounded font-semibold text-xs flex items-center px-2 text-[#142338]">
                             Modern Service Showcase
                           </div>
                           <div className="grid grid-cols-3 gap-1.5 pt-1">
@@ -222,9 +224,9 @@ export function HomeServices() {
                               <div className="h-1.5 w-6 bg-[#142338]/20 rounded mt-1" />
                             </div>
                           </div>
-                          <div className="flex justify-between items-center pt-1 border-t border-[#DCE4EC] text-[10px] text-[#526174]">
+                          <div className="flex justify-between items-center pt-1 border-t border-[#DCE4EC] text-xs text-[#526174]">
                             <span>Contact & RFQ Form</span>
-                            <span className="text-emerald-700 font-medium">WhatsApp Sync</span>
+                            <span className="text-[#087F8C] font-medium">WhatsApp Sync</span>
                           </div>
                         </div>
                       </div>
@@ -233,26 +235,26 @@ export function HomeServices() {
                     {/* Visual 2: AI Chatbots */}
                     {s.slug === "ai-chatbots" && (
                       <div className="rounded-xl border border-[#DCE4EC] bg-[#F6F8FB] p-4 shadow-2xs">
-                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-[11px] text-[#526174]">
+                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-xs text-[#526174]">
                           <div className="flex items-center gap-1.5">
                             <Bot className="h-3.5 w-3.5 text-[#087F8C]" />
                             <span className="font-semibold text-[#142338]">
                               Business Knowledge Assistant
                             </span>
                           </div>
-                          <span className="text-emerald-600 font-mono text-[10px] font-semibold">
+                          <span className="text-[#087F8C] font-mono text-xs font-semibold">
                             ● Active
                           </span>
                         </div>
-                        <div className="mt-3 space-y-2 text-[11px]">
+                        <div className="mt-3 space-y-2 text-xs">
                           <div className="rounded-lg bg-white border border-[#DCE4EC] p-2.5 max-w-[85%] text-[#142338] shadow-2xs">
-                            <span className="text-[9px] text-[#526174] block font-medium">
+                            <span className="text-xs text-[#526174] block font-medium">
                               Website Visitor
                             </span>
                             "What are your working hours and prices for standard websites?"
                           </div>
                           <div className="rounded-lg bg-[#E6F5F6] border border-[#087F8C]/30 p-2.5 ml-auto max-w-[85%] text-[#142338] shadow-2xs">
-                            <span className="text-[9px] text-[#087F8C] block font-semibold">
+                            <span className="text-xs text-[#087F8C] block font-semibold">
                               AI Assistant
                             </span>
                             "We build standard websites for $199 with a 7–10 day turnaround. Would
@@ -265,39 +267,33 @@ export function HomeServices() {
                     {/* Visual 3: AI Automation */}
                     {s.slug === "ai-automation" && (
                       <div className="rounded-xl border border-[#DCE4EC] bg-[#F6F8FB] p-4 shadow-2xs">
-                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-[11px] text-[#526174]">
+                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-xs text-[#526174]">
                           <div className="flex items-center gap-1.5">
-                            <Workflow className="h-3.5 w-3.5 text-emerald-600" />
+                            <Workflow className="h-3.5 w-3.5 text-[#087F8C]" />
                             <span className="font-semibold text-[#142338]">
                               n8n Workflow Execution
                             </span>
                           </div>
-                          <span className="text-emerald-600 font-mono text-[10px]">
-                            Success 100%
-                          </span>
+                          <span className="text-[#087F8C] font-mono text-xs">Success 100%</span>
                         </div>
-                        <div className="mt-3 space-y-2 text-[11px]">
+                        <div className="mt-3 space-y-2 text-xs">
                           <div className="flex items-center justify-between p-2 rounded-lg bg-white border border-[#DCE4EC] shadow-2xs">
                             <span className="text-[#142338] font-medium">
                               1. Form Submission Received
                             </span>
-                            <span className="text-emerald-600 font-mono text-[10px]">
-                              Triggered
-                            </span>
+                            <span className="text-[#087F8C] font-mono text-xs">Triggered</span>
                           </div>
                           <div className="flex items-center justify-between p-2 rounded-lg bg-white border border-[#DCE4EC] shadow-2xs">
                             <span className="text-[#142338] font-medium">
                               2. Google Sheets & CRM Row Created
                             </span>
-                            <span className="text-emerald-600 font-mono text-[10px]">Logged</span>
+                            <span className="text-[#087F8C] font-mono text-xs">Logged</span>
                           </div>
                           <div className="flex items-center justify-between p-2 rounded-lg bg-[#E6F5F6] border border-[#087F8C]/30 shadow-2xs">
                             <span className="text-[#087F8C] font-semibold">
                               3. WhatsApp Notification to Founder
                             </span>
-                            <span className="text-emerald-700 font-mono text-[10px]">
-                              Delivered
-                            </span>
+                            <span className="text-[#087F8C] font-mono text-xs">Delivered</span>
                           </div>
                         </div>
                       </div>
@@ -306,19 +302,19 @@ export function HomeServices() {
                     {/* Visual 4: AI Voice Agents */}
                     {s.slug === "ai-voice-agents" && (
                       <div className="rounded-xl border border-[#DCE4EC] bg-[#F6F8FB] p-4 shadow-2xs">
-                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-[11px] text-[#526174]">
+                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-xs text-[#526174]">
                           <div className="flex items-center gap-1.5">
-                            <Mic className="h-3.5 w-3.5 text-sky-600" />
+                            <Mic className="h-3.5 w-3.5 text-[#087F8C]" />
                             <span className="font-semibold text-[#142338]">
                               Inbound Call Handler
                             </span>
                           </div>
-                          <span className="text-sky-600 font-mono text-[10px]">00:42 In Call</span>
+                          <span className="text-[#087F8C] font-mono text-xs">00:42 In Call</span>
                         </div>
                         <div className="mt-3 space-y-2 bg-white rounded-lg p-3 border border-[#DCE4EC]">
-                          <div className="flex items-center justify-between text-[11px]">
+                          <div className="flex items-center justify-between text-xs">
                             <span className="text-[#526174]">Speech-to-Text / LLM Engine</span>
-                            <span className="font-mono text-[10px] text-[#087F8C]">
+                            <span className="font-mono text-xs text-[#087F8C]">
                               Ultra-low latency
                             </span>
                           </div>
@@ -330,13 +326,13 @@ export function HomeServices() {
                             <span className="w-1.5 h-3 bg-[#087F8C] rounded-full" />
                             <span className="w-1.5 h-4.5 bg-[#087F8C] rounded-full" />
                             <span className="w-1.5 h-2 bg-[#087F8C] rounded-full" />
-                            <span className="text-[10px] text-[#526174] ml-2 font-mono">
+                            <span className="text-xs text-[#526174] ml-2 font-mono">
                               Voice Audio Stream
                             </span>
                           </div>
-                          <div className="pt-2 border-t border-[#DCE4EC] flex justify-between text-[10px] text-[#526174]">
+                          <div className="pt-2 border-t border-[#DCE4EC] flex justify-between text-xs text-[#526174]">
                             <span>Lead Qualification</span>
-                            <span className="text-emerald-600 font-semibold">
+                            <span className="text-[#087F8C] font-semibold">
                               Appointment Scheduled
                             </span>
                           </div>
@@ -347,29 +343,29 @@ export function HomeServices() {
                     {/* Visual 5: Custom Digital Solutions */}
                     {s.slug === "custom-digital-solutions" && (
                       <div className="rounded-xl border border-[#DCE4EC] bg-[#F6F8FB] p-4 shadow-2xs">
-                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-[11px] text-[#526174]">
+                        <div className="flex items-center justify-between border-b border-[#DCE4EC] pb-2 text-xs text-[#526174]">
                           <div className="flex items-center gap-1.5">
                             <Layers className="h-3.5 w-3.5 text-[#087F8C]" />
                             <span className="font-semibold text-[#142338]">
                               Bespoke Architecture
                             </span>
                           </div>
-                          <span className="text-[#087F8C] font-mono text-[10px]">Tailored</span>
+                          <span className="text-[#087F8C] font-mono text-xs">Tailored</span>
                         </div>
-                        <div className="mt-3 space-y-2 text-[11px]">
+                        <div className="mt-3 space-y-2 text-xs">
                           <div className="p-2 rounded-lg bg-white border border-[#DCE4EC] text-[#142338] shadow-2xs flex justify-between items-center">
                             <span>Web App Frontend (TypeScript + React)</span>
-                            <span className="text-[10px] text-[#087F8C] font-mono">Layer 1</span>
+                            <span className="text-xs text-[#087F8C] font-mono">Layer 1</span>
                           </div>
                           <div className="p-2 rounded-lg bg-white border border-[#DCE4EC] text-[#142338] shadow-2xs flex justify-between items-center">
                             <span>Automations, APIs & Webhooks Engine</span>
-                            <span className="text-[10px] text-emerald-600 font-mono">Layer 2</span>
+                            <span className="text-xs text-[#087F8C] font-mono">Layer 2</span>
                           </div>
                           <div className="p-2 rounded-lg bg-[#E6F5F6] border border-[#087F8C]/30 text-[#142338] shadow-2xs flex justify-between items-center">
                             <span className="font-semibold text-[#087F8C]">
                               AI Agents + Business Database Sync
                             </span>
-                            <span className="text-[10px] text-[#087F8C] font-mono font-bold">
+                            <span className="text-xs text-[#087F8C] font-mono font-bold">
                               Layer 3
                             </span>
                           </div>

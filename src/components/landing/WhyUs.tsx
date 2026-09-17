@@ -52,7 +52,7 @@ export function WhyUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 rounded-2xl bg-[#10233F] p-8 sm:p-10 text-white flex flex-col justify-between shadow-lg relative overflow-hidden"
+            className="lg:col-span-5 rounded-2xl bg-[#10233F] p-8 sm:p-10 text-white flex flex-col justify-between shadow-lg relative overflow-hidden h-full"
           >
             {/* Ambient decoration */}
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-56 h-56 rounded-full bg-[#087F8C]/20 blur-3xl pointer-events-none" />
@@ -72,8 +72,10 @@ export function WhyUs() {
                 requirement to final delivery.
               </p>
 
-              <div className="rounded-xl bg-white/5 border border-white/10 p-4 text-xs text-slate-300 leading-relaxed space-y-2">
-                <span className="font-semibold text-white block">Ideal Business Fit:</span>
+              <div className="rounded-xl bg-white/5 border border-white/10 p-4 text-xs text-slate-300 leading-relaxed">
+                <span className="font-semibold text-white block mb-2 sm:mb-2.5">
+                  Ideal Business Fit:
+                </span>
                 <p>
                   Best suited to clinics, real estate businesses and local service businesses
                   looking for a stronger online presence or simpler customer-handling workflows.
@@ -106,7 +108,7 @@ export function WhyUs() {
           </motion.div>
 
           {/* Right Column — 4 Crisp Modern Feature Cards */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr h-full">
             {WHY_POINTS.map((point, i) => (
               <motion.div
                 key={point.n}
@@ -114,19 +116,19 @@ export function WhyUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-7 shadow-xs hover:border-[#087F8C]/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-7 shadow-2xs flex flex-col justify-between h-full"
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold font-display text-slate-300 group-hover:text-[#087F8C] transition-colors">
+                    <span className="text-2xl font-bold font-display text-slate-400">
                       {point.n}
                     </span>
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 bg-slate-100 rounded-md px-2 py-0.5 border border-slate-200">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 bg-slate-100 rounded-md px-2 py-0.5 border border-slate-200">
                       {point.tag}
                     </span>
                   </div>
 
-                  <h4 className="mt-4 font-display text-lg font-bold text-[#142338] group-hover:text-[#087F8C] transition-colors">
+                  <h4 className="mt-4 font-display text-lg font-bold text-[#142338]">
                     {point.title}
                   </h4>
 
@@ -135,7 +137,7 @@ export function WhyUs() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-medium text-[#087F8C]">
+                <div className="mt-6 pt-4 border-t border-[#DCE4EC] flex items-center gap-2 text-xs font-medium text-[#087F8C]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#087F8C]" />
                   <span>Founder Assurance</span>
                 </div>
