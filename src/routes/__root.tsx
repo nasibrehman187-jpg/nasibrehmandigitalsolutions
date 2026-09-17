@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { MotionConfig } from "framer-motion";
 import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -181,15 +182,20 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="relative overflow-x-hidden">
-        <Navbar />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-        <FloatingWhatsApp />
-      </div>
-      <Toaster position="top-center" richColors theme="light" />
+      <MotionConfig reducedMotion="user">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+        <div className="relative overflow-x-hidden">
+          <Navbar />
+          <main id="main-content" tabIndex={-1}>
+            <Outlet />
+          </main>
+          <Footer />
+          <FloatingWhatsApp />
+        </div>
+        <Toaster position="top-center" richColors theme="light" />
+      </MotionConfig>
     </QueryClientProvider>
   );
 }

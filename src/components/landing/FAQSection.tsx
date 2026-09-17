@@ -64,9 +64,12 @@ export function FAQSection() {
             return (
               <div key={f.q} className="border-b border-[#E7E1D6]">
                 <button
+                  type="button"
+                  id={`faq-btn-${i}`}
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 sm:py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] rounded"
+                  className="flex w-full items-center justify-between gap-4 py-5 sm:py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F766E] rounded cursor-pointer"
                   aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
                 >
                   <span className="font-display text-base sm:text-lg font-semibold text-[#111827]">
                     {f.q}
@@ -76,12 +79,15 @@ export function FAQSection() {
                       isOpen ? "rotate-45 text-[#0F766E]" : "text-[#5B6472]"
                     }`}
                   >
-                    <Plus className="h-4.5 w-4.5" />
+                    <Plus aria-hidden="true" className="h-4.5 w-4.5" />
                   </span>
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

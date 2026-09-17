@@ -8,7 +8,8 @@ export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const service = getService(params.slug);
     if (!service) throw notFound();
-    return { service };
+    const { icon: _icon, ...serializable } = service;
+    return { service: serializable };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {

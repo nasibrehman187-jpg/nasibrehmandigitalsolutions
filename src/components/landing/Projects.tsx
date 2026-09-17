@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Globe, Mic, Stethoscope, Building2, Package, Sparkles } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { SectionHeader } from "./Services";
+import { SectionHeader } from "./SectionHeader";
+import { BrowserFrame } from "./BrowserFrame";
+import { ProjectInquiryLink } from "./ProjectInquiryLink";
 
 export function Projects() {
   return (
@@ -43,16 +45,7 @@ export function Projects() {
           >
             {/* Visual Preview Frame */}
             <div className="lg:col-span-6">
-              <div className="relative overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] shadow-xs">
-                {/* Browser bar */}
-                <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/60 px-4 py-2.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                  </div>
-                  <span className="text-[11px] text-[#5b6472]">smilecare-clinic.preview</span>
-                </div>
+              <BrowserFrame address="smilecare-clinic.preview">
                 {/* Mockup Canvas */}
                 <div className="p-6 sm:p-8 bg-[#fffdfc] space-y-5">
                   <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-3.5">
@@ -85,7 +78,7 @@ export function Projects() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </BrowserFrame>
             </div>
 
             {/* Narrative Content */}
@@ -118,14 +111,10 @@ export function Projects() {
                 </div>
               </div>
               <div className="pt-4">
-                <Link
-                  to="/contact"
-                  search={{ service: "Website Development", project: "SmileCare Dental Clinic" }}
-                  className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
-                >
-                  Discuss a Similar Solution
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
-                </Link>
+                <ProjectInquiryLink
+                  service="Website Development"
+                  project="SmileCare Dental Clinic"
+                />
               </div>
             </div>
           </motion.div>
@@ -168,14 +157,7 @@ export function Projects() {
                 </div>
               </div>
               <div className="pt-4">
-                <Link
-                  to="/contact"
-                  search={{ service: "AI Voice Agent", project: "AI Restaurant Voice Agent" }}
-                  className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
-                >
-                  Discuss a Similar Solution
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
-                </Link>
+                <ProjectInquiryLink service="AI Voice Agent" project="AI Restaurant Voice Agent" />
               </div>
             </div>
 
@@ -371,15 +353,7 @@ export function Projects() {
           >
             {/* Visual Preview Frame */}
             <div className="lg:col-span-6">
-              <div className="relative overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] shadow-xs">
-                <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/60 px-4 py-2.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                  </div>
-                  <span className="text-[11px] text-[#5b6472]">realestate-portfolio.preview</span>
-                </div>
+              <BrowserFrame address="realestate-portfolio.preview">
                 <div className="p-6 sm:p-8 bg-[#fffdfc] space-y-5">
                   <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-3.5">
                     <div className="flex items-center gap-2">
@@ -424,7 +398,7 @@ export function Projects() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </BrowserFrame>
             </div>
 
             {/* Narrative Content */}
@@ -457,17 +431,10 @@ export function Projects() {
                 </div>
               </div>
               <div className="pt-4">
-                <Link
-                  to="/contact"
-                  search={{
-                    service: "Website Development",
-                    project: "Luxury Real Estate Website",
-                  }}
-                  className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
-                >
-                  Discuss a Similar Solution
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
-                </Link>
+                <ProjectInquiryLink
+                  service="Website Development"
+                  project="Luxury Real Estate Website"
+                />
               </div>
             </div>
           </motion.div>
@@ -510,31 +477,16 @@ export function Projects() {
                 </div>
               </div>
               <div className="pt-4">
-                <Link
-                  to="/contact"
-                  search={{
-                    service: "Website Development",
-                    project: "Surgical B2B Export Website",
-                  }}
-                  className="group/cta inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f766e] hover:text-[#0d9488] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded py-1"
-                >
-                  Discuss a Similar Solution
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
-                </Link>
+                <ProjectInquiryLink
+                  service="Website Development"
+                  project="Surgical B2B Export Website"
+                />
               </div>
             </div>
 
             {/* Visual Preview Frame */}
             <div className="lg:col-span-6 order-1 lg:order-2">
-              <div className="relative overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#ffffff] shadow-xs">
-                <div className="flex items-center justify-between border-b border-[#e7e1d6] bg-[#f7f3ec]/60 px-4 py-2.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                    <span className="h-2 w-2 rounded-full bg-[#e7e1d6]" />
-                  </div>
-                  <span className="text-[11px] text-[#5b6472]">surgical-export.preview</span>
-                </div>
+              <BrowserFrame address="surgical-export.preview">
                 <div className="p-6 sm:p-8 bg-[#fffdfc] space-y-5">
                   <div className="flex items-center justify-between border-b border-[#e7e1d6] pb-3.5">
                     <div className="flex items-center gap-2">
@@ -576,7 +528,7 @@ export function Projects() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </BrowserFrame>
             </div>
           </motion.div>
         </div>

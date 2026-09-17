@@ -2,7 +2,14 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, MessageSquare, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { SectionHeader } from "./Services";
+import { SectionHeader } from "./SectionHeader";
+import { CONTACT_INFO } from "@/lib/contact";
+import {
+  type InquiryForm,
+  validateInquiry,
+  getInquiryWhatsAppUrl,
+  getInquiryEmailUrl,
+} from "@/lib/inquiry";
 
 const SERVICE_OPTIONS = [
   "Website Development",
@@ -78,63 +85,27 @@ export function Contact() {
       }
     };
 
-  const validate = () => {
-    const errs: Record<string, string> = {};
-    if (!form.name.trim()) {
-      errs.name = "Please enter your full name.";
-    }
-    if (form.email.trim()) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(form.email.trim())) {
-        errs.email = "Please enter a valid email address (e.g. name@domain.com).";
-      }
-    }
-    if (!form.service) {
-      errs.service = "Please select the service you need.";
-    }
-    if (!form.message.trim()) {
-      errs.message = "Please describe your project or requirements.";
-    } else if (form.message.trim().length < 10) {
-      errs.message = "Please provide at least 10 characters describing your project.";
-    }
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
-  };
-
-  const buildInquiryText = () => {
-    return [
-      `*Project Inquiry — Digital Solution*`,
-      `*Name:* ${form.name.trim()}`,
-      `*Email:* ${form.email.trim() || "Not provided"}`,
-      `*Business Name:* ${form.company.trim() || "Not provided"}`,
-      `*WhatsApp Number:* ${form.whatsapp.trim() || "Not provided"}`,
-      `*Service Needed:* ${form.service || "Not selected"}`,
-      `*Budget Range:* ${form.budget || "Not specified"}`,
-      `*Project Details:*`,
-      form.message.trim() || "None provided",
-    ].join("\n");
-  };
-
   const onSendWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) {
+    const errs = validateInquiry(form);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) {
       toast.error("Please complete the required project fields.");
       return;
     }
-    const text = buildInquiryText();
-    const url = `https://wa.me/923317962794?text=${encodeURIComponent(text)}`;
+    const url = getInquiryWhatsAppUrl(form);
     window.open(url, "_blank", "noopener,noreferrer");
     toast.success("Your project details are ready to open in WhatsApp.");
   };
 
   const onSendEmail = () => {
-    if (!validate()) {
+    const errs = validateInquiry(form);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) {
       toast.error("Please complete the required project fields.");
       return;
     }
-    const text = buildInquiryText();
-    const subject = `Project Inquiry: ${form.service} — ${form.name.trim()}`;
-    const url = `mailto:nasibrehman187@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    const url = getInquiryEmailUrl(form);
     window.location.href = url;
     toast.success("Your email app is being opened with your project details.");
   };
@@ -162,18 +133,23 @@ export function Contact() {
               <ul className="mt-4 space-y-3.5 text-xs sm:text-sm">
                 <InfoRow
                   icon={MessageSquare}
-                  label="Chat on WhatsApp (+92 331 7962794)"
-                  href="https://wa.me/923317962794"
+                  label={`Chat on WhatsApp (${CONTACT_INFO.phone})`}
+                  href={CONTACT_INFO.whatsappUrl}
                   isLink
                 />
-                <InfoRow icon={Phone} label="+92 331 7962794" href="tel:+923317962794" isLink />
+                <InfoRow
+                  icon={Phone}
+                  label={CONTACT_INFO.phone}
+                  href={`tel:${CONTACT_INFO.phoneRaw}`}
+                  isLink
+                />
                 <InfoRow
                   icon={Mail}
-                  label="nasibrehman187@gmail.com"
-                  href="mailto:nasibrehman187@gmail.com"
+                  label={CONTACT_INFO.email}
+                  href={`mailto:${CONTACT_INFO.email}`}
                   isLink
                 />
-                <InfoRow icon={MapPin} label="Khairpur, Sindh, Pakistan" />
+                <InfoRow icon={MapPin} label={CONTACT_INFO.location} />
               </ul>
             </div>
 
