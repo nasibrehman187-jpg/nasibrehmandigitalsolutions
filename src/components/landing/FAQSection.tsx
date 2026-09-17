@@ -10,7 +10,7 @@ const FAQ = [
   },
   {
     q: "What are your public service starting prices?",
-    a: "Our public service starting prices are: Website Development starting from $99, AI Chatbots starting from $150, AI Automation starting from $200, AI Voice Agents starting from $400, and Custom Digital Solutions starting from $500+. Final pricing depends on project scope and technical complexity.",
+    a: "Our public service starting prices are: Website Development starting from $99, AI Chatbots starting from $150, AI Automation starting from $200, AI Voice Agents starting from $350, and Custom Digital Solutions starting from $500+. Final pricing depends on project scope and technical complexity.",
   },
   {
     q: "How long does website development take?",

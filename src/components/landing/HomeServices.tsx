@@ -69,7 +69,7 @@ const SERVICES = [
     tagline: "Automated phone call handling",
     desc: "Voice assistants designed to handle structured customer calls, collect information and support lead or appointment workflows.",
     slug: "ai-voice-agents",
-    priceRange: "Starting at $400",
+    priceRange: "Starting at $350",
     icon: Mic,
     capabilities: [
       "Inbound Call Handling",

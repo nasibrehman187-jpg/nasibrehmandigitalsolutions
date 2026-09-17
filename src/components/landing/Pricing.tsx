@@ -95,8 +95,8 @@ const WEBSITE_PLANS: Plan[] = [
 const VOICE_AGENT_PLANS: Plan[] = [
   {
     name: "Starter Voice Agent",
-    price: "$400",
-    per: "One-Time Setup",
+    price: "$350",
+    per: "One-Time",
     delivery: "5–7 Days",
     highlight: false,
     badge: null,
@@ -113,12 +113,12 @@ const VOICE_AGENT_PLANS: Plan[] = [
       "1 Revision Round",
     ],
     cta: "Choose Starter Voice Agent",
-    serviceParam: "AI Voice Agent — Starter — $400",
+    serviceParam: "AI Voice Agent — Starter — $350",
   },
   {
-    name: "Business Voice Agent",
-    price: "$800",
-    per: "One-Time Setup",
+    name: "Standard Voice Agent",
+    price: "$500",
+    per: "One-Time",
     delivery: "8–12 Days",
     highlight: true,
     badge: "Most Popular",
@@ -135,13 +135,13 @@ const VOICE_AGENT_PLANS: Plan[] = [
       "Testing & Optimization",
       "2 Revision Rounds",
     ],
-    cta: "Choose Business Voice Agent",
-    serviceParam: "AI Voice Agent — Business — $800",
+    cta: "Choose Standard Voice Agent",
+    serviceParam: "AI Voice Agent — Standard — $500",
   },
   {
-    name: "Advanced Voice Agent",
-    price: "$1,500+",
-    per: "One-Time Setup",
+    name: "Premium Voice Agent",
+    price: "$900+",
+    per: "One-Time",
     delivery: "14–20 Days",
     highlight: false,
     badge: null,
@@ -160,8 +160,8 @@ const VOICE_AGENT_PLANS: Plan[] = [
       "Testing & Optimization",
       "3 Revision Rounds",
     ],
-    cta: "Request Advanced Voice Agent",
-    serviceParam: "AI Voice Agent — Advanced — $1,500+",
+    cta: "Request Premium Voice Agent",
+    serviceParam: "AI Voice Agent — Premium — $900+",
   },
 ];
 
@@ -303,7 +303,7 @@ const TABS: {
   { id: "websites", label: "Website Development", icon: Globe, priceRange: "$99 – $399+" },
   { id: "chatbots", label: "AI Chatbots", icon: Bot, priceRange: "$150 – $550+" },
   { id: "automation", label: "AI Automation", icon: Workflow, priceRange: "$200 – $750+" },
-  { id: "voice-agents", label: "AI Voice Agents", icon: Mic, priceRange: "$400 – $1,500+" },
+  { id: "voice-agents", label: "AI Voice Agents", icon: Mic, priceRange: "$350 – $900+" },
   { id: "custom", label: "Custom Solutions", icon: Layers, priceRange: "From $500+" },
 ];
 
@@ -357,16 +357,16 @@ export function Pricing() {
               Transparent, <span className="text-[#087F8C]">honest pricing</span>
             </>
           }
-          subtitle="Clear package pricing with defined deliverables. Website development from $99, AI automation from $200, chatbots from $150, and voice agents from $400."
+          subtitle="Clear package pricing with defined deliverables. Website development from $99, AI automation from $200, chatbots from $150, and voice agents from $350."
         />
 
         {/* Service Category Tabs — High-Contrast Segmented Control */}
-        <div className="mt-10 sm:mt-12 flex justify-center">
+        <div className="mt-10 sm:mt-12 flex justify-center w-full">
           <div
             role="tablist"
             aria-label="Service categories"
             onKeyDown={onTabKeyDown}
-            className="flex flex-wrap items-center justify-center gap-2 max-w-full rounded-2xl bg-slate-100/90 p-2 border border-slate-200 shadow-2xs"
+            className="flex flex-wrap xl:flex-nowrap items-center justify-center gap-1.5 sm:gap-2 xl:gap-1.5 max-w-full rounded-2xl bg-slate-100/90 p-1.5 sm:p-2 xl:p-1.5 border border-slate-200 shadow-2xs"
           >
             {TABS.map((t) => {
               const isActive = activeTab === t.id;
@@ -381,14 +381,23 @@ export function Pricing() {
                   aria-controls={`pricing-panel-${t.id}`}
                   tabIndex={isActive ? 0 : -1}
                   onClick={() => setActiveTab(t.id)}
-                  className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
+                  className={`inline-flex items-center justify-center gap-1.5 sm:gap-2 xl:gap-1.5 rounded-xl px-2.5 sm:px-3.5 xl:px-2 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer min-h-[44px] shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
                     isActive
                       ? "bg-[#10233F] text-white shadow-sm"
                       : "text-[#526174] hover:text-[#142338] bg-white/60 sm:bg-transparent hover:bg-white"
                   }`}
                 >
-                  <Icon className={`h-4 w-4 ${isActive ? "text-teal-300" : "text-slate-400"}`} />
+                  <Icon
+                    className={`h-4 w-4 shrink-0 ${isActive ? "text-teal-300" : "text-slate-400"}`}
+                  />
                   <span>{t.label}</span>
+                  <span
+                    className={`inline-block text-[10.5px] sm:text-[11px] px-1.5 py-0.5 xl:px-1 rounded-md font-mono ${
+                      isActive ? "bg-white/15 text-teal-200" : "bg-slate-200/70 text-slate-600"
+                    }`}
+                  >
+                    {t.priceRange}
+                  </span>
                 </button>
               );
             })}
