@@ -388,12 +388,12 @@ export function Pricing() {
                   }`}
                 >
                   <Icon
-                    className={`h-4 w-4 shrink-0 ${isActive ? "text-teal-300" : "text-slate-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive ? "text-[#2DD4BF]" : "text-slate-400"}`}
                   />
                   <span>{t.label}</span>
                   <span
-                    className={`inline-block text-[10.5px] sm:text-[11px] px-1.5 py-0.5 xl:px-1 rounded-md font-mono ${
-                      isActive ? "bg-white/15 text-teal-200" : "bg-slate-200/70 text-slate-600"
+                    className={`inline-block text-xs px-1.5 py-0.5 xl:px-1 rounded-md font-mono ${
+                      isActive ? "bg-white/15 text-[#2DD4BF]" : "bg-slate-200/70 text-[#526174]"
                     }`}
                   >
                     {t.priceRange}

@@ -58,8 +58,8 @@ export function WhyUs() {
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-56 h-56 rounded-full bg-[#087F8C]/20 blur-3xl pointer-events-none" />
 
             <div className="relative z-10 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-teal-300 border border-white/10">
-                <ShieldCheck className="h-3.5 w-3.5 text-teal-400" />
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#2DD4BF] border border-white/10">
+                <ShieldCheck className="h-3.5 w-3.5 text-[#2DD4BF]" />
                 <span>Founder-Led Quality</span>
               </div>
 
@@ -67,12 +67,12 @@ export function WhyUs() {
                 Practical Digital Solutions Built Around Your Business
               </h3>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-[#D1DCE8] leading-relaxed">
                 You work directly with Nasib Rehman throughout the project — from understanding the
                 requirement to final delivery.
               </p>
 
-              <div className="rounded-xl bg-white/5 border border-white/10 p-4 text-xs text-slate-300 leading-relaxed">
+              <div className="rounded-xl bg-white/5 border border-white/10 p-4 text-xs text-[#D1DCE8] leading-relaxed">
                 <span className="font-semibold text-white block mb-2 sm:mb-2.5">
                   Ideal Business Fit:
                 </span>
@@ -84,13 +84,13 @@ export function WhyUs() {
             </div>
 
             <div className="relative z-10 pt-8 mt-8 border-t border-white/10 space-y-3.5">
-              <div className="flex items-center gap-3 text-xs text-slate-200">
-                <CheckCircle2 className="h-4 w-4 text-teal-400 shrink-0" />
+              <div className="flex items-center gap-3 text-xs text-[#D1DCE8]">
+                <CheckCircle2 className="h-4 w-4 text-[#2DD4BF] shrink-0" />
                 <span>
                   Direct communication with Nasib Rehman • No-obligation project discussion
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-xs text-slate-200">
+              <div className="flex items-center gap-3 text-xs text-[#D1DCE8]">
                 <Laptop className="h-4 w-4 text-amber-400 shrink-0" />
                 <span>Available for remote projects</span>
               </div>
@@ -98,7 +98,7 @@ export function WhyUs() {
               <div className="pt-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#087F8C] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#066570] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#087F8C] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#066570] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowRight className="h-3.5 w-3.5" />
@@ -116,14 +116,14 @@ export function WhyUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-7 shadow-2xs flex flex-col justify-between h-full"
+                className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-7 shadow-2xs flex flex-col h-full"
               >
                 <div>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold font-display text-slate-400">
                       {point.n}
                     </span>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 bg-slate-100 rounded-md px-2 py-0.5 border border-slate-200">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#526174] bg-slate-100 rounded-md px-2 py-0.5 border border-slate-200">
                       {point.tag}
                     </span>
                   </div>
@@ -137,7 +137,7 @@ export function WhyUs() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#DCE4EC] flex items-center gap-2 text-xs font-medium text-[#087F8C]">
+                <div className="mt-4 pt-4 border-t border-[#DCE4EC] flex items-center gap-2 text-xs font-medium text-[#087F8C]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#087F8C]" />
                   <span>Founder Assurance</span>
                 </div>

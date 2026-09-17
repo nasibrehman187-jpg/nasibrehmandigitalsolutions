@@ -138,14 +138,14 @@ export function Contact() {
 
             <div className="relative z-10 space-y-6">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-teal-300 border border-white/10">
-                  <MessageSquare className="h-3.5 w-3.5 text-teal-400" />
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#2DD4BF] border border-white/10">
+                  <MessageSquare className="h-3.5 w-3.5 text-[#2DD4BF]" />
                   <span>Direct Communication</span>
                 </div>
                 <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold text-white">
                   Direct Contact
                 </h3>
-                <p className="mt-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p className="mt-1.5 text-xs sm:text-sm text-[#D1DCE8] leading-relaxed">
                   Have questions or want to discuss project feasibility? Reach out directly via
                   WhatsApp or email.
                 </p>
@@ -169,10 +169,10 @@ export function Contact() {
 
                   <a
                     href={`mailto:${CONTACT_INFO.email}`}
-                    className="flex items-center justify-between gap-3 p-3 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:bg-white/10 hover:text-white transition min-h-[44px]"
+                    className="flex items-center justify-between gap-3 p-3 rounded-xl bg-white/5 border border-white/10 text-[#D1DCE8] hover:bg-white/10 hover:text-white transition min-h-[44px]"
                   >
                     <div className="flex items-center gap-2.5 text-xs sm:text-sm">
-                      <Mail className="h-4 w-4 text-teal-300 shrink-0" />
+                      <Mail className="h-4 w-4 text-[#2DD4BF] shrink-0" />
                       <span>{CONTACT_INFO.email}</span>
                     </div>
                     <span className="text-xs text-slate-400">Email →</span>
@@ -181,9 +181,9 @@ export function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                     <a
                       href={`tel:${CONTACT_INFO.phoneRaw}`}
-                      className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 hover:text-white transition min-h-[44px]"
+                      className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-[#D1DCE8] hover:text-white transition min-h-[44px]"
                     >
-                      <Phone className="h-3.5 w-3.5 text-teal-300 shrink-0" />
+                      <Phone className="h-3.5 w-3.5 text-[#2DD4BF] shrink-0" />
                       <span>{CONTACT_INFO.phone}</span>
                     </a>
                     <a
@@ -191,9 +191,9 @@ export function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View location on Google Maps: ${CONTACT_INFO.location}`}
-                      className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 hover:text-white transition min-h-[44px]"
+                      className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-[#D1DCE8] hover:text-white transition min-h-[44px]"
                     >
-                      <MapPin className="h-3.5 w-3.5 text-teal-300 shrink-0" />
+                      <MapPin className="h-3.5 w-3.5 text-[#2DD4BF] shrink-0" />
                       <span>{CONTACT_INFO.location}</span>
                     </a>
                   </div>
@@ -202,16 +202,16 @@ export function Contact() {
 
               {/* Working Together (Desktop view) */}
               <div className="hidden lg:block border-t border-white/10 pt-6 space-y-3">
-                <div className="text-xs uppercase tracking-wider text-teal-300 font-bold mb-3">
+                <div className="text-xs uppercase tracking-wider text-[#2DD4BF] font-bold mb-3">
                   Working Together
                 </div>
-                <ul className="space-y-2.5 text-xs text-slate-200">
+                <ul className="space-y-2.5 text-xs text-[#D1DCE8]">
                   <li className="flex items-center gap-2.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-teal-400 shrink-0" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#2DD4BF] shrink-0" />
                     <span>Direct communication with Nasib Rehman</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-teal-400 shrink-0" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#2DD4BF] shrink-0" />
                     <span>No-obligation project discussion</span>
                   </li>
                   <li className="flex items-center gap-2.5">
@@ -226,7 +226,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="hidden lg:block relative z-10 pt-6 mt-6 border-t border-white/10 text-xs text-slate-300">
+            <div className="hidden lg:block relative z-10 pt-6 mt-6 border-t border-white/10 text-xs text-[#D1DCE8]">
               Typical response time: within a few business hours.
             </div>
           </motion.div>
@@ -525,11 +525,11 @@ function InfoRow({
   isLink?: boolean;
 }) {
   const content = (
-    <li className="flex items-center gap-3 text-slate-200 py-1 hover:text-white transition-colors">
-      <span className="grid h-7 w-7 place-items-center rounded-lg bg-white/10 text-teal-300 shrink-0">
+    <li className="flex items-center gap-3 text-[#D1DCE8] py-1 hover:text-white transition-colors">
+      <span className="grid h-7 w-7 place-items-center rounded-lg bg-white/10 text-[#2DD4BF] shrink-0">
         <Icon className="h-3.5 w-3.5" />
       </span>
-      <span className={isLink ? "transition-colors hover:text-teal-300" : ""}>{label}</span>
+      <span className={isLink ? "transition-colors hover:text-[#2DD4BF]" : ""}>{label}</span>
     </li>
   );
 

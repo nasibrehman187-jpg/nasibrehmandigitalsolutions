@@ -87,7 +87,7 @@ export function Process() {
               </div>
 
               <div className="mt-6 pt-3 border-t border-slate-100 flex items-center gap-1 text-xs font-medium text-slate-400">
-                <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
+                <CheckCircle2 className="h-3.5 w-3.5 text-[#087F8C]" />
                 <span>Verified Milestones</span>
               </div>
             </motion.div>

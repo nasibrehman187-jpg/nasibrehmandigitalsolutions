@@ -174,7 +174,7 @@ export function HomeServices() {
                         to={s.isCustom ? "/contact" : "/services/$slug"}
                         params={s.isCustom ? undefined : { slug: s.slug }}
                         search={s.isCustom ? { service: "Custom Digital Solutions" } : undefined}
-                        className="group inline-flex items-center gap-2 rounded-lg bg-[#087F8C] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066670] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+                        className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-[#087F8C] px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066670] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                       >
                         <span>
                           {s.isCustom ? "Discuss Custom Solution" : `View ${s.title} Details`}
@@ -183,7 +183,7 @@ export function HomeServices() {
                       </Link>
                       <Link
                         to="/pricing"
-                        className="group inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#087F8C] hover:text-[#066670] transition-colors py-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+                        className="group inline-flex min-h-10 items-center justify-center gap-1 text-xs sm:text-sm font-semibold text-[#087F8C] hover:text-[#066670] transition-colors px-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                       >
                         <span>Compare Packages</span>
                         <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
