@@ -97,17 +97,6 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop Header CTA */}
-        <div className="hidden lg:flex items-center gap-3">
-          <Link
-            to="/contact"
-            className="group relative inline-flex items-center gap-2 rounded-lg bg-[#087F8C] px-4.5 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#066670] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#B38A3D]" />
-            <span>Discuss Your Project</span>
-          </Link>
-        </div>
-
         <button
           ref={toggleRef}
           type="button"
