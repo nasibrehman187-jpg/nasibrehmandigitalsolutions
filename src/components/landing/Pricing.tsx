@@ -307,8 +307,9 @@ const TABS: {
   { id: "custom", label: "Custom Solutions", icon: Layers, priceRange: "From $500+" },
 ];
 
-export function Pricing() {
+export function Pricing({ as = "h2" }: { as?: "h1" | "h2" }) {
   const [activeTab, setActiveTab] = useState<ServiceTab>("websites");
+  const SubHeading = as === "h1" ? "h2" : "h3";
 
   const getActivePlans = () => {
     switch (activeTab) {
@@ -351,6 +352,7 @@ export function Pricing() {
     <section id="pricing" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
+          as={as}
           tag="Pricing"
           title={
             <>
@@ -381,7 +383,7 @@ export function Pricing() {
                   aria-controls={`pricing-panel-${t.id}`}
                   tabIndex={isActive ? 0 : -1}
                   onClick={() => setActiveTab(t.id)}
-                  className={`inline-flex items-center justify-center gap-1.5 sm:gap-2 xl:gap-1.5 rounded-xl px-2.5 sm:px-3.5 xl:px-2 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer min-h-[44px] shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
+                  className={`inline-flex items-center justify-center gap-1.5 sm:gap-2 xl:gap-1.5 rounded-xl px-2.5 sm:px-3.5 xl:px-2 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
                     isActive
                       ? "bg-[#10233F] text-white shadow-sm"
                       : "text-[#526174] hover:text-[#142338] bg-white/60 sm:bg-transparent hover:bg-white"
@@ -392,7 +394,7 @@ export function Pricing() {
                   />
                   <span>{t.label}</span>
                   <span
-                    className={`inline-block text-xs px-1.5 py-0.5 xl:px-1 rounded-md font-mono ${
+                    className={`hidden sm:inline-block text-xs px-1.5 py-0.5 xl:px-1 rounded-md font-mono ${
                       isActive ? "bg-white/15 text-[#2DD4BF]" : "bg-slate-200/70 text-[#526174]"
                     }`}
                   >
@@ -494,7 +496,7 @@ export function Pricing() {
                       className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
                         p.highlight
                           ? "bg-[#087F8C] text-white shadow-xs hover:bg-[#066570]"
-                          : "border border-slate-200 bg-slate-50 text-[#142338] hover:bg-slate-100"
+                          : "border-2 border-[#087F8C] bg-white text-[#087F8C] hover:bg-[#087F8C] hover:text-white shadow-2xs"
                       }`}
                     >
                       <span>{p.cta}</span>
@@ -562,9 +564,9 @@ export function Pricing() {
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-[10.5px] uppercase tracking-wider text-amber-800 font-bold">
                   <Layers className="h-3.5 w-3.5 text-amber-600" /> Multi-System Setup
                 </span>
-                <h3 className="mt-4 font-display text-2xl sm:text-4xl font-bold text-[#142338]">
+                <SubHeading className="mt-4 font-display text-2xl sm:text-4xl font-bold text-[#142338]">
                   Custom Digital Solutions
-                </h3>
+                </SubHeading>
                 <div className="mt-4 flex items-center justify-center gap-2">
                   <span className="font-sans text-4xl sm:text-5xl font-bold text-[#142338]">
                     Starting from $500+
@@ -643,9 +645,9 @@ export function Pricing() {
               <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
               Usage & Third-Party Costs
             </span>
-            <h3 className="mt-4 font-display text-2xl font-bold sm:text-3xl text-[#142338]">
+            <SubHeading className="mt-4 font-display text-2xl font-bold sm:text-3xl text-[#142338]">
               Important Cost Information
-            </h3>
+            </SubHeading>
             <p className="mt-3 text-sm text-[#526174] leading-relaxed">
               Package prices cover development and initial setup unless otherwise stated.
               Third-party services and usage costs are billed separately.

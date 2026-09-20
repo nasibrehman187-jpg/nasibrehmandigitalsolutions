@@ -19,5 +19,5 @@ export const Route = createFileRoute("/faq")({
     ],
     links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/faq" }],
   }),
-  component: () => <FAQSection />,
+  component: () => <FAQSection as="h1" />,
 });

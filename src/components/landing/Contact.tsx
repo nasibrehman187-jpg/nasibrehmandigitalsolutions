@@ -21,7 +21,8 @@ const SERVICE_OPTIONS = [
 
 const BUDGET_OPTIONS = ["Under $200", "$200 – $500", "$500 – $1,000", "$1,000+", "Not sure yet"];
 
-export function Contact() {
+export function Contact({ as = "h2" }: { as?: "h1" | "h2" }) {
+  const SubHeading = as === "h1" ? "h2" : "h3";
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -114,6 +115,7 @@ export function Contact() {
     <section id="contact" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
+          as={as}
           tag="Direct Consultation"
           title={
             <>
@@ -142,9 +144,9 @@ export function Contact() {
                   <MessageSquare className="h-3.5 w-3.5 text-[#2DD4BF]" />
                   <span>Direct Communication</span>
                 </div>
-                <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold text-white">
+                <SubHeading className="mt-3 font-display text-2xl sm:text-3xl font-bold text-white">
                   Direct Contact
-                </h3>
+                </SubHeading>
                 <p className="mt-1.5 text-xs sm:text-sm text-[#D1DCE8] leading-relaxed">
                   Have questions or want to discuss project feasibility? Reach out directly via
                   WhatsApp or email.
@@ -242,9 +244,9 @@ export function Contact() {
           >
             <div>
               <div className="mb-6 pb-4 border-b border-slate-100">
-                <h4 className="font-display text-lg sm:text-xl font-bold text-[#142338]">
+                <SubHeading className="font-display text-lg sm:text-xl font-bold text-[#142338]">
                   Send Project Inquiry
-                </h4>
+                </SubHeading>
                 <p className="text-xs text-[#526174] mt-0.5">
                   Fill in your details below to prepare your message.
                 </p>

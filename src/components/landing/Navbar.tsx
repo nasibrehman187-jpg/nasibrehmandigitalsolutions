@@ -77,7 +77,7 @@ export function Navbar() {
         <BrandLink inverted onClick={() => setOpen(false)} />
 
         {/* Desktop Nav Items — Centered */}
-        <ul className="hidden items-center gap-6 xl:gap-8 lg:flex lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
+        <ul className="hidden items-center gap-4 lg:gap-5 xl:gap-7 lg:flex lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
           {NAV_LINKS.map((n) => (
             <li key={n.to}>
               <Link
@@ -89,13 +89,23 @@ export function Navbar() {
                 inactiveProps={{
                   className: "text-[#D1DCE8] hover:text-white font-medium after:scale-x-0",
                 }}
-                className="relative py-1 text-sm tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] rounded after:content-[''] after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-[2px] after:bg-[#2DD4BF] after:rounded-full after:transition-transform"
+                className="relative py-1 text-xs xl:text-sm tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] rounded after:content-[''] after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-[2px] after:bg-[#2DD4BF] after:rounded-full after:transition-transform"
               >
                 {n.label}
               </Link>
             </li>
           ))}
         </ul>
+
+        {/* Desktop CTA Button */}
+        <div className="hidden lg:flex items-center">
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center rounded-xl bg-[#087F8C] px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-[#066570] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF]"
+          >
+            Discuss Your Project
+          </Link>
+        </div>
 
         <button
           ref={toggleRef}

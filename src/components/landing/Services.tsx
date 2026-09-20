@@ -4,11 +4,13 @@ import { ArrowRight } from "lucide-react";
 import { SERVICES } from "@/lib/services-data";
 import { SectionHeader } from "./SectionHeader";
 
-export function Services() {
+export function Services({ as = "h2" }: { as?: "h1" | "h2" }) {
+  const SubHeading = as === "h1" ? "h2" : "h3";
   return (
     <section id="services" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
+          as={as}
           tag="Services"
           title={
             <>
@@ -36,15 +38,15 @@ export function Services() {
                 </div>
 
                 <div className="lg:col-span-3">
-                  <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-[#142338] group-hover:text-[#087F8C] transition-colors">
+                  <SubHeading className="font-display text-xl sm:text-2xl font-bold tracking-tight text-[#142338] group-hover:text-[#087F8C] transition-colors">
                     {s.title}
-                  </h3>
+                  </SubHeading>
                 </div>
 
-                <div className="lg:col-span-6">
+                <div className="lg:col-span-8 space-y-3">
                   <p className="text-base text-[#526174] leading-relaxed">{s.desc}</p>
                   {s.features && s.features.length > 0 && (
-                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       {s.features.map((f) => (
                         <span
                           key={f}
@@ -55,17 +57,16 @@ export function Services() {
                       ))}
                     </div>
                   )}
-                </div>
-
-                <div className="lg:col-span-2 lg:text-right flex items-center lg:justify-end pt-2 lg:pt-0">
-                  <Link
-                    to="/services/$slug"
-                    params={{ slug: s.slug }}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-semibold text-[#142338] group-hover:bg-[#087F8C] group-hover:text-white group-hover:border-[#087F8C] transition-all"
-                  >
-                    <span>View Service</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
+                  <div className="pt-1">
+                    <Link
+                      to="/services/$slug"
+                      params={{ slug: s.slug }}
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-[#142338] hover:bg-[#087F8C] hover:text-white hover:border-[#087F8C] transition-all"
+                    >
+                      <span>View Service Details</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>

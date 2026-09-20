@@ -42,12 +42,13 @@ const FAQ = [
   },
 ];
 
-export function FAQSection() {
+export function FAQSection({ as = "h2" }: { as?: "h1" | "h2" }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section id="faq" className="content-auto relative pt-20 pb-20 sm:pt-24 sm:pb-28">
       <div className="mx-auto max-w-4xl px-6">
         <SectionHeader
+          as={as}
           tag="FAQ"
           title={
             <>

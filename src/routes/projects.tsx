@@ -20,5 +20,5 @@ export const Route = createFileRoute("/projects")({
     ],
     links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/projects" }],
   }),
-  component: () => <Projects />,
+  component: () => <Projects as="h1" />,
 });

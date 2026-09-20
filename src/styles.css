@@ -127,6 +127,12 @@ body::before {
       0 0 0 2px #f6f8fb,
       0 0 0 4px rgba(8, 127, 140, 0.4);
   }
+  input,
+  select,
+  textarea,
+  button[type="submit"] {
+    scroll-margin-bottom: 5.5rem;
+  }
 }
 
 /* Shared layout keeps page offsets and mobile gutters consistent. */

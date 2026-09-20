@@ -36,7 +36,8 @@ const STEPS = [
   },
 ];
 
-export function Process() {
+export function Process({ as = "h2" }: { as?: "h1" | "h2" }) {
+  const SubHeading = as === "h1" ? "h2" : "h3";
   return (
     <section
       id="process"
@@ -44,6 +45,7 @@ export function Process() {
     >
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeader
+          as={as}
           tag="How We Work"
           title={
             <>
@@ -76,13 +78,15 @@ export function Process() {
                 </div>
 
                 <div className="mt-4">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-[#087F8C]">
+                  <div className="min-h-[2.5rem] flex items-center text-xs font-semibold uppercase tracking-wider text-[#087F8C]">
                     {s.highlight}
                   </div>
-                  <h3 className="mt-1 font-display text-xl font-bold tracking-tight text-[#142338]">
+                  <SubHeading className="mt-1 font-display text-xl font-bold tracking-tight text-[#142338]">
                     {s.title}
-                  </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-[#526174] leading-relaxed">{s.desc}</p>
+                  </SubHeading>
+                  <p className="mt-2 text-sm sm:text-base text-[#526174] leading-relaxed">
+                    {s.desc}
+                  </p>
                 </div>
               </div>
 
@@ -97,9 +101,9 @@ export function Process() {
         {/* Process CTA Footer */}
         <div className="mt-12 rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
           <div>
-            <h4 className="font-display text-base sm:text-lg font-bold text-[#142338]">
+            <p className="font-display text-base sm:text-lg font-bold text-[#142338]">
               Ready to start your project?
-            </h4>
+            </p>
             <p className="text-xs sm:text-sm text-[#526174] mt-0.5">
               Direct communication with Nasib Rehman • No-obligation project discussion
             </p>
