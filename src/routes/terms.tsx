@@ -8,15 +8,27 @@ export const Route = createFileRoute("/terms")({
       {
         name: "description",
         content:
-          "Terms of Service for Digital Solution by Nasib Rehman. Guidelines regarding services, project agreements, third-party platforms, and website use.",
+          "Terms of Service for Digital Solution by Nasib Rehman. Terms covering project scope, milestone delivery, revisions, third-party software, and payments.",
       },
-      { property: "og:title", content: "Terms of Service — Digital Solution by Nasib Rehman" },
+      {
+        property: "og:title",
+        content: "Terms of Service — Digital Solution by Nasib Rehman",
+      },
       {
         property: "og:description",
         content:
-          "Terms of Service for Digital Solution by Nasib Rehman. Guidelines regarding services, project agreements, and third-party tools.",
+          "Terms of Service for Digital Solution by Nasib Rehman. Terms covering project scope, milestone delivery, revisions, third-party software, and payments.",
       },
       { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/terms" },
+      {
+        name: "twitter:title",
+        content: "Terms of Service — Digital Solution by Nasib Rehman",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Terms of Service for Digital Solution by Nasib Rehman. Terms covering project scope, milestone delivery, revisions, third-party software, and payments.",
+      },
     ],
     links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/terms" }],
   }),

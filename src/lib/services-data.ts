@@ -15,6 +15,8 @@ export type Service = {
   desc: string;
   color: string; // tailwind gradient
   features: string[];
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export const SERVICES: Service[] = [
@@ -39,6 +41,9 @@ export const SERVICES: Service[] = [
       "Custom UI Design",
       "Deployment Assistance",
     ],
+    metaTitle: "Website Development Services in Pakistan | Nasib Rehman",
+    metaDescription:
+      "Fast, responsive business websites built with modern UI design, RFQ forms, and WhatsApp integration. Transparent packages from $99 with deployment help.",
   },
   {
     slug: "ai-chatbots",
@@ -56,6 +61,9 @@ export const SERVICES: Service[] = [
       "AI-powered Responses",
       "API-connected Chatbots",
     ],
+    metaTitle: "AI Chatbot Development Services | Nasib Rehman",
+    metaDescription:
+      "Custom AI chatbots for website customer inquiries, FAQs, and automated lead capture. API-connected intelligent knowledge assistants from $150.",
   },
   {
     slug: "ai-automation",
@@ -76,6 +84,9 @@ export const SERVICES: Service[] = [
       "AI-powered Workflows",
       "Business Process Automation",
     ],
+    metaTitle: "n8n Workflow Automation Services | Nasib Rehman",
+    metaDescription:
+      "Eliminate repetitive manual tasks with n8n workflow automation services. Connect Google Sheets, email, CRMs, and webhooks starting from $200.",
   },
   {
     slug: "ai-voice-agents",
@@ -93,6 +104,9 @@ export const SERVICES: Service[] = [
       "Basic Order-taking Workflows",
       "Business Call Automation",
     ],
+    metaTitle: "AI Voice Agent Development Services | Nasib Rehman",
+    metaDescription:
+      "Automated AI voice agent development for customer call handling, appointment requests, and lead qualification. Practical voice AI from $350.",
   },
   {
     slug: "custom-digital-solutions",
@@ -110,6 +124,9 @@ export const SERVICES: Service[] = [
       "End-to-end Digital Systems",
       "Business Workflow Design",
     ],
+    metaTitle: "Custom Software & Business Automation | Nasib Rehman",
+    metaDescription:
+      "End-to-end digital solutions combining custom websites, AI chatbots, voice agents, and multi-system workflow integrations. Bespoke setups from $500+.",
   },
 ];
 

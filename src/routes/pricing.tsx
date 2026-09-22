@@ -12,19 +12,31 @@ export const Route = createFileRoute("/pricing")({
   }),
   head: () => ({
     meta: [
-      { title: "Pricing — Digital Solution by Nasib Rehman" },
+      { title: "Transparent Package Pricing | Nasib Rehman" },
       {
         name: "description",
         content:
-          "Website development packages from $99, AI Chatbots from $150, AI Automation from $200, AI Voice Agents from $350, and Custom Solutions from $500+. Transparent, one-time setup pricing.",
+          "Transparent, one-time setup pricing: websites from $99, AI chatbots from $150, n8n automation from $200, and AI voice agents from $350. Defined deliverables.",
       },
-      { property: "og:title", content: "Pricing — Digital Solution by Nasib Rehman" },
+      {
+        property: "og:title",
+        content: "Transparent Package Pricing | Nasib Rehman",
+      },
       {
         property: "og:description",
         content:
-          "Transparent pricing for websites from $99, AI chatbots from $150, AI automation from $200, AI voice agents from $350, and custom solutions from $500+.",
+          "Transparent, one-time setup pricing: websites from $99, AI chatbots from $150, n8n automation from $200, and AI voice agents from $350. Defined deliverables.",
       },
       { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/pricing" },
+      {
+        name: "twitter:title",
+        content: "Transparent Package Pricing | Nasib Rehman",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Transparent, one-time setup pricing: websites from $99, AI chatbots from $150, n8n automation from $200, and AI voice agents from $350. Defined deliverables.",
+      },
     ],
     links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/pricing" }],
   }),

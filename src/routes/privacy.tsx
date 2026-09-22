@@ -8,15 +8,27 @@ export const Route = createFileRoute("/privacy")({
       {
         name: "description",
         content:
-          "Privacy Policy for Digital Solution by Nasib Rehman. Transparent disclosures on data handling, communication channels, and website usage.",
+          "Privacy Policy for Digital Solution by Nasib Rehman. Clear disclosures regarding data handling, project communications, WhatsApp inquiries, and website use.",
       },
-      { property: "og:title", content: "Privacy Policy — Digital Solution by Nasib Rehman" },
+      {
+        property: "og:title",
+        content: "Privacy Policy — Digital Solution by Nasib Rehman",
+      },
       {
         property: "og:description",
         content:
-          "Privacy Policy for Digital Solution by Nasib Rehman. Transparent disclosures on data handling and communication.",
+          "Privacy Policy for Digital Solution by Nasib Rehman. Clear disclosures regarding data handling, project communications, WhatsApp inquiries, and website use.",
       },
       { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/privacy" },
+      {
+        name: "twitter:title",
+        content: "Privacy Policy — Digital Solution by Nasib Rehman",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Privacy Policy for Digital Solution by Nasib Rehman. Clear disclosures regarding data handling, project communications, WhatsApp inquiries, and website use.",
+      },
     ],
     links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/privacy" }],
   }),

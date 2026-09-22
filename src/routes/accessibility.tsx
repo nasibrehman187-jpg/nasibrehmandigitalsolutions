@@ -8,7 +8,7 @@ export const Route = createFileRoute("/accessibility")({
       {
         name: "description",
         content:
-          "Accessibility Statement for Digital Solution by Nasib Rehman. Practical accessibility practices, design standards, and feedback contacts.",
+          "Accessibility Statement for Digital Solution by Nasib Rehman detailing keyboard navigation, color contrast standards, semantic markup, and feedback channels.",
       },
       {
         property: "og:title",
@@ -17,11 +17,20 @@ export const Route = createFileRoute("/accessibility")({
       {
         property: "og:description",
         content:
-          "Accessibility Statement for Digital Solution by Nasib Rehman. Practical accessibility standards and feedback contact.",
+          "Accessibility Statement for Digital Solution by Nasib Rehman detailing keyboard navigation, color contrast standards, semantic markup, and feedback channels.",
       },
       {
         property: "og:url",
         content: "https://nasibrehmandigitalsolutions.vercel.app/accessibility",
+      },
+      {
+        name: "twitter:title",
+        content: "Accessibility Statement — Digital Solution by Nasib Rehman",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Accessibility Statement for Digital Solution by Nasib Rehman detailing keyboard navigation, color contrast standards, semantic markup, and feedback channels.",
       },
     ],
     links: [

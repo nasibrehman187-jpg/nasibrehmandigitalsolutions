@@ -8,22 +8,31 @@ import { WhyUs } from "../components/landing/WhyUs";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents" },
+      { title: "Websites & AI Automation in Pakistan | Nasib Rehman" },
       {
         name: "description",
         content:
-          "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
+          "Websites, AI chatbots, n8n automation and voice agents by Nasib Rehman in Pakistan. Explore services, demo projects and pricing for your business.",
       },
       {
         property: "og:title",
-        content: "Digital Solution by Nasib Rehman | Websites, AI Automation & Voice Agents",
+        content: "Websites & AI Automation in Pakistan | Nasib Rehman",
       },
       {
         property: "og:description",
         content:
-          "Digital Solution by Nasib Rehman provides professional website development, AI automation, AI chatbots and AI voice agent solutions for businesses.",
+          "Websites, AI chatbots, n8n automation and voice agents by Nasib Rehman in Pakistan. Explore services, demo projects and pricing for your business.",
       },
       { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/" },
+      {
+        name: "twitter:title",
+        content: "Websites & AI Automation in Pakistan | Nasib Rehman",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Websites, AI chatbots, n8n automation and voice agents by Nasib Rehman in Pakistan. Explore services, demo projects and pricing for your business.",
+      },
     ],
     links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/" }],
   }),

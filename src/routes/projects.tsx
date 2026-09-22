@@ -4,19 +4,31 @@ import { Projects } from "../components/landing/Projects";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects & Demos — Digital Solution by Nasib Rehman" },
+      { title: "Projects & Demo Systems | Nasib Rehman" },
       {
         name: "description",
         content:
-          "Selected projects and demonstration systems showcasing websites, AI automation, chatbots and voice agent solutions.",
+          "Explore demo websites, chatbot concepts, workflow automations and voice agent examples by Nasib Rehman. Review the projects and discuss your requirements.",
       },
-      { property: "og:title", content: "Projects & Demos — Digital Solution by Nasib Rehman" },
+      {
+        property: "og:title",
+        content: "Projects & Demo Systems | Nasib Rehman",
+      },
       {
         property: "og:description",
         content:
-          "Selected projects and demos by Digital Solution — websites, AI automation, chatbots and voice agents.",
+          "Explore demo websites, chatbot concepts, workflow automations and voice agent examples by Nasib Rehman. Review the projects and discuss your requirements.",
       },
       { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/projects" },
+      {
+        name: "twitter:title",
+        content: "Projects & Demo Systems | Nasib Rehman",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Explore demo websites, chatbot concepts, workflow automations and voice agent examples by Nasib Rehman. Review the projects and discuss your requirements.",
+      },
     ],
     links: [{ rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/projects" }],
   }),

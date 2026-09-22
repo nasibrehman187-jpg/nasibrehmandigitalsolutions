@@ -23,13 +23,17 @@ export const Route = createFileRoute("/services/$slug")({
     }
     const s = loaderData.service;
     const url = `https://nasibrehmandigitalsolutions.vercel.app/services/${s.slug}`;
+    const title = s.metaTitle || `${s.title} — Digital Solution by Nasib Rehman`;
+    const description = s.metaDescription || s.tagline;
     return {
       meta: [
-        { title: `${s.title} — Digital Solution by Nasib Rehman` },
-        { name: "description", content: s.tagline },
-        { property: "og:title", content: `${s.title} — Digital Solution by Nasib Rehman` },
-        { property: "og:description", content: s.tagline },
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
         { property: "og:url", content: url },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
       ],
       links: [{ rel: "canonical", href: url }],
     };

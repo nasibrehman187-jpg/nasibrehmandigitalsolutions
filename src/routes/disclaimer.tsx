@@ -8,15 +8,27 @@ export const Route = createFileRoute("/disclaimer")({
       {
         name: "description",
         content:
-          "Disclaimer for Digital Solution by Nasib Rehman. Clarifications regarding demonstration builds, AI systems, third-party platforms, and business outcomes.",
+          "Disclaimer for Digital Solution by Nasib Rehman regarding concept demonstrations, third-party AI APIs, platform service dependencies, and business results.",
       },
-      { property: "og:title", content: "Disclaimer — Digital Solution by Nasib Rehman" },
+      {
+        property: "og:title",
+        content: "Disclaimer — Digital Solution by Nasib Rehman",
+      },
       {
         property: "og:description",
         content:
-          "Disclaimer for Digital Solution by Nasib Rehman. Clarifications regarding demo builds, AI systems, and business outcomes.",
+          "Disclaimer for Digital Solution by Nasib Rehman regarding concept demonstrations, third-party AI APIs, platform service dependencies, and business results.",
       },
       { property: "og:url", content: "https://nasibrehmandigitalsolutions.vercel.app/disclaimer" },
+      {
+        name: "twitter:title",
+        content: "Disclaimer — Digital Solution by Nasib Rehman",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Disclaimer for Digital Solution by Nasib Rehman regarding concept demonstrations, third-party AI APIs, platform service dependencies, and business results.",
+      },
     ],
     links: [
       { rel: "canonical", href: "https://nasibrehmandigitalsolutions.vercel.app/disclaimer" },
