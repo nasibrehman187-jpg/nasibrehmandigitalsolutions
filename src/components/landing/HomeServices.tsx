@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "./Services";
+import { getPricingCategoryForService } from "@/lib/pricing-categories";
 
 const SERVICES = [
   {
@@ -160,6 +161,7 @@ export function HomeServices() {
                         </Link>
                         <Link
                           to="/pricing"
+                          search={{ category: getPricingCategoryForService(s.slug) }}
                           className="group inline-flex min-h-10 items-center justify-center gap-1 text-xs sm:text-sm font-semibold text-[#087F8C] hover:text-[#066670] transition-colors px-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                         >
                           <span>Compare Packages</span>
@@ -248,6 +250,7 @@ export function HomeServices() {
                   </Link>
                   <Link
                     to="/pricing"
+                    search={{ category: getPricingCategoryForService(s.slug) }}
                     className="group inline-flex min-h-10 items-center justify-center gap-1 text-xs sm:text-sm font-semibold text-[#087F8C] hover:text-[#066670] transition-colors px-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                   >
                     <span>Compare Packages</span>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, CheckCircle2, MessageSquare } from "lucide-react";
 import { SERVICES, getService } from "@/lib/services-data";
 import { SectionHeader } from "@/components/landing/Services";
+import { getPricingCategoryForService } from "@/lib/pricing-categories";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -228,6 +229,7 @@ function ServiceDetailPage() {
               </Link>
               <Link
                 to="/pricing"
+                search={{ category: getPricingCategoryForService(service.slug) }}
                 className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-xs sm:text-sm font-semibold text-[#142338] hover:bg-slate-50 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
               >
                 <span>View Pricing</span>

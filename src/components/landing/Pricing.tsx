@@ -14,8 +14,9 @@ import {
 import { useState } from "react";
 import { SectionHeader } from "./Services";
 import { Link } from "@tanstack/react-router";
+import { type PricingCategory, DEFAULT_PRICING_CATEGORY } from "@/lib/pricing-categories";
 
-type ServiceTab = "websites" | "voice-agents" | "chatbots" | "automation" | "custom";
+type ServiceTab = PricingCategory;
 
 interface Plan {
   name: string;
@@ -307,8 +308,32 @@ const TABS: {
   { id: "custom", label: "Custom Solutions", icon: Layers, priceRange: "From $500+" },
 ];
 
-export function Pricing({ as = "h2" }: { as?: "h1" | "h2" }) {
-  const [activeTab, setActiveTab] = useState<ServiceTab>("websites");
+export interface PricingProps {
+  as?: "h1" | "h2";
+  category?: PricingCategory;
+  onCategoryChange?: (category: PricingCategory) => void;
+}
+
+export function Pricing({
+  as = "h2",
+  category: controlledCategory,
+  onCategoryChange,
+}: PricingProps) {
+  const [internalTab, setInternalTab] = useState<PricingCategory>(
+    controlledCategory ?? DEFAULT_PRICING_CATEGORY,
+  );
+
+  const activeTab = controlledCategory !== undefined ? controlledCategory : internalTab;
+
+  const setActiveTab = (tab: PricingCategory) => {
+    if (onCategoryChange) {
+      onCategoryChange(tab);
+    }
+    if (controlledCategory === undefined) {
+      setInternalTab(tab);
+    }
+  };
+
   const SubHeading = as === "h1" ? "h2" : "h3";
 
   const getActivePlans = () => {
