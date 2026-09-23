@@ -8,7 +8,7 @@ export function FloatingWhatsApp() {
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 0.5, duration: 0.3 }}
-      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 sm:bottom-6 sm:right-6 z-40"
+      className="hidden sm:block fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] right-6 z-40"
       aria-label="Direct WhatsApp Contact"
     >
       <a

@@ -15,6 +15,7 @@ import { useState } from "react";
 import { SectionHeader } from "./Services";
 import { Link } from "@tanstack/react-router";
 import { type PricingCategory, DEFAULT_PRICING_CATEGORY } from "@/lib/pricing-categories";
+import { CONTACT_INFO } from "@/lib/contact";
 
 type ServiceTab = PricingCategory;
 
@@ -374,8 +375,8 @@ export function Pricing({
   };
 
   return (
-    <section id="pricing" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="pricing" className="content-auto relative pt-20 pb-16 sm:pt-28 sm:pb-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeader
           as={as}
           tag="Pricing"
@@ -388,7 +389,7 @@ export function Pricing({
         />
 
         {/* Service Category Tabs — High-Contrast Segmented Control */}
-        <div className="mt-10 sm:mt-12 flex justify-center w-full">
+        <div className="mt-6 sm:mt-10 lg:mt-12 flex justify-center w-full">
           <div
             role="tablist"
             aria-label="Service categories"
@@ -441,96 +442,121 @@ export function Pricing({
         >
           {/* 3-Card Grid for Standard Services */}
           {activeTab !== "custom" && (
-            <div className="mt-12 grid gap-6 lg:grid-cols-3 items-stretch">
-              {activePlans.map((p, i) => (
-                <motion.div
-                  key={p.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="flex"
-                >
-                  <div
-                    className={`relative flex w-full flex-col justify-between rounded-2xl p-7 sm:p-8 transition-all duration-300 ${
-                      p.highlight
-                        ? "bg-white border-2 border-[#087F8C] shadow-lg ring-4 ring-[#087F8C]/10"
-                        : "bg-white border border-[#DCE4EC] shadow-xs hover:border-[#087F8C]/40 hover:shadow-md"
-                    }`}
+            <>
+              <div className="mt-6 sm:mt-10 lg:mt-12 grid gap-5 sm:gap-6 lg:grid-cols-3 items-stretch">
+                {activePlans.map((p, i) => (
+                  <motion.div
+                    key={p.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.06 }}
+                    className="flex"
                   >
-                    <div>
-                      {/* Reserved Badge Container — Guarantees Identical Price Alignment */}
-                      <div className="h-7 flex items-center mb-3">
-                        {p.badge ? (
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200/80 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-800">
-                            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
-                            {p.badge}
-                          </span>
-                        ) : (
-                          <span className="invisible text-[11px] select-none" aria-hidden="true">
-                            Standard Package
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="font-display text-xl font-bold text-[#142338]">{p.name}</div>
-
-                      <div className="mt-3 flex items-baseline gap-2">
-                        <span className="font-sans text-4xl sm:text-5xl font-bold tracking-tight text-[#142338]">
-                          {p.price}
-                        </span>
-                        <span className="text-xs text-[#526174] font-medium">/ {p.per}</span>
-                      </div>
-
-                      <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-md bg-teal-50 px-2.5 py-1 text-xs font-semibold text-[#087F8C] border border-teal-100">
-                        <span>Estimated Delivery:</span>
-                        <span className="font-bold">{p.delivery}</span>
-                      </div>
-
-                      <p className="mt-4 text-xs sm:text-sm text-[#526174] leading-relaxed min-h-[40px]">
-                        {p.description}
-                      </p>
-
-                      <div className="mt-6 pt-5 border-t border-slate-100">
-                        <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#142338] mb-3.5">
-                          Included Features
-                        </div>
-                        <ul className="space-y-2.5">
-                          {p.features.map((f) => (
-                            <li key={f} className="flex items-start gap-2.5 text-xs text-[#142338]">
-                              <Check className="h-4 w-4 text-[#087F8C] shrink-0 mt-0.5" />
-                              <span className="leading-snug">{f}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <Link
-                      to="/contact"
-                      search={{
-                        service:
-                          activeTab === "websites"
-                            ? "Website Development"
-                            : activeTab === "voice-agents"
-                              ? "AI Voice Agent"
-                              : activeTab === "chatbots"
-                                ? "AI Chatbot"
-                                : "AI Automation",
-                        plan: p.serviceParam,
-                      }}
-                      className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
+                    <div
+                      className={`relative flex w-full flex-col justify-between rounded-2xl p-5 sm:p-7 lg:p-8 transition-all duration-300 ${
                         p.highlight
-                          ? "bg-[#087F8C] text-white shadow-xs hover:bg-[#066570]"
-                          : "border-2 border-[#087F8C] bg-white text-[#087F8C] hover:bg-[#087F8C] hover:text-white shadow-2xs"
+                          ? "bg-white border-2 border-[#087F8C] shadow-lg ring-4 ring-[#087F8C]/10"
+                          : "bg-white border border-[#DCE4EC] shadow-xs hover:border-[#087F8C]/40 hover:shadow-md"
                       }`}
                     >
-                      <span>{p.cta}</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                      <div>
+                        {/* Reserved Badge Container — Only takes vertical height on mobile when badge exists */}
+                        {p.badge ? (
+                          <div className="h-7 flex items-center mb-3">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200/80 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-800">
+                              <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
+                              {p.badge}
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="hidden lg:flex h-7 items-center mb-3" aria-hidden="true">
+                            <span className="invisible text-[11px] select-none">
+                              Standard Package
+                            </span>
+                          </div>
+                        )}
+
+                        <div className="font-display text-xl font-bold text-[#142338]">
+                          {p.name}
+                        </div>
+
+                        <div className="mt-3 flex items-baseline gap-2">
+                          <span className="font-sans text-4xl sm:text-5xl font-bold tracking-tight text-[#142338]">
+                            {p.price}
+                          </span>
+                          <span className="text-xs text-[#526174] font-medium">/ {p.per}</span>
+                        </div>
+
+                        <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-md bg-teal-50 px-2.5 py-1 text-xs font-semibold text-[#087F8C] border border-teal-100">
+                          <span>Estimated Delivery:</span>
+                          <span className="font-bold">{p.delivery}</span>
+                        </div>
+
+                        <p className="mt-3.5 sm:mt-4 text-xs sm:text-sm text-[#526174] leading-relaxed min-h-0 lg:min-h-[40px]">
+                          {p.description}
+                        </p>
+
+                        <div className="mt-6 pt-5 border-t border-slate-100">
+                          <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#142338] mb-3.5">
+                            Included Features
+                          </div>
+                          <ul className="space-y-2.5">
+                            {p.features.map((f) => (
+                              <li
+                                key={f}
+                                className="flex items-start gap-2.5 text-xs text-[#142338]"
+                              >
+                                <Check className="h-4 w-4 text-[#087F8C] shrink-0 mt-0.5" />
+                                <span className="leading-snug">{f}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <Link
+                        to="/contact"
+                        search={{
+                          service:
+                            activeTab === "websites"
+                              ? "Website Development"
+                              : activeTab === "voice-agents"
+                                ? "AI Voice Agent"
+                                : activeTab === "chatbots"
+                                  ? "AI Chatbot"
+                                  : "AI Automation",
+                          plan: p.serviceParam,
+                        }}
+                        className={`mt-6 sm:mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-xs sm:text-sm font-semibold transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] ${
+                          p.highlight
+                            ? "bg-[#087F8C] text-white shadow-xs hover:bg-[#066570]"
+                            : "border-2 border-[#087F8C] bg-white text-[#087F8C] hover:bg-[#087F8C] hover:text-white shadow-2xs"
+                        }`}
+                      >
+                        <span>{p.cta}</span>
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* In-Flow WhatsApp Guidance for Mobile Users */}
+              <div className="mt-8 sm:hidden rounded-xl border border-teal-100 bg-teal-50/60 p-4 text-center">
+                <p className="text-xs text-[#526174]">
+                  Have questions about package deliverables or need a custom setup?
+                </p>
+                <a
+                  href={CONTACT_INFO.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2.5 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-[#087F8C] px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-[#066570] transition-colors"
+                >
+                  <MessageSquare className="h-4 w-4" aria-hidden="true" />
+                  <span>Chat on WhatsApp with Nasib Rehman</span>
+                </a>
+              </div>
+            </>
           )}
 
           {/* AI Voice Agent Running Cost Notice */}
@@ -585,7 +611,7 @@ export function Pricing({
               transition={{ duration: 0.4 }}
               className="mt-8 mx-auto max-w-3xl"
             >
-              <div className="rounded-2xl border border-[#DCE4EC] bg-white p-8 sm:p-12 text-center shadow-xs">
+              <div className="rounded-2xl border border-[#DCE4EC] bg-white p-5 sm:p-12 text-center shadow-xs">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-[10.5px] uppercase tracking-wider text-amber-800 font-bold">
                   <Layers className="h-3.5 w-3.5 text-amber-600" /> Multi-System Setup
                 </span>
@@ -625,14 +651,14 @@ export function Pricing({
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-wrap justify-center items-center gap-3">
+                <div className="mt-8 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3">
                   <Link
                     to="/contact"
                     search={{
                       service: "Custom Digital Solution",
                       plan: "Custom Digital Solution — Starting from $500+",
                     }}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#087F8C] px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066570] transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+                    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#087F8C] px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066570] transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                   >
                     <span>Discuss Custom Solution</span>
                     <ArrowRight className="h-4 w-4" />

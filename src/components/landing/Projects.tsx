@@ -8,8 +8,8 @@ import { ProjectInquiryLink } from "./ProjectInquiryLink";
 export function Projects({ as = "h2" }: { as?: "h1" | "h2" }) {
   const SubHeading = as === "h1" ? "h2" : "h3";
   return (
-    <section id="projects" className="content-auto relative pt-20 pb-20 sm:pt-24 sm:pb-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="projects" className="content-auto relative pt-16 pb-16 sm:pt-24 sm:pb-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeader
           as={as}
           tag="Projects & Demos"
@@ -22,26 +22,26 @@ export function Projects({ as = "h2" }: { as?: "h1" | "h2" }) {
         />
 
         {/* Studio Legend / Classification */}
-        <div className="mt-8 flex flex-wrap justify-center gap-4 text-xs">
-          <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 border border-teal-200/60 px-3.5 py-1.5 text-teal-800 font-medium">
+        <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-2.5 sm:gap-4 text-xs">
+          <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 border border-teal-200/60 px-3 py-1 text-teal-800 font-medium">
             <span className="h-2 w-2 rounded-full bg-[#087F8C]" />
             <span>Concept / Demo Builds (Capabilities Showcase)</span>
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200/60 px-3.5 py-1.5 text-amber-800 font-medium">
+          <span className="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200/60 px-3 py-1 text-amber-800 font-medium">
             <span className="h-2 w-2 rounded-full bg-amber-600" />
             <span>Developer Portfolio Builds</span>
           </span>
         </div>
 
         {/* Editorial Case Study Flow */}
-        <div className="mt-14 sm:mt-18 space-y-12 sm:space-y-16">
+        <div className="mt-8 sm:mt-14 lg:mt-18 space-y-8 sm:space-y-16">
           {/* PROJECT 1 — SmileCare Dental Clinic (Split: Visual Left, Narrative Right) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-10 shadow-xs hover:border-[#087F8C]/40 hover:shadow-md transition-all duration-300"
+            className="rounded-2xl border border-[#DCE4EC] bg-white p-5 sm:p-8 lg:p-10 shadow-xs hover:border-[#087F8C]/40 hover:shadow-md transition-all duration-300"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Visual Preview Frame */}

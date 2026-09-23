@@ -7,8 +7,8 @@ import { SectionHeader } from "./SectionHeader";
 export function Services({ as = "h2" }: { as?: "h1" | "h2" }) {
   const SubHeading = as === "h1" ? "h2" : "h3";
   return (
-    <section id="services" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="services" className="content-auto relative pt-20 pb-16 sm:pt-28 sm:pb-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeader
           as={as}
           tag="Services"
@@ -20,7 +20,7 @@ export function Services({ as = "h2" }: { as?: "h1" | "h2" }) {
           subtitle="From practical business websites to workflow automations, we build practical digital solutions designed around real business needs."
         />
 
-        <div className="mt-14 sm:mt-18 space-y-4">
+        <div className="mt-8 sm:mt-12 lg:mt-18 space-y-4">
           {SERVICES.map((s, i) => (
             <motion.div
               key={s.slug}
@@ -28,7 +28,7 @@ export function Services({ as = "h2" }: { as?: "h1" | "h2" }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs hover:border-[#087F8C]/40 hover:shadow-md transition-all duration-300"
+              className="group rounded-2xl border border-[#DCE4EC] bg-white p-5 sm:p-7 lg:p-8 shadow-xs hover:border-[#087F8C]/40 hover:shadow-md transition-all duration-300"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div className="lg:col-span-1 flex items-center">

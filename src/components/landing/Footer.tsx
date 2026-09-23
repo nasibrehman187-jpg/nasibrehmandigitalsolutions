@@ -22,8 +22,8 @@ const QUICK_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="content-auto relative mt-20 border-t border-[#1E3A63] pt-16 bg-[#10233F] text-[#D1DCE8]">
-      <div className="mx-auto max-w-7xl px-6 pb-20 sm:pb-24">
+    <footer className="content-auto relative mt-14 sm:mt-20 border-t border-[#1E3A63] pt-12 sm:pt-16 bg-[#10233F] text-[#D1DCE8]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-y-10 gap-x-8 xl:gap-x-10">
           {/* Brand */}
           <div className="lg:col-span-1">

@@ -13,9 +13,9 @@ export function BrandLink({
       to="/"
       onClick={onClick}
       aria-label="Digital Solution — Home"
-      className="group inline-flex min-h-11 shrink-0 items-center gap-2.5 rounded-lg p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+      className="group inline-flex min-h-11 max-w-full items-center gap-2.5 rounded-lg p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
     >
-      <picture>
+      <picture className="shrink-0">
         <source srcSet="/logo-icon.webp" type="image/webp" />
         <img
           src="/logo-icon.png"
@@ -31,7 +31,7 @@ export function BrandLink({
           )}
         />
       </picture>
-      <span className="flex flex-col leading-none">
+      <span className="flex flex-col leading-tight min-w-0">
         <span
           className={cn(
             "font-display text-base font-bold tracking-tight",
@@ -43,7 +43,7 @@ export function BrandLink({
         </span>
         <span
           className={cn(
-            "text-xs tracking-wide font-medium mt-1",
+            "text-xs tracking-wide font-medium mt-0.5",
             inverted ? "text-[#8A9EB5]" : "text-[#526174]",
           )}
         >

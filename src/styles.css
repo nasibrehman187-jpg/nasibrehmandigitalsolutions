@@ -38,7 +38,7 @@
 }
 
 :root {
-  --header-height: 4.5rem;
+  --header-height: 4rem;
   --radius: 0.75rem;
   --background: #f6f8fb;
   --foreground: #142338;
@@ -132,6 +132,15 @@ body::before {
   textarea,
   button[type="submit"] {
     scroll-margin-bottom: 5.5rem;
+  }
+  section[id] {
+    scroll-margin-top: calc(var(--header-height) + 0.5rem);
+  }
+}
+
+@media (min-width: 640px) {
+  :root {
+    --header-height: 4.5rem;
   }
 }
 

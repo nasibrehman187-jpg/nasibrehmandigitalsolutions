@@ -61,10 +61,32 @@ export function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!headerRef.current) return;
+    const navEl = headerRef.current.querySelector("nav");
+    if (!navEl) return;
+
+    const updateHeaderHeight = () => {
+      const height = navEl.offsetHeight;
+      if (height > 0) {
+        document.documentElement.style.setProperty("--header-height", `${height}px`);
+      }
+    };
+
+    updateHeaderHeight();
+    const observer = new ResizeObserver(updateHeaderHeight);
+    observer.observe(navEl);
+    window.addEventListener("resize", updateHeaderHeight);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeaderHeight);
+    };
+  }, []);
+
   return (
     <header
       ref={headerRef}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 flex flex-col max-h-dvh transition-all duration-300 ${
         scrolled || open
           ? "bg-[#10233F]/95 backdrop-blur-md border-b border-[#1E3A63] shadow-md"
           : "bg-[#10233F]/90 backdrop-blur-sm border-b border-[#1E3A63]/50"
@@ -72,7 +94,7 @@ export function Navbar() {
     >
       <nav
         aria-label="Main navigation"
-        className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 sm:py-4"
+        className="relative mx-auto flex flex-wrap max-w-7xl w-full items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3.5 gap-y-2"
       >
         <BrandLink inverted onClick={() => setOpen(false)} />
 
@@ -107,28 +129,41 @@ export function Navbar() {
           </Link>
         </div>
 
-        <button
-          ref={toggleRef}
-          type="button"
-          className="lg:hidden rounded-lg p-2 text-white hover:text-[#2DD4BF] border border-[#1E3A63] bg-[#162C4E] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
-          onClick={() => setOpen((o) => !o)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-        >
-          {open ? (
-            <X aria-hidden="true" className="h-5 w-5" />
-          ) : (
-            <Menu aria-hidden="true" className="h-5 w-5" />
-          )}
-        </button>
+        {/* Mobile Header Actions: In-Flow WhatsApp + Menu Toggle */}
+        <div className="lg:hidden flex items-center gap-2 ml-auto shrink-0">
+          <a
+            href={CONTACT_INFO.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Chat on WhatsApp with ${CONTACT_INFO.name}`}
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-[#1E3A63] bg-[#162C4E] text-[#2DD4BF] hover:text-white hover:bg-[#1E3A63] transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+          >
+            <MessageSquare aria-hidden="true" className="h-5 w-5" />
+          </a>
+
+          <button
+            ref={toggleRef}
+            type="button"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-[#1E3A63] bg-[#162C4E] text-white hover:text-[#2DD4BF] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+          >
+            {open ? (
+              <X aria-hidden="true" className="h-5 w-5" />
+            ) : (
+              <Menu aria-hidden="true" className="h-5 w-5" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {open && (
         <div
           ref={menuRef}
           id="mobile-nav"
-          className="lg:hidden border-t border-[#1E3A63] bg-[#10233F] shadow-xl max-h-[calc(100dvh-4.5rem)] overflow-y-auto"
+          className="lg:hidden border-t border-[#1E3A63] bg-[#10233F] shadow-xl flex-1 overflow-y-auto pb-[max(1.5rem,env(safe-area-inset-bottom))]"
         >
           <nav aria-label="Mobile navigation" className="mx-auto max-w-7xl px-6 py-4">
             <ul className="flex flex-col gap-1.5">

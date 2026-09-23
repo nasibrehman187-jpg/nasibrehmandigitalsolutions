@@ -32,8 +32,8 @@ const WHY_POINTS = [
 
 export function WhyUs() {
   return (
-    <section id="why-us" className="content-auto relative py-20 sm:py-28 bg-[#F8FAFC]">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="why-us" className="content-auto relative py-14 sm:py-28 bg-[#F8FAFC]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeader
           tag="Why Digital Solution"
           title={
@@ -45,14 +45,14 @@ export function WhyUs() {
         />
 
         {/* Asymmetric Modern Grid Layout */}
-        <div className="mt-14 sm:mt-18 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="mt-8 sm:mt-18 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Left Column — Founder Commitment Card (Deep Navy) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 rounded-2xl bg-[#10233F] p-8 sm:p-10 text-white flex flex-col justify-between shadow-lg relative overflow-hidden h-full"
+            className="lg:col-span-5 rounded-2xl bg-[#10233F] p-5 sm:p-10 text-white flex flex-col justify-between shadow-lg relative overflow-hidden h-full"
           >
             {/* Ambient decoration */}
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-56 h-56 rounded-full bg-[#087F8C]/20 blur-3xl pointer-events-none" />
@@ -98,7 +98,7 @@ export function WhyUs() {
               <div className="pt-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#087F8C] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#066570] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+                  className="w-full sm:w-auto justify-center inline-flex items-center gap-2 rounded-lg bg-[#087F8C] px-5 py-3 sm:py-2.5 text-sm font-semibold text-white hover:bg-[#066570] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowRight className="h-3.5 w-3.5" />
@@ -116,7 +116,7 @@ export function WhyUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-7 shadow-2xs flex flex-col h-full"
+                className="rounded-2xl border border-[#DCE4EC] bg-white p-5 sm:p-7 shadow-2xs flex flex-col h-full"
               >
                 <div>
                   <div className="flex items-center justify-between">

@@ -45,8 +45,8 @@ const FAQ = [
 export function FAQSection({ as = "h2" }: { as?: "h1" | "h2" }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="content-auto relative pt-20 pb-20 sm:pt-24 sm:pb-28">
-      <div className="mx-auto max-w-4xl px-6">
+    <section id="faq" className="content-auto relative pt-14 pb-14 sm:pt-24 sm:pb-28">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <SectionHeader
           as={as}
           tag="FAQ"
@@ -59,7 +59,7 @@ export function FAQSection({ as = "h2" }: { as?: "h1" | "h2" }) {
         />
 
         {/* Modern Rounded Card Accordion */}
-        <div className="mt-14 sm:mt-18 space-y-3.5">
+        <div className="mt-8 sm:mt-16 space-y-3.5">
           {FAQ.map((f, i) => {
             const isOpen = open === i;
             return (

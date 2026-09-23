@@ -28,77 +28,71 @@ export function HeroSystemVisual() {
       </div>
 
       {/* Main Connected Canvas */}
-      <div className="pt-4 space-y-3 sm:space-y-3.5">
+      <div className="pt-3 sm:pt-4 space-y-2.5 sm:space-y-3.5">
         {/* Node 1: Fast Business Website */}
-        <div className="rounded-xl border border-[#1E3A63] bg-[#142642] p-3.5 sm:p-4">
-          <div className="flex items-center justify-between min-h-[28px] gap-2 pb-2 border-b border-[#1E3A63]/60">
+        <div className="rounded-xl border border-[#1E3A63] bg-[#142642] p-3 sm:p-4">
+          <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 pb-2 border-b border-[#1E3A63]/60">
             <div className="flex items-center gap-2">
               <span className="grid h-6 w-6 place-items-center rounded-md bg-[#087F8C] text-white shrink-0">
                 <Globe className="h-3.5 w-3.5" />
               </span>
-              <div>
+              <div className="flex flex-wrap items-baseline gap-x-2">
                 <span className="text-xs sm:text-sm font-semibold text-white">
                   Website Front-End
                 </span>
-                <span className="text-xs text-[#8A9EB5] block sm:inline sm:ml-2">
-                  Responsive website
-                </span>
+                <span className="text-[11px] sm:text-xs text-[#8A9EB5]">Responsive website</span>
               </div>
             </div>
-            <span className="rounded bg-[#10233F] border border-[#1E3A63] px-2 py-0.5 text-xs font-mono text-[#8A9EB5] shrink-0">
+            <span className="rounded bg-[#10233F] border border-[#1E3A63] px-2 py-0.5 text-[11px] sm:text-xs font-mono text-[#8A9EB5] shrink-0">
               Web Core
             </span>
           </div>
-          <div className="mt-2.5 flex items-center justify-between text-xs text-[#D1DCE8]">
+          <div className="mt-2 flex items-center justify-between text-[11px] sm:text-xs text-[#D1DCE8]">
             <span>Fast modern layout • Inquiries & consultation capture</span>
           </div>
         </div>
 
         {/* Node 2 & 3: Two-column grid (Chatbot + Voice Agent) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
           {/* AI Chatbot Assistant */}
-          <div className="rounded-xl border border-[#1E3A63] bg-[#142642] p-3.5">
-            <div className="flex items-center justify-between min-h-[28px] gap-2 pb-2 border-b border-[#1E3A63]/60">
+          <div className="rounded-xl border border-[#1E3A63] bg-[#142642] p-3 sm:p-3.5">
+            <div className="flex items-center justify-between gap-2 pb-2 border-b border-[#1E3A63]/60">
               <div className="flex items-center gap-2">
                 <span className="grid h-6 w-6 place-items-center rounded-md bg-[#087F8C] text-white shrink-0">
                   <Bot className="h-3.5 w-3.5" />
                 </span>
-                <div>
-                  <span className="text-xs sm:text-sm font-semibold text-white">AI Chatbot</span>
-                </div>
+                <span className="text-xs sm:text-sm font-semibold text-white">AI Chatbot</span>
               </div>
-              <span className="text-xs font-mono text-[#8A9EB5] bg-[#10233F] border border-[#1E3A63] px-2 py-0.5 rounded shrink-0">
+              <span className="text-[11px] sm:text-xs font-mono text-[#8A9EB5] bg-[#10233F] border border-[#1E3A63] px-2 py-0.5 rounded shrink-0">
                 Chatbot example
               </span>
             </div>
             <div className="mt-2 space-y-1.5 text-xs">
-              <div className="text-xs text-[#8A9EB5]">Customer enquiries</div>
-              <div className="rounded-md bg-[#10233F] border border-[#1E3A63] p-2 text-[#D1DCE8]">
+              <div className="text-[11px] sm:text-xs text-[#8A9EB5]">Customer enquiries</div>
+              <div className="rounded-md bg-[#10233F] border border-[#1E3A63] p-2 text-[11px] sm:text-xs text-[#D1DCE8]">
                 "Can you help with service pricing?"
               </div>
-              <div className="rounded-md bg-[#087F8C]/20 border border-[#087F8C]/30 p-2 text-[#E6F5F6]">
+              <div className="rounded-md bg-[#087F8C]/20 border border-[#087F8C]/30 p-2 text-[11px] sm:text-xs text-[#E6F5F6]">
                 "Yes! Packages start from $99 with defined deliverables."
               </div>
             </div>
           </div>
 
           {/* AI Voice Agent */}
-          <div className="rounded-xl border border-[#1E3A63] bg-[#142642] p-3.5">
-            <div className="flex items-center justify-between min-h-[28px] gap-2 pb-2 border-b border-[#1E3A63]/60">
+          <div className="rounded-xl border border-[#1E3A63] bg-[#142642] p-3 sm:p-3.5">
+            <div className="flex items-center justify-between gap-2 pb-2 border-b border-[#1E3A63]/60">
               <div className="flex items-center gap-2">
                 <span className="grid h-6 w-6 place-items-center rounded-md bg-[#087F8C] text-white shrink-0">
                   <Mic className="h-3.5 w-3.5" />
                 </span>
-                <div>
-                  <span className="text-xs sm:text-sm font-semibold text-white">Voice Agent</span>
-                </div>
+                <span className="text-xs sm:text-sm font-semibold text-white">Voice Agent</span>
               </div>
-              <span className="text-xs font-mono text-[#8A9EB5] bg-[#10233F] border border-[#1E3A63] px-2 py-0.5 rounded shrink-0">
+              <span className="text-[11px] sm:text-xs font-mono text-[#8A9EB5] bg-[#10233F] border border-[#1E3A63] px-2 py-0.5 rounded shrink-0">
                 Voice example
               </span>
             </div>
             <div className="mt-2 p-2.5 rounded-md bg-[#10233F] border border-[#1E3A63] space-y-1.5">
-              <div className="flex items-center justify-between text-xs text-[#D1DCE8]">
+              <div className="flex items-center justify-between text-[11px] sm:text-xs text-[#D1DCE8]">
                 <span>Calls & routing</span>
               </div>
               {/* Voice wave indicator */}
@@ -109,46 +103,47 @@ export function HeroSystemVisual() {
                 <span className="w-1.5 h-4.5 bg-[#2DD4BF] rounded-full" />
                 <span className="w-1.5 h-2.5 bg-[#2DD4BF] rounded-full" />
                 <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full" />
-                <span className="text-xs text-[#8A9EB5] ml-2 font-mono">Speech AI</span>
+                <span className="text-[11px] sm:text-xs text-[#8A9EB5] ml-2 font-mono">
+                  Speech AI
+                </span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Node 4: Automated Business Workflow Pipeline */}
-        <div className="rounded-xl border border-[#1E3A63] bg-[#142642] p-3.5 sm:p-4">
-          <div className="flex items-center justify-between min-h-[28px] gap-2 pb-2 border-b border-[#1E3A63]/60">
+        <div className="rounded-xl border border-[#1E3A63] bg-[#142642] p-3 sm:p-4">
+          <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 pb-2 border-b border-[#1E3A63]/60">
             <div className="flex items-center gap-2">
               <span className="grid h-6 w-6 place-items-center rounded-md bg-[#087F8C] text-white shrink-0">
                 <Workflow className="h-3.5 w-3.5" />
               </span>
-              <div>
-                <span className="text-xs sm:text-sm font-semibold text-white">Automation</span>
-                <span className="text-xs text-[#8A9EB5] block sm:inline sm:ml-2">
-                  Form → Workflow → Notification
-                </span>
-              </div>
+              <span className="text-xs sm:text-sm font-semibold text-white">Automation</span>
             </div>
-            <span className="text-xs font-mono text-[#8A9EB5] bg-[#10233F] border border-[#1E3A63] px-2 py-0.5 rounded shrink-0">
+            <span className="text-[11px] sm:text-xs font-mono text-[#8A9EB5] bg-[#10233F] border border-[#1E3A63] px-2 py-0.5 rounded shrink-0">
               Automation example
             </span>
           </div>
 
-          {/* Workflow Sequence Pills */}
-          <div className="mt-3 flex items-center justify-between gap-1.5 sm:gap-2 text-xs overflow-x-auto">
-            <div className="rounded bg-[#10233F] border border-[#1E3A63] px-2.5 py-1 text-[#D1DCE8] shrink-0">
+          <div className="mt-2 text-[11px] sm:text-xs text-[#8A9EB5] font-medium">
+            Form → Workflow → Notification
+          </div>
+
+          {/* Workflow Sequence: 2x2 grid on mobile, inline flow on sm: */}
+          <div className="mt-2.5 grid grid-cols-2 sm:flex sm:items-center sm:justify-between gap-1.5 sm:gap-2 text-[11px] sm:text-xs">
+            <div className="rounded bg-[#10233F] border border-[#1E3A63] px-2 sm:px-2.5 py-1 text-[#D1DCE8] text-center sm:text-left whitespace-nowrap shrink-0">
               Form Lead
             </div>
-            <ArrowRight className="h-3.5 w-3.5 text-[#087F8C] shrink-0" />
-            <div className="rounded bg-[#10233F] border border-[#1E3A63] px-2.5 py-1 text-[#D1DCE8] shrink-0">
+            <ArrowRight className="hidden sm:block h-3.5 w-3.5 text-[#087F8C] shrink-0" />
+            <div className="rounded bg-[#10233F] border border-[#1E3A63] px-2 sm:px-2.5 py-1 text-[#D1DCE8] text-center sm:text-left whitespace-nowrap shrink-0">
               Logic Engine
             </div>
-            <ArrowRight className="h-3.5 w-3.5 text-[#087F8C] shrink-0" />
-            <div className="rounded bg-[#10233F] border border-[#1E3A63] px-2.5 py-1 text-[#D1DCE8] shrink-0">
+            <ArrowRight className="hidden sm:block h-3.5 w-3.5 text-[#087F8C] shrink-0" />
+            <div className="rounded bg-[#10233F] border border-[#1E3A63] px-2 sm:px-2.5 py-1 text-[#D1DCE8] text-center sm:text-left whitespace-nowrap shrink-0">
               CRM Update
             </div>
-            <ArrowRight className="h-3.5 w-3.5 text-[#087F8C] shrink-0" />
-            <div className="rounded bg-[#10233F] border border-[#1E3A63] px-2.5 py-1 text-[#D1DCE8] shrink-0">
+            <ArrowRight className="hidden sm:block h-3.5 w-3.5 text-[#087F8C] shrink-0" />
+            <div className="rounded bg-[#10233F] border border-[#1E3A63] px-2 sm:px-2.5 py-1 text-[#D1DCE8] text-center sm:text-left whitespace-nowrap shrink-0">
               WhatsApp Alert
             </div>
           </div>

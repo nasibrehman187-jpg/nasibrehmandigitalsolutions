@@ -41,9 +41,9 @@ export function Process({ as = "h2" }: { as?: "h1" | "h2" }) {
   return (
     <section
       id="process"
-      className="content-auto relative pt-20 pb-20 sm:pt-24 sm:pb-28 bg-[#F8FAFC]"
+      className="content-auto relative pt-14 pb-14 sm:pt-24 sm:pb-28 bg-[#F8FAFC]"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           as={as}
           tag="How We Work"
@@ -56,7 +56,7 @@ export function Process({ as = "h2" }: { as?: "h1" | "h2" }) {
         />
 
         {/* Modern Connected Stepper Flow */}
-        <div className="mt-14 sm:mt-18 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 relative">
+        <div className="mt-8 sm:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 relative">
           {STEPS.map((s, i) => (
             <motion.div
               key={s.n}
@@ -64,7 +64,7 @@ export function Process({ as = "h2" }: { as?: "h1" | "h2" }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group relative flex flex-col justify-between rounded-2xl border border-[#DCE4EC] bg-white p-6 shadow-xs hover:border-[#087F8C]/40 hover:shadow-md transition-all duration-300"
+              className="group relative flex flex-col justify-between rounded-2xl border border-[#DCE4EC] bg-white p-5 sm:p-6 shadow-xs hover:border-[#087F8C]/40 hover:shadow-md transition-all duration-300"
             >
               <div>
                 {/* Step Header */}
@@ -99,7 +99,7 @@ export function Process({ as = "h2" }: { as?: "h1" | "h2" }) {
         </div>
 
         {/* Process CTA Footer */}
-        <div className="mt-12 rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
+        <div className="mt-8 sm:mt-12 rounded-2xl border border-[#DCE4EC] bg-white p-5 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 shadow-xs">
           <div>
             <p className="font-display text-base sm:text-lg font-bold text-[#142338]">
               Ready to start your project?
@@ -110,7 +110,7 @@ export function Process({ as = "h2" }: { as?: "h1" | "h2" }) {
           </div>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#087F8C] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#066570] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] shrink-0"
+            className="w-full sm:w-auto justify-center inline-flex items-center gap-2 rounded-lg bg-[#087F8C] px-5 py-3 sm:py-2.5 text-sm font-semibold text-white hover:bg-[#066570] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C] shrink-0"
           >
             <span>Start Step 01</span>
             <ArrowRight className="h-4 w-4" />

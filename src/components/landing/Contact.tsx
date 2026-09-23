@@ -112,8 +112,8 @@ export function Contact({ as = "h2" }: { as?: "h1" | "h2" }) {
   };
 
   return (
-    <section id="contact" className="content-auto relative pt-24 pb-20 sm:pt-28 sm:pb-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="contact" className="content-auto relative pt-20 pb-16 sm:pt-28 sm:pb-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeader
           as={as}
           tag="Direct Consultation"
@@ -126,14 +126,14 @@ export function Contact({ as = "h2" }: { as?: "h1" | "h2" }) {
         />
 
         {/* Founder Consultation Split Layout */}
-        <div className="mt-14 sm:mt-18 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+        <div className="mt-8 sm:mt-12 lg:mt-18 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-stretch">
           {/* Left Column — Deep Navy Direct Contact Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 rounded-2xl bg-[#10233F] p-6 sm:p-8 lg:p-10 text-white flex flex-col justify-between shadow-lg relative overflow-hidden"
+            className="lg:col-span-5 rounded-2xl bg-[#10233F] p-5 sm:p-8 lg:p-10 text-white flex flex-col justify-between shadow-lg relative overflow-hidden"
           >
             {/* Ambient blur */}
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-56 h-56 rounded-full bg-[#087F8C]/20 blur-3xl pointer-events-none" />
@@ -240,7 +240,7 @@ export function Contact({ as = "h2" }: { as?: "h1" | "h2" }) {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             onSubmit={onSendWhatsApp}
-            className="rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-10 lg:col-span-7 shadow-xs flex flex-col justify-between"
+            className="rounded-2xl border border-[#DCE4EC] bg-white p-5 sm:p-8 lg:p-10 lg:col-span-7 shadow-xs flex flex-col justify-between"
           >
             <div>
               <div className="mb-6 pb-4 border-b border-slate-100">
@@ -348,11 +348,11 @@ export function Contact({ as = "h2" }: { as?: "h1" | "h2" }) {
               </p>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-100">
-              <div className="flex flex-wrap items-center gap-3">
+            <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-slate-100">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-2 rounded-xl bg-[#087F8C] px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066570] transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#087F8C] px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#066570] transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                 >
                   <MessageSquare className="h-4 w-4" />
                   <span>Send via WhatsApp</span>
@@ -360,7 +360,7 @@ export function Contact({ as = "h2" }: { as?: "h1" | "h2" }) {
                 <button
                   type="button"
                   onClick={onSendEmail}
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-[#142338] hover:bg-slate-50 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-[#142338] hover:bg-slate-50 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F8C]"
                 >
                   <Mail className="h-4 w-4 text-[#087F8C]" />
                   <span>Send via Email</span>
@@ -375,7 +375,7 @@ export function Contact({ as = "h2" }: { as?: "h1" | "h2" }) {
         </div>
 
         {/* Mobile Working Together Card — positioned below form on mobile */}
-        <div className="mt-8 lg:hidden rounded-2xl border border-[#DCE4EC] bg-white p-6 sm:p-8 shadow-xs space-y-4">
+        <div className="mt-6 sm:mt-8 lg:hidden rounded-2xl border border-[#DCE4EC] bg-white p-5 sm:p-8 shadow-xs space-y-4">
           <div className="text-xs uppercase tracking-wider text-[#087F8C] font-bold">
             Working Together
           </div>
